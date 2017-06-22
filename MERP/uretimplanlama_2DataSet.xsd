@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="uretimplanlama_2DataSet" targetNamespace="http://tempuri.org/uretimplanlama_2DataSet.xsd" xmlns:mstns="http://tempuri.org/uretimplanlama_2DataSet.xsd" xmlns="http://tempuri.org/uretimplanlama_2DataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="uretimplanlama_2ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="uretimplanlama_2ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.MERP.Properties.Settings.GlobalReference.Default.uretimplanlama_2ConnectionString" Provider="MySql.Data.MySqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="db_aktiviteTableAdapter" GeneratorDataComponentClassName="db_aktiviteTableAdapter" Name="db_aktivite" UserDataComponentName="db_aktiviteTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="uretimplanlama_2ConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `akt_id`, `akt_prj_no`, `akt_oncelik`, `akt_statu`, `akt_acıklama`, `akt_rapor_edilecek`, `akt_olusturulan_tarih`, `akt_bitis_tarih` FROM `db_aktivite`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="db_faturalarTableAdapter" GeneratorDataComponentClassName="db_faturalarTableAdapter" Name="db_faturalar" UserDataComponentName="db_faturalarTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="uretimplanlama_2ConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `fatura_id`, `fatura_no`, `fatura_proje_no`, `fatura_firma`, `fatura_vade`, `fatura_vade_tarih`, `fatura_acıklama`, `fatura_tarih`, `fatura_check`, `fatura_tutari`, `fatura_birim`, `fatura_avans`, `fatura_euro`, `fatura_tipi` FROM `db_faturalar`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="db_harcama_odemeTableAdapter" GeneratorDataComponentClassName="db_harcama_odemeTableAdapter" Name="db_harcama_odeme" UserDataComponentName="db_harcama_odemeTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="uretimplanlama_2ConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `table_id`, `h_m_mlz`, `h_el_mlz`, `h_imalat`, `h_test`, `h_risk`, `h_toplam`, `o_avans`, `o_pdr`, `o_cdr`, `o_prototip`, `o_test`, `o_kabul`, `o_toplam` FROM `db_harcama_odeme`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="db_projelerTableAdapter" GeneratorDataComponentClassName="db_projelerTableAdapter" Name="db_projeler" UserDataComponentName="db_projelerTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="uretimplanlama_2ConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `proje_id`, `proje_no`, `proje_ismi`, `proje_butce`, `proje_birim`, `proje_musteri`, `proje_baslangic`, `proje_bitis`, `proje_vade`, `proje_aciklama`, `harcama_m_mlz`, `harcama_el_mlz`, `harcama_imalat`, `harcama_test`, `harcama_risk`, `harcama_toplam`, `harcama_toplam_birim`, `odeme_avans`, `date_avans`, `odeme_pdr`, `date_pdr`, `odeme_cdr`, `date_cdr`, `odeme_prototip`, `date_prototip`, `odeme_test`, `date_test`, `odeme_kabul`, `date_kabul`, `prj_tip` FROM `db_projeler`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="db_siparis_emriTableAdapter" GeneratorDataComponentClassName="db_siparis_emriTableAdapter" Name="db_siparis_emri" UserDataComponentName="db_siparis_emriTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="uretimplanlama_2ConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `siparis_id`, `proje_no`, `satinalma_no`, `tedarikci`, `siparisi_olusturan`, `siparis_tarihi`, `vade`, `temin_tarihi`, `fiyat`, `fiyat_birim`, `siparis_euro`, `aciklama` FROM `db_siparis_emri`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="uretimplanlama_2DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="uretimplanlama_2DataSet" msprop:Generator_UserDSName="uretimplanlama_2DataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="db_aktivite" msprop:Generator_TableClassName="db_aktiviteDataTable" msprop:Generator_TableVarName="tabledb_aktivite" msprop:Generator_TablePropName="db_aktivite" msprop:Generator_RowDeletingName="db_aktiviteRowDeleting" msprop:Generator_RowChangingName="db_aktiviteRowChanging" msprop:Generator_RowEvHandlerName="db_aktiviteRowChangeEventHandler" msprop:Generator_RowDeletedName="db_aktiviteRowDeleted" msprop:Generator_UserTableName="db_aktivite" msprop:Generator_RowChangedName="db_aktiviteRowChanged" msprop:Generator_RowEvArgName="db_aktiviteRowChangeEvent" msprop:Generator_RowClassName="db_aktiviteRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="db_faturalar" msprop:Generator_TableClassName="db_faturalarDataTable" msprop:Generator_TableVarName="tabledb_faturalar" msprop:Generator_TablePropName="db_faturalar" msprop:Generator_RowDeletingName="db_faturalarRowDeleting" msprop:Generator_RowChangingName="db_faturalarRowChanging" msprop:Generator_RowEvHandlerName="db_faturalarRowChangeEventHandler" msprop:Generator_RowDeletedName="db_faturalarRowDeleted" msprop:Generator_UserTableName="db_faturalar" msprop:Generator_RowChangedName="db_faturalarRowChanged" msprop:Generator_RowEvArgName="db_faturalarRowChangeEvent" msprop:Generator_RowClassName="db_faturalarRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="db_harcama_odeme" msprop:Generator_TableClassName="db_harcama_odemeDataTable" msprop:Generator_TableVarName="tabledb_harcama_odeme" msprop:Generator_TablePropName="db_harcama_odeme" msprop:Generator_RowDeletingName="db_harcama_odemeRowDeleting" msprop:Generator_RowChangingName="db_harcama_odemeRowChanging" msprop:Generator_RowEvHandlerName="db_harcama_odemeRowChangeEventHandler" msprop:Generator_RowDeletedName="db_harcama_odemeRowDeleted" msprop:Generator_UserTableName="db_harcama_odeme" msprop:Generator_RowChangedName="db_harcama_odemeRowChanged" msprop:Generator_RowEvArgName="db_harcama_odemeRowChangeEvent" msprop:Generator_RowClassName="db_harcama_odemeRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="db_projeler" msprop:Generator_TableClassName="db_projelerDataTable" msprop:Generator_TableVarName="tabledb_projeler" msprop:Generator_TablePropName="db_projeler" msprop:Generator_RowDeletingName="db_projelerRowDeleting" msprop:Generator_RowChangingName="db_projelerRowChanging" msprop:Generator_RowEvHandlerName="db_projelerRowChangeEventHandler" msprop:Generator_RowDeletedName="db_projelerRowDeleted" msprop:Generator_UserTableName="db_projeler" msprop:Generator_RowChangedName="db_projelerRowChanged" msprop:Generator_RowEvArgName="db_projelerRowChangeEvent" msprop:Generator_RowClassName="db_projelerRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="db_siparis_emri" msprop:Generator_TableClassName="db_siparis_emriDataTable" msprop:Generator_TableVarName="tabledb_siparis_emri" msprop:Generator_TablePropName="db_siparis_emri" msprop:Generator_RowDeletingName="db_siparis_emriRowDeleting" msprop:Generator_RowChangingName="db_siparis_emriRowChanging" msprop:Generator_RowEvHandlerName="db_siparis_emriRowChangeEventHandler" msprop:Generator_RowDeletedName="db_siparis_emriRowDeleted" msprop:Generator_UserTableName="db_siparis_emri" msprop:Generator_RowChangedName="db_siparis_emriRowChanged" msprop:Generator_RowEvArgName="db_siparis_emriRowChangeEvent" msprop:Generator_RowClassName="db_siparis_emriRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
