@@ -246,7 +246,11 @@ namespace MERP
             // this.chart1.ChartAreas.Clear();
             this.chart1.Titles.Add("Faturalar");
             series = this.chart1.Series.Add("Gelen Faturalar");
-            series.ChartType = SeriesChartType.Column;
+            series.ChartType = SeriesChartType.Spline;
+            series.MarkerStyle = MarkerStyle.Circle;
+            series.MarkerColor = Color.Red;
+            series.IsValueShownAsLabel = true;
+            series.LabelAngle = 30;
 
             ChartArea area1 = chart1.ChartAreas.Add("ChartAreaCopy_" + series.Name);
             area1.BackColor = Color.Transparent;
@@ -265,7 +269,11 @@ namespace MERP
 
             seriesCopy = chart1.Series.Add("Kesilen Faturalar");
             seriesCopy.ChartType = series.ChartType;
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            seriesCopy.MarkerColor = series.MarkerColor;
+            seriesCopy.MarkerStyle = series.MarkerStyle;
+            seriesCopy.IsValueShownAsLabel = true;
+            seriesCopy.LabelAngle = 30;
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             myConnection.Close();
             maliyet_hesapla();
 
