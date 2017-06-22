@@ -408,10 +408,11 @@ namespace MERP
             // 
             // cmb_proje
             // 
+            this.cmb_proje.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmb_proje.FormattingEnabled = true;
-            this.cmb_proje.Location = new System.Drawing.Point(591, 183);
+            this.cmb_proje.Location = new System.Drawing.Point(849, 523);
             this.cmb_proje.Name = "cmb_proje";
-            this.cmb_proje.Size = new System.Drawing.Size(166, 21);
+            this.cmb_proje.Size = new System.Drawing.Size(108, 21);
             this.cmb_proje.TabIndex = 14;
             this.cmb_proje.SelectedIndexChanged += new System.EventHandler(this.cmb_proje_SelectedIndexChanged);
             // 
