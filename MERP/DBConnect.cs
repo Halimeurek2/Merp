@@ -83,7 +83,7 @@ namespace MERP
                                       Boolean check, 
                                       Decimal tutar, 
                                       string birim, 
-                                      int avans, 
+                                      Decimal avans, 
                                       string fatura_euro, 
                                       string tip)
         {
@@ -403,7 +403,7 @@ namespace MERP
                                     Boolean check,
                                     Decimal tutar, 
                                     string birim,
-                                    int avans, 
+                                    Decimal avans, 
                                     string fatura_euro, 
                                     string tip)
         {

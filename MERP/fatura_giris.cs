@@ -83,6 +83,7 @@ namespace MERP
             {
 
                 txt_ftr_tutar.Text = hf.Comma2Dot(txt_ftr_tutar.Text);
+                txt_avans.Text = hf.Comma2Dot(txt_avans.Text);
 
                 DateTime dt = Convert.ToDateTime(txt_ftr_tarih.Text);
                 string dateToday = dt.ToString("d");
@@ -99,7 +100,7 @@ namespace MERP
                    
                     db = new DBConnect();
 
-                    db.InsertFaturaGiris(Convert.ToString(txt_fatura_no.Text), Convert.ToString(cmb_projeNo.Text), Convert.ToString(txt_firma.Text), Convert.ToInt32(txt_ftr_vade.Text), Convert.ToDateTime(date_alarm.Text), Convert.ToString(rcb_acıklama.Text), Convert.ToDateTime(txt_ftr_tarih.Text), ck_alarm.Checked, Convert.ToDecimal(txt_ftr_tutar.Text), Convert.ToString(cmb_birim.Text), Convert.ToInt32(txt_avans.Text), fatura_euro, Convert.ToString('G'));
+                    db.InsertFaturaGiris(Convert.ToString(txt_fatura_no.Text), Convert.ToString(cmb_projeNo.Text), Convert.ToString(txt_firma.Text), Convert.ToInt32(txt_ftr_vade.Text), Convert.ToDateTime(date_alarm.Text), Convert.ToString(rcb_acıklama.Text), Convert.ToDateTime(txt_ftr_tarih.Text), ck_alarm.Checked, Convert.ToDecimal(txt_ftr_tutar.Text), Convert.ToString(cmb_birim.Text), Convert.ToDecimal(txt_avans.Text), fatura_euro, Convert.ToString('G'));
 
                     this.Close();
                 }
