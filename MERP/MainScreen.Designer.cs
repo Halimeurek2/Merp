@@ -399,11 +399,7 @@ namespace MERP
             // 
             this.cmb_proje.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.cmb_proje.FormattingEnabled = true;
-<<<<<<< HEAD
-            this.cmb_proje.Location = new System.Drawing.Point(698, 56);
-=======
-            this.cmb_proje.Location = new System.Drawing.Point(1128, 474);
->>>>>>> origin/master
+            this.cmb_proje.Location = new System.Drawing.Point(703, 474);
             this.cmb_proje.Name = "cmb_proje";
             this.cmb_proje.Size = new System.Drawing.Size(118, 21);
             this.cmb_proje.TabIndex = 14;
