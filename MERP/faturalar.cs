@@ -40,10 +40,6 @@ namespace MERP
         string fatura_tarih;
         string acıklama;
         string tip;
-<<<<<<< HEAD
-        
-=======
->>>>>>> b478a4018d812fdc8a7c542575f82540f2c6843c
 
         public faturalar()
         {
