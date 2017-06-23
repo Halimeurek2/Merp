@@ -122,7 +122,7 @@ namespace MERP
             cmd.Parameters.AddWithValue("@check", check);
             cmd.Parameters.AddWithValue("@tutar", tutar);
             cmd.Parameters.AddWithValue("@birim", birim);
-            cmd.Parameters.AddWithValue("avans", avans);
+            cmd.Parameters.AddWithValue("@avans", avans);
             cmd.Parameters.AddWithValue("@fatura_euro", fatura_euro);
             cmd.Parameters.AddWithValue("@tip", tip);
 

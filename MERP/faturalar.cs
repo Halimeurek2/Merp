@@ -40,7 +40,7 @@ namespace MERP
         string fatura_tarih;
         string acıklama;
         string tip;
-        public int fatura_id;
+        
 
         public faturalar()
         {
@@ -104,7 +104,7 @@ namespace MERP
 
             if (sil == DialogResult.Yes)
             {
-                komut = "DELETE FROM db_faturalar WHERE fatura_id='" + fatura_id + "'";
+                komut = "DELETE FROM db_faturalar WHERE fatura_id='" + id + "'";
                 myCommand = new MySqlCommand(komut, myConnection);
                 da = new MySqlDataAdapter(myCommand);
                 dt = new DataTable();

@@ -62,8 +62,6 @@ namespace MERP
         DataTable dt = new DataTable();
 
 
-        public int proje_id;
-
         public proje_list()
         {
             InitializeComponent();
@@ -113,7 +111,7 @@ namespace MERP
 
             if (sil == DialogResult.Yes)
             {
-                komut = "DELETE FROM db_projeler WHERE proje_id='" + proje_id + "'";
+                komut = "DELETE FROM db_projeler WHERE proje_id='" + id + "'";
                 myCommand = new MySqlCommand(komut, myConnection);
                 da = new MySqlDataAdapter(myCommand);
                 dt = new DataTable();

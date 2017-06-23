@@ -85,7 +85,7 @@ namespace MERP
             this.hAKKINDAToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(966, 27);
+            this.menuStrip1.Size = new System.Drawing.Size(1264, 27);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -217,9 +217,9 @@ namespace MERP
             this.groupBox1.Controls.Add(this.dg_cokacil);
             this.groupBox1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox1.ForeColor = System.Drawing.Color.DarkRed;
-            this.groupBox1.Location = new System.Drawing.Point(13, 261);
+            this.groupBox1.Location = new System.Drawing.Point(12, 611);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(942, 224);
+            this.groupBox1.Size = new System.Drawing.Size(1240, 243);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ÇOK ACİL İŞLER :";
@@ -232,14 +232,13 @@ namespace MERP
             this.dg_cokacil.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dg_cokacil.Location = new System.Drawing.Point(7, 20);
             this.dg_cokacil.Name = "dg_cokacil";
-            this.dg_cokacil.Size = new System.Drawing.Size(929, 198);
+            this.dg_cokacil.Size = new System.Drawing.Size(1227, 217);
             this.dg_cokacil.TabIndex = 0;
             this.dg_cokacil.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dg_cokacil_RowHeaderMouseClick);
             // 
             // btn_diger
             // 
-            this.btn_diger.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_diger.Location = new System.Drawing.Point(855, 621);
+            this.btn_diger.Location = new System.Drawing.Point(591, 128);
             this.btn_diger.Name = "btn_diger";
             this.btn_diger.Size = new System.Drawing.Size(99, 66);
             this.btn_diger.TabIndex = 11;
@@ -249,8 +248,7 @@ namespace MERP
             // 
             // btn_acil_normal
             // 
-            this.btn_acil_normal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_acil_normal.Location = new System.Drawing.Point(855, 549);
+            this.btn_acil_normal.Location = new System.Drawing.Point(591, 56);
             this.btn_acil_normal.Name = "btn_acil_normal";
             this.btn_acil_normal.Size = new System.Drawing.Size(99, 66);
             this.btn_acil_normal.TabIndex = 10;
@@ -268,7 +266,7 @@ namespace MERP
             this.groupBox5.Controls.Add(this.label2);
             this.groupBox5.Controls.Add(this.label1);
             this.groupBox5.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox5.Location = new System.Drawing.Point(788, 48);
+            this.groupBox5.Location = new System.Drawing.Point(1086, 48);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(167, 120);
             this.groupBox5.TabIndex = 9;
@@ -337,12 +335,11 @@ namespace MERP
             // 
             // btn_refresh
             // 
-            this.btn_refresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_refresh.Image = global::MERP.Properties.Resources.Refresh_20;
             this.btn_refresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_refresh.Location = new System.Drawing.Point(888, 211);
+            this.btn_refresh.Location = new System.Drawing.Point(591, 200);
             this.btn_refresh.Name = "btn_refresh";
-            this.btn_refresh.Size = new System.Drawing.Size(67, 44);
+            this.btn_refresh.Size = new System.Drawing.Size(99, 55);
             this.btn_refresh.TabIndex = 12;
             this.btn_refresh.Text = "Yenile";
             this.btn_refresh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -387,7 +384,7 @@ namespace MERP
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(13, 523);
+            this.chart1.Location = new System.Drawing.Point(19, 303);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
@@ -402,17 +399,17 @@ namespace MERP
             series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
             series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(830, 167);
+            this.chart1.Size = new System.Drawing.Size(1233, 281);
             this.chart1.TabIndex = 13;
             this.chart1.Text = "chart1";
             // 
             // cmb_proje
             // 
-            this.cmb_proje.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmb_proje.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.cmb_proje.FormattingEnabled = true;
-            this.cmb_proje.Location = new System.Drawing.Point(849, 523);
+            this.cmb_proje.Location = new System.Drawing.Point(1134, 200);
             this.cmb_proje.Name = "cmb_proje";
-            this.cmb_proje.Size = new System.Drawing.Size(108, 21);
+            this.cmb_proje.Size = new System.Drawing.Size(118, 21);
             this.cmb_proje.TabIndex = 14;
             this.cmb_proje.SelectedIndexChanged += new System.EventHandler(this.cmb_proje_SelectedIndexChanged);
             // 
@@ -420,7 +417,7 @@ namespace MERP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(966, 699);
+            this.ClientSize = new System.Drawing.Size(1264, 866);
             this.Controls.Add(this.cmb_proje);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.chart1);
