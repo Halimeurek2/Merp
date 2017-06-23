@@ -198,6 +198,7 @@ namespace MERP
             this.groupBox3.TabIndex = 7;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "PROJE MALİYETLERİ";
+            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
             // dg_maliyet
             // 

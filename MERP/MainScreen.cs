@@ -508,5 +508,10 @@ namespace MERP
                 clickPosition = null;
             }
         }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
