@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Net.Mail;
@@ -49,6 +44,9 @@ namespace MERP
         float[] fatura_tutar_G = new float[99999];
         private DataSet dsDovizKur;
 
+        ToolTip tooltip = new ToolTip();
+        Point? clickPosition = null;
+
         public MainScreen()
         {
             InitializeComponent();       
@@ -84,13 +82,9 @@ namespace MERP
 
             komut = "SELECT DISTINCT proje_no FROM db_projeler";
             da = new MySqlDataAdapter(komut, connection);
-
-            //  myConnection = new MySqlConnection(connectionString);
             myCommand = new MySqlCommand(komut, myConnection);
-            //   myConnection.Open();
             MySqlDataReader myReader;
             myReader = myCommand.ExecuteReader();
-            // Always call Read before accessing data.
             while (myReader.Read())
             {
                 cmb_proje.Items.Add(myReader["proje_no"]);
@@ -246,7 +240,7 @@ namespace MERP
             // this.chart1.ChartAreas.Clear();
             this.chart1.Titles.Add("Faturalar");
             series = this.chart1.Series.Add("Gelen Faturalar");
-            series.ChartType = SeriesChartType.Spline;
+            series.ChartType = SeriesChartType.StepLine;
             series.MarkerStyle = MarkerStyle.Circle;
             series.MarkerColor = Color.Red;
             series.IsValueShownAsLabel = true;
@@ -276,7 +270,6 @@ namespace MERP
             //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             myConnection.Close();
             maliyet_hesapla();
-
         }
 
         public void maliyet_hesapla()
@@ -307,22 +300,18 @@ namespace MERP
             dg_maliyet.AutoSizeColumnsMode =
                        DataGridViewAutoSizeColumnsMode.Fill;
             myConnection.Close();
-
-
         }
 
         private void yeniGirişToolStripMenuItem_Click(object sender, EventArgs e)
         {
             aktivite_giris ag = new aktivite_giris();
-            ag.Show();
-           
+            ag.Show();        
         }
 
         private void yeniOluşturToolStripMenuItem_Click(object sender, EventArgs e)
         {
             siparisemri_giris stf = new siparisemri_giris();
-            stf.Show();
-           
+            stf.Show();         
         }
 
         private void listeleToolStripMenuItem_Click(object sender, EventArgs e)
@@ -333,17 +322,14 @@ namespace MERP
 
         private void gELENFATURAToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             fatura_giris ftrg = new fatura_giris();
-            ftrg.Show();
-           
+            ftrg.Show();          
         }
 
         private void kESİLENFATURAToolStripMenuItem_Click(object sender, EventArgs e)
         {
             kesilen_fatura kf = new kesilen_fatura();
-            kf.Show();
-           
+            kf.Show();          
         }
 
         private void listeleToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -458,6 +444,10 @@ namespace MERP
                 elemanSayisi++;
             }
             myReader.Close();
+
+            i = 0;
+            elemanSayisi = 0;
+
             komut = "SELECT * FROM db_faturalar WHERE fatura_proje_no='" + cmb_proje.Text + "' AND fatura_tipi='G'";
             da = new MySqlDataAdapter(komut, connection);
 
@@ -468,7 +458,9 @@ namespace MERP
             while (myReader.Read())
             {
                 tarih_array_G[i] = Convert.ToDateTime(myReader.GetString(7));
+               // MessageBox.Show(Convert.ToString(tarih_array_G[i]));
                 fatura_tutar_G[i] = (float)Convert.ToDouble(myReader.GetString(9));
+               // MessageBox.Show(Convert.ToString(fatura_tutar_G[i]));
                 i++;
                 elemanSayisi++;
             }
@@ -487,6 +479,34 @@ namespace MERP
             }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
             myConnection.Close();
+        }
+
+        private void chart1_MouseClick(object sender, MouseEventArgs e)
+        {
+            var pos = e.Location;
+            clickPosition = pos;
+            var results = chart1.HitTest(pos.X, pos.Y, false,
+                                         ChartElementType.PlottingArea);
+            foreach (var result in results)
+            {
+                if (result.ChartElementType == ChartElementType.PlottingArea)
+                {
+                    var xVal = result.ChartArea.AxisX.PixelPositionToValue(pos.X);
+                    var yVal = result.ChartArea.AxisY.PixelPositionToValue(pos.Y);
+
+                    tooltip.Show("X=" + xVal + ", Y=" + yVal,
+                                 this.chart1, e.Location.X, e.Location.Y - 15);
+                }
+            }
+        }
+
+        private void chart1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (clickPosition.HasValue && e.Location != clickPosition)
+            {
+                tooltip.RemoveAll();
+                clickPosition = null;
+            }
         }
     }
 }

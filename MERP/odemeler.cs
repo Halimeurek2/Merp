@@ -16,11 +16,5 @@ namespace MERP
         {
             InitializeComponent();
         }
-
-        private void btn_hesapla_Click(object sender, EventArgs e)
-        {
-            txt_toplam.Text = Convert.ToString(Convert.ToDouble(txt_test.Text) + Convert.ToDouble(txt_avans.Text) + Convert.ToDouble(txt_cdr.Text) + Convert.ToDouble(txt_kabul.Text) + Convert.ToDouble(txt_pdr.Text) + Convert.ToDouble(txt_prototip.Text));
-
-        }
     }
 }

@@ -61,7 +61,10 @@ namespace MERP
 
         DataTable dt = new DataTable();
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> b478a4018d812fdc8a7c542575f82540f2c6843c
         public proje_list()
         {
             InitializeComponent();
