@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-using System.Xml;
-using System.Globalization;
+
 
 namespace MERP
 {
@@ -51,13 +45,9 @@ namespace MERP
 
             komut = "SELECT DISTINCT proje_no FROM db_projeler";
             da = new MySqlDataAdapter(komut, connection);
-
-            //  myConnection = new MySqlConnection(connectionString);
             myCommand = new MySqlCommand(komut, myConnection);
-            //   myConnection.Open();
             MySqlDataReader myReader;
             myReader = myCommand.ExecuteReader();
-            // Always call Read before accessing data.
             while (myReader.Read())
             {
                 cmb_projeNo.Items.Add(myReader["proje_no"]);
@@ -97,14 +87,11 @@ namespace MERP
                 }
                 else
                 {
-
                     fatura_euro = hf.EuroCalculation(txt_ftr_tarih.Text, txt_ftr_tutar.Text, cmb_birim.Text, fatura_euro);
 
                     db = new DBConnect();
                     db.UpdateFaturalar(Convert.ToInt32(lbl_id.Text), Convert.ToString(txt_fatura_no.Text), Convert.ToString(cmb_projeNo.Text), Convert.ToString(txt_firma.Text), Convert.ToInt32(txt_ftr_vade.Text), Convert.ToDateTime(date_alarm.Text), Convert.ToString(rcb_acıklama.Text), Convert.ToDateTime(txt_ftr_tarih.Text), ck_alarm.Checked, Convert.ToDecimal(txt_ftr_tutar.Text), Convert.ToString(cmb_birim.Text), Convert.ToInt32(txt_avans.Text), Convert.ToString(fatura_euro), Convert.ToString(lbl_tip.Text));
                     this.Close();
-
-
                 }
             } 
         }

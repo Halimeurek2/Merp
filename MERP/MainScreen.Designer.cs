@@ -61,9 +61,9 @@ namespace MERP
             this.lbl_usd = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btn_refresh = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.cmb_proje = new System.Windows.Forms.ComboBox();
+            this.btn_refresh = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dg_maliyet)).BeginInit();
@@ -217,7 +217,7 @@ namespace MERP
             this.groupBox1.Controls.Add(this.dg_cokacil);
             this.groupBox1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox1.ForeColor = System.Drawing.Color.DarkRed;
-            this.groupBox1.Location = new System.Drawing.Point(13, 261);
+            this.groupBox1.Location = new System.Drawing.Point(13, 472);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(942, 224);
             this.groupBox1.TabIndex = 5;
@@ -238,10 +238,9 @@ namespace MERP
             // 
             // btn_diger
             // 
-            this.btn_diger.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_diger.Location = new System.Drawing.Point(855, 621);
+            this.btn_diger.Location = new System.Drawing.Point(591, 128);
             this.btn_diger.Name = "btn_diger";
-            this.btn_diger.Size = new System.Drawing.Size(99, 66);
+            this.btn_diger.Size = new System.Drawing.Size(90, 66);
             this.btn_diger.TabIndex = 11;
             this.btn_diger.Text = "Diğer Aktiviteler";
             this.btn_diger.UseVisualStyleBackColor = true;
@@ -249,10 +248,9 @@ namespace MERP
             // 
             // btn_acil_normal
             // 
-            this.btn_acil_normal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_acil_normal.Location = new System.Drawing.Point(855, 549);
+            this.btn_acil_normal.Location = new System.Drawing.Point(591, 56);
             this.btn_acil_normal.Name = "btn_acil_normal";
-            this.btn_acil_normal.Size = new System.Drawing.Size(99, 66);
+            this.btn_acil_normal.Size = new System.Drawing.Size(90, 66);
             this.btn_acil_normal.TabIndex = 10;
             this.btn_acil_normal.Text = "Acil-Normal ";
             this.btn_acil_normal.UseVisualStyleBackColor = true;
@@ -335,23 +333,10 @@ namespace MERP
             this.label1.TabIndex = 0;
             this.label1.Text = "USD : ";
             // 
-            // btn_refresh
-            // 
-            this.btn_refresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_refresh.Image = global::MERP.Properties.Resources.Refresh_20;
-            this.btn_refresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_refresh.Location = new System.Drawing.Point(888, 211);
-            this.btn_refresh.Name = "btn_refresh";
-            this.btn_refresh.Size = new System.Drawing.Size(67, 44);
-            this.btn_refresh.TabIndex = 12;
-            this.btn_refresh.Text = "Yenile";
-            this.btn_refresh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_refresh.UseVisualStyleBackColor = true;
-            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
-            // 
             // chart1
             // 
-            this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             chartArea1.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
             chartArea1.Area3DStyle.Inclination = 20;
@@ -374,6 +359,7 @@ namespace MERP
             chartArea1.AxisX2.MajorGrid.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Days;
             chartArea1.AxisY.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Lines;
             chartArea1.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+            chartArea1.AxisY.MajorGrid.Enabled = false;
             chartArea1.AxisY.MajorGrid.Interval = 0D;
             chartArea1.AxisY.MajorGrid.IntervalOffset = 0D;
             chartArea1.AxisY.MajorGrid.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
@@ -387,7 +373,7 @@ namespace MERP
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(13, 523);
+            this.chart1.Location = new System.Drawing.Point(13, 274);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
@@ -402,19 +388,34 @@ namespace MERP
             series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
             series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(830, 167);
+            this.chart1.Size = new System.Drawing.Size(942, 180);
             this.chart1.TabIndex = 13;
             this.chart1.Text = "chart1";
+            this.chart1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.chart1_MouseClick);
+            this.chart1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.chart1_MouseMove);
             // 
             // cmb_proje
             // 
             this.cmb_proje.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmb_proje.FormattingEnabled = true;
-            this.cmb_proje.Location = new System.Drawing.Point(849, 523);
+            this.cmb_proje.Location = new System.Drawing.Point(847, 234);
             this.cmb_proje.Name = "cmb_proje";
             this.cmb_proje.Size = new System.Drawing.Size(108, 21);
             this.cmb_proje.TabIndex = 14;
             this.cmb_proje.SelectedIndexChanged += new System.EventHandler(this.cmb_proje_SelectedIndexChanged);
+            // 
+            // btn_refresh
+            // 
+            this.btn_refresh.Image = global::MERP.Properties.Resources.Refresh_20;
+            this.btn_refresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_refresh.Location = new System.Drawing.Point(591, 205);
+            this.btn_refresh.Name = "btn_refresh";
+            this.btn_refresh.Size = new System.Drawing.Size(90, 50);
+            this.btn_refresh.TabIndex = 12;
+            this.btn_refresh.Text = "Yenile";
+            this.btn_refresh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_refresh.UseVisualStyleBackColor = true;
+            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
             // 
             // MainScreen
             // 
@@ -422,8 +423,8 @@ namespace MERP
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(966, 699);
             this.Controls.Add(this.cmb_proje);
-            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.chart1);
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.btn_refresh);
             this.Controls.Add(this.btn_diger);
             this.Controls.Add(this.btn_acil_normal);

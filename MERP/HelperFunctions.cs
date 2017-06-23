@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Data;
-using System.Windows.Forms;
 using System.Xml;
 
 namespace MERP
@@ -53,11 +48,9 @@ namespace MERP
                 tarih2 = Convert.ToString(tr[2] + tr[1]);
                 string anyDays = "http://www.tcmb.gov.tr/kurlar/" + tarih2 + "/" + tarih + ".xml";
               
-
                 var xmlDoc = new XmlDocument();
                 xmlDoc.Load(anyDays);
 
-                // Xml içinden tarihi alma - gerekli olabilir
                 DateTime exchangeDate = Convert.ToDateTime(xmlDoc.SelectSingleNode("//Tarih_Date").Attributes["Tarih"].Value);
 
                 string USD = xmlDoc.SelectSingleNode("Tarih_Date/Currency[@Kod='USD']/BanknoteBuying").InnerXml;
