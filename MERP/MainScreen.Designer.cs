@@ -215,6 +215,7 @@ namespace MERP
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.cmb_proje);
             this.groupBox1.Controls.Add(this.dg_cokacil);
             this.groupBox1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox1.ForeColor = System.Drawing.Color.DarkRed;
@@ -399,9 +400,9 @@ namespace MERP
             // 
             this.cmb_proje.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.cmb_proje.FormattingEnabled = true;
-            this.cmb_proje.Location = new System.Drawing.Point(703, 474);
+            this.cmb_proje.Location = new System.Drawing.Point(579, 0);
             this.cmb_proje.Name = "cmb_proje";
-            this.cmb_proje.Size = new System.Drawing.Size(118, 21);
+            this.cmb_proje.Size = new System.Drawing.Size(118, 24);
             this.cmb_proje.TabIndex = 14;
             this.cmb_proje.SelectedIndexChanged += new System.EventHandler(this.cmb_proje_SelectedIndexChanged);
             // 
@@ -423,7 +424,6 @@ namespace MERP
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 750);
-            this.Controls.Add(this.cmb_proje);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.btn_refresh);
