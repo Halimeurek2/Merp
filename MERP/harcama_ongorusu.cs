@@ -25,7 +25,7 @@ namespace MERP
         private void harcama_ongorusu_Load(object sender, EventArgs e)
         {
 
-        }
+               }
 
         private void btn_kaydet_Click(object sender, EventArgs e)
         {
@@ -98,5 +98,6 @@ namespace MERP
             }
             this.Close();
         }
+
     }
 }

@@ -81,10 +81,9 @@
             // 
             // txt_prjAdi
             // 
-            this.txt_prjAdi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_prjAdi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_prjAdi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txt_prjAdi.Location = new System.Drawing.Point(783, 71);
+            this.txt_prjAdi.Location = new System.Drawing.Point(845, 68);
             this.txt_prjAdi.Name = "txt_prjAdi";
             this.txt_prjAdi.Size = new System.Drawing.Size(268, 22);
             this.txt_prjAdi.TabIndex = 36;
@@ -92,10 +91,8 @@
             // 
             // txt_prjNo
             // 
-            this.txt_prjNo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_prjNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txt_prjNo.Location = new System.Drawing.Point(431, 71);
+            this.txt_prjNo.Location = new System.Drawing.Point(365, 71);
             this.txt_prjNo.Name = "txt_prjNo";
             this.txt_prjNo.Size = new System.Drawing.Size(233, 22);
             this.txt_prjNo.TabIndex = 35;
@@ -103,9 +100,10 @@
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(696, 74);
+            this.label3.Location = new System.Drawing.Point(770, 74);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 16);
             this.label3.TabIndex = 34;
@@ -115,7 +113,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(349, 74);
+            this.label2.Location = new System.Drawing.Point(270, 74);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 16);
             this.label2.TabIndex = 33;

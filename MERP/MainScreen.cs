@@ -6,8 +6,7 @@ using MySql.Data.MySqlClient;
 using System.Net.Mail;
 using System.Net;
 using System.Windows.Forms.DataVisualization.Charting;
-
-
+using System.Globalization;
 
 namespace MERP
 {
@@ -42,6 +41,7 @@ namespace MERP
         float[] fatura_tutar_K = new float[99999];
         DateTime[] tarih_array_G = new DateTime[99999];
         float[] fatura_tutar_G = new float[99999];
+        float[] toplam_ay_fatura_G = new float[12];
         private DataSet dsDovizKur;
 
         ToolTip tooltip = new ToolTip();
@@ -240,13 +240,13 @@ namespace MERP
             // this.chart1.ChartAreas.Clear();
             this.chart1.Titles.Add("Faturalar");
             series = this.chart1.Series.Add("Gelen Faturalar");
-            series.ChartType = SeriesChartType.StepLine;
+            series.ChartType = SeriesChartType.Column;
             series.MarkerStyle = MarkerStyle.Circle;
             series.MarkerColor = Color.Red;
             series.IsValueShownAsLabel = true;
             series.LabelAngle = 30;
 
-            ChartArea area1 = chart1.ChartAreas.Add("ChartAreaCopy_" + series.Name);
+         /*   ChartArea area1 = chart1.ChartAreas.Add("ChartAreaCopy_" + series.Name);
             area1.BackColor = Color.Transparent;
             area1.BorderColor = Color.Transparent;
             area1.Position.FromRectangleF(area1.Position.ToRectangleF());
@@ -259,11 +259,11 @@ namespace MERP
             area1.AxisY.LabelStyle.Enabled = false;
 
             area1.AxisY2.Enabled = AxisEnabled.True;
-            area1.AxisY2.LabelStyle.Enabled = true;
+            area1.AxisY2.LabelStyle.Enabled = true;*/
 
             seriesCopy = chart1.Series.Add("Kesilen Faturalar");
             seriesCopy.ChartType = series.ChartType;
-            seriesCopy.MarkerColor = series.MarkerColor;
+            seriesCopy.MarkerColor = Color.Blue;
             seriesCopy.MarkerStyle = series.MarkerStyle;
             seriesCopy.IsValueShownAsLabel = true;
             seriesCopy.LabelAngle = 30;
@@ -279,6 +279,8 @@ namespace MERP
             uid = "root";
             password = "root";
             //string connectionString;
+            
+            
             connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
             myConnection = new MySqlConnection(connectionString);
             myConnection.Open();
@@ -288,8 +290,8 @@ namespace MERP
                     "sum(case when fatura_birim = 'EUR' then fatura_tutari else 0 end) as EUR ," +
                     "sum(case when fatura_birim = 'USD' then fatura_tutari else 0 end) as USD , " +
                     "sum(case when fatura_birim = 'GBP' then fatura_tutari else 0 end) as GBP , " +
-                    "sum(case when fatura_birim = 'CHF' then fatura_tutari else 0 end) as CHF  " +
-                    "from db_faturalar group by fatura_proje_no";
+                    "sum(fatura_euro) as Toplam_Euro " +
+                    "from db_faturalar where fatura_tipi = 'G' group by fatura_proje_no";
 
             myCommand = new MySqlCommand(komut, myConnection);
             da = new MySqlDataAdapter(myCommand);
@@ -299,6 +301,17 @@ namespace MERP
             dg_maliyet.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dg_maliyet.AutoSizeColumnsMode =
                        DataGridViewAutoSizeColumnsMode.Fill;
+            dg_maliyet.Columns[1].DefaultCellStyle.Format = "c2";
+            dg_maliyet.Columns[2].DefaultCellStyle.Format = "c2";
+            dg_maliyet.Columns[2].DefaultCellStyle.FormatProvider = CultureInfo.GetCultureInfo("de-DE");
+            dg_maliyet.Columns[3].DefaultCellStyle.Format = "c2";
+            dg_maliyet.Columns[3].DefaultCellStyle.FormatProvider = CultureInfo.GetCultureInfo("en-US");
+            dg_maliyet.Columns[4].DefaultCellStyle.Format = "c2";
+            dg_maliyet.Columns[4].DefaultCellStyle.FormatProvider = CultureInfo.GetCultureInfo("en-GB");
+            dg_maliyet.Columns[5].DefaultCellStyle.Format = "c2";
+            dg_maliyet.Columns[5].DefaultCellStyle.FormatProvider = CultureInfo.GetCultureInfo("de-DE");
+
+
             myConnection.Close();
         }
 
@@ -420,6 +433,18 @@ namespace MERP
 
         private void cmb_proje_SelectedIndexChanged(object sender, EventArgs e)
         {
+            for (int i = 0 ; i < toplam_ay_fatura_G.Length; i++){
+                toplam_ay_fatura_G[i] = 0;
+            }
+            for (int i = 0; i < fatura_tutar_G.Length; i++)
+            {
+                fatura_tutar_G[i] = 0;
+            }
+            for (int i = 0; i < fatura_tutar_K.Length; i++)
+            {
+                fatura_tutar_K[i] = 0;
+            }
+
             ChartControl();
         }
 
@@ -439,7 +464,7 @@ namespace MERP
             while (myReader.Read())
             {           
                 tarih_array_K[i] = Convert.ToDateTime(myReader.GetString(7));            
-                fatura_tutar_K[i] = (float)Convert.ToDouble(myReader.GetString(9));
+                fatura_tutar_K[i] = (float)Convert.ToDouble(myReader.GetString(12));
                 i++;
                 elemanSayisi++;
             }
@@ -459,23 +484,32 @@ namespace MERP
             {
                 tarih_array_G[i] = Convert.ToDateTime(myReader.GetString(7));
                // MessageBox.Show(Convert.ToString(tarih_array_G[i]));
-                fatura_tutar_G[i] = (float)Convert.ToDouble(myReader.GetString(9));
+                fatura_tutar_G[i] = (float)Convert.ToDouble(myReader.GetString(12));
                // MessageBox.Show(Convert.ToString(fatura_tutar_G[i]));
                 i++;
-                elemanSayisi++;
             }
+            elemanSayisi = i;
+            
             myReader.Close();
-////////////////////////////////////////////////////////////////////////////////////////////////////////////   
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            UInt32 month = 0;
+            for (month = 0; month < elemanSayisi; month++)
+            {
+                if(Int32.Parse(tarih_array_G[month].ToString("yyyy"))==2017)
+                    toplam_ay_fatura_G[(Int32.Parse(tarih_array_G[month].ToString("MM")))-1] += fatura_tutar_G[month];
+            }
+            
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////   
             series.Points.Clear();
             seriesCopy.Points.Clear();
-            for (i = 0; i < elemanSayisi; i++)
+            for (i = 0; i < 12; i++)
             {
                 seriesCopy.Points.AddXY(Convert.ToString(tarih_array_K[i]), Convert.ToDecimal(fatura_tutar_K[i]));
             }
           //  this.chart1.Series.Clear();
-            for (i = 0; i < elemanSayisi; i++)
+            for (i = 0; i < toplam_ay_fatura_G.Length; i++)
             {
-                series.Points.AddXY(Convert.ToString(tarih_array_G[i]), Convert.ToDecimal(fatura_tutar_G[i]));
+                series.Points.AddXY(Convert.ToString(i+1), Convert.ToDecimal(toplam_ay_fatura_G[i]));
             }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
             myConnection.Close();
