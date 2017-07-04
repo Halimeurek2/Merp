@@ -41,11 +41,27 @@ namespace MERP
         DateTime[] tarih_array_K = new DateTime[99999];
         float[] fatura_tutar_K = new float[99999];
         DateTime[] tarih_array_G = new DateTime[99999];
+        float[] toplam_fatura_G = new float[12];
+        float[] toplam_fatura_K = new float[12];
         float[] fatura_tutar_G = new float[99999];
         private DataSet dsDovizKur;
 
         ToolTip tooltip = new ToolTip();
         Point? clickPosition = null;
+
+
+        /*
+         * test edilecek
+         */
+         enum years
+        {
+            y2016 = 0,
+            y2017
+        };
+
+        float[,] sum_fatura = new float[2,12];
+
+
 
         public MainScreen()
         {
@@ -420,6 +436,11 @@ namespace MERP
 
         private void cmb_proje_SelectedIndexChanged(object sender, EventArgs e)
         {
+            for (i = 0; i < toplam_fatura_G.Length; i++)
+            {
+                toplam_fatura_G[i] = 0;
+                toplam_fatura_K[i] = 0;
+            }
             ChartControl();
         }
 
@@ -439,7 +460,7 @@ namespace MERP
             while (myReader.Read())
             {           
                 tarih_array_K[i] = Convert.ToDateTime(myReader.GetString(7));            
-                fatura_tutar_K[i] = (float)Convert.ToDouble(myReader.GetString(9));
+                fatura_tutar_K[i] = (float)Convert.ToDouble(myReader.GetString(12));
                 i++;
                 elemanSayisi++;
             }
@@ -459,23 +480,39 @@ namespace MERP
             {
                 tarih_array_G[i] = Convert.ToDateTime(myReader.GetString(7));
                // MessageBox.Show(Convert.ToString(tarih_array_G[i]));
-                fatura_tutar_G[i] = (float)Convert.ToDouble(myReader.GetString(9));
+                fatura_tutar_G[i] = (float)Convert.ToDouble(myReader.GetString(12));
                // MessageBox.Show(Convert.ToString(fatura_tutar_G[i]));
                 i++;
                 elemanSayisi++;
             }
             myReader.Close();
-////////////////////////////////////////////////////////////////////////////////////////////////////////////   
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////   
+
+            Int32 month;
+            for (month = 0; month < tarih_array_G.Length; month++)
+                if(Int32.Parse(tarih_array_G[month].ToString("yyyy"))==2017)
+                    toplam_fatura_G[Int32.Parse(tarih_array_G[month].ToString("MM"))-1] += fatura_tutar_G[month];
+
+            for (month = 0; month < tarih_array_K.Length; month++)
+                if (Int32.Parse(tarih_array_G[month].ToString("yyyy")) == 2017)
+                    toplam_fatura_K[Int32.Parse(tarih_array_K[month].ToString("MM")) - 1] += fatura_tutar_K[month];
+
+
+            //Düzeltilecek
+            for (month = 0; month < tarih_array_K.Length; month++)
+                 sum_fatura[Int32.Parse(tarih_array_K[month].ToString("yyyy"))-2016, Int32.Parse(tarih_array_K[month].ToString("MM")) - 1] += fatura_tutar_K[month];
+            //
+
             series.Points.Clear();
             seriesCopy.Points.Clear();
-            for (i = 0; i < elemanSayisi; i++)
+            for (i = 0; i < toplam_fatura_K.Length; i++)
             {
-                seriesCopy.Points.AddXY(Convert.ToString(tarih_array_K[i]), Convert.ToDecimal(fatura_tutar_K[i]));
+                seriesCopy.Points.AddXY(Convert.ToString(tarih_array_K[i]), Convert.ToDecimal(toplam_fatura_K[i]));
             }
           //  this.chart1.Series.Clear();
-            for (i = 0; i < elemanSayisi; i++)
+            for (i = 0; i < toplam_fatura_G.Length; i++)
             {
-                series.Points.AddXY(Convert.ToString(tarih_array_G[i]), Convert.ToDecimal(fatura_tutar_G[i]));
+                series.Points.AddXY(Convert.ToString(tarih_array_G[i]), Convert.ToDecimal(toplam_fatura_G[i]));
             }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
             myConnection.Close();

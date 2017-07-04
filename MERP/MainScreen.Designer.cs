@@ -220,7 +220,7 @@ namespace MERP
             this.groupBox1.ForeColor = System.Drawing.Color.DarkRed;
             this.groupBox1.Location = new System.Drawing.Point(12, 611);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1240, 254);
+            this.groupBox1.Size = new System.Drawing.Size(1240, 127);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ÇOK ACİL İŞLER :";
@@ -233,7 +233,7 @@ namespace MERP
             this.dg_cokacil.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dg_cokacil.Location = new System.Drawing.Point(7, 20);
             this.dg_cokacil.Name = "dg_cokacil";
-            this.dg_cokacil.Size = new System.Drawing.Size(1227, 228);
+            this.dg_cokacil.Size = new System.Drawing.Size(1227, 101);
             this.dg_cokacil.TabIndex = 0;
             this.dg_cokacil.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dg_cokacil_RowHeaderMouseClick);
             // 
@@ -377,7 +377,6 @@ namespace MERP
             this.chart1.Location = new System.Drawing.Point(19, 287);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
             series1.CustomProperties = "DrawSideBySide=True";
             series1.IsValueShownAsLabel = true;
             series1.IsXValueIndexed = true;
@@ -389,7 +388,7 @@ namespace MERP
             series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
             series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(1233, 164);
+            this.chart1.Size = new System.Drawing.Size(1233, 301);
             this.chart1.TabIndex = 13;
             this.chart1.Text = "chart1";
             this.chart1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.chart1_MouseClick);
@@ -399,7 +398,7 @@ namespace MERP
             // 
             this.cmb_proje.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.cmb_proje.FormattingEnabled = true;
-            this.cmb_proje.Location = new System.Drawing.Point(1135, 173);
+            this.cmb_proje.Location = new System.Drawing.Point(1134, 205);
             this.cmb_proje.Name = "cmb_proje";
             this.cmb_proje.Size = new System.Drawing.Size(118, 21);
             this.cmb_proje.TabIndex = 14;
@@ -422,7 +421,7 @@ namespace MERP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 877);
+            this.ClientSize = new System.Drawing.Size(1264, 750);
             this.Controls.Add(this.cmb_proje);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.groupBox5);
