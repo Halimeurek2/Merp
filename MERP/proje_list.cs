@@ -163,6 +163,7 @@ namespace MERP
             harcama_birim = dgw_prj_list.Rows[e.RowIndex].Cells[10].Value.ToString();
             flag= dgw_prj_list.Rows[e.RowIndex].Cells[11].Value.ToString();
 
+            myConnection.Close();
             myConnection.Open();
             komut = "SELECT * FROM db_projeler WHERE proje_no='"+proje_no+"' AND proje_ismi='"+proje_adi+"'";
             da = new MySqlDataAdapter(komut, connection);

@@ -377,7 +377,6 @@ namespace MERP
             this.chart1.Location = new System.Drawing.Point(19, 287);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
-            series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             series1.CustomProperties = "DrawSideBySide=True";
             series1.IsValueShownAsLabel = true;
             series1.IsXValueIndexed = true;

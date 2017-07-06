@@ -98,6 +98,7 @@ namespace MERP
 
                 db = new DBConnect();
                 db.UpdateProjeler(Convert.ToInt32(lbl_id.Text), Convert.ToString(txt_proje_no.Text), Convert.ToString(txt_proje_adi.Text), Convert.ToDecimal(txt_butce.Text), Convert.ToString(cmb_birim.Text), Convert.ToString(txt_musteri.Text), Convert.ToDateTime(dtp_baslangıc.Text), Convert.ToDateTime(bitis), Convert.ToInt32(txt_vade.Text), Convert.ToString(rcb_aciklama.Text), Convert.ToDecimal(harcama_m_mlz), Convert.ToDecimal(harcama_el_mlz), Convert.ToDecimal(harcama_imalat), Convert.ToDecimal(harcama_test), Convert.ToDecimal(harcama_risk), Convert.ToDecimal(lbl_harcamalar.Text), Convert.ToString(lbl_birim.Text), Convert.ToDecimal(odeme_avans), Convert.ToDateTime(dtp_avans), Convert.ToDecimal(odeme_pdr), Convert.ToDateTime(dtp_pdr), Convert.ToDecimal(odeme_cdr), Convert.ToDateTime(dtp_cdr), Convert.ToDecimal(odeme_prototip), Convert.ToDateTime(dtp_prototip), Convert.ToDecimal(odeme_test), Convert.ToDateTime(dtp_test), Convert.ToDecimal(odeme_kabul), Convert.ToDateTime(dtp_kabul),Convert.ToString(flag));
+                myConnection.Close();
                 this.Close();
             }
         }
