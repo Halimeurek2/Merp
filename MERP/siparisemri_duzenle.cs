@@ -30,7 +30,7 @@ namespace MERP
         HelperFunctions hf;
 
 
-        decimal siparis_euro;
+        string siparis_euro;
 
         public siparisemri_duzenle()
         {
@@ -70,18 +70,11 @@ namespace MERP
                 }
                 else
                 {
-                    siparis_euro = Convert.ToDecimal(hf.EuroCalculation(date_teslim.Text, txt_mlz_brmFiyat.Text, cmb_paraBirimi.Text, Convert.ToString(siparis_euro)));
+                    siparis_euro = hf.EuroCalculation(date_teslim.Text, txt_mlz_brmFiyat.Text, cmb_paraBirimi.Text, siparis_euro);
 
-                    if(siparis_euro==Convert.ToDecimal(0000))
-                    {
-                        MessageBox.Show("Lütfen İnternete Bağlanınız");
-                    }
-                    else
-                    {
-                        db = new DBConnect();
-                        db.UpdateSE(Convert.ToInt32(lbl_id.Text), Convert.ToString(cmb_prjno.Text), Convert.ToString(txt_siparisNo.Text), Convert.ToString(txt_tedarikci.Text), Convert.ToString(txt_talepKisi.Text), Convert.ToDateTime(date_teslim.Text), Convert.ToInt32(txt_vade.Text), Convert.ToDateTime(date_temin.Text), Convert.ToDecimal(txt_mlz_brmFiyat.Text), Convert.ToString(cmb_paraBirimi.Text), siparis_euro, Convert.ToString(rcb_aciklama.Text));
-                        this.Close();
-                    }
+                    db = new DBConnect();
+                    db.UpdateSE(Convert.ToInt32(lbl_id.Text), Convert.ToString(cmb_prjno.Text), Convert.ToString(txt_siparisNo.Text), Convert.ToString(txt_tedarikci.Text), Convert.ToString(txt_talepKisi.Text), Convert.ToDateTime(date_teslim.Text), Convert.ToString(txt_vade.Text), Convert.ToDateTime(date_temin.Text), Convert.ToDecimal(txt_mlz_brmFiyat.Text), Convert.ToString(cmb_paraBirimi.Text), Convert.ToString(siparis_euro), Convert.ToString(rcb_aciklama.Text));
+                    this.Close();
                 }
             }
         }

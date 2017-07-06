@@ -235,8 +235,6 @@ namespace MERP
             ho.txt_imalat.Text = harcama_imalat;
             ho.txt_test.Text = harcama_test;
             ho.txt_risk.Text = harcama_risk;
-            ho.txt_toplam.Text = harcamalar;
-            ho.cmb_toplam_brm.Text = harcama_birim;
             ho.txt_avans.Text = odeme_avans;
             ho.txt_pdr.Text = odeme_pdr;
             ho.txt_cdr.Text = odeme_cdr;

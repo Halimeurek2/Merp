@@ -33,7 +33,7 @@ namespace MERP
         object Missing = System.Reflection.Missing.Value;
 
         public int i = 0;
-        public decimal siparis_euro;
+        public string siparis_euro;
 
         public siparisemri_giris()
         {
@@ -102,18 +102,12 @@ namespace MERP
                 }
                 else
                 {
-                    siparis_euro = Convert.ToDecimal(hf.EuroCalculation(date_teslim.Text, txt_mlz_brmFiyat.Text, cmb_paraBirimi.Text, Convert.ToString(siparis_euro)));
+                    siparis_euro = hf.EuroCalculation(date_teslim.Text, txt_mlz_brmFiyat.Text, cmb_paraBirimi.Text, siparis_euro);
 
-                    if(siparis_euro==Convert.ToDecimal(0000))
-                    {
-                        MessageBox.Show("Lütfen İnternete Bağlanınız");
-                    }
-                    else
-                    {
-                        db = new DBConnect();
-                        db.InsertSE(Convert.ToString(cmb_prjno.Text), Convert.ToString(txt_siparisNo.Text), Convert.ToString(txt_tedarikci.Text), Convert.ToString(txt_talepKisi.Text), Convert.ToDateTime(date_teslim.Text), Convert.ToInt32(txt_vade.Text), Convert.ToDateTime(date_temin.Text), Convert.ToDecimal(txt_mlz_brmFiyat.Text), Convert.ToString(cmb_paraBirimi.Text), siparis_euro, Convert.ToString(rcb_aciklama.Text));
-                        this.Close();
-                    }
+                    db = new DBConnect();
+                    db.InsertSE(Convert.ToString(cmb_prjno.Text), Convert.ToString(txt_siparisNo.Text), Convert.ToString(txt_tedarikci.Text), Convert.ToString(txt_talepKisi.Text), Convert.ToDateTime(date_teslim.Text), Convert.ToString(txt_vade.Text), Convert.ToDateTime(date_temin.Text), Convert.ToDecimal(txt_mlz_brmFiyat.Text), Convert.ToString(cmb_paraBirimi.Text), Convert.ToString(siparis_euro), Convert.ToString(rcb_aciklama.Text));
+
+                    this.Close();
                 }
             }
         }
@@ -133,11 +127,6 @@ namespace MERP
         }
 
         private void btn_update_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void date_temin_ValueChanged(object sender, EventArgs e)
         {
 
         }

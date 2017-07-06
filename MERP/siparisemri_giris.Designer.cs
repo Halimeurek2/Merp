@@ -200,7 +200,6 @@
             this.date_temin.Name = "date_temin";
             this.date_temin.Size = new System.Drawing.Size(205, 20);
             this.date_temin.TabIndex = 24;
-            this.date_temin.ValueChanged += new System.EventHandler(this.date_temin_ValueChanged);
             // 
             // label5
             // 

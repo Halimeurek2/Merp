@@ -112,91 +112,46 @@ namespace MERP
 
         private void btn_sil_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow a in dg_acil.Rows)
+            DialogResult sil = new DialogResult();
+            sil = MessageBox.Show("Emin misiniz?", "FATURA SİLME", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+
+            if (sil == DialogResult.Yes)
             {
-                if (a.Selected == true)
-                {
-                    DialogResult sil = new DialogResult();
-                    sil = MessageBox.Show("Emin misiniz?", "FATURA SİLME", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                komut = "DELETE FROM db_aktivite WHERE akt_id='" + akt_id + "'";
+                myCommand = new MySqlCommand(komut, myConnection);
+                da = new MySqlDataAdapter(myCommand);
+                dt = new DataTable();
+                // myReader = myCommand.ExecuteReader();
 
-                    if (sil == DialogResult.Yes)
-                    {
-                        komut = "DELETE FROM db_aktivite WHERE akt_id='" + akt_id + "'";
-                        myCommand = new MySqlCommand(komut, myConnection);
-                        da = new MySqlDataAdapter(myCommand);
-                        dt = new DataTable();
-                        // myReader = myCommand.ExecuteReader();
+                da.Fill(dt);
 
-                        da.Fill(dt);
+                dg_acil.DataSource = dt;
 
-                        dg_acil.DataSource = dt;
-
-                        dg_acil.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                        dg_acil.AutoSizeColumnsMode =
-                                   DataGridViewAutoSizeColumnsMode.Fill;
+                dg_acil.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dg_acil.AutoSizeColumnsMode =
+                           DataGridViewAutoSizeColumnsMode.Fill;
 
 
-                        komut = "SELECT * FROM db_aktivite WHERE akt_oncelik='" + Convert.ToString("ACİL") + "'";
-                        myCommand = new MySqlCommand(komut, myConnection);
-                        da = new MySqlDataAdapter(myCommand);
-                        dt = new DataTable();
-                        // myReader = myCommand.ExecuteReader();
+                komut = "SELECT * FROM db_aktivite WHERE akt_oncelik='" + Convert.ToString("ACİL") +"'";
+                myCommand = new MySqlCommand(komut, myConnection);
+                da = new MySqlDataAdapter(myCommand);
+                dt = new DataTable();
+                // myReader = myCommand.ExecuteReader();
 
-                        da.Fill(dt);
+                da.Fill(dt);
 
-                        dg_acil.DataSource = dt;
+                dg_acil.DataSource = dt;
 
-                        dg_acil.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                        dg_acil.AutoSizeColumnsMode =
-                                   DataGridViewAutoSizeColumnsMode.Fill;
+                dg_acil.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dg_acil.AutoSizeColumnsMode =
+                           DataGridViewAutoSizeColumnsMode.Fill;
 
 
-                        myConnection.Close();
-                    }
-                }
+                myConnection.Close();
             }
-            foreach (DataGridViewRow n in dg_normal.Rows)
+            else
             {
-                if (n.Selected == true)
-                {
-                    DialogResult sil = new DialogResult();
-                    sil = MessageBox.Show("Emin misiniz?", "FATURA SİLME", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
 
-                    if (sil == DialogResult.Yes)
-                    {
-                        komut = "DELETE FROM db_aktivite WHERE akt_id='" + akt_id + "'";
-                        myCommand = new MySqlCommand(komut, myConnection);
-                        da = new MySqlDataAdapter(myCommand);
-                        dt = new DataTable();
-                        // myReader = myCommand.ExecuteReader();
-
-                        da.Fill(dt);
-
-                        dg_normal.DataSource = dt;
-
-                        dg_normal.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                        dg_normal.AutoSizeColumnsMode =
-                                   DataGridViewAutoSizeColumnsMode.Fill;
-
-
-                        komut = "SELECT * FROM db_aktivite WHERE akt_oncelik='" + Convert.ToString("NORMAL") + "'";
-                        myCommand = new MySqlCommand(komut, myConnection);
-                        da = new MySqlDataAdapter(myCommand);
-                        dt = new DataTable();
-                        // myReader = myCommand.ExecuteReader();
-
-                        da.Fill(dt);
-
-                        dg_normal.DataSource = dt;
-
-                        dg_normal.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                        dg_normal.AutoSizeColumnsMode =
-                                   DataGridViewAutoSizeColumnsMode.Fill;
-
-
-                        myConnection.Close();
-                    }
-                }
             }
         }
 

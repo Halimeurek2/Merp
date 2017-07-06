@@ -51,8 +51,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txt_avans = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.cmb_ftr_tip = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txt_ftr_tutar
@@ -71,7 +69,7 @@
             "EUR",
             "TRY",
             "CHF"});
-            this.cmb_birim.Location = new System.Drawing.Point(367, 192);
+            this.cmb_birim.Location = new System.Drawing.Point(331, 191);
             this.cmb_birim.Name = "cmb_birim";
             this.cmb_birim.Size = new System.Drawing.Size(187, 21);
             this.cmb_birim.TabIndex = 59;
@@ -261,35 +259,11 @@
             this.label10.TabIndex = 61;
             this.label10.Text = "Fatura Avans : ";
             // 
-            // cmb_ftr_tip
-            // 
-            this.cmb_ftr_tip.FormattingEnabled = true;
-            this.cmb_ftr_tip.Items.AddRange(new object[] {
-            "Mekanik",
-            "Elektronik",
-            "Genel Giderler"});
-            this.cmb_ftr_tip.Location = new System.Drawing.Point(367, 234);
-            this.cmb_ftr_tip.Name = "cmb_ftr_tip";
-            this.cmb_ftr_tip.Size = new System.Drawing.Size(187, 21);
-            this.cmb_ftr_tip.TabIndex = 64;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label11.Location = new System.Drawing.Point(269, 235);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(81, 16);
-            this.label11.TabIndex = 63;
-            this.label11.Text = "Fatura Tipi : ";
-            // 
             // kesilen_fatura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(570, 357);
-            this.Controls.Add(this.cmb_ftr_tip);
-            this.Controls.Add(this.label11);
             this.Controls.Add(this.txt_avans);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txt_ftr_tutar);
@@ -346,7 +320,5 @@
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.TextBox txt_avans;
         private System.Windows.Forms.Label label10;
-        public System.Windows.Forms.ComboBox cmb_ftr_tip;
-        public System.Windows.Forms.Label label11;
     }
 }
