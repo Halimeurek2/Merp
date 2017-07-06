@@ -44,15 +44,11 @@
             this.txt_toplam = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.cmb_toplam_brm = new System.Windows.Forms.ComboBox();
-            this.cmb_top_brm = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.txt_kabul = new System.Windows.Forms.TextBox();
             this.txt_o_test = new System.Windows.Forms.TextBox();
             this.txt_prototip = new System.Windows.Forms.TextBox();
             this.txt_cdr = new System.Windows.Forms.TextBox();
             this.txt_pdr = new System.Windows.Forms.TextBox();
-            this.lbl_brm = new System.Windows.Forms.Label();
-            this.lbl_top = new System.Windows.Forms.Label();
             this.txt_avans = new System.Windows.Forms.TextBox();
             this.lbl_kabul = new System.Windows.Forms.Label();
             this.lbl_test = new System.Windows.Forms.Label();
@@ -135,9 +131,9 @@
             this.btn_hesapla.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btn_hesapla.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_hesapla.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_hesapla.Location = new System.Drawing.Point(629, 290);
+            this.btn_hesapla.Location = new System.Drawing.Point(440, 290);
             this.btn_hesapla.Name = "btn_hesapla";
-            this.btn_hesapla.Size = new System.Drawing.Size(184, 49);
+            this.btn_hesapla.Size = new System.Drawing.Size(373, 49);
             this.btn_hesapla.TabIndex = 68;
             this.btn_hesapla.Text = "Hesapla";
             this.btn_hesapla.UseVisualStyleBackColor = false;
@@ -208,26 +204,6 @@
             this.cmb_toplam_brm.Size = new System.Drawing.Size(175, 21);
             this.cmb_toplam_brm.TabIndex = 85;
             // 
-            // cmb_top_brm
-            // 
-            this.cmb_top_brm.FormattingEnabled = true;
-            this.cmb_top_brm.Items.AddRange(new object[] {
-            "USD",
-            "EUR",
-            "TRY",
-            "CHF"});
-            this.cmb_top_brm.Location = new System.Drawing.Point(507, 318);
-            this.cmb_top_brm.Name = "cmb_top_brm";
-            this.cmb_top_brm.Size = new System.Drawing.Size(100, 21);
-            this.cmb_top_brm.TabIndex = 114;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(507, 284);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 107;
-            // 
             // txt_kabul
             // 
             this.txt_kabul.Location = new System.Drawing.Point(507, 245);
@@ -262,26 +238,6 @@
             this.txt_pdr.Name = "txt_pdr";
             this.txt_pdr.Size = new System.Drawing.Size(100, 20);
             this.txt_pdr.TabIndex = 102;
-            // 
-            // lbl_brm
-            // 
-            this.lbl_brm.AutoSize = true;
-            this.lbl_brm.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_brm.Location = new System.Drawing.Point(437, 318);
-            this.lbl_brm.Name = "lbl_brm";
-            this.lbl_brm.Size = new System.Drawing.Size(50, 16);
-            this.lbl_brm.TabIndex = 101;
-            this.lbl_brm.Text = "Birim : ";
-            // 
-            // lbl_top
-            // 
-            this.lbl_top.AutoSize = true;
-            this.lbl_top.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_top.Location = new System.Drawing.Point(437, 285);
-            this.lbl_top.Name = "lbl_top";
-            this.lbl_top.Size = new System.Drawing.Size(64, 16);
-            this.lbl_top.TabIndex = 94;
-            this.lbl_top.Text = "Toplam : ";
             // 
             // txt_avans
             // 
@@ -429,15 +385,11 @@
             this.Controls.Add(this.dtp_avans);
             this.Controls.Add(this.label28);
             this.Controls.Add(this.label27);
-            this.Controls.Add(this.cmb_top_brm);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.txt_kabul);
             this.Controls.Add(this.txt_o_test);
             this.Controls.Add(this.txt_prototip);
             this.Controls.Add(this.txt_cdr);
             this.Controls.Add(this.txt_pdr);
-            this.Controls.Add(this.lbl_brm);
-            this.Controls.Add(this.lbl_top);
             this.Controls.Add(this.txt_avans);
             this.Controls.Add(this.lbl_kabul);
             this.Controls.Add(this.lbl_test);
@@ -487,15 +439,11 @@
         public System.Windows.Forms.TextBox txt_toplam;
         public System.Windows.Forms.Label label12;
         public System.Windows.Forms.ComboBox cmb_toplam_brm;
-        public System.Windows.Forms.ComboBox cmb_top_brm;
-        public System.Windows.Forms.TextBox textBox1;
         public System.Windows.Forms.TextBox txt_kabul;
         public System.Windows.Forms.TextBox txt_o_test;
         public System.Windows.Forms.TextBox txt_prototip;
         public System.Windows.Forms.TextBox txt_cdr;
         public System.Windows.Forms.TextBox txt_pdr;
-        public System.Windows.Forms.Label lbl_brm;
-        public System.Windows.Forms.Label lbl_top;
         public System.Windows.Forms.TextBox txt_avans;
         public System.Windows.Forms.Label lbl_kabul;
         public System.Windows.Forms.Label lbl_test;

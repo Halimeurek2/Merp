@@ -41,13 +41,15 @@ namespace MERP
         public string EuroCalculation(string tarih, string tutar, string birim, string euro)
         {
 
-                DateTime dt = Convert.ToDateTime(tarih);
-                tarih = dt.ToString("dd/MM/yyyy");
-                string[] tr = tarih.Split('-');
-                tarih = Convert.ToString(tr[0] + tr[1] + tr[2]);
-                tarih2 = Convert.ToString(tr[2] + tr[1]);
-                string anyDays = "http://www.tcmb.gov.tr/kurlar/" + tarih2 + "/" + tarih + ".xml";
-              
+            DateTime dt = Convert.ToDateTime(tarih);
+            tarih = dt.ToString("dd/MM/yyyy");
+            string[] tr = tarih.Split('-');
+            tarih = Convert.ToString(tr[0] + tr[1] + tr[2]);
+            tarih2 = Convert.ToString(tr[2] + tr[1]);
+            string anyDays = "http://www.tcmb.gov.tr/kurlar/" + tarih2 + "/" + tarih + ".xml";
+
+            try
+            {
                 var xmlDoc = new XmlDocument();
                 xmlDoc.Load(anyDays);
 
@@ -85,13 +87,32 @@ namespace MERP
                 }
                 else
                 {
-                    euro = "Sikinti var";
+                    euro = Convert.ToString((0000));
                 }
-            return euro;
+                return euro;
+            }
+            catch
+            {
+                euro = Convert.ToString((0000));
+                return euro;
+            }
         }
 
-   
-          
-        }                   
-    }
+
+        public void tarih(int elemanSayisi, DateTime[] tarih, float[] fatura)
+        {
+            UInt32 row = 0, column = 0;
+            DateTime tempDate = new DateTime();
+
+            for (row = 0; row < elemanSayisi; row++)
+                for (column = 0; column < elemanSayisi - 1; column++)
+                    if (Int32.Parse(tarih[column].ToString("yyyyMMdd")) > Int32.Parse(tarih[column + 1].ToString("yyyyMMdd")))
+                    {
+                        tempDate = tarih[column];
+                        tarih[column] = tarih[column + 1];
+                        tarih[column + 1] = tempDate;
+                    }
+        }
+    }                   
+}
 

@@ -83,9 +83,10 @@ namespace MERP
                                       Boolean check, 
                                       Decimal tutar, 
                                       string birim, 
-                                      Decimal avans, 
-                                      string fatura_euro, 
-                                      string tip)
+                                      int avans, 
+                                      decimal fatura_euro, 
+                                      string tip,
+                                      string cins)
         {
 
             MySqlCommand cmd = new MySqlCommand("INSERT INTO db_faturalar (fatura_no,"+
@@ -99,7 +100,7 @@ namespace MERP
            "fatura_tutari,"+
            "fatura_birim,"+
            "fatura_avans,"+
-           "fatura_euro,fatura_tipi) VALUES (@fatura_no,"+
+           "fatura_euro,fatura_tipi,fatura_cinsi) VALUES (@fatura_no,"+
            "@proje_no,"+
            "@firma,"+
            "@vade,"+
@@ -110,7 +111,7 @@ namespace MERP
            "@tutar,"+
            "@birim,"+
            "@avans,"+
-           "@fatura_euro,@tip)", connection);
+           "@fatura_euro,@tip,@cins)", connection);
 
             cmd.Parameters.AddWithValue("@fatura_no", fatura_no);
             cmd.Parameters.AddWithValue("@proje_no", proje_no);
@@ -125,6 +126,7 @@ namespace MERP
             cmd.Parameters.AddWithValue("@avans", avans);
             cmd.Parameters.AddWithValue("@fatura_euro", fatura_euro);
             cmd.Parameters.AddWithValue("@tip", tip);
+            cmd.Parameters.AddWithValue("@cins", cins);
 
 
             //open connection
@@ -132,7 +134,7 @@ namespace MERP
             {
 
                 //Execute command
-                cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery(); 
 
                 //close connection
                 this.CloseConnection();
@@ -253,11 +255,11 @@ namespace MERP
                              string tedarikci, 
                              string siparisi_olusturan, 
                              DateTime siparis_tarihi, 
-                             string vade,
+                             int vade,
                              DateTime temin_tarihi,
                              decimal fiyat,
                              string birim,
-                             string siparis_euro, 
+                             decimal siparis_euro, 
                              string aciklama)
         {
 
@@ -403,9 +405,10 @@ namespace MERP
                                     Boolean check,
                                     Decimal tutar, 
                                     string birim,
-                                    Decimal avans, 
-                                    string fatura_euro, 
-                                    string tip)
+                                    int avans, 
+                                    decimal fatura_euro, 
+                                    string tip,
+                                    string cins)
         {
             MySqlCommand cmd = new MySqlCommand("update db_faturalar set fatura_no=@fatura_no,"+
            "fatura_proje_no=@proje_no,"+
@@ -419,7 +422,8 @@ namespace MERP
            "fatura_birim=@birim,"+
            "fatura_avans=@avans,"+
            "fatura_euro=@fatura_euro,"+
-           "fatura_tipi=@tip where fatura_id=@id", connection);
+           "fatura_tipi=@tip,"+
+           "fatura_cinsi=@cins where fatura_id=@id", connection);
 
             cmd.Parameters.AddWithValue("@id", id);
             cmd.Parameters.AddWithValue("@fatura_no", fatura_no);
@@ -435,6 +439,7 @@ namespace MERP
             cmd.Parameters.AddWithValue("avans", avans);
             cmd.Parameters.AddWithValue("@fatura_euro", fatura_euro);
             cmd.Parameters.AddWithValue("@tip", tip);
+            cmd.Parameters.AddWithValue("@cins", cins);
 
 
             if (this.OpenConnection() == true)
@@ -557,11 +562,11 @@ namespace MERP
                              string tedarikci,
                              string siparisi_olusturan,
                              DateTime siparis_tarihi,
-                             string vade, 
+                             int vade, 
                              DateTime temin_tarihi, 
                              decimal fiyat,
                              string birim,
-                             string siparis_euro, 
+                             decimal siparis_euro, 
                              string aciklama)
         {
 

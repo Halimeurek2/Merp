@@ -40,6 +40,7 @@ namespace MERP
         string fatura_tarih;
         string acıklama;
         string tip;
+        string cins;
 
         public faturalar()
         {
@@ -92,6 +93,7 @@ namespace MERP
             obj.cmb_birim.Text = birim;
             obj.txt_avans.Text = avans;
             obj.lbl_tip.Text = tip;
+            obj.cmb_ftr_tip.Text = cins;
             obj.Show();
            
         }
@@ -157,6 +159,7 @@ namespace MERP
             birim = dgw_ftr_list.Rows[e.RowIndex].Cells[10].Value.ToString();
             avans= dgw_ftr_list.Rows[e.RowIndex].Cells[11].Value.ToString();
             tip = dgw_ftr_list.Rows[e.RowIndex].Cells[13].Value.ToString();
+            cins = dgw_ftr_list.Rows[e.RowIndex].Cells[14].Value.ToString();
         }
 
         private void txt_firma_TextChanged(object sender, EventArgs e)

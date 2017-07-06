@@ -6,8 +6,7 @@ using MySql.Data.MySqlClient;
 using System.Net.Mail;
 using System.Net;
 using System.Windows.Forms.DataVisualization.Charting;
-
-
+using System.Globalization;
 
 namespace MERP
 {
@@ -27,6 +26,8 @@ namespace MERP
         MySqlDataReader myReader;
         DataTable dt = new DataTable();
 
+        HelperFunctions hf;
+
         string fatura_vade;
         DateTime fatura_vade_tarih;
         DateTime tarih;
@@ -35,37 +36,36 @@ namespace MERP
         public int flag = 0;
         SmtpClient sc;
         int elemanSayisi = 0;
+        int elemanSayisiOdeme = 0;
+        int count;
         int i = 0;
         Series series;
         Series seriesCopy;
-        DateTime[] tarih_array_K = new DateTime[99999];
-        float[] fatura_tutar_K = new float[99999];
-        DateTime[] tarih_array_G = new DateTime[99999];
-        float[] toplam_fatura_G = new float[12];
-        float[] toplam_fatura_K = new float[12];
-        float[] fatura_tutar_G = new float[99999];
+        Series seriesOngoru;
+
         private DataSet dsDovizKur;
 
         ToolTip tooltip = new ToolTip();
         Point? clickPosition = null;
 
+        DateTime[] tarih_array_K = new DateTime[1000];
+        float[] fatura_tutar_K = new float[1000];
+        DateTime[] tarih_array_G = new DateTime[1000];
+        float[] fatura_tutar_G = new float[1000];
 
-        /*
-         * test edilecek
-         */
-         enum years
-        {
-            y2016 = 0,
-            y2017
-        };
+        float[] toplam_fatura_G = new float[12];
+        float[] toplam_fatura_K = new float[12];
+
+        float[] odemeler = new float[6];
+        DateTime[] dt_odemeler = new DateTime[6];
+
+
 
         float[,] sum_fatura = new float[2,12];
 
-
-
         public MainScreen()
         {
-            InitializeComponent();       
+            InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -79,14 +79,24 @@ namespace MERP
             myConnection = new MySqlConnection(connectionString);
             myConnection.Open();
 
-            dsDovizKur = new DataSet();
-            dsDovizKur.ReadXml(@"http://www.tcmb.gov.tr/kurlar/today.xml");
-            DataRow dr = dsDovizKur.Tables[1].Rows[0];
-            lbl_usd.Text = dr[4].ToString().Replace('.', ',');
-            dr = dsDovizKur.Tables[1].Rows[3];
-            lbl_eur.Text = dr[4].ToString().Replace('.', ',');
-            dr = dsDovizKur.Tables[1].Rows[4];
-            lbl_gbp.Text = dr[4].ToString().Replace('.', ',');
+            
+            try
+            {
+                dsDovizKur = new DataSet();
+                dsDovizKur.ReadXml(@"http://www.tcmb.gov.tr/kurlar/today.xml");
+                DataRow dr = dsDovizKur.Tables[1].Rows[0];
+                lbl_usd.Text = dr[4].ToString().Replace('.', ',');
+                dr = dsDovizKur.Tables[1].Rows[3];
+                lbl_eur.Text = dr[4].ToString().Replace('.', ',');
+                dr = dsDovizKur.Tables[1].Rows[4];
+                lbl_gbp.Text = dr[4].ToString().Replace('.', ',');
+            }
+            catch
+            {
+                lbl_usd.Text = "Connection Fail!";
+                lbl_eur.Text = "Connection Fail!";
+                lbl_gbp.Text = "Connection Fail!";
+            }
 
 
 
@@ -255,34 +265,32 @@ namespace MERP
             this.chart1.Series.Clear();
             // this.chart1.ChartAreas.Clear();
             this.chart1.Titles.Add("Faturalar");
+
             series = this.chart1.Series.Add("Gelen Faturalar");
-            series.ChartType = SeriesChartType.StepLine;
+            series.ChartType = SeriesChartType.Column;
+            series.Color = Color.Red;
             series.MarkerStyle = MarkerStyle.Circle;
             series.MarkerColor = Color.Red;
             series.IsValueShownAsLabel = true;
             series.LabelAngle = 30;
 
-            ChartArea area1 = chart1.ChartAreas.Add("ChartAreaCopy_" + series.Name);
-            area1.BackColor = Color.Transparent;
-            area1.BorderColor = Color.Transparent;
-            area1.Position.FromRectangleF(area1.Position.ToRectangleF());
-            area1.InnerPlotPosition.FromRectangleF(area1.InnerPlotPosition.ToRectangleF());
-            area1.AxisX.MajorGrid.Enabled = false;
-            area1.AxisX.MajorTickMark.Enabled = false;
-            area1.AxisX.LabelStyle.Enabled = false;
-            area1.AxisY.MajorGrid.Enabled = false;
-            area1.AxisY.MajorTickMark.Enabled = false;
-            area1.AxisY.LabelStyle.Enabled = false;
-
-            area1.AxisY2.Enabled = AxisEnabled.True;
-            area1.AxisY2.LabelStyle.Enabled = true;
 
             seriesCopy = chart1.Series.Add("Kesilen Faturalar");
             seriesCopy.ChartType = series.ChartType;
+            seriesCopy.Color = Color.Blue;
             seriesCopy.MarkerColor = series.MarkerColor;
             seriesCopy.MarkerStyle = series.MarkerStyle;
             seriesCopy.IsValueShownAsLabel = true;
             seriesCopy.LabelAngle = 30;
+
+
+            seriesOngoru = chart1.Series.Add("Öngörülen Ödemeler");
+            seriesOngoru.ChartType = SeriesChartType.Column;
+            seriesOngoru.Color = Color.Orange;
+            seriesOngoru.MarkerColor = Color.Blue;
+            seriesOngoru.MarkerStyle = MarkerStyle.Square;
+            seriesOngoru.IsValueShownAsLabel = true;
+            seriesOngoru.LabelAngle = 30;
             //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             myConnection.Close();
             maliyet_hesapla();
@@ -301,11 +309,11 @@ namespace MERP
             int a = dg_maliyet.RowCount;
 
             komut = "select fatura_proje_no as PROJE_NO, sum(case when fatura_birim = 'TRY' then fatura_tutari else 0 end) as TRY, " +
-                    "sum(case when fatura_birim = 'EUR' then fatura_tutari else 0 end) as EUR ," +
-                    "sum(case when fatura_birim = 'USD' then fatura_tutari else 0 end) as USD , " +
-                    "sum(case when fatura_birim = 'GBP' then fatura_tutari else 0 end) as GBP , " +
-                    "sum(case when fatura_birim = 'CHF' then fatura_tutari else 0 end) as CHF  " +
-                    "from db_faturalar group by fatura_proje_no";
+                   "sum(case when fatura_birim = 'EUR' then fatura_tutari else 0 end) as EUR ," +
+                   "sum(case when fatura_birim = 'USD' then fatura_tutari else 0 end) as USD , " +
+                   "sum(case when fatura_birim = 'GBP' then fatura_tutari else 0 end) as GBP , " +
+                   "sum(fatura_euro) as Toplam_Euro " +
+                   "from db_faturalar where fatura_tipi = 'G' group by fatura_proje_no";
 
             myCommand = new MySqlCommand(komut, myConnection);
             da = new MySqlDataAdapter(myCommand);
@@ -315,6 +323,16 @@ namespace MERP
             dg_maliyet.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dg_maliyet.AutoSizeColumnsMode =
                        DataGridViewAutoSizeColumnsMode.Fill;
+
+            dg_maliyet.Columns[1].DefaultCellStyle.Format = "c2";
+            dg_maliyet.Columns[2].DefaultCellStyle.Format = "c2";
+            dg_maliyet.Columns[2].DefaultCellStyle.FormatProvider = CultureInfo.GetCultureInfo("de-DE");
+            dg_maliyet.Columns[3].DefaultCellStyle.Format = "c2";
+            dg_maliyet.Columns[3].DefaultCellStyle.FormatProvider = CultureInfo.GetCultureInfo("en-US");
+            dg_maliyet.Columns[4].DefaultCellStyle.Format = "c2";
+            dg_maliyet.Columns[4].DefaultCellStyle.FormatProvider = CultureInfo.GetCultureInfo("en-GB");
+            dg_maliyet.Columns[5].DefaultCellStyle.Format = "c2";
+            dg_maliyet.Columns[5].DefaultCellStyle.FormatProvider = CultureInfo.GetCultureInfo("de-DE");
             myConnection.Close();
         }
 
@@ -448,15 +466,16 @@ namespace MERP
         {
             i = 0;
             elemanSayisi = 0;
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
             myConnection.Open();
             komut = "SELECT * FROM db_faturalar WHERE fatura_proje_no='" + cmb_proje.Text + "' AND fatura_tipi='K'";
             da = new MySqlDataAdapter(komut, connection);
-
-            //  myConnection = new MySqlConnection(connectionString);
+ 
             myCommand = new MySqlCommand(komut, myConnection);
             myReader = myCommand.ExecuteReader();
-            // Always call Read before accessing data.
+
             while (myReader.Read())
             {           
                 tarih_array_K[i] = Convert.ToDateTime(myReader.GetString(7));            
@@ -465,56 +484,140 @@ namespace MERP
                 elemanSayisi++;
             }
             myReader.Close();
-
+           
             i = 0;
             elemanSayisi = 0;
 
             komut = "SELECT * FROM db_faturalar WHERE fatura_proje_no='" + cmb_proje.Text + "' AND fatura_tipi='G'";
             da = new MySqlDataAdapter(komut, connection);
 
-            //  myConnection = new MySqlConnection(connectionString);
             myCommand = new MySqlCommand(komut, myConnection);
             myReader = myCommand.ExecuteReader();
-            // Always call Read before accessing data.
+
+            UInt32 row = 0, column = 0;
             while (myReader.Read())
             {
-                tarih_array_G[i] = Convert.ToDateTime(myReader.GetString(7));
-               // MessageBox.Show(Convert.ToString(tarih_array_G[i]));
-                fatura_tutar_G[i] = (float)Convert.ToDouble(myReader.GetString(12));
-               // MessageBox.Show(Convert.ToString(fatura_tutar_G[i]));
-                i++;
-                elemanSayisi++;
+               tarih_array_G[i] = Convert.ToDateTime(myReader.GetString(7));
+               fatura_tutar_G[i] = (float)Convert.ToDouble(myReader.GetString(12));
+
+               i++;
+               elemanSayisi++;
+            }
+
+            //  hf.tarih(elemanSayisi, tarih_array_G, fatura_tutar_G);
+
+            /*
+             * Bubble Sort
+             */
+            DateTime tempDate = new DateTime();
+            float tempBill = 0;
+            for (row = 0; row < elemanSayisi; row++)
+                for (column = 0; column < elemanSayisi - 1; column++)
+                {
+                    if (Int32.Parse(tarih_array_G[column].ToString("yyyyMMdd")) > Int32.Parse(tarih_array_G[column + 1].ToString("yyyyMMdd")))
+                    {
+                        tempDate = tarih_array_G[column];
+                        tempBill = fatura_tutar_G[column];
+
+                        tarih_array_G[column] = tarih_array_G[column + 1];
+                        tarih_array_G[column + 1] = tempDate;
+
+                        fatura_tutar_G[column] = fatura_tutar_G[column + 1];
+                        fatura_tutar_G[column + 1] = tempBill;
+                    }
+                    if (Int32.Parse(tarih_array_K[column].ToString("yyyyMMdd")) > Int32.Parse(tarih_array_K[column + 1].ToString("yyyyMMdd")))
+                    {
+                        tempDate = tarih_array_K[column];
+                        tempBill = fatura_tutar_K[column];
+
+                        tarih_array_K[column] = tarih_array_K[column + 1];
+                        tarih_array_K[column + 1] = tempDate;
+
+                        fatura_tutar_K[column] = fatura_tutar_K[column + 1];
+                        fatura_tutar_K[column + 1] = tempBill;
+                    }
+                }
+
+            myReader.Close();
+
+            i = 0;
+
+            komut = "SELECT * FROM db_projeler WHERE proje_no='" + cmb_proje.Text + "'";
+            da = new MySqlDataAdapter(komut, connection);
+
+            myCommand = new MySqlCommand(komut, myConnection);
+            myReader = myCommand.ExecuteReader();
+
+            while (myReader.Read())
+            {
+                odemeler[0]= (float)Convert.ToDouble(myReader.GetString(17));
+                dt_odemeler[0]= Convert.ToDateTime(myReader.GetString(18));
+                odemeler[1] = (float)Convert.ToDouble(myReader.GetString(19));
+                dt_odemeler[1] = Convert.ToDateTime(myReader.GetString(20));
+                odemeler[2] = (float)Convert.ToDouble(myReader.GetString(21));
+                dt_odemeler[2] = Convert.ToDateTime(myReader.GetString(22));
+                odemeler[3] = (float)Convert.ToDouble(myReader.GetString(23));
+                dt_odemeler[3] = Convert.ToDateTime(myReader.GetString(24));
+                odemeler[4] = (float)Convert.ToDouble(myReader.GetString(25));
+                dt_odemeler[4] = Convert.ToDateTime(myReader.GetString(26));
+                odemeler[5] = (float)Convert.ToDouble(myReader.GetString(27));
+                dt_odemeler[5] = Convert.ToDateTime(myReader.GetString(28));
             }
             myReader.Close();
-            ////////////////////////////////////////////////////////////////////////////////////////////////////////////   
 
-            Int32 month;
-            for (month = 0; month < tarih_array_G.Length; month++)
-                if(Int32.Parse(tarih_array_G[month].ToString("yyyy"))==2017)
+
+            
+            tempBill = 0;
+            for (row = 0; row < odemeler.Length; row++)
+                for (column = 0; column < odemeler.Length - 1; column++)
+                {
+                    if (Int32.Parse(dt_odemeler[column].ToString("yyyyMMdd")) > Int32.Parse(dt_odemeler[column + 1].ToString("yyyyMMdd")))
+                    {
+                        tempDate = dt_odemeler[column];
+                        tempBill = odemeler[column];
+
+                        dt_odemeler[column] = dt_odemeler[column + 1];
+                        dt_odemeler[column + 1] = tempDate;
+
+                        odemeler[column] = odemeler[column + 1];
+                        odemeler[column + 1] = tempBill;
+                    }
+                }
+                    ////////////////////////////////////////////////////////////////////////////////////////////////////////////   
+
+                    Int32 month;
+            for (month = 0; month < elemanSayisi; month++)
+                //if(Int32.Parse(tarih_array_G[month].ToString("yyyy"))==2017)
                     toplam_fatura_G[Int32.Parse(tarih_array_G[month].ToString("MM"))-1] += fatura_tutar_G[month];
 
-            for (month = 0; month < tarih_array_K.Length; month++)
-                if (Int32.Parse(tarih_array_G[month].ToString("yyyy")) == 2017)
+            for (month = 0; month < elemanSayisi; month++)
+                //if (Int32.Parse(tarih_array_G[month].ToString("yyyy")) == 2017)
                     toplam_fatura_K[Int32.Parse(tarih_array_K[month].ToString("MM")) - 1] += fatura_tutar_K[month];
 
 
-            //Düzeltilecek
-            for (month = 0; month < tarih_array_K.Length; month++)
-                 sum_fatura[Int32.Parse(tarih_array_K[month].ToString("yyyy"))-2016, Int32.Parse(tarih_array_K[month].ToString("MM")) - 1] += fatura_tutar_K[month];
-            //
+   
+            //for (month = 0; month < tarih_array_K.Length; month++)
+            //    sum_fatura[Int32.Parse(tarih_array_K[month].ToString("yyyy")) - 2016, Int32.Parse(tarih_array_K[month].ToString("MM")) - 1] += fatura_tutar_K[month];
+
 
             series.Points.Clear();
             seriesCopy.Points.Clear();
-            for (i = 0; i < toplam_fatura_K.Length; i++)
+
+            
+
+            for (i = 0; i < 12; i++)
             {
                 seriesCopy.Points.AddXY(Convert.ToString(tarih_array_K[i]), Convert.ToDecimal(toplam_fatura_K[i]));
             }
-          //  this.chart1.Series.Clear();
-            for (i = 0; i < toplam_fatura_G.Length; i++)
+
+            for (i = 0; i < 12; i++)
             {
                 series.Points.AddXY(Convert.ToString(tarih_array_G[i]), Convert.ToDecimal(toplam_fatura_G[i]));
             }
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            for (i = 0; i < odemeler.Length; i++)
+            {
+                seriesOngoru.Points.AddXY(Convert.ToString(dt_odemeler[i]), Convert.ToDecimal(odemeler[i]));
+            }
             myConnection.Close();
         }
 
