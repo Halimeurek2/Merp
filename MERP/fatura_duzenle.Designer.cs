@@ -53,6 +53,8 @@
             this.lbl_tip = new System.Windows.Forms.Label();
             this.txt_avans = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.cmb_ftr_tip = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbl_id
@@ -81,7 +83,7 @@
             "EUR",
             "TRY",
             "CHF"});
-            this.cmb_birim.Location = new System.Drawing.Point(321, 195);
+            this.cmb_birim.Location = new System.Drawing.Point(366, 196);
             this.cmb_birim.Name = "cmb_birim";
             this.cmb_birim.Size = new System.Drawing.Size(187, 21);
             this.cmb_birim.TabIndex = 60;
@@ -90,7 +92,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label9.Location = new System.Drawing.Point(268, 195);
+            this.label9.Location = new System.Drawing.Point(313, 196);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(47, 16);
             this.label9.TabIndex = 59;
@@ -113,6 +115,7 @@
             this.txt_ftr_vade.Name = "txt_ftr_vade";
             this.txt_ftr_vade.Size = new System.Drawing.Size(158, 22);
             this.txt_ftr_vade.TabIndex = 57;
+            this.txt_ftr_vade.TextChanged += new System.EventHandler(this.txt_ftr_vade_TextChanged);
             // 
             // label7
             // 
@@ -281,11 +284,35 @@
             this.label10.TabIndex = 64;
             this.label10.Text = "Fatura Avans : ";
             // 
+            // cmb_ftr_tip
+            // 
+            this.cmb_ftr_tip.FormattingEnabled = true;
+            this.cmb_ftr_tip.Items.AddRange(new object[] {
+            "Mekanik",
+            "Elektronik",
+            "Genel Giderler"});
+            this.cmb_ftr_tip.Location = new System.Drawing.Point(366, 230);
+            this.cmb_ftr_tip.Name = "cmb_ftr_tip";
+            this.cmb_ftr_tip.Size = new System.Drawing.Size(187, 21);
+            this.cmb_ftr_tip.TabIndex = 67;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label11.Location = new System.Drawing.Point(268, 231);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(81, 16);
+            this.label11.TabIndex = 66;
+            this.label11.Text = "Fatura Tipi : ";
+            // 
             // fatura_duzenle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(565, 360);
+            this.Controls.Add(this.cmb_ftr_tip);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.txt_avans);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.lbl_tip);
@@ -346,5 +373,7 @@
         public System.Windows.Forms.Label lbl_tip;
         public System.Windows.Forms.TextBox txt_avans;
         private System.Windows.Forms.Label label10;
+        public System.Windows.Forms.ComboBox cmb_ftr_tip;
+        public System.Windows.Forms.Label label11;
     }
 }

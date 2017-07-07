@@ -28,8 +28,12 @@ namespace MERP
         DataTable dt = new DataTable();
         DBConnect db;
         HelperFunctions hf;
-        string fatura_euro;
+        decimal fatura_euro;
 
+
+        DateTime baslangic;
+        DateTime bitis;
+        string vade;
 
         public kesilen_fatura()
         {
@@ -89,7 +93,7 @@ namespace MERP
 
                 string dateToday = dt.ToString("d");
                 DayOfWeek day = Convert.ToDateTime(txt_ftr_tarih.Text).DayOfWeek;
-            
+
 
                 if ((day == DayOfWeek.Saturday) || (day == DayOfWeek.Sunday))
                 {
@@ -97,14 +101,39 @@ namespace MERP
                 }
                 else
                 {
-                    fatura_euro=hf.EuroCalculation(txt_ftr_tarih.Text, txt_ftr_tutar.Text, cmb_birim.Text, fatura_euro);
-                    
-                    db = new DBConnect();
+                    fatura_euro = Convert.ToDecimal(hf.EuroCalculation(txt_ftr_tarih.Text, txt_ftr_tutar.Text, cmb_birim.Text, Convert.ToString(fatura_euro)));
 
-                    db.InsertFaturaGiris(Convert.ToString(txt_fatura_no.Text), Convert.ToString(cmb_projeNo.Text), Convert.ToString(txt_firma.Text), Convert.ToInt32(txt_ftr_vade.Text), Convert.ToDateTime(date_alarm.Text), Convert.ToString(rcb_acıklama.Text), Convert.ToDateTime(txt_ftr_tarih.Text), ck_alarm.Checked, Convert.ToDecimal(txt_ftr_tutar.Text), Convert.ToString(cmb_birim.Text), Convert.ToDecimal(txt_avans.Text), fatura_euro, Convert.ToString('K'));
+                    if (fatura_euro == Convert.ToDecimal(000))
+                    {
+                        MessageBox.Show("Lütfen İnternete Bağlanınız");
+                    }
+                    else
+                    {
 
-                    this.Close();
+                        vade = Convert.ToString(txt_ftr_vade.Text);
+                        baslangic = Convert.ToDateTime(txt_ftr_tarih.Text);
+                        bitis = baslangic.AddDays(int.Parse(vade));
+
+                        db = new DBConnect();
+                        db.InsertFaturaGiris(Convert.ToString(txt_fatura_no.Text), Convert.ToString(cmb_projeNo.Text), Convert.ToString(txt_firma.Text), Convert.ToInt32(txt_ftr_vade.Text), bitis, Convert.ToString(rcb_acıklama.Text), Convert.ToDateTime(txt_ftr_tarih.Text), ck_alarm.Checked, Convert.ToDecimal(txt_ftr_tutar.Text), Convert.ToString(cmb_birim.Text), Convert.ToInt32(txt_avans.Text), fatura_euro, Convert.ToString('K'), Convert.ToString(cmb_ftr_tip.Text));
+                        this.Close();
+                    }
                 }
+            }
+        }
+
+        private void txt_ftr_vade_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                vade = Convert.ToString(txt_ftr_vade.Text);
+                baslangic = Convert.ToDateTime(txt_ftr_tarih.Text);
+                bitis = baslangic.AddDays(int.Parse(vade));
+                date_alarm.Value = bitis;
+            }
+            catch
+            {
+
             }
         }
     }

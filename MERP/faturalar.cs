@@ -40,6 +40,7 @@ namespace MERP
         string fatura_tarih;
         string acıklama;
         string tip;
+        string cins;
 
         public faturalar()
         {
@@ -92,8 +93,9 @@ namespace MERP
             obj.cmb_birim.Text = birim;
             obj.txt_avans.Text = avans;
             obj.lbl_tip.Text = tip;
+            obj.cmb_ftr_tip.Text = cins;
             obj.Show();
-           
+
         }
 
         private void btn_ftr_sil_Click(object sender, EventArgs e)
@@ -143,7 +145,7 @@ namespace MERP
         private void dgw_ftr_list_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             fatura_duzenle obj = new fatura_duzenle();
-            
+
             id = dgw_ftr_list.Rows[e.RowIndex].Cells[0].Value.ToString();
             fatura_no = dgw_ftr_list.Rows[e.RowIndex].Cells[1].Value.ToString();
             proje_no = dgw_ftr_list.Rows[e.RowIndex].Cells[2].Value.ToString();
@@ -155,23 +157,24 @@ namespace MERP
             check = Convert.ToInt32(dgw_ftr_list.Rows[e.RowIndex].Cells[8].Value);
             tutar = dgw_ftr_list.Rows[e.RowIndex].Cells[9].Value.ToString();
             birim = dgw_ftr_list.Rows[e.RowIndex].Cells[10].Value.ToString();
-            avans= dgw_ftr_list.Rows[e.RowIndex].Cells[11].Value.ToString();
+            avans = dgw_ftr_list.Rows[e.RowIndex].Cells[11].Value.ToString();
             tip = dgw_ftr_list.Rows[e.RowIndex].Cells[13].Value.ToString();
+            cins = dgw_ftr_list.Rows[e.RowIndex].Cells[14].Value.ToString();
         }
 
         private void txt_firma_TextChanged(object sender, EventArgs e)
         {
-            Refresh(3,txt_firma.Text);
+            Refresh(3, txt_firma.Text);
         }
 
         private void txt_ftr_no_TextChanged(object sender, EventArgs e)
         {
-            Refresh(1,txt_ftr_no.Text);
+            Refresh(1, txt_ftr_no.Text);
         }
 
         private void txt_tip_TextChanged(object sender, EventArgs e)
         {
-            Refresh(12,txt_tip.Text);
+            Refresh(12, txt_tip.Text);
         }
 
         public void Refresh(int i, string name)

@@ -40,14 +40,15 @@ namespace MERP
 
         public string EuroCalculation(string tarih, string tutar, string birim, string euro)
         {
+            DateTime dt = Convert.ToDateTime(tarih);
+            tarih = dt.ToString("dd/MM/yyyy");
+            string[] tr = tarih.Split('-');
+            tarih = Convert.ToString(tr[0] + tr[1] + tr[2]);
+            tarih2 = Convert.ToString(tr[2] + tr[1]);
+            string anyDays = "http://www.tcmb.gov.tr/kurlar/" + tarih2 + "/" + tarih + ".xml";
 
-                DateTime dt = Convert.ToDateTime(tarih);
-                tarih = dt.ToString("dd/MM/yyyy");
-                string[] tr = tarih.Split('-');
-                tarih = Convert.ToString(tr[0] + tr[1] + tr[2]);
-                tarih2 = Convert.ToString(tr[2] + tr[1]);
-                string anyDays = "http://www.tcmb.gov.tr/kurlar/" + tarih2 + "/" + tarih + ".xml";
-              
+            try
+            {
                 var xmlDoc = new XmlDocument();
                 xmlDoc.Load(anyDays);
 
@@ -85,13 +86,16 @@ namespace MERP
                 }
                 else
                 {
-                    euro = "Sikinti var";
+                    euro = Convert.ToString((0000));
                 }
-            return euro;
-        }
-
-   
-          
-        }                   
+                return euro;
+            }
+            catch
+            {
+                euro = Convert.ToString((0000));
+                return euro;
+            }
+        }  
     }
+}
 

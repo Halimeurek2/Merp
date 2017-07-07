@@ -73,44 +73,45 @@ namespace MERP
             }
         }
 
-        public void InsertFaturaGiris(string fatura_no, 
-                                      string proje_no, 
-                                      string firma, 
-                                      int vade, 
-                                      DateTime vade_tarih, 
-                                      string aciklama, 
-                                      DateTime tarih, 
-                                      Boolean check, 
-                                      Decimal tutar, 
-                                      string birim, 
-                                      Decimal avans, 
-                                      string fatura_euro, 
-                                      string tip)
+        public void InsertFaturaGiris(string fatura_no,
+                                      string proje_no,
+                                      string firma,
+                                      int vade,
+                                      DateTime vade_tarih,
+                                      string aciklama,
+                                      DateTime tarih,
+                                      Boolean check,
+                                      Decimal tutar,
+                                      string birim,
+                                      int avans,
+                                      decimal fatura_euro,
+                                      string tip,
+                                      string cins)
         {
 
-            MySqlCommand cmd = new MySqlCommand("INSERT INTO db_faturalar (fatura_no,"+
-           "fatura_proje_no,"+
-           "fatura_firma,"+
-           "fatura_vade,"+
-           "fatura_vade_tarih,"+
-           "fatura_aciklama,"+
-           "fatura_tarih,"+
-           "fatura_check,"+
-           "fatura_tutari,"+
-           "fatura_birim,"+
-           "fatura_avans,"+
-           "fatura_euro,fatura_tipi) VALUES (@fatura_no,"+
-           "@proje_no,"+
-           "@firma,"+
-           "@vade,"+
-           "@vade_tarih,"+
-           "@aciklama,"+
-           "@tarih,"+
-           "@check,"+
-           "@tutar,"+
-           "@birim,"+
-           "@avans,"+
-           "@fatura_euro,@tip)", connection);
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO db_faturalar (fatura_no," +
+           "fatura_proje_no," +
+           "fatura_firma," +
+           "fatura_vade," +
+           "fatura_vade_tarih," +
+           "fatura_aciklama," +
+           "fatura_tarih," +
+           "fatura_check," +
+           "fatura_tutari," +
+           "fatura_birim," +
+           "fatura_avans," +
+           "fatura_euro,fatura_tipi,fatura_cinsi) VALUES (@fatura_no," +
+           "@proje_no," +
+           "@firma," +
+           "@vade," +
+           "@vade_tarih," +
+           "@aciklama," +
+           "@tarih," +
+           "@check," +
+           "@tutar," +
+           "@birim," +
+           "@avans," +
+           "@fatura_euro,@tip,@cins)", connection);
 
             cmd.Parameters.AddWithValue("@fatura_no", fatura_no);
             cmd.Parameters.AddWithValue("@proje_no", proje_no);
@@ -125,6 +126,7 @@ namespace MERP
             cmd.Parameters.AddWithValue("@avans", avans);
             cmd.Parameters.AddWithValue("@fatura_euro", fatura_euro);
             cmd.Parameters.AddWithValue("@tip", tip);
+            cmd.Parameters.AddWithValue("@cins", cins);
 
 
             //open connection
@@ -139,70 +141,70 @@ namespace MERP
             }
         }
 
-        public void InsertProjeGiris(string proje_no, 
-                                     string proje_ismi, 
-                                     Decimal butce, 
-                                     string birim, 
-                                     string musteri, 
-                                     DateTime baslangic, 
-                                     DateTime bitis, 
-                                     int vade, 
+        public void InsertProjeGiris(string proje_no,
+                                     string proje_ismi,
+                                     Decimal butce,
+                                     string birim,
+                                     string musteri,
+                                     DateTime baslangic,
+                                     DateTime bitis,
+                                     int vade,
                                      string aciklama,
                                      decimal harcama_m_mlz,
                                      decimal harcama_el_mlz,
                                      decimal harcama_imalat,
                                      decimal harcama_test,
                                      decimal harcama_risk,
-                                     decimal harcama_toplam, 
+                                     decimal harcama_toplam,
                                      string harcama_top_birim,
                                      decimal odeme_avans,
-                                     DateTime date_avans, 
-                                     decimal odeme_pdr, 
-                                     DateTime date_pdr, 
+                                     DateTime date_avans,
+                                     decimal odeme_pdr,
+                                     DateTime date_pdr,
                                      decimal odeme_cdr,
                                      DateTime date_cdr,
-                                     decimal odeme_prototip, 
+                                     decimal odeme_prototip,
                                      DateTime date_prototip,
                                      decimal odeme_test,
-                                     DateTime date_test, 
+                                     DateTime date_test,
                                      decimal odeme_kabul,
                                      DateTime date_kabul,
                                      string tip)
         {
 
-            MySqlCommand cmd = new MySqlCommand("INSERT INTO db_projeler (proje_no,"+
-           "proje_ismi,"+
-           "proje_butce,"+
-           "proje_birim,"+
-           "proje_musteri,"+
-           "proje_baslangic,"+
-           "proje_bitis,"+
-           "proje_vade,"+
-           "proje_aciklama,"+
-           "harcama_m_mlz,"+
-           "harcama_el_mlz,"+
-           "harcama_imalat,"+
-           "harcama_test,"+
-           "harcama_risk,"+
-           "harcama_toplam,"+
-           "harcama_toplam_birim,"+
-           "odeme_avans,"+
-           "date_avans,"+
-           "odeme_pdr,"+
-           "date_pdr,"+
-           "odeme_cdr,"+
-           "date_cdr,"+
-           "odeme_prototip,"+
-           "date_prototip,"+
-           "odeme_test,"+
-           "date_test,"+
-           "odeme_kabul,"+
-           "date_kabul,"+
-           "prj_tip) VALUES (@proje_no,@proje_ismi,@butce,@birim,"+
-           "@musteri,@baslangic,@bitis,@vade,@aciklama,@harcama_m_mlz,"+
-           "@harcama_el_mlz,@harcama_imalat,@harcama_test,@harcama_risk,"+
-           "@harcama_toplam,@harcama_top_birim,@odeme_avans,@date_avans,"+
-           "@odeme_pdr,@date_pdr,@odeme_cdr,@date_cdr,@odeme_prototip,"+
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO db_projeler (proje_no," +
+           "proje_ismi," +
+           "proje_butce," +
+           "proje_birim," +
+           "proje_musteri," +
+           "proje_baslangic," +
+           "proje_bitis," +
+           "proje_vade," +
+           "proje_aciklama," +
+           "harcama_m_mlz," +
+           "harcama_el_mlz," +
+           "harcama_imalat," +
+           "harcama_test," +
+           "harcama_risk," +
+           "harcama_toplam," +
+           "harcama_toplam_birim," +
+           "odeme_avans," +
+           "date_avans," +
+           "odeme_pdr," +
+           "date_pdr," +
+           "odeme_cdr," +
+           "date_cdr," +
+           "odeme_prototip," +
+           "date_prototip," +
+           "odeme_test," +
+           "date_test," +
+           "odeme_kabul," +
+           "date_kabul," +
+           "prj_tip) VALUES (@proje_no,@proje_ismi,@butce,@birim," +
+           "@musteri,@baslangic,@bitis,@vade,@aciklama,@harcama_m_mlz," +
+           "@harcama_el_mlz,@harcama_imalat,@harcama_test,@harcama_risk," +
+           "@harcama_toplam,@harcama_top_birim,@odeme_avans,@date_avans," +
+           "@odeme_pdr,@date_pdr,@odeme_cdr,@date_cdr,@odeme_prototip," +
            "@date_prototip,@odeme_test,@date_test,@odeme_kabul,@date_kabul,@tip)", connection);
 
             cmd.Parameters.AddWithValue("@proje_no", proje_no);
@@ -248,39 +250,39 @@ namespace MERP
             }
         }
 
-        public void InsertSE(string proje_no, 
-                             string satinalma_no, 
-                             string tedarikci, 
-                             string siparisi_olusturan, 
-                             DateTime siparis_tarihi, 
-                             string vade,
+        public void InsertSE(string proje_no,
+                             string satinalma_no,
+                             string tedarikci,
+                             string siparisi_olusturan,
+                             DateTime siparis_tarihi,
+                             int vade,
                              DateTime temin_tarihi,
                              decimal fiyat,
                              string birim,
-                             string siparis_euro, 
+                             decimal siparis_euro,
                              string aciklama)
         {
 
-            MySqlCommand cmd = new MySqlCommand("INSERT INTO db_siparis_emri (proje_no,"+
-           "satinalma_no,"+
-           "tedarikci,"+
-           "siparisi_olusturan,"+
-           "siparis_tarihi,"+
-           "vade,"+
-           "temin_tarihi,"+
-           "fiyat,"+
-           "fiyat_birim,"+
-           "siparis_euro,"+
-           "aciklama) VALUES (@proje_no,"+
-           "@satinalma_no,"+
-           "@tedarikci,"+
-           "@siparisi_olusturan,"+
-           "@siparis_tarihi,"+
-           "@vade,"+
-           "@temin_tarihi,"+
-           "@fiyat,"+
-           "@birim,"+
-           "@siparis_euro,"+
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO db_siparis_emri (proje_no," +
+           "satinalma_no," +
+           "tedarikci," +
+           "siparisi_olusturan," +
+           "siparis_tarihi," +
+           "vade," +
+           "temin_tarihi," +
+           "fiyat," +
+           "fiyat_birim," +
+           "siparis_euro," +
+           "aciklama) VALUES (@proje_no," +
+           "@satinalma_no," +
+           "@tedarikci," +
+           "@siparisi_olusturan," +
+           "@siparis_tarihi," +
+           "@vade," +
+           "@temin_tarihi," +
+           "@fiyat," +
+           "@birim," +
+           "@siparis_euro," +
            "@aciklama)", connection);
 
 
@@ -295,7 +297,7 @@ namespace MERP
             cmd.Parameters.AddWithValue("@birim", birim);
             cmd.Parameters.AddWithValue("@siparis_euro", siparis_euro);
             cmd.Parameters.AddWithValue("@aciklama", aciklama);
-      
+
 
 
             //open connection
@@ -313,24 +315,24 @@ namespace MERP
         public void InsertAktiviteGiris(string proje_no,
                                         string oncelik,
                                         string statu,
-                                        string aciklama, 
+                                        string aciklama,
                                         string rapor_edilecek,
-                                        DateTime olusturulan_tarih, 
+                                        DateTime olusturulan_tarih,
                                         DateTime bitis_tarih)
         {
 
-            MySqlCommand cmd = new MySqlCommand("INSERT INTO db_aktivite (akt_prj_no,"+
-           "akt_oncelik,"+
-           "akt_statu,"+
-           "akt_aciklama,"+
-           "akt_rapor_edilecek,"+
-           "akt_olusturulan_tarih,"+
-           "akt_bitis_tarih) VALUES (@proje_no,"+
-           "@oncelik,"+
-           "@statu,"+
-           "@aciklama,"+
-           "@rapor_edilecek,"+
-           "@olusturulan_tarih,"+
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO db_aktivite (akt_prj_no," +
+           "akt_oncelik," +
+           "akt_statu," +
+           "akt_aciklama," +
+           "akt_rapor_edilecek," +
+           "akt_olusturulan_tarih," +
+           "akt_bitis_tarih) VALUES (@proje_no," +
+           "@oncelik," +
+           "@statu," +
+           "@aciklama," +
+           "@rapor_edilecek," +
+           "@olusturulan_tarih," +
            "@bitis_tarih)", connection);
 
             cmd.Parameters.AddWithValue("@proje_no", proje_no);
@@ -354,21 +356,21 @@ namespace MERP
             }
         }
 
-        public void UpdateAktivite(int id, 
-                                   string proje_no, 
+        public void UpdateAktivite(int id,
+                                   string proje_no,
                                    string oncelik,
                                    string statu,
-                                   string aciklama, 
+                                   string aciklama,
                                    string rapor_edilecek,
                                    DateTime olusturulan_tarih,
                                    DateTime bitis_tarih)
         {
-            MySqlCommand cmd = new MySqlCommand("update db_aktivite set akt_prj_no=@proje_no,"+
-           "akt_oncelik=@oncelik,"+
-           "akt_statu=@statu,"+
-           "akt_aciklama=@aciklama,"+
-           "akt_rapor_edilecek=@rapor_edilecek,"+
-           "akt_olusturulan_tarih=@olusturulan_tarih,"+
+            MySqlCommand cmd = new MySqlCommand("update db_aktivite set akt_prj_no=@proje_no," +
+           "akt_oncelik=@oncelik," +
+           "akt_statu=@statu," +
+           "akt_aciklama=@aciklama," +
+           "akt_rapor_edilecek=@rapor_edilecek," +
+           "akt_olusturulan_tarih=@olusturulan_tarih," +
            "akt_bitis_tarih=@bitis_tarih where akt_id=@id", connection);
 
             cmd.Parameters.AddWithValue("@id", id);
@@ -392,34 +394,36 @@ namespace MERP
             }
         }
 
-        public void UpdateFaturalar(int id, 
-                                    string fatura_no, 
-                                    string proje_no, 
+        public void UpdateFaturalar(int id,
+                                    string fatura_no,
+                                    string proje_no,
                                     string firma,
-                                    int vade, 
+                                    int vade,
                                     DateTime vade_tarih,
-                                    string aciklama, 
+                                    string aciklama,
                                     DateTime tarih,
                                     Boolean check,
-                                    Decimal tutar, 
+                                    Decimal tutar,
                                     string birim,
-                                    Decimal avans, 
-                                    string fatura_euro, 
-                                    string tip)
+                                    int avans,
+                                    decimal fatura_euro,
+                                    string tip,
+                                    string cins)
         {
-            MySqlCommand cmd = new MySqlCommand("update db_faturalar set fatura_no=@fatura_no,"+
-           "fatura_proje_no=@proje_no,"+
-           "fatura_firma=@firma,"+
-           "fatura_vade=@vade,"+
-           "fatura_vade_tarih=@vade_tarih,"+
-           "fatura_aciklama=@aciklama,"+
-           "fatura_tarih=@tarih,"+
-           "fatura_check=@check,"+
-           "fatura_tutari=@tutar,"+
-           "fatura_birim=@birim,"+
-           "fatura_avans=@avans,"+
-           "fatura_euro=@fatura_euro,"+
-           "fatura_tipi=@tip where fatura_id=@id", connection);
+            MySqlCommand cmd = new MySqlCommand("update db_faturalar set fatura_no=@fatura_no," +
+           "fatura_proje_no=@proje_no," +
+           "fatura_firma=@firma," +
+           "fatura_vade=@vade," +
+           "fatura_vade_tarih=@vade_tarih," +
+           "fatura_aciklama=@aciklama," +
+           "fatura_tarih=@tarih," +
+           "fatura_check=@check," +
+           "fatura_tutari=@tutar," +
+           "fatura_birim=@birim," +
+           "fatura_avans=@avans," +
+           "fatura_euro=@fatura_euro," +
+           "fatura_tipi=@tip," +
+           "fatura_cinsi=@cins where fatura_id=@id", connection);
 
             cmd.Parameters.AddWithValue("@id", id);
             cmd.Parameters.AddWithValue("@fatura_no", fatura_no);
@@ -435,6 +439,7 @@ namespace MERP
             cmd.Parameters.AddWithValue("avans", avans);
             cmd.Parameters.AddWithValue("@fatura_euro", fatura_euro);
             cmd.Parameters.AddWithValue("@tip", tip);
+            cmd.Parameters.AddWithValue("@cins", cins);
 
 
             if (this.OpenConnection() == true)
@@ -448,65 +453,65 @@ namespace MERP
             }
         }
 
-        public void UpdateProjeler(int id, 
-                                   string proje_no, 
+        public void UpdateProjeler(int id,
+                                   string proje_no,
                                    string proje_ismi,
-                                   decimal butce, 
+                                   decimal butce,
                                    string birim,
                                    string musteri,
-                                   DateTime baslangic, 
+                                   DateTime baslangic,
                                    DateTime bitis,
-                                   int vade, 
+                                   int vade,
                                    string aciklama,
-                                   decimal harcama_m_mlz, 
+                                   decimal harcama_m_mlz,
                                    decimal harcama_el_mlz,
                                    decimal harcama_imalat,
                                    decimal harcama_test,
-                                   decimal harcama_risk, 
-                                   decimal harcama_toplam, 
-                                   string harcama_top_birim, 
+                                   decimal harcama_risk,
+                                   decimal harcama_toplam,
+                                   string harcama_top_birim,
                                    decimal odeme_avans,
-                                   DateTime date_avans, 
-                                   decimal odeme_pdr, 
+                                   DateTime date_avans,
+                                   decimal odeme_pdr,
                                    DateTime date_pdr,
                                    decimal odeme_cdr,
                                    DateTime date_cdr,
-                                   decimal odeme_prototip, 
+                                   decimal odeme_prototip,
                                    DateTime date_prototip,
                                    decimal odeme_test,
-                                   DateTime date_test, 
+                                   DateTime date_test,
                                    decimal odeme_kabul,
                                    DateTime date_kabul,
                                    string tip)
         {
-            MySqlCommand cmd = new MySqlCommand("update db_projeler set proje_no=@proje_no,"+
-           "proje_ismi=@proje_ismi,"+
-           "proje_butce=@butce,"+
-           "proje_birim=@birim,"+
-           "proje_musteri=@musteri,"+
-           "proje_baslangic=@baslangic,"+
-           "proje_bitis=@bitis,"+
-           "proje_vade=@vade,"+
-           "proje_aciklama=@aciklama,"+
-           "harcama_m_mlz=@harcama_m_mlz,"+
-           "harcama_el_mlz=@harcama_el_mlz,"+
-           "harcama_imalat=@harcama_imalat,"+
-           "harcama_test=@harcama_test,"+
-           "harcama_risk=@harcama_risk,"+
-           "harcama_toplam=@harcama_toplam,"+
-           "harcama_toplam_birim=@harcama_top_birim,"+
-           "odeme_avans=@odeme_avans,"+
-           "date_avans=@date_avans,"+
-           "odeme_pdr=@odeme_pdr,"+
-           "date_pdr=@date_pdr,"+
-           "odeme_cdr=@odeme_cdr,"+
-           "date_cdr=@date_cdr,"+
-           "odeme_prototip=@odeme_prototip,"+
-           "date_prototip=@date_prototip,"+
-           "odeme_test=@odeme_test,"+
-           "date_test=@date_test,"+
-           "odeme_kabul=@odeme_kabul,"+
-           "date_kabul=@date_kabul,"+
+            MySqlCommand cmd = new MySqlCommand("update db_projeler set proje_no=@proje_no," +
+           "proje_ismi=@proje_ismi," +
+           "proje_butce=@butce," +
+           "proje_birim=@birim," +
+           "proje_musteri=@musteri," +
+           "proje_baslangic=@baslangic," +
+           "proje_bitis=@bitis," +
+           "proje_vade=@vade," +
+           "proje_aciklama=@aciklama," +
+           "harcama_m_mlz=@harcama_m_mlz," +
+           "harcama_el_mlz=@harcama_el_mlz," +
+           "harcama_imalat=@harcama_imalat," +
+           "harcama_test=@harcama_test," +
+           "harcama_risk=@harcama_risk," +
+           "harcama_toplam=@harcama_toplam," +
+           "harcama_toplam_birim=@harcama_top_birim," +
+           "odeme_avans=@odeme_avans," +
+           "date_avans=@date_avans," +
+           "odeme_pdr=@odeme_pdr," +
+           "date_pdr=@date_pdr," +
+           "odeme_cdr=@odeme_cdr," +
+           "date_cdr=@date_cdr," +
+           "odeme_prototip=@odeme_prototip," +
+           "date_prototip=@date_prototip," +
+           "odeme_test=@odeme_test," +
+           "date_test=@date_test," +
+           "odeme_kabul=@odeme_kabul," +
+           "date_kabul=@date_kabul," +
            "prj_tip=@tip where proje_id=@id", connection);
 
             cmd.Parameters.AddWithValue("@id", id);
@@ -551,30 +556,30 @@ namespace MERP
                 this.CloseConnection();
             }
         }
-        public void UpdateSE(int id, 
-                             string proje_no,  
+        public void UpdateSE(int id,
+                             string proje_no,
                              string satinalma_no,
                              string tedarikci,
                              string siparisi_olusturan,
                              DateTime siparis_tarihi,
-                             string vade, 
-                             DateTime temin_tarihi, 
+                             int vade,
+                             DateTime temin_tarihi,
                              decimal fiyat,
                              string birim,
-                             string siparis_euro, 
+                             decimal siparis_euro,
                              string aciklama)
         {
 
-            MySqlCommand cmd = new MySqlCommand("update db_siparis_emri set proje_no=@proje_no,"+
-           "satinalma_no=@satinalma_no,"+
-           "tedarikci=@tedarikci,"+
-           "siparisi_olusturan=@siparisi_olusturan,"+
-           "siparis_tarihi=@siparis_tarihi,"+
-           "vade=@vade,"+
-           "temin_tarihi=@temin_tarihi,"+
-           "fiyat=@fiyat,"+
-           "fiyat_birim=@birim,"+
-           "siparis_euro=@siparis_euro,"+
+            MySqlCommand cmd = new MySqlCommand("update db_siparis_emri set proje_no=@proje_no," +
+           "satinalma_no=@satinalma_no," +
+           "tedarikci=@tedarikci," +
+           "siparisi_olusturan=@siparisi_olusturan," +
+           "siparis_tarihi=@siparis_tarihi," +
+           "vade=@vade," +
+           "temin_tarihi=@temin_tarihi," +
+           "fiyat=@fiyat," +
+           "fiyat_birim=@birim," +
+           "siparis_euro=@siparis_euro," +
            "aciklama=@aciklama where siparis_id=@id", connection);
 
             cmd.Parameters.AddWithValue("@id", id);
