@@ -41,6 +41,7 @@ namespace MERP
         string acıklama;
         string tip;
         string cins;
+        string durum;
 
         public faturalar()
         {
@@ -79,6 +80,8 @@ namespace MERP
 
         private void btn_ftr_duzenle_Click(object sender, EventArgs e)
         {
+
+
             fatura_duzenle obj = new fatura_duzenle();
             obj.lbl_id.Text = id;
             obj.txt_fatura_no.Text = fatura_no;
@@ -94,6 +97,14 @@ namespace MERP
             obj.txt_avans.Text = avans;
             obj.lbl_tip.Text = tip;
             obj.cmb_ftr_tip.Text = cins;
+            if (durum == "ÖDENDİ")
+            {
+                obj.cb_durum.Checked = true;
+            }
+            else
+            {
+                obj.cb_durum.Checked = false;
+            }
             obj.Show();
 
         }
@@ -160,6 +171,7 @@ namespace MERP
             avans = dgw_ftr_list.Rows[e.RowIndex].Cells[11].Value.ToString();
             tip = dgw_ftr_list.Rows[e.RowIndex].Cells[13].Value.ToString();
             cins = dgw_ftr_list.Rows[e.RowIndex].Cells[14].Value.ToString();
+            durum= dgw_ftr_list.Rows[e.RowIndex].Cells[15].Value.ToString();
         }
 
         private void txt_firma_TextChanged(object sender, EventArgs e)

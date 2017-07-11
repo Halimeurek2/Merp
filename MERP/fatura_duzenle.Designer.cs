@@ -55,6 +55,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.cmb_ftr_tip = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.cb_durum = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // lbl_id
@@ -121,7 +122,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label7.Location = new System.Drawing.Point(29, 157);
+            this.label7.Location = new System.Drawing.Point(14, 157);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(50, 16);
             this.label7.TabIndex = 56;
@@ -230,7 +231,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(29, 118);
+            this.label3.Location = new System.Drawing.Point(14, 118);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 16);
             this.label3.TabIndex = 44;
@@ -240,7 +241,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(29, 79);
+            this.label2.Location = new System.Drawing.Point(14, 79);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 16);
             this.label2.TabIndex = 43;
@@ -250,7 +251,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(173, 27);
+            this.label1.Location = new System.Drawing.Point(173, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(230, 29);
             this.label1.TabIndex = 42;
@@ -306,11 +307,23 @@
             this.label11.TabIndex = 66;
             this.label11.Text = "Fatura Tipi : ";
             // 
+            // cb_durum
+            // 
+            this.cb_durum.AutoSize = true;
+            this.cb_durum.Location = new System.Drawing.Point(16, 43);
+            this.cb_durum.Name = "cb_durum";
+            this.cb_durum.Size = new System.Drawing.Size(68, 17);
+            this.cb_durum.TabIndex = 68;
+            this.cb_durum.Text = "ÖDENDİ";
+            this.cb_durum.UseVisualStyleBackColor = true;
+            this.cb_durum.CheckedChanged += new System.EventHandler(this.cb_durum_CheckedChanged);
+            // 
             // fatura_duzenle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(565, 360);
+            this.Controls.Add(this.cb_durum);
             this.Controls.Add(this.cmb_ftr_tip);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txt_avans);
@@ -375,5 +388,6 @@
         private System.Windows.Forms.Label label10;
         public System.Windows.Forms.ComboBox cmb_ftr_tip;
         public System.Windows.Forms.Label label11;
+        public System.Windows.Forms.CheckBox cb_durum;
     }
 }

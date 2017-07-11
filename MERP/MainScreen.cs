@@ -109,7 +109,8 @@ namespace MERP
             {
                 cmb_proje.Items.Add(myReader["proje_no"]);
             }
-
+            myReader.Close();
+            ///////////////faturada vade fatura tarihe eklenip vade tarihe yazılıyor. burada kontrol ederken ona dikkat edilmeli. ayrıca check olayı??????????????
             komut = "SELECT fatura_id,fatura_vade,fatura_vade_tarih  FROM db_faturalar WHERE fatura_check=" + 1 + " ";
             da = new MySqlDataAdapter(komut, connection);
 
@@ -288,7 +289,6 @@ namespace MERP
             //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             myConnection.Close();
             maliyet_hesapla();
-            KesilenFatura();
         }
 
         public void maliyet_hesapla()
@@ -321,19 +321,13 @@ namespace MERP
             dg_maliyet.Columns[4].DefaultCellStyle.FormatProvider = CultureInfo.GetCultureInfo("en-GB");
             dg_maliyet.Columns[5].DefaultCellStyle.Format = "c2";
             dg_maliyet.Columns[5].DefaultCellStyle.FormatProvider = CultureInfo.GetCultureInfo("de-DE");
-            myConnection.Close();
-        }
-
-        public void KesilenFatura()
-        {
-            myConnection.Open();
 
             komut = "select fatura_proje_no as PROJE_NO, sum(case when fatura_birim = 'TRY' then fatura_tutari else 0 end) as TRY, " +
-                   "sum(case when fatura_birim = 'EUR' then fatura_tutari else 0 end) as EUR ," +
-                   "sum(case when fatura_birim = 'USD' then fatura_tutari else 0 end) as USD , " +
-                   "sum(case when fatura_birim = 'GBP' then fatura_tutari else 0 end) as GBP , " +
-                   "sum(fatura_euro) as Toplam_Euro " +
-                   "from db_faturalar where fatura_tipi = 'K' group by fatura_proje_no";
+                  "sum(case when fatura_birim = 'EUR' then fatura_tutari else 0 end) as EUR ," +
+                  "sum(case when fatura_birim = 'USD' then fatura_tutari else 0 end) as USD , " +
+                  "sum(case when fatura_birim = 'GBP' then fatura_tutari else 0 end) as GBP , " +
+                  "sum(fatura_euro) as Toplam_Euro " +
+                  "from db_faturalar where fatura_tipi = 'K' group by fatura_proje_no";
 
             myCommand = new MySqlCommand(komut, myConnection);
             da = new MySqlDataAdapter(myCommand);

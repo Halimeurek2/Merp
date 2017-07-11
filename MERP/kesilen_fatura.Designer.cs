@@ -53,6 +53,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.cmb_ftr_tip = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.cb_durum = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // txt_ftr_tutar
@@ -284,11 +285,22 @@
             this.label11.TabIndex = 63;
             this.label11.Text = "Fatura Tipi : ";
             // 
+            // cb_durum
+            // 
+            this.cb_durum.AutoSize = true;
+            this.cb_durum.Location = new System.Drawing.Point(17, 45);
+            this.cb_durum.Name = "cb_durum";
+            this.cb_durum.Size = new System.Drawing.Size(68, 17);
+            this.cb_durum.TabIndex = 65;
+            this.cb_durum.Text = "ÖDENDİ";
+            this.cb_durum.UseVisualStyleBackColor = true;
+            // 
             // kesilen_fatura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(570, 357);
+            this.Controls.Add(this.cb_durum);
             this.Controls.Add(this.cmb_ftr_tip);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txt_avans);
@@ -316,7 +328,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "kesilen_fatura";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Kesilen Fatura";
+            this.Text = "Fatura Giriş";
             this.Load += new System.EventHandler(this.kesilen_fatura_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -349,5 +361,6 @@
         private System.Windows.Forms.Label label10;
         public System.Windows.Forms.ComboBox cmb_ftr_tip;
         public System.Windows.Forms.Label label11;
+        public System.Windows.Forms.CheckBox cb_durum;
     }
 }

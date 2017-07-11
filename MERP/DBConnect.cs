@@ -86,7 +86,8 @@ namespace MERP
                                       int avans,
                                       decimal fatura_euro,
                                       string tip,
-                                      string cins)
+                                      string cins,
+                                      string durum)
         {
 
             MySqlCommand cmd = new MySqlCommand("INSERT INTO db_faturalar (fatura_no," +
@@ -100,7 +101,7 @@ namespace MERP
            "fatura_tutari," +
            "fatura_birim," +
            "fatura_avans," +
-           "fatura_euro,fatura_tipi,fatura_cinsi) VALUES (@fatura_no," +
+           "fatura_euro,fatura_tipi,fatura_cinsi,fatura_durum) VALUES (@fatura_no," +
            "@proje_no," +
            "@firma," +
            "@vade," +
@@ -111,7 +112,7 @@ namespace MERP
            "@tutar," +
            "@birim," +
            "@avans," +
-           "@fatura_euro,@tip,@cins)", connection);
+           "@fatura_euro,@tip,@cins,@durum)", connection);
 
             cmd.Parameters.AddWithValue("@fatura_no", fatura_no);
             cmd.Parameters.AddWithValue("@proje_no", proje_no);
@@ -127,6 +128,7 @@ namespace MERP
             cmd.Parameters.AddWithValue("@fatura_euro", fatura_euro);
             cmd.Parameters.AddWithValue("@tip", tip);
             cmd.Parameters.AddWithValue("@cins", cins);
+            cmd.Parameters.AddWithValue("@durum", durum);
 
 
             //open connection
@@ -408,7 +410,8 @@ namespace MERP
                                     int avans,
                                     decimal fatura_euro,
                                     string tip,
-                                    string cins)
+                                    string cins,
+                                    string durum)
         {
             MySqlCommand cmd = new MySqlCommand("update db_faturalar set fatura_no=@fatura_no," +
            "fatura_proje_no=@proje_no," +
@@ -423,7 +426,8 @@ namespace MERP
            "fatura_avans=@avans," +
            "fatura_euro=@fatura_euro," +
            "fatura_tipi=@tip," +
-           "fatura_cinsi=@cins where fatura_id=@id", connection);
+           "fatura_cinsi=@cins," +
+           "fatura_durum=@durum where fatura_id=@id", connection);
 
             cmd.Parameters.AddWithValue("@id", id);
             cmd.Parameters.AddWithValue("@fatura_no", fatura_no);
@@ -440,6 +444,7 @@ namespace MERP
             cmd.Parameters.AddWithValue("@fatura_euro", fatura_euro);
             cmd.Parameters.AddWithValue("@tip", tip);
             cmd.Parameters.AddWithValue("@cins", cins);
+            cmd.Parameters.AddWithValue("@durum", durum);
 
 
             if (this.OpenConnection() == true)
