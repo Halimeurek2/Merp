@@ -35,9 +35,7 @@ namespace MERP
         string mek_mal;
         string genel_mal;
 
-        Series elektrikMaliyet;
-        Series mekanikMaliyet;
-        Series genelMaliyet;
+       
 
         Bitmap memoryImage;
 
@@ -62,6 +60,7 @@ namespace MERP
         public Rapor()
         {
             InitializeComponent();
+
         }
 
         private void Rapor_Load(object sender, EventArgs e)
@@ -86,33 +85,12 @@ namespace MERP
                 cmb_projeler.Items.Add(myReader["proje_no"]);
             }
 
-            this.chart1.Series.Clear();
-            this.chart1.Titles.Add("Maliyet");
-
-            elektrikMaliyet = this.chart1.Series.Add("Elektrik");
-            elektrikMaliyet.ChartType = SeriesChartType.Pie;
-            elektrikMaliyet.Color = Color.Red;
-            elektrikMaliyet.IsValueShownAsLabel = true;
-            elektrikMaliyet.LabelAngle = 30;
-
-
-            mekanikMaliyet = chart1.Series.Add("Mekanik");
-            mekanikMaliyet.ChartType = elektrikMaliyet.ChartType;
-            mekanikMaliyet.Color = Color.Blue;
-            mekanikMaliyet.IsValueShownAsLabel = true;
-            mekanikMaliyet.LabelAngle = 30;
-
-
-            genelMaliyet = chart1.Series.Add("Genel");
-            genelMaliyet.ChartType = elektrikMaliyet.ChartType;
-            genelMaliyet.Color = Color.Orange;
-            genelMaliyet.IsValueShownAsLabel = true;
-            genelMaliyet.LabelAngle = 30;
+            
 
             myReader.Close();
             myConnection.Close();
         }
-        public void DrawChart()
+        public void DrawChart1()
         {
             myConnection.Open();
             try
@@ -131,11 +109,12 @@ namespace MERP
             }
             catch
             {
-                el_mal = "0";
+                el_mal = "8798876";
+                myReader.Close();
             }
             try
             {
-                komut = "select sum(fatura_euro) as EURO from db_faturalar where fatura_cinsi='mekanik'";
+                komut = "select sum(fatura_euro) as EURO from db_faturalar where fatura_cinsi='mekanik' AND fatura_proje_no ='" + cmb_projeler.Text + "'";
                 da = new MySqlDataAdapter(komut, connection);
 
                 myCommand = new MySqlCommand(komut, myConnection);
@@ -149,11 +128,12 @@ namespace MERP
             }
             catch
             {
-                mek_mal = "0";
+                mek_mal = "200000";
+                myReader.Close();
             }
             try
             {
-                komut = "select sum(fatura_euro) as EURO from db_faturalar";
+                komut = "select sum(fatura_euro) as EURO from db_faturalar WHERE fatura_proje_no ='" + cmb_projeler.Text + "'";
                 da = new MySqlDataAdapter(komut, connection);
 
                 myCommand = new MySqlCommand(komut, myConnection);
@@ -167,23 +147,155 @@ namespace MERP
             }
             catch
             {
-                genel_mal = "0";
+                genel_mal = "60000,989";
+                myReader.Close();
             }
+            chart1.Series["pieChart"].Points.Clear();
+
+            chart1.Series["pieChart"].Points.Add(Convert.ToDouble(el_mal));
+            chart1.Series["pieChart"].Points.Add(Convert.ToDouble(mek_mal));
+            chart1.Series["pieChart"].Points.Add(Convert.ToDouble(genel_mal));
+
+            var p1 = chart1.Series["pieChart"].Points[0];
+            p1.AxisLabel = Convert.ToString(el_mal);
+            p1.LegendText = "Elektrik";
+
+            var p2 = chart1.Series["pieChart"].Points[1];
+            p2.AxisLabel = Convert.ToString(mek_mal);
+            p2.LegendText = "Mekanik";
+
+            var p3 = chart1.Series["pieChart"].Points[2];
+            p3.AxisLabel = Convert.ToString(genel_mal);
+            p3.LegendText = "Genel";
+
             myConnection.Close();
 
-            elektrikMaliyet.Points.Clear();
-            mekanikMaliyet.Points.Clear();
-            genelMaliyet.Points.Clear();
+        }
+        public void DrawChart2()
+        {
+            myConnection.Open();
 
-            elektrikMaliyet.Points.Add(Convert.ToDouble(el_mal));
-            mekanikMaliyet.Points.Add(Convert.ToDouble(mek_mal));
-            genelMaliyet.Points.Add(Convert.ToDouble(genel_mal));
+            try
+            {
+                //chart2.Series["stackedBarChart"].Points.Clear();
 
+                //chart2.Series["stackedBarChart"].Points.AddXY("Kabul", 600);
+                //chart2.Series["stackedBarChart"].Points.AddXY("Test", 500);
+                //chart2.Series["stackedBarChart"].Points.AddXY("Prototip", 400);
+                //chart2.Series["stackedBarChart"].Points.AddXY("CDR", 300);
+                //chart2.Series["stackedBarChart"].Points.AddXY("PDR", 200);
+                //chart2.Series["stackedBarChart"].Points.AddXY("Avans", 100);
+
+                //var P6 = chart2.Series["stackedBarChart"].Points[0];
+                //P6.LegendText = "Kabul";
+
+                //var P5 = chart2.Series["stackedBarChart"].Points[1];
+                //P5.LegendText = "Test";
+
+                //var P4 = chart2.Series["stackedBarChart"].Points[2];
+                //P4.LegendText = "Prototip";
+
+                //var P3 = chart2.Series["stackedBarChart"].Points[3];
+                //P3.LegendText = "CDR";
+
+                //var P2 = chart2.Series["stackedBarChart"].Points[4];
+                //P2.LegendText = "PDR";
+
+                //var P1 = chart2.Series["stackedBarChart"].Points[5];
+                //P1.LegendText = "Avans";
+            }
+            catch
+            {
+
+            }
+            chart2.Titles.Add("ELEKTRİK");
+            chart2.Series["Series1"].Points.Clear();
+
+            chart2.Series["Series1"].Points.Add(Convert.ToDouble(el_mal));
+            chart2.Series["Series1"].Points.Add(Convert.ToDouble(mek_mal));
+            chart2.Series["Series1"].Points.Add(Convert.ToDouble(genel_mal));
+
+            var p1 = chart2.Series["Series1"].Points[0];
+            p1.AxisLabel = Convert.ToString(el_mal);
+            p1.LegendText = "Öngörülen";
+
+            var p2 = chart2.Series["Series1"].Points[1];
+            p2.AxisLabel = Convert.ToString(mek_mal);
+            p2.LegendText = "Harcanan";
+
+            var p3 = chart2.Series["Series1"].Points[2];
+            p3.AxisLabel = Convert.ToString(genel_mal);
+            p3.LegendText = "Kalan";
+
+            myConnection.Close();
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        public void DrawChart3()
         {
+            myConnection.Open();
 
+            try
+            {
+
+            }
+            catch
+            {
+
+            }
+            chart3.Titles.Add("MEKANİK");
+            chart3.Series["Series1"].Points.Clear();
+
+            chart3.Series["Series1"].Points.Add(Convert.ToDouble(el_mal));
+            chart3.Series["Series1"].Points.Add(Convert.ToDouble(mek_mal));
+            chart3.Series["Series1"].Points.Add(Convert.ToDouble(genel_mal));
+
+            var p1 = chart3.Series["Series1"].Points[0];
+            p1.AxisLabel = Convert.ToString(el_mal);
+            p1.LegendText = "Öngörülen";
+
+            var p2 = chart3.Series["Series1"].Points[1];
+            p2.AxisLabel = Convert.ToString(mek_mal);
+            p2.LegendText = "Harcanan";
+
+            var p3 = chart3.Series["Series1"].Points[2];
+            p3.AxisLabel = Convert.ToString(genel_mal);
+            p3.LegendText = "Kalan";
+
+            myConnection.Close();
+        }
+
+        public void DrawChart4()
+        {
+            myConnection.Open();
+
+            try
+            {
+
+            }
+            catch
+            {
+
+            }
+            chart4.Titles.Add("GENEL");
+            chart4.Series["Series1"].Points.Clear();
+
+            chart4.Series["Series1"].Points.Add(Convert.ToDouble(el_mal));
+            chart4.Series["Series1"].Points.Add(Convert.ToDouble(mek_mal));
+            chart4.Series["Series1"].Points.Add(Convert.ToDouble(genel_mal));
+
+            var p1 = chart4.Series["Series1"].Points[0];
+            p1.AxisLabel = Convert.ToString(el_mal);
+            p1.LegendText = "Öngörülen";
+
+            var p2 = chart4.Series["Series1"].Points[1];
+            p2.AxisLabel = Convert.ToString(mek_mal);
+            p2.LegendText = "Harcanan";
+
+            var p3 = chart4.Series["Series1"].Points[2];
+            p3.AxisLabel = Convert.ToString(genel_mal);
+            p3.LegendText = "Kalan";
+
+            myConnection.Close();
         }
 
         private void cmb_projeler_SelectedIndexChanged(object sender, EventArgs e)
@@ -237,7 +349,10 @@ namespace MERP
 
             FillDGW();
             DGWToplam();
-            DrawChart();
+            DrawChart1();
+            DrawChart2();
+            DrawChart3();
+            DrawChart4();
         }
 
         public void FillDGW()

@@ -47,6 +47,7 @@ namespace MERP
             this.pROJELERToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.yeniProrjeGirişiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listeleToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.hAKKINDAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dg_maliyet = new System.Windows.Forms.DataGridView();
@@ -70,7 +71,6 @@ namespace MERP
             this.label5 = new System.Windows.Forms.Label();
             this.dgw_faturalar = new System.Windows.Forms.DataGridView();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_refresh = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -183,16 +183,23 @@ namespace MERP
             // yeniProrjeGirişiToolStripMenuItem
             // 
             this.yeniProrjeGirişiToolStripMenuItem.Name = "yeniProrjeGirişiToolStripMenuItem";
-            this.yeniProrjeGirişiToolStripMenuItem.Size = new System.Drawing.Size(198, 24);
-            this.yeniProrjeGirişiToolStripMenuItem.Text = "Yeni Prorje Girişi";
+            this.yeniProrjeGirişiToolStripMenuItem.Size = new System.Drawing.Size(192, 24);
+            this.yeniProrjeGirişiToolStripMenuItem.Text = "Yeni Proje Girişi";
             this.yeniProrjeGirişiToolStripMenuItem.Click += new System.EventHandler(this.yeniProrjeGirişiToolStripMenuItem_Click);
             // 
             // listeleToolStripMenuItem2
             // 
             this.listeleToolStripMenuItem2.Name = "listeleToolStripMenuItem2";
-            this.listeleToolStripMenuItem2.Size = new System.Drawing.Size(198, 24);
+            this.listeleToolStripMenuItem2.Size = new System.Drawing.Size(192, 24);
             this.listeleToolStripMenuItem2.Text = "Listele";
             this.listeleToolStripMenuItem2.Click += new System.EventHandler(this.listeleToolStripMenuItem2_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(73, 23);
+            this.toolStripMenuItem1.Text = "RAPOR";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // hAKKINDAToolStripMenuItem
             // 
@@ -501,13 +508,6 @@ namespace MERP
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Projeye Kesilen Faturalar";
             // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(73, 23);
-            this.toolStripMenuItem1.Text = "RAPOR";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
-            // 
             // btn_refresh
             // 
             this.btn_refresh.Image = global::MERP.Properties.Resources.Refresh_20;
@@ -539,7 +539,7 @@ namespace MERP
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ALTINAT MANUEL ERP";
+            this.Text = "ALTINAY MANUEL ERP";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
