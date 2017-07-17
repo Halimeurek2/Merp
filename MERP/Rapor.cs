@@ -34,7 +34,18 @@ namespace MERP
         string el_mal;
         string mek_mal;
         string genel_mal;
+        
+        string el_ongorulen;
+        string el_harcanan;
+        string el_kalan;
 
+        string mek_ongorulen;
+        string mek_harcanan;
+        string mek_kalan;
+
+        string genel_ongorulen;
+        string genel_harcanan;
+        string genel_kalan;
        
 
         Bitmap memoryImage;
@@ -85,7 +96,9 @@ namespace MERP
                 cmb_projeler.Items.Add(myReader["proje_no"]);
             }
 
-            
+            chart2.Titles.Add("ELEKTRİK");
+            chart3.Titles.Add("MEKANİK");
+            chart4.Titles.Add("GENEL");
 
             myReader.Close();
             myConnection.Close();
@@ -109,7 +122,7 @@ namespace MERP
             }
             catch
             {
-                el_mal = "8798876";
+                el_mal = "0";
                 myReader.Close();
             }
             try
@@ -128,7 +141,7 @@ namespace MERP
             }
             catch
             {
-                mek_mal = "200000";
+                mek_mal = "0";
                 myReader.Close();
             }
             try
@@ -147,7 +160,7 @@ namespace MERP
             }
             catch
             {
-                genel_mal = "60000,989";
+                genel_mal = "0";
                 myReader.Close();
             }
             chart1.Series["pieChart"].Points.Clear();
@@ -174,57 +187,63 @@ namespace MERP
         public void DrawChart2()
         {
             myConnection.Open();
+etiket:
 
             try
             {
-                //chart2.Series["stackedBarChart"].Points.Clear();
+                komut = "select sum(harcama_el_mlz) from db_projeler where proje_no in(select fatura_proje_no from db_faturalar where fatura_cinsi='elektrik' and fatura_proje_no='"+cmb_projeler.Text+"')";
+                da = new MySqlDataAdapter(komut, connection);
 
-                //chart2.Series["stackedBarChart"].Points.AddXY("Kabul", 600);
-                //chart2.Series["stackedBarChart"].Points.AddXY("Test", 500);
-                //chart2.Series["stackedBarChart"].Points.AddXY("Prototip", 400);
-                //chart2.Series["stackedBarChart"].Points.AddXY("CDR", 300);
-                //chart2.Series["stackedBarChart"].Points.AddXY("PDR", 200);
-                //chart2.Series["stackedBarChart"].Points.AddXY("Avans", 100);
+                myCommand = new MySqlCommand(komut, myConnection);
+                myReader = myCommand.ExecuteReader();
 
-                //var P6 = chart2.Series["stackedBarChart"].Points[0];
-                //P6.LegendText = "Kabul";
+                while (myReader.Read())
+                {
+                    el_ongorulen = Convert.ToString(myReader.GetString(0));
+                }
+                myReader.Close();
+            }
+            catch
+            {
 
-                //var P5 = chart2.Series["stackedBarChart"].Points[1];
-                //P5.LegendText = "Test";
-
-                //var P4 = chart2.Series["stackedBarChart"].Points[2];
-                //P4.LegendText = "Prototip";
-
-                //var P3 = chart2.Series["stackedBarChart"].Points[3];
-                //P3.LegendText = "CDR";
-
-                //var P2 = chart2.Series["stackedBarChart"].Points[4];
-                //P2.LegendText = "PDR";
-
-                //var P1 = chart2.Series["stackedBarChart"].Points[5];
-                //P1.LegendText = "Avans";
+                goto etiket;
+                el_ongorulen = "0";
+                myReader.Close();
+            }
+            try
+            {
+                el_harcanan = el_mal;
+            }
+            catch
+            {
+                el_harcanan = "0";
+                myReader.Close();
+            }
+            try
+            {
+                el_kalan = Convert.ToString((Convert.ToDecimal(el_ongorulen)-Convert.ToDecimal(el_harcanan)));
             }
             catch
             {
 
             }
-            chart2.Titles.Add("ELEKTRİK");
+            
             chart2.Series["Series1"].Points.Clear();
-
-            chart2.Series["Series1"].Points.Add(Convert.ToDouble(el_mal));
-            chart2.Series["Series1"].Points.Add(Convert.ToDouble(mek_mal));
-            chart2.Series["Series1"].Points.Add(Convert.ToDouble(genel_mal));
+            
+            chart2.Series["Series1"].Points.Add(Convert.ToDouble(el_ongorulen));
+            chart2.Series["Series1"].Points.Add(Convert.ToDouble(el_harcanan));
+            chart2.Series["Series1"].Points.Add(Convert.ToDouble(el_kalan));
 
             var p1 = chart2.Series["Series1"].Points[0];
-            p1.AxisLabel = Convert.ToString(el_mal);
+            p1.AxisLabel = Convert.ToString(el_ongorulen);
             p1.LegendText = "Öngörülen";
 
             var p2 = chart2.Series["Series1"].Points[1];
-            p2.AxisLabel = Convert.ToString(mek_mal);
+            p2.AxisLabel = Convert.ToString(el_harcanan);
             p2.LegendText = "Harcanan";
 
             var p3 = chart2.Series["Series1"].Points[2];
-            p3.AxisLabel = Convert.ToString(genel_mal);
+            p3.AxisLabel = Convert.ToString(el_kalan);
             p3.LegendText = "Kalan";
 
             myConnection.Close();
@@ -236,29 +255,57 @@ namespace MERP
 
             try
             {
+                komut = "select (sum(harcama_m_mlz)+sum(harcama_imalat)) from db_projeler where proje_no in(select fatura_proje_no from db_faturalar where fatura_cinsi='mekanik' and fatura_proje_no='" + cmb_projeler.Text + "')";
+                da = new MySqlDataAdapter(komut, connection);
 
+                myCommand = new MySqlCommand(komut, myConnection);
+                myReader = myCommand.ExecuteReader();
+
+                while (myReader.Read())
+                {
+                    mek_ongorulen = Convert.ToString(myReader.GetString(0));
+                }
+                myReader.Close();
+            }
+            catch
+            {
+                mek_ongorulen = "0";
+                myReader.Close();
+            }
+            try
+            {
+                mek_harcanan = mek_mal;
+            }
+            catch
+            {
+                mek_harcanan = "0";
+                myReader.Close();
+            }
+            try
+            {
+                mek_kalan = Convert.ToString((Convert.ToDecimal(mek_ongorulen) - Convert.ToDecimal(mek_harcanan)));
             }
             catch
             {
 
             }
-            chart3.Titles.Add("MEKANİK");
+            
             chart3.Series["Series1"].Points.Clear();
-
-            chart3.Series["Series1"].Points.Add(Convert.ToDouble(el_mal));
-            chart3.Series["Series1"].Points.Add(Convert.ToDouble(mek_mal));
-            chart3.Series["Series1"].Points.Add(Convert.ToDouble(genel_mal));
+            
+            chart3.Series["Series1"].Points.Add(Convert.ToDouble(mek_ongorulen));
+            chart3.Series["Series1"].Points.Add(Convert.ToDouble(mek_harcanan));
+            chart3.Series["Series1"].Points.Add(Convert.ToDouble(mek_kalan));
 
             var p1 = chart3.Series["Series1"].Points[0];
-            p1.AxisLabel = Convert.ToString(el_mal);
+            p1.AxisLabel = Convert.ToString(mek_ongorulen);
             p1.LegendText = "Öngörülen";
 
             var p2 = chart3.Series["Series1"].Points[1];
-            p2.AxisLabel = Convert.ToString(mek_mal);
+            p2.AxisLabel = Convert.ToString(mek_harcanan);
             p2.LegendText = "Harcanan";
 
             var p3 = chart3.Series["Series1"].Points[2];
-            p3.AxisLabel = Convert.ToString(genel_mal);
+            p3.AxisLabel = Convert.ToString(mek_kalan);
             p3.LegendText = "Kalan";
 
             myConnection.Close();
@@ -270,33 +317,62 @@ namespace MERP
 
             try
             {
+                komut = "select (sum(harcama_risk)+sum(harcama_test)) from db_projeler where proje_no in(select fatura_proje_no from db_faturalar where fatura_cinsi='genel' and fatura_proje_no='" + cmb_projeler.Text + "')";
+                da = new MySqlDataAdapter(komut, connection);
 
+                myCommand = new MySqlCommand(komut, myConnection);
+                myReader = myCommand.ExecuteReader();
+
+                while (myReader.Read())
+                {
+                    genel_ongorulen = Convert.ToString(myReader.GetString(0));
+                }
+                myReader.Close();
+            }
+            catch
+            {
+                genel_ongorulen = "0";
+                myReader.Close();
+            }
+            try
+            {
+                genel_harcanan = genel_mal;
+            }
+            catch
+            {
+                genel_harcanan = "0";
+                myReader.Close();
+            }
+            try
+            {
+                genel_kalan = Convert.ToString((Convert.ToDecimal(genel_ongorulen) - Convert.ToDecimal(genel_harcanan)));
             }
             catch
             {
 
             }
-            chart4.Titles.Add("GENEL");
+            
             chart4.Series["Series1"].Points.Clear();
-
-            chart4.Series["Series1"].Points.Add(Convert.ToDouble(el_mal));
-            chart4.Series["Series1"].Points.Add(Convert.ToDouble(mek_mal));
-            chart4.Series["Series1"].Points.Add(Convert.ToDouble(genel_mal));
+           
+            chart4.Series["Series1"].Points.Add(Convert.ToDouble(genel_ongorulen));
+            chart4.Series["Series1"].Points.Add(Convert.ToDouble(genel_harcanan));
+            chart4.Series["Series1"].Points.Add(Convert.ToDouble(genel_kalan));
 
             var p1 = chart4.Series["Series1"].Points[0];
-            p1.AxisLabel = Convert.ToString(el_mal);
+            p1.AxisLabel = Convert.ToString(genel_ongorulen);
             p1.LegendText = "Öngörülen";
 
             var p2 = chart4.Series["Series1"].Points[1];
-            p2.AxisLabel = Convert.ToString(mek_mal);
+            p2.AxisLabel = Convert.ToString(genel_harcanan);
             p2.LegendText = "Harcanan";
 
             var p3 = chart4.Series["Series1"].Points[2];
-            p3.AxisLabel = Convert.ToString(genel_mal);
+            p3.AxisLabel = Convert.ToString(genel_kalan);
             p3.LegendText = "Kalan";
 
             myConnection.Close();
         }
+        
 
         private void cmb_projeler_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -447,7 +523,7 @@ namespace MERP
 
         private void btn_print_Click(object sender, EventArgs e)
         {
-            String filename = System.IO.Path.GetTempFileName();
+            string filename = Path.GetTempFileName();
 
             Graphics g1 = this.CreateGraphics();
             Image MyImage = new Bitmap(this.ClientRectangle.Width, this.ClientRectangle.Height, g1);
@@ -461,9 +537,9 @@ namespace MERP
             FileStream fileStream = new FileStream(filename, FileMode.Open, FileAccess.Read);
             StartPrint(fileStream, "Image");
             fileStream.Close();
-            if (System.IO.File.Exists(filename))
+            if (File.Exists(filename))
             {
-                System.IO.File.Delete(filename);
+                File.Delete(filename);
             }
             //    Process snippingToolProcess = new Process();
             //    snippingToolProcess.EnableRaisingEvents = true;
@@ -482,9 +558,9 @@ namespace MERP
             //printDocument1.PrintPage += new PrintPageEventHandler(printDocument1_PrintPage);
         }
 
-        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
         {
-            System.Drawing.Image image = System.Drawing.Image.FromStream(this.streamToPrint);
+            Image image = Image.FromStream(streamToPrint);
 
             int x = e.MarginBounds.X;
             int y = e.MarginBounds.Y;
@@ -501,8 +577,8 @@ namespace MERP
                 height = e.MarginBounds.Height;
                 width = image.Width * e.MarginBounds.Height / image.Height;
             }
-            System.Drawing.Rectangle destRect = new System.Drawing.Rectangle(x, y, width, height);
-            e.Graphics.DrawImage(image, destRect, 0, 0, image.Width, image.Height, System.Drawing.GraphicsUnit.Pixel);
+            Rectangle destRect = new Rectangle(x, y, width, height);
+            e.Graphics.DrawImage(image, destRect, 0, 0, image.Width, image.Height, GraphicsUnit.Pixel);
         }
         public void StartPrint(Stream streamToPrint, string streamType)
         {
@@ -513,7 +589,7 @@ namespace MERP
 
             this.streamType = streamType;
 
-            System.Windows.Forms.PrintDialog PrintDialog1 = new PrintDialog();
+            PrintDialog PrintDialog1 = new PrintDialog();
 
             PrintDialog1.AllowSomePages = true;
             PrintDialog1.ShowHelp = true;

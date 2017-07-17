@@ -46,7 +46,7 @@
             this.btn_prj_sil.BackColor = System.Drawing.Color.Red;
             this.btn_prj_sil.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btn_prj_sil.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_prj_sil.Location = new System.Drawing.Point(838, 562);
+            this.btn_prj_sil.Location = new System.Drawing.Point(834, 562);
             this.btn_prj_sil.Name = "btn_prj_sil";
             this.btn_prj_sil.Size = new System.Drawing.Size(87, 36);
             this.btn_prj_sil.TabIndex = 39;
@@ -58,7 +58,7 @@
             // 
             this.btn_prj_duzenle.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btn_prj_duzenle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_prj_duzenle.Location = new System.Drawing.Point(502, 562);
+            this.btn_prj_duzenle.Location = new System.Drawing.Point(498, 562);
             this.btn_prj_duzenle.Name = "btn_prj_duzenle";
             this.btn_prj_duzenle.Size = new System.Drawing.Size(87, 36);
             this.btn_prj_duzenle.TabIndex = 38;
@@ -75,7 +75,7 @@
             this.dgw_prj_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgw_prj_list.Location = new System.Drawing.Point(15, 118);
             this.dgw_prj_list.Name = "dgw_prj_list";
-            this.dgw_prj_list.Size = new System.Drawing.Size(1335, 438);
+            this.dgw_prj_list.Size = new System.Drawing.Size(1327, 438);
             this.dgw_prj_list.TabIndex = 37;
             this.dgw_prj_list.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgw_prj_list_RowHeaderMouseClick);
             // 
@@ -83,7 +83,7 @@
             // 
             this.txt_prjAdi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_prjAdi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txt_prjAdi.Location = new System.Drawing.Point(845, 68);
+            this.txt_prjAdi.Location = new System.Drawing.Point(837, 68);
             this.txt_prjAdi.Name = "txt_prjAdi";
             this.txt_prjAdi.Size = new System.Drawing.Size(268, 22);
             this.txt_prjAdi.TabIndex = 36;
@@ -103,7 +103,7 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(770, 74);
+            this.label3.Location = new System.Drawing.Point(762, 74);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 16);
             this.label3.TabIndex = 34;
@@ -124,7 +124,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.Location = new System.Drawing.Point(616, 20);
+            this.label4.Location = new System.Drawing.Point(612, 20);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(137, 29);
             this.label4.TabIndex = 32;
@@ -134,7 +134,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 607);
+            this.ClientSize = new System.Drawing.Size(1362, 607);
             this.Controls.Add(this.btn_prj_sil);
             this.Controls.Add(this.btn_prj_duzenle);
             this.Controls.Add(this.dgw_prj_list);
