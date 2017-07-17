@@ -186,7 +186,7 @@ namespace MERP
 
         private void txt_tip_TextChanged(object sender, EventArgs e)
         {
-            Refresh(12, txt_tip.Text);
+            Refresh(13, txt_tip.Text);
         }
 
         public void Refresh(int i, string name)

@@ -201,12 +201,22 @@ namespace MERP
 
         private void txt_prjNo_TextChanged(object sender, EventArgs e)
         {
-            Refresh(1, txt_prjNo.Text);
+            BindingSource bs = new BindingSource();
+            bs.DataSource = dgw_prj_list.DataSource;
+            bs.Filter = dgw_prj_list.Columns[0].HeaderText.ToString() + " LIKE '%" + txt_prjNo.Text + "%'";
+            dgw_prj_list.DataSource = bs;
+
+            dgw_prj_list.Refresh();
         }
 
         private void txt_prjAdi_TextChanged(object sender, EventArgs e)
         {
-            Refresh(2, txt_prjAdi.Text);
+            BindingSource bs = new BindingSource();
+            bs.DataSource = dgw_prj_list.DataSource;
+            bs.Filter = dgw_prj_list.Columns[1].HeaderText.ToString() + " LIKE '%" + txt_prjAdi.Text + "%'";
+            dgw_prj_list.DataSource = bs;
+
+            dgw_prj_list.Refresh();
         }
 
         private void btn_prj_duzenle_Click(object sender, EventArgs e)
@@ -252,14 +262,6 @@ namespace MERP
         
 
         }
-        public void Refresh(int i,string name)
-        {
-            BindingSource bs = new BindingSource();
-            bs.DataSource = dgw_prj_list.DataSource;
-            bs.Filter = dgw_prj_list.Columns[i].HeaderText.ToString() + " LIKE '%" + name + "%'";
-            dgw_prj_list.DataSource = bs;
 
-            dgw_prj_list.Refresh();
-        }
     }
 }

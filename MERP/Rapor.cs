@@ -187,7 +187,6 @@ namespace MERP
         public void DrawChart2()
         {
             myConnection.Open();
-etiket:
 
             try
             {
@@ -205,8 +204,6 @@ etiket:
             }
             catch
             {
-
-                goto etiket;
                 el_ongorulen = "0";
                 myReader.Close();
             }
