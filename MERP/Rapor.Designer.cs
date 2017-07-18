@@ -268,6 +268,8 @@
             chartArea2.Name = "ChartArea1";
             this.chart4.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
+            legend2.TitleFont = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend2.TitleForeColor = System.Drawing.Color.Red;
             this.chart4.Legends.Add(legend2);
             this.chart4.Location = new System.Drawing.Point(1102, 19);
             this.chart4.Name = "chart4";
@@ -288,6 +290,8 @@
             chartArea3.Name = "ChartArea1";
             this.chart3.ChartAreas.Add(chartArea3);
             legend3.Name = "Legend1";
+            legend3.TitleFont = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend3.TitleForeColor = System.Drawing.Color.Red;
             this.chart3.Legends.Add(legend3);
             this.chart3.Location = new System.Drawing.Point(830, 19);
             this.chart3.Name = "chart3";
@@ -307,7 +311,11 @@
             // 
             chartArea4.Name = "ChartArea1";
             this.chart2.ChartAreas.Add(chartArea4);
+            legend4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend4.IsTextAutoFit = false;
             legend4.Name = "Legend1";
+            legend4.TitleFont = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend4.TitleForeColor = System.Drawing.Color.Red;
             this.chart2.Legends.Add(legend4);
             this.chart2.Location = new System.Drawing.Point(569, 19);
             this.chart2.Name = "chart2";

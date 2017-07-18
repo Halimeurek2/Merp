@@ -96,9 +96,9 @@ namespace MERP
                 cmb_projeler.Items.Add(myReader["proje_no"]);
             }
 
-            chart2.Titles.Add("ELEKTRİK");
+            chart2.Titles.Add("ELEKTRONİK");
             chart3.Titles.Add("MEKANİK");
-            chart4.Titles.Add("GENEL");
+            chart4.Titles.Add("GENEL GİDERLER");
 
             myReader.Close();
             myConnection.Close();
@@ -108,7 +108,7 @@ namespace MERP
             myConnection.Open();
             try
             {
-                komut = "select sum(fatura_euro) as EURO from db_faturalar where fatura_cinsi='elektrik' AND fatura_proje_no ='" + cmb_projeler.Text + "'";
+                komut = "select sum(fatura_euro) as EURO from db_faturalar where fatura_cinsi='Elektronik' AND fatura_proje_no ='" + cmb_projeler.Text + "'";
                 da = new MySqlDataAdapter(komut, connection);
 
                 myCommand = new MySqlCommand(komut, myConnection);
@@ -127,7 +127,7 @@ namespace MERP
             }
             try
             {
-                komut = "select sum(fatura_euro) as EURO from db_faturalar where fatura_cinsi='mekanik' AND fatura_proje_no ='" + cmb_projeler.Text + "'";
+                komut = "select sum(fatura_euro) as EURO from db_faturalar where fatura_cinsi='Mekanik' AND fatura_proje_no ='" + cmb_projeler.Text + "'";
                 da = new MySqlDataAdapter(komut, connection);
 
                 myCommand = new MySqlCommand(komut, myConnection);
@@ -146,7 +146,7 @@ namespace MERP
             }
             try
             {
-                komut = "select sum(fatura_euro) as EURO from db_faturalar WHERE fatura_proje_no ='" + cmb_projeler.Text + "'";
+                komut = "select sum(fatura_euro) as EURO from db_faturalar WHERE fatura_cinsi='Genel Giderler' AND fatura_proje_no ='" + cmb_projeler.Text + "'";
                 da = new MySqlDataAdapter(komut, connection);
 
                 myCommand = new MySqlCommand(komut, myConnection);
@@ -171,7 +171,7 @@ namespace MERP
 
             var p1 = chart1.Series["pieChart"].Points[0];
             p1.AxisLabel = Convert.ToString(el_mal);
-            p1.LegendText = "Elektrik";
+            p1.LegendText = "Elektronik";
 
             var p2 = chart1.Series["pieChart"].Points[1];
             p2.AxisLabel = Convert.ToString(mek_mal);
@@ -179,7 +179,7 @@ namespace MERP
 
             var p3 = chart1.Series["pieChart"].Points[2];
             p3.AxisLabel = Convert.ToString(genel_mal);
-            p3.LegendText = "Genel";
+            p3.LegendText = "Genel Giderler";
 
             myConnection.Close();
 
@@ -190,7 +190,7 @@ namespace MERP
 
             try
             {
-                komut = "select sum(harcama_el_mlz) from db_projeler where proje_no in(select fatura_proje_no from db_faturalar where fatura_cinsi='elektrik' and fatura_proje_no='"+cmb_projeler.Text+"')";
+                komut = "select sum(harcama_el_mlz) from db_projeler where proje_no in(select fatura_proje_no from db_faturalar where fatura_cinsi='Elektronik' and fatura_proje_no='"+cmb_projeler.Text+"')";
                 da = new MySqlDataAdapter(komut, connection);
 
                 myCommand = new MySqlCommand(komut, myConnection);
@@ -226,22 +226,22 @@ namespace MERP
             }
             
             chart2.Series["Series1"].Points.Clear();
-            
-            chart2.Series["Series1"].Points.Add(Convert.ToDouble(el_ongorulen));
+            chart2.Legends[0].Title = "Öngörülen Toplam" + " " + el_ongorulen;
+            //chart2.Series["Series1"].Points.Add(Convert.ToDouble(el_ongorulen));
             chart2.Series["Series1"].Points.Add(Convert.ToDouble(el_harcanan));
             chart2.Series["Series1"].Points.Add(Convert.ToDouble(el_kalan));
 
+            //var p1 = chart2.Series["Series1"].Points[0];
+            //p1.AxisLabel = Convert.ToString(el_ongorulen);
+            //p1.LegendText = "Öngörülen";
+
             var p1 = chart2.Series["Series1"].Points[0];
-            p1.AxisLabel = Convert.ToString(el_ongorulen);
-            p1.LegendText = "Öngörülen";
+            p1.AxisLabel = Convert.ToString(el_harcanan);
+            p1.LegendText = "Harcanan";
 
             var p2 = chart2.Series["Series1"].Points[1];
-            p2.AxisLabel = Convert.ToString(el_harcanan);
-            p2.LegendText = "Harcanan";
-
-            var p3 = chart2.Series["Series1"].Points[2];
-            p3.AxisLabel = Convert.ToString(el_kalan);
-            p3.LegendText = "Kalan";
+            p2.AxisLabel = Convert.ToString(el_kalan);
+            p2.LegendText = "Kalan";
 
             myConnection.Close();
         }
@@ -252,7 +252,7 @@ namespace MERP
 
             try
             {
-                komut = "select (sum(harcama_m_mlz)+sum(harcama_imalat)) from db_projeler where proje_no in(select fatura_proje_no from db_faturalar where fatura_cinsi='mekanik' and fatura_proje_no='" + cmb_projeler.Text + "')";
+                komut = "select (sum(harcama_m_mlz)+sum(harcama_imalat)) from db_projeler where proje_no in(select fatura_proje_no from db_faturalar where fatura_cinsi='Mekanik' and fatura_proje_no='" + cmb_projeler.Text + "')";
                 da = new MySqlDataAdapter(komut, connection);
 
                 myCommand = new MySqlCommand(komut, myConnection);
@@ -288,22 +288,17 @@ namespace MERP
             }
             
             chart3.Series["Series1"].Points.Clear();
-            
-            chart3.Series["Series1"].Points.Add(Convert.ToDouble(mek_ongorulen));
+            chart3.Legends[0].Title = "Öngörülen Toplam" + " " + mek_ongorulen;
             chart3.Series["Series1"].Points.Add(Convert.ToDouble(mek_harcanan));
             chart3.Series["Series1"].Points.Add(Convert.ToDouble(mek_kalan));
 
             var p1 = chart3.Series["Series1"].Points[0];
-            p1.AxisLabel = Convert.ToString(mek_ongorulen);
-            p1.LegendText = "Öngörülen";
+            p1.AxisLabel = Convert.ToString(mek_harcanan);
+            p1.LegendText = "Harcanan";
 
             var p2 = chart3.Series["Series1"].Points[1];
-            p2.AxisLabel = Convert.ToString(mek_harcanan);
-            p2.LegendText = "Harcanan";
-
-            var p3 = chart3.Series["Series1"].Points[2];
-            p3.AxisLabel = Convert.ToString(mek_kalan);
-            p3.LegendText = "Kalan";
+            p2.AxisLabel = Convert.ToString(mek_kalan);
+            p2.LegendText = "Kalan";
 
             myConnection.Close();
         }
@@ -350,22 +345,17 @@ namespace MERP
             }
             
             chart4.Series["Series1"].Points.Clear();
-           
-            chart4.Series["Series1"].Points.Add(Convert.ToDouble(genel_ongorulen));
+            chart4.Legends[0].Title = "Öngörülen Toplam" + " " + genel_ongorulen;
             chart4.Series["Series1"].Points.Add(Convert.ToDouble(genel_harcanan));
             chart4.Series["Series1"].Points.Add(Convert.ToDouble(genel_kalan));
 
             var p1 = chart4.Series["Series1"].Points[0];
-            p1.AxisLabel = Convert.ToString(genel_ongorulen);
-            p1.LegendText = "Öngörülen";
+            p1.AxisLabel = Convert.ToString(genel_harcanan);
+            p1.LegendText = "Harcanan";
 
             var p2 = chart4.Series["Series1"].Points[1];
-            p2.AxisLabel = Convert.ToString(genel_harcanan);
-            p2.LegendText = "Harcanan";
-
-            var p3 = chart4.Series["Series1"].Points[2];
-            p3.AxisLabel = Convert.ToString(genel_kalan);
-            p3.LegendText = "Kalan";
+            p2.AxisLabel = Convert.ToString(genel_kalan);
+            p2.LegendText = "Kalan";
 
             myConnection.Close();
         }

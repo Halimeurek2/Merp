@@ -34,7 +34,7 @@ namespace MERP
         }
         public string Comma2Dot(string text)
         {
-            text = text.Replace(',', '.');
+            text = text.Replace('.', ',');
             return text;
         }
 
@@ -42,7 +42,7 @@ namespace MERP
         {
             DateTime dt = Convert.ToDateTime(tarih);
             tarih = dt.ToString("dd/MM/yyyy");
-            string[] tr = tarih.Split('.');
+            string[] tr = tarih.Split('-');
             tarih = Convert.ToString(tr[0] + tr[1] + tr[2]);
             tarih2 = Convert.ToString(tr[2] + tr[1]);
             string anyDays = "http://www.tcmb.gov.tr/kurlar/" + tarih2 + "/" + tarih + ".xml";
