@@ -73,7 +73,7 @@ namespace MERP
             dgw_ftr_list.AutoSizeColumnsMode =
                        DataGridViewAutoSizeColumnsMode.Fill;
 
-
+            timer1.Enabled = true;
 
             myConnection.Close();
         }
@@ -197,6 +197,25 @@ namespace MERP
             dgw_ftr_list.DataSource = bs;
 
             dgw_ftr_list.Refresh();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                decimal a = 0;
+                foreach (DataGridViewRow r in dgw_ftr_list.Rows)
+                {
+                    {
+                        a += Convert.ToDecimal(r.Cells[12].Value);
+                    }
+                    label1.Text = Convert.ToString(a);
+                }
+            }
+            catch
+            {
+
+            }
         }
     }
 }

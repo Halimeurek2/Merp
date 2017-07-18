@@ -664,11 +664,6 @@ namespace MERP
             }
         }
 
-        private void groupBox3_Enter(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void cmb_yil_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(cmb_proje.Text=="")
