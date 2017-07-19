@@ -99,8 +99,17 @@
             // chart1
             // 
             chartArea1.Name = "ChartArea1";
+            chartArea1.Position.Auto = false;
+            chartArea1.Position.Height = 90F;
+            chartArea1.Position.Width = 90F;
+            chartArea1.Position.X = 3F;
+            chartArea1.Position.Y = 3F;
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Maliyet";
+            legend1.Position.Auto = false;
+            legend1.Position.Height = 20F;
+            legend1.Position.Width = 100F;
+            legend1.Position.Y = 80F;
             this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(9, 19);
             this.chart1.Name = "chart1";

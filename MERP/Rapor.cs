@@ -7,6 +7,7 @@ using System.Drawing.Printing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Globalization;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace MERP
 {
@@ -70,7 +71,6 @@ namespace MERP
             InitializeComponent();
             hf = new HelperFunctions();
         }
-
         private void Rapor_Load(object sender, EventArgs e)
         {
             server = "localhost";
@@ -100,6 +100,7 @@ namespace MERP
             myReader.Close();
             myConnection.Close();
         }
+
         public void DrawChart1()
         {
             myConnection.Open();
@@ -161,8 +162,9 @@ namespace MERP
                 myReader.Close();
             }
             chart1.Series["pieChart"].Points.Clear();
+            
+            //// el_mal = Convert.ToString(Convert.ToDouble(el_mal, CultureInfo.GetCultureInfo("en-US").NumberFormat));
 
-           // el_mal = Convert.ToString(Convert.ToDouble(el_mal, CultureInfo.GetCultureInfo("en-US").NumberFormat));
 
             chart1.Series["pieChart"].Points.Add(Convert.ToDouble(el_mal));
             chart1.Series["pieChart"].Points.Add(Convert.ToDouble(mek_mal));
@@ -170,15 +172,20 @@ namespace MERP
 
             var p1 = chart1.Series["pieChart"].Points[0];
             p1.AxisLabel = Convert.ToString(el_mal);
-            p1.LegendText = "Elektronik";
+            p1.LegendText = "Elektronik " + "#PERCENT";
 
             var p2 = chart1.Series["pieChart"].Points[1];
             p2.AxisLabel = Convert.ToString(mek_mal);
-            p2.LegendText = "Mekanik";
+            p2.LegendText = "Mekanik " + "#PERCENT";
 
             var p3 = chart1.Series["pieChart"].Points[2];
             p3.AxisLabel = Convert.ToString(genel_mal);
-            p3.LegendText = "Genel Giderler";
+            p3.LegendText = "Genel Giderler " + "#PERCENT";
+
+            chart1.Series[0]["PieLabelStyle"] = "Outside";
+
+            this.chart1.Series[0].BorderWidth = 1;
+            this.chart1.Series[0].BorderColor = Color.FromArgb(26, 59, 105);
 
             myConnection.Close();
 
@@ -212,8 +219,7 @@ namespace MERP
             }
             catch
             {
-                el_harcanan = "0";
-                myReader.Close();
+                el_harcanan = "0"; 
             }
             try
             {
@@ -221,7 +227,7 @@ namespace MERP
             }
             catch
             {
-
+                el_kalan = "0";
             }
             
             chart2.Series["Series1"].Points.Clear();
@@ -246,15 +252,16 @@ namespace MERP
 
             var p1 = chart2.Series["Series1"].Points[0];
             p1.AxisLabel = Convert.ToString(el_harcanan);
-            p1.LegendText = "Harcanan";
+            p1.LegendText = "Harcanan " + "#PERCENT";
 
             var p2 = chart2.Series["Series1"].Points[1];
             p2.AxisLabel = Convert.ToString(el_kalan);
-            p2.LegendText = "Kalan";
+            p2.LegendText = "Kalan " + "#PERCENT";
+
+
 
             myConnection.Close();
         }
-
         public void DrawChart3()
         {
             myConnection.Open();
@@ -306,15 +313,14 @@ namespace MERP
 
             var p1 = chart3.Series["Series1"].Points[0];
             p1.AxisLabel = Convert.ToString(mek_harcanan);
-            p1.LegendText = "Harcanan";
+            p1.LegendText = "Harcanan " + "#PERCENT";
 
             var p2 = chart3.Series["Series1"].Points[1];
             p2.AxisLabel = Convert.ToString(mek_kalan);
-            p2.LegendText = "Kalan";
+            p2.LegendText = "Kalan " + "#PERCENT";
 
             myConnection.Close();
         }
-
         public void DrawChart4()
         {
             myConnection.Open();
@@ -366,16 +372,15 @@ namespace MERP
 
             var p1 = chart4.Series["Series1"].Points[0];
             p1.AxisLabel = Convert.ToString(genel_harcanan);
-            p1.LegendText = "Harcanan";
+            p1.LegendText = "Harcanan " + "#PERCENT";
 
             var p2 = chart4.Series["Series1"].Points[1];
             p2.AxisLabel = Convert.ToString(genel_kalan);
-            p2.LegendText = "Kalan";
+            p2.LegendText = "Kalan " + "#PERCENT";
 
             myConnection.Close();
         }
-        
-
+ 
         private void cmb_projeler_SelectedIndexChanged(object sender, EventArgs e)
         {
                 myConnection.Open();
@@ -600,6 +605,7 @@ namespace MERP
             myReader.Close();
             myConnection.Close();
         }
+
         public void CaptureScreen()
         {
             Graphics myGraphics = this.CreateGraphics();
