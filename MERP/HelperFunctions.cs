@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using System.Data;
 using System.Xml;
+using System.Globalization;
 
 namespace MERP
 {
@@ -20,7 +21,6 @@ namespace MERP
         {
             Initialize();
         }
-
         public void Initialize()
         {
             server = "localhost";
@@ -37,7 +37,6 @@ namespace MERP
             text = text.Replace('.', ',');
             return text;
         }
-
         public string EuroCalculation(string tarih, string tutar, string birim, string euro)
         {
             DateTime dt = Convert.ToDateTime(tarih);
@@ -96,6 +95,12 @@ namespace MERP
                 return euro;
             }
         }  
+        public string DecimalToCurrency(decimal deger1,string deger2)
+        {
+            deger2 = string.Format(new CultureInfo("de-DE"), "{0:C2}", deger1);
+            return deger2;
+        }
     }
+
 }
 
