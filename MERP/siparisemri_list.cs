@@ -203,7 +203,7 @@ namespace MERP
                         a += Convert.ToDecimal(r.Cells[10].Value);
                     }
                     lbl_toplam.Text = Convert.ToString(a);
-                    lbl_toplam.Text = string.Format(new CultureInfo("de-DE"), "{0:C2}", Convert.ToDecimal(lbl_toplam.Text));
+                    lbl_toplam.Text = string.Format(new CultureInfo("de-DE"), "{0:C2}", Convert.ToDecimal(a));
                 }
             }
             catch

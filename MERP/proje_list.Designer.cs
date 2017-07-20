@@ -41,7 +41,13 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.lbl_toplam = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_prj_list)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_prj_sil
@@ -50,7 +56,7 @@
             this.btn_prj_sil.BackColor = System.Drawing.Color.Red;
             this.btn_prj_sil.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btn_prj_sil.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_prj_sil.Location = new System.Drawing.Point(834, 562);
+            this.btn_prj_sil.Location = new System.Drawing.Point(743, 37);
             this.btn_prj_sil.Name = "btn_prj_sil";
             this.btn_prj_sil.Size = new System.Drawing.Size(87, 36);
             this.btn_prj_sil.TabIndex = 39;
@@ -62,7 +68,7 @@
             // 
             this.btn_prj_duzenle.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btn_prj_duzenle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_prj_duzenle.Location = new System.Drawing.Point(498, 562);
+            this.btn_prj_duzenle.Location = new System.Drawing.Point(527, 37);
             this.btn_prj_duzenle.Name = "btn_prj_duzenle";
             this.btn_prj_duzenle.Size = new System.Drawing.Size(87, 36);
             this.btn_prj_duzenle.TabIndex = 38;
@@ -72,14 +78,12 @@
             // 
             // dgw_prj_list
             // 
-            this.dgw_prj_list.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgw_prj_list.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgw_prj_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgw_prj_list.Location = new System.Drawing.Point(15, 118);
+            this.dgw_prj_list.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgw_prj_list.Location = new System.Drawing.Point(0, 0);
             this.dgw_prj_list.Name = "dgw_prj_list";
-            this.dgw_prj_list.Size = new System.Drawing.Size(1327, 438);
+            this.dgw_prj_list.Size = new System.Drawing.Size(1362, 507);
             this.dgw_prj_list.TabIndex = 37;
             this.dgw_prj_list.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgw_prj_list_RowHeaderMouseClick);
             // 
@@ -87,7 +91,7 @@
             // 
             this.txt_prjAdi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_prjAdi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txt_prjAdi.Location = new System.Drawing.Point(837, 68);
+            this.txt_prjAdi.Location = new System.Drawing.Point(994, 55);
             this.txt_prjAdi.Name = "txt_prjAdi";
             this.txt_prjAdi.Size = new System.Drawing.Size(268, 22);
             this.txt_prjAdi.TabIndex = 36;
@@ -96,7 +100,7 @@
             // txt_prjNo
             // 
             this.txt_prjNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txt_prjNo.Location = new System.Drawing.Point(365, 71);
+            this.txt_prjNo.Location = new System.Drawing.Point(120, 58);
             this.txt_prjNo.Name = "txt_prjNo";
             this.txt_prjNo.Size = new System.Drawing.Size(233, 22);
             this.txt_prjNo.TabIndex = 35;
@@ -107,7 +111,7 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(762, 74);
+            this.label3.Location = new System.Drawing.Point(919, 61);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 16);
             this.label3.TabIndex = 34;
@@ -117,7 +121,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(270, 74);
+            this.label2.Location = new System.Drawing.Point(25, 61);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 16);
             this.label2.TabIndex = 33;
@@ -128,7 +132,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.Location = new System.Drawing.Point(612, 20);
+            this.label4.Location = new System.Drawing.Point(585, 1);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(137, 29);
             this.label4.TabIndex = 32;
@@ -142,7 +146,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(25, 33);
+            this.label1.Location = new System.Drawing.Point(3, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(62, 20);
             this.label1.TabIndex = 40;
@@ -152,35 +156,65 @@
             // 
             this.lbl_toplam.AutoSize = true;
             this.lbl_toplam.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_toplam.Location = new System.Drawing.Point(93, 33);
+            this.lbl_toplam.Location = new System.Drawing.Point(71, 10);
             this.lbl_toplam.Name = "lbl_toplam";
             this.lbl_toplam.Size = new System.Drawing.Size(16, 20);
             this.lbl_toplam.TabIndex = 41;
             this.lbl_toplam.Text = "0";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.lbl_toplam);
+            this.panel1.Controls.Add(this.txt_prjAdi);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.txt_prjNo);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1362, 100);
+            this.panel1.TabIndex = 42;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.dgw_prj_list);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 100);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1362, 507);
+            this.panel2.TabIndex = 43;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.btn_prj_duzenle);
+            this.panel3.Controls.Add(this.btn_prj_sil);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 507);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1362, 100);
+            this.panel3.TabIndex = 44;
             // 
             // proje_list
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1362, 607);
-            this.Controls.Add(this.lbl_toplam);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.btn_prj_sil);
-            this.Controls.Add(this.btn_prj_duzenle);
-            this.Controls.Add(this.dgw_prj_list);
-            this.Controls.Add(this.txt_prjAdi);
-            this.Controls.Add(this.txt_prjNo);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "proje_list";
             this.Text = "Projeler";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.proje_list_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgw_prj_list)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -197,5 +231,8 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbl_toplam;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
     }
 }

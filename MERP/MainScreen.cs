@@ -76,14 +76,9 @@ namespace MERP
             myConnection = new MySqlConnection(connectionString);
             myConnection.Open();
 
-            this.WindowState = FormWindowState.Maximized;
-            this.Location = new Point(0, 0);
-            this.Size = Screen.PrimaryScreen.WorkingArea.Size;
-            //Rectangle cozunurluk = new Rectangle();
-            //cozunurluk = Screen.GetBounds(cozunurluk);
-            //float oranWidth = ((float)cozunurluk.Width / (float)nowWidth);
-            //float oranHeight = ((float)cozunurluk.Height / (float)nowHeight);
-            //this.Scale(new SizeF(oranWidth, oranHeight));
+            //this.WindowState = FormWindowState.Maximized;
+            //this.Location = new Point(0, 0);
+            //this.Size = Screen.PrimaryScreen.WorkingArea.Size;
 
             try
             {
