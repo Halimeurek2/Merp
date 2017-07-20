@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(siparisemri_list));
             this.label4 = new System.Windows.Forms.Label();
             this.txt_tedarikci = new System.Windows.Forms.TextBox();
@@ -39,6 +40,9 @@
             this.txt_satınalma_no = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.lbl_toplam = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgw_stf_list)).BeginInit();
             this.SuspendLayout();
             // 
@@ -155,11 +159,37 @@
             this.label2.TabIndex = 23;
             this.label2.Text = "Proje No : ";
             // 
+            // lbl_toplam
+            // 
+            this.lbl_toplam.AutoSize = true;
+            this.lbl_toplam.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_toplam.Location = new System.Drawing.Point(99, 33);
+            this.lbl_toplam.Name = "lbl_toplam";
+            this.lbl_toplam.Size = new System.Drawing.Size(16, 20);
+            this.lbl_toplam.TabIndex = 43;
+            this.lbl_toplam.Text = "0";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(31, 33);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(62, 20);
+            this.label5.TabIndex = 42;
+            this.label5.Text = "Toplam :";
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // siparisemri_list
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 676);
+            this.Controls.Add(this.lbl_toplam);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txt_tedarikci);
             this.Controls.Add(this.label1);
@@ -193,5 +223,8 @@
         private System.Windows.Forms.TextBox txt_satınalma_no;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbl_toplam;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Timer timer1;
     }
 }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Globalization;
 
 namespace MERP
 {
@@ -98,6 +99,11 @@ namespace MERP
             dgw_prj_list.AutoSizeColumnsMode =
                        DataGridViewAutoSizeColumnsMode.Fill;
 
+          
+            dgw_prj_list.Columns[2].DefaultCellStyle.Format = "N2";
+            dgw_prj_list.Columns[9].DefaultCellStyle.Format = "N2";
+
+            timer1.Enabled = true;
 
             myConnection.Close();
         }
@@ -263,5 +269,24 @@ namespace MERP
 
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                decimal a = 0;
+                foreach (DataGridViewRow r in dgw_prj_list.Rows)
+                {
+                    {
+                        a += Convert.ToDecimal(r.Cells[9].Value);
+                    }
+                    lbl_toplam.Text = Convert.ToString(a);
+                    lbl_toplam.Text = string.Format(new CultureInfo("de-DE"), "{0:C2}", Convert.ToDecimal(lbl_toplam.Text));
+                }
+            }
+            catch
+            {
+
+            }
+        }
     }
 }

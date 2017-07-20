@@ -395,7 +395,6 @@ namespace MERP
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.CustomProperties = "DrawSideBySide=True";
-            series1.IsValueShownAsLabel = true;
             series1.IsXValueIndexed = true;
             series1.LabelAngle = 30;
             series1.Legend = "Legend1";

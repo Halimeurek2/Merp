@@ -28,11 +28,16 @@ namespace MERP
         HelperFunctions hf;
 
         public decimal TOPLAM=0;
+        public string BIRIM;
 
         string el_mal;
         string mek_mal;
         string genel_mal;
-        
+
+        string el_mal2;
+        string mek_mal2;
+        string genel_mal2;
+
         string el_ongorulen;
         string el_harcanan;
         string el_kalan;
@@ -115,12 +120,14 @@ namespace MERP
                 while (myReader.Read())
                 {
                     el_mal = Convert.ToString(myReader.GetString(0));
+                    el_mal2= Convert.ToString(myReader.GetString(0));
                 }
                 myReader.Close();
             }
             catch
             {
                 el_mal = "0";
+                el_mal2 = "0";
                 myReader.Close();
             }
             try
@@ -134,12 +141,14 @@ namespace MERP
                 while (myReader.Read())
                 {
                     mek_mal = Convert.ToString(myReader.GetString(0));
+                    mek_mal2 = Convert.ToString(myReader.GetString(0));
                 }
                 myReader.Close();
             }
             catch
             {
                 mek_mal = "0";
+                mek_mal2 = "0";
                 myReader.Close();
             }
             try
@@ -153,12 +162,14 @@ namespace MERP
                 while (myReader.Read())
                 {
                     genel_mal = Convert.ToString(myReader.GetString(0));
+                    genel_mal2 = Convert.ToString(myReader.GetString(0));
                 }
                 myReader.Close();
             }
             catch
             {
                 genel_mal = "0";
+                genel_mal2 = "0";
                 myReader.Close();
             }
             chart1.Series["pieChart"].Points.Clear();
@@ -170,22 +181,26 @@ namespace MERP
             chart1.Series["pieChart"].Points.Add(Convert.ToDouble(mek_mal));
             chart1.Series["pieChart"].Points.Add(Convert.ToDouble(genel_mal));
 
+            el_mal2 = hf.DecimalToCurrency(Convert.ToDecimal(el_mal2), el_mal2);
+            mek_mal2 = hf.DecimalToCurrency(Convert.ToDecimal(mek_mal2), mek_mal2);
+            genel_mal2 = hf.DecimalToCurrency(Convert.ToDecimal(genel_mal2), genel_mal2);
+
             var p1 = chart1.Series["pieChart"].Points[0];
-            p1.AxisLabel = Convert.ToString(el_mal);
+            p1.AxisLabel = Convert.ToString(el_mal2);
             p1.LegendText = "Elektronik " + "#PERCENT";
 
             var p2 = chart1.Series["pieChart"].Points[1];
-            p2.AxisLabel = Convert.ToString(mek_mal);
+            p2.AxisLabel = Convert.ToString(mek_mal2);
             p2.LegendText = "Mekanik " + "#PERCENT";
 
             var p3 = chart1.Series["pieChart"].Points[2];
-            p3.AxisLabel = Convert.ToString(genel_mal);
+            p3.AxisLabel = Convert.ToString(genel_mal2);
             p3.LegendText = "Genel Giderler " + "#PERCENT";
 
             chart1.Series[0]["PieLabelStyle"] = "Outside";
 
-            this.chart1.Series[0].BorderWidth = 1;
-            this.chart1.Series[0].BorderColor = Color.FromArgb(26, 59, 105);
+            chart1.Series[0].BorderWidth = 1;
+            chart1.Series[0].BorderColor = Color.FromArgb(26, 59, 105);
 
             myConnection.Close();
 
@@ -232,23 +247,14 @@ namespace MERP
             
             chart2.Series["Series1"].Points.Clear();
 
-            // el_ongorulen = Convert.ToString(el_ongorulen, CultureInfo.GetCultureInfo("de-DE").NumberFormat);
-            // el_ongorulen=string.Format(new System.Globalization.CultureInfo("de-DE"), "{0:C2}", el_ongorulen);
-            // el_ongorulen= string.Format("{0:#.00}", Convert.ToDecimal(el_ongorulen) / 100);
-            // string html = String.Format("{0:C}", el_ongorulen);
-
-            //decimal ongorulen = Convert.ToDecimal(el_ongorulen);
-            //el_ongorulen = string.Format(new CultureInfo("de-DE"), "{0:C2}", ongorulen);
             el_ongorulen = hf.DecimalToCurrency(Convert.ToDecimal(el_ongorulen), el_ongorulen);
-
             chart2.Legends[0].Title = "Öngörülen Toplam" + " " + el_ongorulen;
 
             chart2.Series["Series1"].Points.Add(Convert.ToDouble(el_harcanan));
             chart2.Series["Series1"].Points.Add(Convert.ToDouble(el_kalan));
 
-            //var p1 = chart2.Series["Series1"].Points[0];
-            //p1.AxisLabel = Convert.ToString(el_ongorulen);
-            //p1.LegendText = "Öngörülen";
+            el_harcanan = hf.DecimalToCurrency(Convert.ToDecimal(el_harcanan), el_harcanan);
+            el_kalan= hf.DecimalToCurrency(Convert.ToDecimal(el_kalan), el_kalan);
 
             var p1 = chart2.Series["Series1"].Points[0];
             p1.AxisLabel = Convert.ToString(el_harcanan);
@@ -258,7 +264,10 @@ namespace MERP
             p2.AxisLabel = Convert.ToString(el_kalan);
             p2.LegendText = "Kalan " + "#PERCENT";
 
+            chart2.Series[0]["PieLabelStyle"] = "Outside";
 
+            chart2.Series[0].BorderWidth = 1;
+            chart2.Series[0].BorderColor = Color.FromArgb(26, 59, 105);
 
             myConnection.Close();
         }
@@ -311,6 +320,9 @@ namespace MERP
             chart3.Series["Series1"].Points.Add(Convert.ToDouble(mek_harcanan));
             chart3.Series["Series1"].Points.Add(Convert.ToDouble(mek_kalan));
 
+            mek_harcanan = hf.DecimalToCurrency(Convert.ToDecimal(mek_harcanan), mek_harcanan);
+            mek_kalan = hf.DecimalToCurrency(Convert.ToDecimal(mek_kalan), mek_kalan);
+
             var p1 = chart3.Series["Series1"].Points[0];
             p1.AxisLabel = Convert.ToString(mek_harcanan);
             p1.LegendText = "Harcanan " + "#PERCENT";
@@ -318,6 +330,11 @@ namespace MERP
             var p2 = chart3.Series["Series1"].Points[1];
             p2.AxisLabel = Convert.ToString(mek_kalan);
             p2.LegendText = "Kalan " + "#PERCENT";
+
+            chart3.Series[0]["PieLabelStyle"] = "Outside";
+
+            chart3.Series[0].BorderWidth = 1;
+            chart3.Series[0].BorderColor = Color.FromArgb(26, 59, 105);
 
             myConnection.Close();
         }
@@ -327,7 +344,7 @@ namespace MERP
 
             try
             {
-                komut = "select (sum(harcama_risk)+sum(harcama_test)) from db_projeler where proje_no in(select fatura_proje_no from db_faturalar where fatura_cinsi='genel' and fatura_proje_no='" + cmb_projeler.Text + "')";
+                komut = "select (sum(harcama_risk)+sum(harcama_test)) from db_projeler where proje_no in(select fatura_proje_no from db_faturalar where fatura_cinsi='Genel Giderler' and fatura_proje_no='" + cmb_projeler.Text + "')";
                 da = new MySqlDataAdapter(komut, connection);
 
                 myCommand = new MySqlCommand(komut, myConnection);
@@ -370,6 +387,9 @@ namespace MERP
             chart4.Series["Series1"].Points.Add(Convert.ToDouble(genel_harcanan));
             chart4.Series["Series1"].Points.Add(Convert.ToDouble(genel_kalan));
 
+            genel_harcanan = hf.DecimalToCurrency(Convert.ToDecimal(genel_harcanan), genel_harcanan);
+            genel_kalan = hf.DecimalToCurrency(Convert.ToDecimal(genel_kalan), genel_kalan);
+
             var p1 = chart4.Series["Series1"].Points[0];
             p1.AxisLabel = Convert.ToString(genel_harcanan);
             p1.LegendText = "Harcanan " + "#PERCENT";
@@ -377,6 +397,11 @@ namespace MERP
             var p2 = chart4.Series["Series1"].Points[1];
             p2.AxisLabel = Convert.ToString(genel_kalan);
             p2.LegendText = "Kalan " + "#PERCENT";
+
+            chart4.Series[0]["PieLabelStyle"] = "Outside";
+
+            chart4.Series[0].BorderWidth = 1;
+            chart4.Series[0].BorderColor = Color.FromArgb(26, 59, 105);
 
             myConnection.Close();
         }
@@ -506,6 +531,46 @@ namespace MERP
             catch
             {
                 lbl_odenmisK.Text = "0";
+                myReader.Close();
+            }
+
+            try
+            {
+                komut = "SELECT proje_butce,proje_birim FROM db_projeler WHERE proje_no='" + cmb_projeler.Text + "'";
+                da = new MySqlDataAdapter(komut, connection);
+                myCommand = new MySqlCommand(komut, myConnection);
+                myReader = myCommand.ExecuteReader();
+                while (myReader.Read())
+                {
+                    TOPLAM = Convert.ToDecimal(myReader.GetString(0));
+                    BIRIM = Convert.ToString(myReader.GetString(1));
+
+                    if(BIRIM=="USD")
+                    {
+                        lbl_prj_butce.Text = string.Format(new CultureInfo("en-US"), "{0:C2}", Convert.ToDecimal(TOPLAM));
+                    }
+                    else if(BIRIM=="EURO")
+                    {
+                        lbl_prj_butce.Text = string.Format(new CultureInfo("de-DE"), "{0:C2}", Convert.ToDecimal(TOPLAM));
+                    }
+                    else if(BIRIM == "TRY")
+                    {
+                        lbl_prj_butce.Text = string.Format("{0:C2}", Convert.ToDecimal(TOPLAM));
+                    }
+                    else if(BIRIM == "GBP")
+                    {
+                        lbl_prj_butce.Text = string.Format(new CultureInfo("en-GB"), "{0:C2}", Convert.ToDecimal(TOPLAM));
+                    }
+                    else
+                    {
+                        lbl_prj_butce.Text = string.Format(new CultureInfo("en-CH"), "{0:C2}", Convert.ToDecimal(TOPLAM));
+                    }
+                }
+                myReader.Close();
+            }
+            catch
+            {
+                lbl_prj_butce.Text = "0";
                 myReader.Close();
             }
 

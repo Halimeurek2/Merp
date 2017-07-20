@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Globalization;
 
 namespace MERP
 {
@@ -68,6 +69,9 @@ namespace MERP
             dgw_stf_list.AutoSizeColumnsMode =
                        DataGridViewAutoSizeColumnsMode.Fill;
 
+            dgw_stf_list.Columns[8].DefaultCellStyle.Format = "N2";
+            dgw_stf_list.Columns[10].DefaultCellStyle.Format = "N2";
+
             komut = "SELECT DISTINCT proje_no FROM db_projeler";
             da = new MySqlDataAdapter(komut, connection);
 
@@ -81,6 +85,8 @@ namespace MERP
             {
                 cmb_projeNo.Items.Add(myReader["proje_no"]);
             }
+
+            timer1.Enabled = true;
 
             myConnection.Close();
         }
@@ -184,6 +190,26 @@ namespace MERP
         private void txt_tedarikci_TextChanged(object sender, EventArgs e)
         {
             Refresh(3, txt_tedarikci.Text);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                decimal a = 0;
+                foreach (DataGridViewRow r in dgw_stf_list.Rows)
+                {
+                    {
+                        a += Convert.ToDecimal(r.Cells[10].Value);
+                    }
+                    lbl_toplam.Text = Convert.ToString(a);
+                    lbl_toplam.Text = string.Format(new CultureInfo("de-DE"), "{0:C2}", Convert.ToDecimal(lbl_toplam.Text));
+                }
+            }
+            catch
+            {
+
+            }
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(proje_list));
             this.btn_prj_sil = new System.Windows.Forms.Button();
             this.btn_prj_duzenle = new System.Windows.Forms.Button();
@@ -37,6 +38,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_toplam = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_prj_list)).BeginInit();
             this.SuspendLayout();
             // 
@@ -130,11 +134,37 @@
             this.label4.TabIndex = 32;
             this.label4.Text = "PROJELER";
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(25, 33);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(62, 20);
+            this.label1.TabIndex = 40;
+            this.label1.Text = "Toplam :";
+            // 
+            // lbl_toplam
+            // 
+            this.lbl_toplam.AutoSize = true;
+            this.lbl_toplam.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_toplam.Location = new System.Drawing.Point(93, 33);
+            this.lbl_toplam.Name = "lbl_toplam";
+            this.lbl_toplam.Size = new System.Drawing.Size(16, 20);
+            this.lbl_toplam.TabIndex = 41;
+            this.lbl_toplam.Text = "0";
+            // 
             // proje_list
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1362, 607);
+            this.Controls.Add(this.lbl_toplam);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_prj_sil);
             this.Controls.Add(this.btn_prj_duzenle);
             this.Controls.Add(this.dgw_prj_list);
@@ -164,5 +194,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl_toplam;
     }
 }

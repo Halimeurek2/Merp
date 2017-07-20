@@ -73,6 +73,9 @@ namespace MERP
             dgw_ftr_list.AutoSizeColumnsMode =
                        DataGridViewAutoSizeColumnsMode.Fill;
 
+            dgw_ftr_list.Columns[12].DefaultCellStyle.Format = "N2";
+            dgw_ftr_list.Columns[9].DefaultCellStyle.Format = "N2";
+
             timer1.Enabled = true;
 
             myConnection.Close();
@@ -210,6 +213,7 @@ namespace MERP
                         a += Convert.ToDecimal(r.Cells[12].Value);
                     }
                     label1.Text = Convert.ToString(a);
+                    label1.Text= string.Format(new CultureInfo("de-DE"), "{0:C2}", Convert.ToDecimal(label1.Text));
                 }
             }
             catch

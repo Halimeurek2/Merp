@@ -630,20 +630,25 @@ namespace MERP
             seriesOngoru.Points.Clear();
 
 
+
             for (i = 0; i < 12; i++)
             {
                 seriesCopy.Points.AddXY(Convert.ToString((i + 1) + ". ay"), Convert.ToDecimal(toplam_fatura_K[i]));
+                seriesCopy.Points[i].Label = string.Format(new CultureInfo("de-DE"), "{0:C2}", Convert.ToDecimal(toplam_fatura_K[i]));
             }
 
             for (i = 0; i < 12; i++)
             {
                 series.Points.AddXY(Convert.ToString((i+1) + ". ay"), Convert.ToDecimal(toplam_fatura_G[i]));
+                series.Points[i].Label = string.Format(new CultureInfo("de-DE"), "{0:C2}", Convert.ToDecimal(toplam_fatura_G[i]));
             }
 
             for (i = 0; i < 6; i++)
             {
                 seriesOngoru.Points.AddXY(Convert.ToString((i + 1) + ". ay"), Convert.ToDecimal(odemeler[i]));
+                seriesOngoru.Points[i].Label = string.Format(new CultureInfo("de-DE"), "{0:C2}", Convert.ToDecimal(odemeler[i]));
             }
+
             myConnection.Close();
         }
 
