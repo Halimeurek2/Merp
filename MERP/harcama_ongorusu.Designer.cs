@@ -68,6 +68,7 @@
             this.dtp_test = new System.Windows.Forms.DateTimePicker();
             this.dtp_kabul = new System.Windows.Forms.DateTimePicker();
             this.dtp_pdr = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label11
@@ -416,11 +417,23 @@
             this.dtp_pdr.Size = new System.Drawing.Size(184, 20);
             this.dtp_pdr.TabIndex = 123;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label6.ForeColor = System.Drawing.Color.Red;
+            this.label6.Location = new System.Drawing.Point(8, 323);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(214, 16);
+            this.label6.TabIndex = 124;
+            this.label6.Text = "*Ödemeleri EURO cinsinden yazınız.";
+            // 
             // harcama_ongorusu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(820, 347);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.dtp_pdr);
             this.Controls.Add(this.dtp_kabul);
             this.Controls.Add(this.dtp_test);
@@ -511,5 +524,6 @@
         public System.Windows.Forms.DateTimePicker dtp_test;
         public System.Windows.Forms.DateTimePicker dtp_kabul;
         public System.Windows.Forms.DateTimePicker dtp_pdr;
+        public System.Windows.Forms.Label label6;
     }
 }

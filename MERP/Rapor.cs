@@ -549,7 +549,7 @@ namespace MERP
                     {
                         lbl_prj_butce.Text = string.Format(new CultureInfo("en-US"), "{0:C2}", Convert.ToDecimal(TOPLAM));
                     }
-                    else if(BIRIM=="EURO")
+                    else if(BIRIM=="EUR")
                     {
                         lbl_prj_butce.Text = string.Format(new CultureInfo("de-DE"), "{0:C2}", Convert.ToDecimal(TOPLAM));
                     }
