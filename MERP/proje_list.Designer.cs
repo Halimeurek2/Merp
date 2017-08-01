@@ -83,7 +83,7 @@
             this.dgw_prj_list.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgw_prj_list.Location = new System.Drawing.Point(0, 0);
             this.dgw_prj_list.Name = "dgw_prj_list";
-            this.dgw_prj_list.Size = new System.Drawing.Size(1362, 507);
+            this.dgw_prj_list.Size = new System.Drawing.Size(1362, 484);
             this.dgw_prj_list.TabIndex = 37;
             this.dgw_prj_list.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgw_prj_list_RowHeaderMouseClick);
             // 
@@ -174,16 +174,16 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1362, 100);
+            this.panel1.Size = new System.Drawing.Size(1362, 123);
             this.panel1.TabIndex = 42;
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.dgw_prj_list);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 100);
+            this.panel2.Location = new System.Drawing.Point(0, 123);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1362, 507);
+            this.panel2.Size = new System.Drawing.Size(1362, 484);
             this.panel2.TabIndex = 43;
             // 
             // panel3
