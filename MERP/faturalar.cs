@@ -76,9 +76,9 @@ namespace MERP
             dgw_ftr_list.Columns[12].DefaultCellStyle.Format = "N2";
             dgw_ftr_list.Columns[9].DefaultCellStyle.Format = "N2";
 
-            timer1.Enabled = true;
-
             myConnection.Close();
+
+            SumDGW();
         }
 
         private void btn_ftr_duzenle_Click(object sender, EventArgs e)
@@ -154,6 +154,8 @@ namespace MERP
             {
 
             }
+
+            SumDGW();
         }
 
         private void dgw_ftr_list_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -180,16 +182,19 @@ namespace MERP
         private void txt_firma_TextChanged(object sender, EventArgs e)
         {
             Refresh(3, txt_firma.Text);
+            SumDGW();
         }
 
         private void txt_ftr_no_TextChanged(object sender, EventArgs e)
         {
             Refresh(1, txt_ftr_no.Text);
+            SumDGW();
         }
 
         private void txt_tip_TextChanged(object sender, EventArgs e)
         {
             Refresh(13, txt_tip.Text);
+            SumDGW();
         }
 
         public void Refresh(int i, string name)
@@ -202,7 +207,7 @@ namespace MERP
             dgw_ftr_list.Refresh();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        public void SumDGW()
         {
             try
             {
@@ -213,7 +218,7 @@ namespace MERP
                         a += Convert.ToDecimal(r.Cells[12].Value);
                     }
                     label1.Text = Convert.ToString(a);
-                    label1.Text= string.Format(new CultureInfo("de-DE"), "{0:C2}", Convert.ToDecimal(label1.Text));
+                    label1.Text = string.Format(new CultureInfo("de-DE"), "{0:C2}", Convert.ToDecimal(label1.Text));
                 }
             }
             catch

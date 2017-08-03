@@ -39,16 +39,16 @@
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint4 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
             System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint5 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint8 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint9 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint6 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
             System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint7 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint8 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint9 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Rapor));
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label2 = new System.Windows.Forms.Label();
@@ -61,13 +61,17 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lbl_top_maliyet = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.gb_K = new System.Windows.Forms.GroupBox();
+            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
             this.gb_G = new System.Windows.Forms.GroupBox();
+            this.gb_K = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chart4 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chart4 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lbl_prj_butce = new System.Windows.Forms.Label();
             this.lbl_odenmemisTop = new System.Windows.Forms.Label();
@@ -82,20 +86,18 @@
             this.label6 = new System.Windows.Forms.Label();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.splitContainer5 = new System.Windows.Forms.SplitContainer();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_odenmemisG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_odenmemisK)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.gb_K.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
+            this.splitContainer4.Panel1.SuspendLayout();
+            this.splitContainer4.Panel2.SuspendLayout();
+            this.splitContainer4.SuspendLayout();
             this.gb_G.SuspendLayout();
+            this.gb_K.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
-            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -104,10 +106,17 @@
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart4)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).BeginInit();
+            this.splitContainer5.Panel2.SuspendLayout();
+            this.splitContainer5.SuspendLayout();
             this.SuspendLayout();
             // 
             // chart1
@@ -136,7 +145,7 @@
             series1.Points.Add(dataPoint2);
             series1.Points.Add(dataPoint3);
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(288, 273);
+            this.chart1.Size = new System.Drawing.Size(288, 299);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart_maliyet";
             // 
@@ -166,7 +175,7 @@
             this.dgw_odenmemisG.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgw_odenmemisG.Location = new System.Drawing.Point(3, 18);
             this.dgw_odenmemisG.Name = "dgw_odenmemisG";
-            this.dgw_odenmemisG.Size = new System.Drawing.Size(596, 264);
+            this.dgw_odenmemisG.Size = new System.Drawing.Size(631, 264);
             this.dgw_odenmemisG.TabIndex = 5;
             // 
             // dgw_odenmemisK
@@ -175,14 +184,14 @@
             this.dgw_odenmemisK.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgw_odenmemisK.Location = new System.Drawing.Point(3, 18);
             this.dgw_odenmemisK.Name = "dgw_odenmemisK";
-            this.dgw_odenmemisK.Size = new System.Drawing.Size(720, 264);
+            this.dgw_odenmemisK.Size = new System.Drawing.Size(685, 264);
             this.dgw_odenmemisK.TabIndex = 6;
             // 
             // btn_print
             // 
             this.btn_print.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_print.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_print.Location = new System.Drawing.Point(1191, 687);
+            this.btn_print.Location = new System.Drawing.Point(710, 4);
             this.btn_print.Name = "btn_print";
             this.btn_print.Size = new System.Drawing.Size(159, 43);
             this.btn_print.TabIndex = 7;
@@ -234,40 +243,56 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.gb_K);
-            this.groupBox1.Controls.Add(this.gb_G);
+            this.groupBox1.Controls.Add(this.splitContainer4);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.Red;
-            this.groupBox1.Location = new System.Drawing.Point(12, 370);
+            this.groupBox1.Location = new System.Drawing.Point(12, 382);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1338, 306);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ödenmemiş Faturalar";
             // 
-            // gb_K
+            // splitContainer4
             // 
-            this.gb_K.Controls.Add(this.dgw_odenmemisK);
-            this.gb_K.Dock = System.Windows.Forms.DockStyle.Right;
-            this.gb_K.ForeColor = System.Drawing.Color.Black;
-            this.gb_K.Location = new System.Drawing.Point(609, 18);
-            this.gb_K.Name = "gb_K";
-            this.gb_K.Size = new System.Drawing.Size(726, 285);
-            this.gb_K.TabIndex = 13;
-            this.gb_K.TabStop = false;
-            this.gb_K.Text = "Toplam";
+            this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer4.Location = new System.Drawing.Point(3, 18);
+            this.splitContainer4.Name = "splitContainer4";
+            // 
+            // splitContainer4.Panel1
+            // 
+            this.splitContainer4.Panel1.Controls.Add(this.gb_G);
+            // 
+            // splitContainer4.Panel2
+            // 
+            this.splitContainer4.Panel2.Controls.Add(this.gb_K);
+            this.splitContainer4.Size = new System.Drawing.Size(1332, 285);
+            this.splitContainer4.SplitterDistance = 637;
+            this.splitContainer4.TabIndex = 16;
             // 
             // gb_G
             // 
             this.gb_G.Controls.Add(this.dgw_odenmemisG);
-            this.gb_G.Dock = System.Windows.Forms.DockStyle.Left;
+            this.gb_G.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gb_G.ForeColor = System.Drawing.Color.Black;
-            this.gb_G.Location = new System.Drawing.Point(3, 18);
+            this.gb_G.Location = new System.Drawing.Point(0, 0);
             this.gb_G.Name = "gb_G";
-            this.gb_G.Size = new System.Drawing.Size(602, 285);
+            this.gb_G.Size = new System.Drawing.Size(637, 285);
             this.gb_G.TabIndex = 13;
             this.gb_G.TabStop = false;
             this.gb_G.Text = "Toplam";
+            // 
+            // gb_K
+            // 
+            this.gb_K.Controls.Add(this.dgw_odenmemisK);
+            this.gb_K.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gb_K.ForeColor = System.Drawing.Color.Black;
+            this.gb_K.Location = new System.Drawing.Point(0, 0);
+            this.gb_K.Name = "gb_K";
+            this.gb_K.Size = new System.Drawing.Size(691, 285);
+            this.gb_K.TabIndex = 13;
+            this.gb_K.TabStop = false;
+            this.gb_K.Text = "Toplam";
             // 
             // label5
             // 
@@ -285,12 +310,46 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.splitContainer1);
             this.groupBox2.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(12, 69);
+            this.groupBox2.Location = new System.Drawing.Point(12, 51);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1101, 295);
+            this.groupBox2.Size = new System.Drawing.Size(1101, 321);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "GRAFİKLER";
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(3, 19);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.chart1);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
+            this.splitContainer1.Size = new System.Drawing.Size(1095, 299);
+            this.splitContainer1.SplitterDistance = 288;
+            this.splitContainer1.TabIndex = 16;
+            // 
+            // splitContainer2
+            // 
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Name = "splitContainer2";
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.chart2);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.splitContainer3);
+            this.splitContainer2.Size = new System.Drawing.Size(803, 299);
+            this.splitContainer2.SplitterDistance = 266;
+            this.splitContainer2.TabIndex = 0;
             // 
             // chart2
             // 
@@ -314,32 +373,26 @@
             series2.Points.Add(dataPoint4);
             series2.Points.Add(dataPoint5);
             this.chart2.Series.Add(series2);
-            this.chart2.Size = new System.Drawing.Size(266, 273);
+            this.chart2.Size = new System.Drawing.Size(266, 299);
             this.chart2.TabIndex = 4;
             this.chart2.Text = "chart2";
             // 
-            // chart4
+            // splitContainer3
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chart4.ChartAreas.Add(chartArea4);
-            this.chart4.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend4.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend4.Name = "Legend1";
-            legend4.TitleFont = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend4.TitleForeColor = System.Drawing.Color.Red;
-            this.chart4.Legends.Add(legend4);
-            this.chart4.Location = new System.Drawing.Point(0, 0);
-            this.chart4.Name = "chart4";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            series4.Points.Add(dataPoint8);
-            series4.Points.Add(dataPoint9);
-            this.chart4.Series.Add(series4);
-            this.chart4.Size = new System.Drawing.Size(260, 273);
-            this.chart4.TabIndex = 3;
-            this.chart4.Text = "chart4";
+            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer3.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer3.Name = "splitContainer3";
+            // 
+            // splitContainer3.Panel1
+            // 
+            this.splitContainer3.Panel1.Controls.Add(this.chart3);
+            // 
+            // splitContainer3.Panel2
+            // 
+            this.splitContainer3.Panel2.Controls.Add(this.chart4);
+            this.splitContainer3.Size = new System.Drawing.Size(533, 299);
+            this.splitContainer3.SplitterDistance = 269;
+            this.splitContainer3.TabIndex = 0;
             // 
             // chart3
             // 
@@ -363,9 +416,32 @@
             series3.Points.Add(dataPoint6);
             series3.Points.Add(dataPoint7);
             this.chart3.Series.Add(series3);
-            this.chart3.Size = new System.Drawing.Size(269, 273);
+            this.chart3.Size = new System.Drawing.Size(269, 299);
             this.chart3.TabIndex = 2;
             this.chart3.Text = "chart3";
+            // 
+            // chart4
+            // 
+            chartArea4.Name = "ChartArea1";
+            this.chart4.ChartAreas.Add(chartArea4);
+            this.chart4.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend4.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend4.Name = "Legend1";
+            legend4.TitleFont = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend4.TitleForeColor = System.Drawing.Color.Red;
+            this.chart4.Legends.Add(legend4);
+            this.chart4.Location = new System.Drawing.Point(0, 0);
+            this.chart4.Name = "chart4";
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            series4.Points.Add(dataPoint8);
+            series4.Points.Add(dataPoint9);
+            this.chart4.Series.Add(series4);
+            this.chart4.Size = new System.Drawing.Size(260, 299);
+            this.chart4.TabIndex = 3;
+            this.chart4.Text = "chart4";
             // 
             // groupBox3
             // 
@@ -386,7 +462,7 @@
             this.groupBox3.Controls.Add(this.lbl_top_maliyet);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Location = new System.Drawing.Point(1119, 69);
+            this.groupBox3.Location = new System.Drawing.Point(1119, 64);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(233, 295);
             this.groupBox3.TabIndex = 15;
@@ -516,67 +592,29 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
-            // splitContainer1
+            // splitContainer5
             // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(3, 19);
-            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.splitContainer5.Location = new System.Drawing.Point(0, 692);
+            this.splitContainer5.Name = "splitContainer5";
             // 
-            // splitContainer1.Panel1
+            // splitContainer5.Panel2
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.chart1);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(1095, 273);
-            this.splitContainer1.SplitterDistance = 288;
-            this.splitContainer1.TabIndex = 16;
-            // 
-            // splitContainer2
-            // 
-            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer2.Name = "splitContainer2";
-            // 
-            // splitContainer2.Panel1
-            // 
-            this.splitContainer2.Panel1.Controls.Add(this.chart2);
-            // 
-            // splitContainer2.Panel2
-            // 
-            this.splitContainer2.Panel2.Controls.Add(this.splitContainer3);
-            this.splitContainer2.Size = new System.Drawing.Size(803, 273);
-            this.splitContainer2.SplitterDistance = 266;
-            this.splitContainer2.TabIndex = 0;
-            // 
-            // splitContainer3
-            // 
-            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer3.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer3.Name = "splitContainer3";
-            // 
-            // splitContainer3.Panel1
-            // 
-            this.splitContainer3.Panel1.Controls.Add(this.chart3);
-            // 
-            // splitContainer3.Panel2
-            // 
-            this.splitContainer3.Panel2.Controls.Add(this.chart4);
-            this.splitContainer3.Size = new System.Drawing.Size(533, 273);
-            this.splitContainer3.SplitterDistance = 269;
-            this.splitContainer3.TabIndex = 0;
+            this.splitContainer5.Panel2.Controls.Add(this.btn_print);
+            this.splitContainer5.Size = new System.Drawing.Size(1362, 50);
+            this.splitContainer5.SplitterDistance = 454;
+            this.splitContainer5.TabIndex = 16;
             // 
             // Rapor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1362, 742);
+            this.Controls.Add(this.splitContainer5);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.cmb_projeler);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btn_print);
             this.Controls.Add(this.label3);
             this.Name = "Rapor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -587,14 +625,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgw_odenmemisG)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_odenmemisK)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            this.gb_K.ResumeLayout(false);
+            this.splitContainer4.Panel1.ResumeLayout(false);
+            this.splitContainer4.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
+            this.splitContainer4.ResumeLayout(false);
             this.gb_G.ResumeLayout(false);
+            this.gb_K.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -603,10 +640,18 @@
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             this.splitContainer3.Panel1.ResumeLayout(false);
             this.splitContainer3.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart4)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.splitContainer5.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).EndInit();
+            this.splitContainer5.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -649,5 +694,7 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.SplitContainer splitContainer3;
+        private System.Windows.Forms.SplitContainer splitContainer4;
+        private System.Windows.Forms.SplitContainer splitContainer5;
     }
 }

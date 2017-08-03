@@ -52,13 +52,10 @@ namespace MERP
         float[] toplam_fatura_G = new float[12];
         float[] toplam_fatura_K = new float[12];
 
-        float[] odemeler = new float[6];
-        DateTime[] dt_odemeler = new DateTime[6];
+        float[] odemeler = new float[12];
+        DateTime[] dt_odemeler = new DateTime[12];
 
         int[] tarihChart = new int[100];
-
-        int nowHeight =1384;
-        int nowWidth =788;
 
         public MainScreen()
         {
@@ -491,6 +488,17 @@ namespace MERP
             i = 0;
             elemanSayisi = 0;
 
+
+            Array.Clear(tarih_array_K, 0, 1000);
+            Array.Clear(tarih_array_G, 0, 1000);
+            Array.Clear(fatura_tutar_K, 0, 1000);
+            Array.Clear(fatura_tutar_G, 0, 1000);
+
+            Array.Clear(toplam_fatura_G, 0, 12);
+            Array.Clear(toplam_fatura_K, 0, 12);
+            Array.Clear(odemeler, 0, 12);
+            Array.Clear(dt_odemeler, 0, 12);
+            
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
             myConnection.Open();
@@ -618,7 +626,12 @@ namespace MERP
                 if (Int32.Parse(tarih_array_K[month].ToString("yyyy")) == Convert.ToInt32(cmb_yil.Text))
                     toplam_fatura_K[Int32.Parse(tarih_array_K[month].ToString("MM")) - 1] += fatura_tutar_K[month];
             }
-      
+
+            for (month = 0; month < 6; month++)
+            {
+                if (Int32.Parse(dt_odemeler[month].ToString("yyyy")) == Convert.ToInt32(cmb_yil.Text))
+                    odemeler[Int32.Parse(dt_odemeler[month].ToString("MM")) - 1] += odemeler[month];
+            }
 
             series.Points.Clear();
             seriesCopy.Points.Clear();
@@ -679,7 +692,7 @@ namespace MERP
         {
             if(cmb_proje.Text=="")
             {
-                MessageBox.Show("Proje No Seçiniz");
+                //MessageBox.Show("Proje No Seçiniz");
             }
             else
             {

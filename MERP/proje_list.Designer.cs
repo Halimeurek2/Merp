@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(proje_list));
             this.btn_prj_sil = new System.Windows.Forms.Button();
             this.btn_prj_duzenle = new System.Windows.Forms.Button();
@@ -38,14 +37,18 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.lbl_toplam = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_prj_list)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -56,7 +59,7 @@
             this.btn_prj_sil.BackColor = System.Drawing.Color.Red;
             this.btn_prj_sil.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btn_prj_sil.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_prj_sil.Location = new System.Drawing.Point(743, 37);
+            this.btn_prj_sil.Location = new System.Drawing.Point(745, 11);
             this.btn_prj_sil.Name = "btn_prj_sil";
             this.btn_prj_sil.Size = new System.Drawing.Size(87, 36);
             this.btn_prj_sil.TabIndex = 39;
@@ -68,7 +71,7 @@
             // 
             this.btn_prj_duzenle.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btn_prj_duzenle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_prj_duzenle.Location = new System.Drawing.Point(527, 37);
+            this.btn_prj_duzenle.Location = new System.Drawing.Point(529, 11);
             this.btn_prj_duzenle.Name = "btn_prj_duzenle";
             this.btn_prj_duzenle.Size = new System.Drawing.Size(87, 36);
             this.btn_prj_duzenle.TabIndex = 38;
@@ -91,7 +94,7 @@
             // 
             this.txt_prjAdi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_prjAdi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txt_prjAdi.Location = new System.Drawing.Point(994, 55);
+            this.txt_prjAdi.Location = new System.Drawing.Point(293, 16);
             this.txt_prjAdi.Name = "txt_prjAdi";
             this.txt_prjAdi.Size = new System.Drawing.Size(268, 22);
             this.txt_prjAdi.TabIndex = 36;
@@ -100,7 +103,7 @@
             // txt_prjNo
             // 
             this.txt_prjNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txt_prjNo.Location = new System.Drawing.Point(120, 58);
+            this.txt_prjNo.Location = new System.Drawing.Point(283, 13);
             this.txt_prjNo.Name = "txt_prjNo";
             this.txt_prjNo.Size = new System.Drawing.Size(233, 22);
             this.txt_prjNo.TabIndex = 35;
@@ -111,7 +114,7 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(919, 61);
+            this.label3.Location = new System.Drawing.Point(164, 19);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 16);
             this.label3.TabIndex = 34;
@@ -121,7 +124,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(25, 61);
+            this.label2.Location = new System.Drawing.Point(188, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 16);
             this.label2.TabIndex = 33;
@@ -137,10 +140,6 @@
             this.label4.Size = new System.Drawing.Size(137, 29);
             this.label4.TabIndex = 32;
             this.label4.Text = "PROJELER";
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // label1
             // 
@@ -164,18 +163,34 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.splitContainer1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.lbl_toplam);
-            this.panel1.Controls.Add(this.txt_prjAdi);
-            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.txt_prjNo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1362, 123);
             this.panel1.TabIndex = 42;
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 74);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.txt_prjNo);
+            this.splitContainer1.Panel1.Controls.Add(this.label2);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.txt_prjAdi);
+            this.splitContainer1.Panel2.Controls.Add(this.label3);
+            this.splitContainer1.Size = new System.Drawing.Size(1362, 49);
+            this.splitContainer1.SplitterDistance = 609;
+            this.splitContainer1.TabIndex = 42;
             // 
             // panel2
             // 
@@ -191,9 +206,9 @@
             this.panel3.Controls.Add(this.btn_prj_duzenle);
             this.panel3.Controls.Add(this.btn_prj_sil);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 507);
+            this.panel3.Location = new System.Drawing.Point(0, 548);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1362, 100);
+            this.panel3.Size = new System.Drawing.Size(1362, 59);
             this.panel3.TabIndex = 44;
             // 
             // proje_list
@@ -212,6 +227,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgw_prj_list)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -228,11 +249,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbl_toplam;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.SplitContainer splitContainer1;
     }
 }

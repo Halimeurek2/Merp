@@ -86,9 +86,9 @@ namespace MERP
                 cmb_projeNo.Items.Add(myReader["proje_no"]);
             }
 
-            timer1.Enabled = true;
-
             myConnection.Close();
+
+            SumDGW();
         }
 
         private void btn_ftr_sil_Click(object sender, EventArgs e)
@@ -133,11 +133,14 @@ namespace MERP
             {
 
             }
+
+            SumDGW();
         }
 
         private void txt_stf_marka_TextChanged(object sender, EventArgs e)
         {
             Refresh(2, txt_satınalma_no.Text);
+            SumDGW();
         }
 
         private void dgw_stf_list_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -185,14 +188,16 @@ namespace MERP
         private void cmb_projeNo_SelectedIndexChanged(object sender, EventArgs e)
         {
             Refresh(1, cmb_projeNo.Text);
+            SumDGW();
         }
 
         private void txt_tedarikci_TextChanged(object sender, EventArgs e)
         {
             Refresh(3, txt_tedarikci.Text);
+            SumDGW();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        public void SumDGW()
         {
             try
             {

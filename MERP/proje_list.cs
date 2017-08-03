@@ -103,9 +103,9 @@ namespace MERP
             dgw_prj_list.Columns[2].DefaultCellStyle.Format = "N2";
             dgw_prj_list.Columns[9].DefaultCellStyle.Format = "N2";
 
-            timer1.Enabled = true;
-
             myConnection.Close();
+
+            SumDGW();
         }
 
         private void btn_prj_sil_Click(object sender, EventArgs e)
@@ -150,6 +150,8 @@ namespace MERP
             {
 
             }
+
+            SumDGW();
         }
 
         private void dgw_prj_list_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -213,6 +215,8 @@ namespace MERP
             dgw_prj_list.DataSource = bs;
 
             dgw_prj_list.Refresh();
+
+            SumDGW();
         }
 
         private void txt_prjAdi_TextChanged(object sender, EventArgs e)
@@ -223,6 +227,8 @@ namespace MERP
             dgw_prj_list.DataSource = bs;
 
             dgw_prj_list.Refresh();
+
+            SumDGW();
         }
 
         private void btn_prj_duzenle_Click(object sender, EventArgs e)
@@ -269,7 +275,7 @@ namespace MERP
 
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        public void SumDGW()
         {
             try
             {
