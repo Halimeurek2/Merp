@@ -34,7 +34,7 @@ namespace MERP
         }
         public string Comma2Dot(string text)
         {
-            text = text.Replace('.', ',');
+            text = text.Replace(',', '.');
             return text;
         }
         public string EuroCalculation(string tarih, string tutar, string birim, string euro)

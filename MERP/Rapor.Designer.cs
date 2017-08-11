@@ -137,6 +137,7 @@
             this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(0, 0);
             this.chart1.Name = "chart1";
+            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
             series1.Legend = "Maliyet";
@@ -354,9 +355,6 @@
             // chart2
             // 
             chartArea2.Name = "ChartArea1";
-            chartArea2.Position.Auto = false;
-            chartArea2.Position.Height = 100F;
-            chartArea2.Position.Width = 100F;
             this.chart2.ChartAreas.Add(chartArea2);
             this.chart2.Dock = System.Windows.Forms.DockStyle.Fill;
             legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
@@ -397,9 +395,6 @@
             // chart3
             // 
             chartArea3.Name = "ChartArea1";
-            chartArea3.Position.Auto = false;
-            chartArea3.Position.Height = 100F;
-            chartArea3.Position.Width = 100F;
             this.chart3.ChartAreas.Add(chartArea3);
             this.chart3.Dock = System.Windows.Forms.DockStyle.Fill;
             legend3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
