@@ -7,7 +7,7 @@ using System.Drawing.Printing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Globalization;
-using System.Windows.Forms.DataVisualization.Charting;
+using System.Collections;
 
 namespace MERP
 {
@@ -49,9 +49,16 @@ namespace MERP
         string genel_ongorulen;
         string genel_harcanan;
         string genel_kalan;
-       
 
-        Bitmap memoryImage;
+        StringFormat strFormat;
+        ArrayList arrColumnLefts = new ArrayList();
+        ArrayList arrColumnWidths = new ArrayList();
+        int iCellHeight = 0;
+        int iTotalWidth = 0;
+        int iRow = 0;
+        bool bFirstPage = false;
+        bool bNewPage = false;
+        int iHeaderHeight = 0;
 
         private System.IO.Stream streamToPrint;
 
@@ -76,6 +83,7 @@ namespace MERP
             InitializeComponent();
             hf = new HelperFunctions();
         }
+
         private void Rapor_Load(object sender, EventArgs e)
         {
             server = "localhost";
@@ -111,7 +119,7 @@ namespace MERP
             myConnection.Open();
             try
             {
-                komut = "select sum(fatura_euro) as EURO from db_faturalar where fatura_cinsi='Elektronik' AND fatura_proje_no ='" + cmb_projeler.Text + "'";
+                komut = "select sum(fatura_euro) as EURO from db_faturalar where fatura_cinsi='Elektronik' AND fatura_proje_no ='" + cmb_projeler.Text + "' AND fatura_tipi='G'";
                 da = new MySqlDataAdapter(komut, connection);
 
                 myCommand = new MySqlCommand(komut, myConnection);
@@ -132,7 +140,7 @@ namespace MERP
             }
             try
             {
-                komut = "select sum(fatura_euro) as EURO from db_faturalar where fatura_cinsi='Mekanik' AND fatura_proje_no ='" + cmb_projeler.Text + "'";
+                komut = "select sum(fatura_euro) as EURO from db_faturalar where fatura_cinsi='Mekanik' AND fatura_proje_no ='" + cmb_projeler.Text + "' AND fatura_tipi='G'";
                 da = new MySqlDataAdapter(komut, connection);
 
                 myCommand = new MySqlCommand(komut, myConnection);
@@ -153,7 +161,7 @@ namespace MERP
             }
             try
             {
-                komut = "select sum(fatura_euro) as EURO from db_faturalar WHERE fatura_cinsi='Genel Giderler' AND fatura_proje_no ='" + cmb_projeler.Text + "'";
+                komut = "select sum(fatura_euro) as EURO from db_faturalar WHERE fatura_cinsi='Genel Giderler' AND fatura_proje_no ='" + cmb_projeler.Text + "' AND fatura_tipi='G'";
                 da = new MySqlDataAdapter(komut, connection);
 
                 myCommand = new MySqlCommand(komut, myConnection);
@@ -211,7 +219,7 @@ namespace MERP
 
             try
             {
-                komut = "select sum(harcama_el_mlz) from db_projeler where proje_no in(select fatura_proje_no from db_faturalar where fatura_cinsi='Elektronik' and fatura_proje_no='"+cmb_projeler.Text+"')";
+                komut = "select sum(harcama_el_mlz) from db_projeler where proje_no in(select fatura_proje_no from db_faturalar where fatura_cinsi='Elektronik' and fatura_proje_no='"+cmb_projeler.Text+"' AND fatura_tipi='G')";
                 da = new MySqlDataAdapter(komut, connection);
 
                 myCommand = new MySqlCommand(komut, myConnection);
@@ -277,7 +285,7 @@ namespace MERP
 
             try
             {
-                komut = "select (sum(harcama_m_mlz)+sum(harcama_imalat)) from db_projeler where proje_no in(select fatura_proje_no from db_faturalar where fatura_cinsi='Mekanik' and fatura_proje_no='" + cmb_projeler.Text + "')";
+                komut = "select (sum(harcama_m_mlz)+sum(harcama_imalat)) from db_projeler where proje_no in(select fatura_proje_no from db_faturalar where fatura_cinsi='Mekanik' and fatura_proje_no='" + cmb_projeler.Text + "' AND fatura_tipi='G')";
                 da = new MySqlDataAdapter(komut, connection);
 
                 myCommand = new MySqlCommand(komut, myConnection);
@@ -344,7 +352,7 @@ namespace MERP
 
             try
             {
-                komut = "select (sum(harcama_risk)+sum(harcama_test)) from db_projeler where proje_no in(select fatura_proje_no from db_faturalar where fatura_cinsi='Genel Giderler' and fatura_proje_no='" + cmb_projeler.Text + "')";
+                komut = "select (sum(harcama_risk)+sum(harcama_test)) from db_projeler where proje_no in(select fatura_proje_no from db_faturalar where fatura_cinsi='Genel Giderler' and fatura_proje_no='" + cmb_projeler.Text + "' AND fatura_tipi='G')";
                 da = new MySqlDataAdapter(komut, connection);
 
                 myCommand = new MySqlCommand(komut, myConnection);
@@ -409,17 +417,6 @@ namespace MERP
         private void cmb_projeler_SelectedIndexChanged(object sender, EventArgs e)
         {
                 myConnection.Open();
-
-                komut = "SELECT COUNT(*) FROM db_siparis_emri WHERE proje_no='" + cmb_projeler.Text + "'";
-                da = new MySqlDataAdapter(komut, connection);
-                myCommand = new MySqlCommand(komut, myConnection);
-                MySqlDataReader myReader;
-                myReader = myCommand.ExecuteReader();
-                while (myReader.Read())
-                {
-                    lbl_adet_se.Text = Convert.ToString(myReader.GetString(0));
-                }
-                myReader.Close();
             try
             {
                 komut = "SELECT sum(fatura_euro) FROM db_faturalar WHERE fatura_proje_no ='" + cmb_projeler.Text + "'";
@@ -441,20 +438,20 @@ namespace MERP
 
             try
             {
-                komut = "SELECT sum(fatura_euro) FROM db_faturalar WHERE fatura_durum='ÖDENDİ' AND fatura_proje_no ='" + cmb_projeler.Text + "'";
+                komut = "SELECT sum(fatura_euro) FROM db_faturalar WHERE fatura_durum='ÖDENDİ' AND fatura_proje_no ='" + cmb_projeler.Text + "' AND fatura_tipi='G'";
                 da = new MySqlDataAdapter(komut, connection);
                 myCommand = new MySqlCommand(komut, myConnection);
                 myReader = myCommand.ExecuteReader();
                 while (myReader.Read())
                 {
                     TOPLAM = Convert.ToDecimal(myReader.GetString(0));
-                    lbl_odenenTop.Text = string.Format(new CultureInfo("de-DE"), "{0:C2}", Convert.ToDecimal(TOPLAM));
+                    lbl_odenmisG.Text = string.Format(new CultureInfo("de-DE"), "{0:C2}", Convert.ToDecimal(TOPLAM));
                 }
                 myReader.Close();
             }
             catch
             {
-                lbl_odenenTop.Text = "0";
+                lbl_odenmisG.Text = "0";
                 myReader.Close();
             }
 
@@ -475,44 +472,6 @@ namespace MERP
             {
                    lbl_odenmemisTop.Text = "0";
                    myReader.Close();
-            }
-
-            try
-            {
-                komut = "SELECT sum(siparis_euro) FROM db_siparis_emri WHERE proje_no='" + cmb_projeler.Text + "'";
-                da = new MySqlDataAdapter(komut, connection);
-                myCommand = new MySqlCommand(komut, myConnection);
-                myReader = myCommand.ExecuteReader();
-                while (myReader.Read())
-                {
-                    TOPLAM = Convert.ToDecimal(myReader.GetString(0));
-                    lbl_top_se.Text = string.Format(new CultureInfo("de-DE"), "{0:C2}", Convert.ToDecimal(TOPLAM));
-                }
-                myReader.Close();
-            }
-            catch
-            {
-                lbl_top_se.Text = "0";
-                myReader.Close();
-            }
-
-            try
-            {
-                komut = "SELECT sum(fatura_euro) FROM db_faturalar WHERE fatura_durum='ÖDENMEDİ' AND fatura_proje_no ='" + cmb_projeler.Text + "' AND fatura_tipi='K'";
-                da = new MySqlDataAdapter(komut, connection);
-                myCommand = new MySqlCommand(komut, myConnection);
-                myReader = myCommand.ExecuteReader();
-                while (myReader.Read())
-                {
-                    TOPLAM = Convert.ToDecimal(myReader.GetString(0));
-                    lbl_odenmemisK.Text = string.Format(new CultureInfo("de-DE"), "{0:C2}", Convert.ToDecimal(TOPLAM));
-                }
-                myReader.Close();
-            }
-            catch
-            {
-                lbl_odenmemisK.Text = "0";
-                myReader.Close();
             }
 
             try
@@ -574,6 +533,27 @@ namespace MERP
                 myReader.Close();
             }
 
+            try
+            {
+                komut = "SELECT proje_butce,proje_birim FROM db_projeler WHERE proje_no='" + cmb_projeler.Text + "'";
+                da = new MySqlDataAdapter(komut, connection);
+                myCommand = new MySqlCommand(komut, myConnection);
+                myReader = myCommand.ExecuteReader();
+                while (myReader.Read())
+                {
+                    TOPLAM = Convert.ToDecimal(myReader.GetString(0));
+                    BIRIM = Convert.ToString(myReader.GetString(1));
+                }
+                lbl_prjEuro.Text = hf.EuroCalculation(Convert.ToString(DateTime.Now.AddDays(-1)), Convert.ToString(TOPLAM), BIRIM, lbl_prjEuro.Text);
+                lbl_prjEuro.Text = string.Format(new CultureInfo("de-DE"), "{0:C2}", Convert.ToDecimal(lbl_prjEuro.Text));
+                myReader.Close();
+            }
+            catch
+            {
+                lbl_prjEuro.Text = "0";
+                myReader.Close();
+            }
+
             myConnection.Close();
 
             FillDGW();
@@ -629,6 +609,7 @@ namespace MERP
             dgw_odenmemisG.Columns[3].DefaultCellStyle.FormatProvider = CultureInfo.GetCultureInfo("de-DE");
             myConnection.Close();
         }
+
         public void DGWToplam()
         {
             myConnection.Open();
@@ -648,6 +629,7 @@ namespace MERP
             catch
             {
                 gb_G.Text = "0";
+                myReader.Close();
             }
 
             try
@@ -658,7 +640,7 @@ namespace MERP
                 myReader = myCommand.ExecuteReader();
                 while (myReader.Read())
                 {
-                    TOPLAM= Convert.ToDecimal(myReader.GetString(0));
+                    TOPLAM = Convert.ToDecimal(myReader.GetString(0));
                     gb_K.Text = "Toplam Kesilen : " + string.Format(new CultureInfo("de-DE"), "{0:C2}", Convert.ToDecimal(TOPLAM));
                 }
             }
@@ -673,15 +655,18 @@ namespace MERP
 
         public void CaptureScreen()
         {
-            Graphics myGraphics = this.CreateGraphics();
-            Size s = this.Size;
-            memoryImage = new Bitmap(s.Width, s.Height, myGraphics);
-            Graphics memoryGraphics = Graphics.FromImage(memoryImage);
-            memoryGraphics.CopyFromScreen(this.Location.X, this.Location.Y, 0, 0, s);
-            printPreviewDialog1.ShowDialog();
+            //Graphics myGraphics = this.CreateGraphics();
+            //Size s = this.Size;
+            //memoryImage = new Bitmap(s.Width, s.Height, myGraphics);
+            //Graphics memoryGraphics = Graphics.FromImage(memoryImage);
+            //memoryGraphics.CopyFromScreen(this.Location.X, this.Location.Y, 0, 0, s);
+            //printPreviewDialog1.ShowDialog();
         }
+
         private void btn_print_Click(object sender, EventArgs e)
         {
+            btn_print.Visible = false;
+
             string filename = Path.GetTempFileName();
 
             Graphics g1 = this.CreateGraphics();
@@ -700,22 +685,23 @@ namespace MERP
             {
                 File.Delete(filename);
             }
-            //    Process snippingToolProcess = new Process();
-            //    snippingToolProcess.EnableRaisingEvents = true;
-            //    if (!Environment.Is64BitProcess)
-            //    {
-            //        snippingToolProcess.StartInfo.FileName = "C:\\Windows\\sysnative\\SnippingTool.exe";
-            //        snippingToolProcess.Start();
-            //    }
-            //    else
-            //    {
-            //        snippingToolProcess.StartInfo.FileName = "C:\\Windows\\system32\\SnippingTool.exe";
-            //        snippingToolProcess.Start();
-            //    }
-            //CaptureScreen();
-            //printDocument1.Print();
-            //printDocument1.PrintPage += new PrintPageEventHandler(printDocument1_PrintPage);
+            ////Process snippingToolProcess = new Process();
+            ////snippingToolProcess.EnableRaisingEvents = true;
+            ////if (!Environment.Is64BitProcess)
+            ////{
+            ////    snippingToolProcess.StartInfo.FileName = "C:\\Windows\\sysnative\\SnippingTool.exe";
+            ////    snippingToolProcess.Start();
+            ////}
+            ////else
+            ////{
+            ////    snippingToolProcess.StartInfo.FileName = "C:\\Windows\\system32\\SnippingTool.exe";
+            ////    snippingToolProcess.Start();
+            ////}
+            ////CaptureScreen();
+            ////printDocument1.Print();
+            ////printDocument1.PrintPage += new PrintPageEventHandler(printDocument1_PrintPage);
         }
+
         private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
         {
             Image image = Image.FromStream(streamToPrint);
@@ -737,10 +723,12 @@ namespace MERP
             }
             Rectangle destRect = new Rectangle(x, y, width, height);
             e.Graphics.DrawImage(image, destRect, 0, 0, image.Width, image.Height, GraphicsUnit.Pixel);
+
+            btn_print.Visible = true;
         }
+
         public void StartPrint(Stream streamToPrint, string streamType)
         {
-
             this.printDocument1.PrintPage += new PrintPageEventHandler(printDocument1_PrintPage);
 
             this.streamToPrint = streamToPrint;
@@ -757,6 +745,316 @@ namespace MERP
             {
                 printDocument1.Print();
             }
+            else
+            {
+                btn_print.Visible = true;
+            }
+        }
+
+        private void btn_print1_Click(object sender, EventArgs e)
+        {
+            PrintPreviewDialog onizleme = new PrintPreviewDialog();
+            onizleme.Document = printDocument2;
+            onizleme.ShowDialog();
+        }
+
+        private void printDocument2_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            #region
+            try
+            {
+                int iLeftMargin = e.MarginBounds.Left;
+                int iTopMargin = e.MarginBounds.Top;
+                bool bMorePagesToPrint = false;
+                int iTmpWidth = 0;
+                bFirstPage = true;
+
+                if (bFirstPage)
+                {
+                    foreach (DataGridViewColumn GridCol in dgw_odenmemisG.Columns)
+                    {
+                        iTmpWidth = (int)(Math.Floor((double)((double)GridCol.Width /
+                                       (double)iTotalWidth * (double)iTotalWidth *
+                                       ((double)e.MarginBounds.Width / (double)iTotalWidth))));
+
+                        iHeaderHeight = (int)(e.Graphics.MeasureString(GridCol.HeaderText,
+                                    GridCol.InheritedStyle.Font, iTmpWidth).Height) + 11;
+
+
+                        arrColumnLefts.Add(iLeftMargin);
+                        arrColumnWidths.Add(iTmpWidth);
+                        iLeftMargin += iTmpWidth;
+                    }
+                }
+
+                while (iRow <= dgw_odenmemisG.Rows.Count - 1)
+                {
+                    DataGridViewRow GridRow = dgw_odenmemisG.Rows[iRow];
+
+                    iCellHeight = GridRow.Height + 5;
+                    int iCount = 0;
+
+                    if (iTopMargin + iCellHeight >= e.MarginBounds.Height + e.MarginBounds.Top)
+                    {
+                        bNewPage = true;
+                        bFirstPage = false;
+                        bMorePagesToPrint = true;
+                        break;
+                    }
+                    else
+                    {
+                        if (bNewPage)
+                        {
+
+                            e.Graphics.DrawString("Ödenmemiş Gelen Faturalar", new Font(dgw_odenmemisG.Font, FontStyle.Bold),
+                                    Brushes.Black, e.MarginBounds.Left, e.MarginBounds.Top -
+                                    e.Graphics.MeasureString("Ödenmemiş Gelen Faturalar", new Font(dgw_odenmemisG.Font,
+                                    FontStyle.Bold), e.MarginBounds.Width).Height - 13);
+
+                            String strDate = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
+
+                            e.Graphics.DrawString(strDate, new Font(dgw_odenmemisG.Font, FontStyle.Bold),
+                                    Brushes.Black, e.MarginBounds.Left + (e.MarginBounds.Width -
+                                    e.Graphics.MeasureString(strDate, new Font(dgw_odenmemisG.Font,
+                                    FontStyle.Bold), e.MarginBounds.Width).Width), e.MarginBounds.Top -
+                                    e.Graphics.MeasureString("Ödenmemiş Gelen Faturalar", new Font(new Font(dgw_odenmemisG.Font,
+                                    FontStyle.Bold), FontStyle.Bold), e.MarginBounds.Width).Height - 13);
+
+
+                            iTopMargin = e.MarginBounds.Top;
+                            foreach (DataGridViewColumn GridCol in dgw_odenmemisG.Columns)
+                            {
+                                e.Graphics.FillRectangle(new SolidBrush(Color.LightGray),
+                                    new Rectangle((int)arrColumnLefts[iCount], iTopMargin,
+                                    (int)arrColumnWidths[iCount], iHeaderHeight));
+
+                                e.Graphics.DrawRectangle(Pens.Black,
+                                    new Rectangle((int)arrColumnLefts[iCount], iTopMargin,
+                                    (int)arrColumnWidths[iCount], iHeaderHeight));
+
+                                e.Graphics.DrawString(GridCol.HeaderText, GridCol.InheritedStyle.Font,
+                                    new SolidBrush(GridCol.InheritedStyle.ForeColor),
+                                    new RectangleF((int)arrColumnLefts[iCount], iTopMargin,
+                                    (int)arrColumnWidths[iCount], iHeaderHeight), strFormat);
+                                iCount++;
+                            }
+                            bNewPage = false;
+                            iTopMargin += iHeaderHeight;
+                        }
+                        iCount = 0;
+
+                        foreach (DataGridViewCell Cel in GridRow.Cells)
+                        {
+                            if (Cel.Value != null)
+                            {
+                                e.Graphics.DrawString(Cel.Value.ToString(), Cel.InheritedStyle.Font,
+                                            new SolidBrush(Cel.InheritedStyle.ForeColor),
+                                            new RectangleF((int)arrColumnLefts[iCount], (float)iTopMargin,
+                                            (int)arrColumnWidths[iCount], (float)iCellHeight), strFormat);
+                            }
+
+                            e.Graphics.DrawRectangle(Pens.Black, new Rectangle((int)arrColumnLefts[iCount],
+                                    iTopMargin, (int)arrColumnWidths[iCount], iCellHeight));
+
+                            iCount++;
+                        }
+                    }
+                    iRow++;
+                    iTopMargin += iCellHeight;
+                }
+
+
+                if (bMorePagesToPrint)
+                    e.HasMorePages = true;
+                else
+                    e.HasMorePages = false;
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            #endregion
+        }
+
+        private void printDocument2_BeginPrint(object sender, PrintEventArgs e)
+        {
+            try
+            {
+                strFormat = new StringFormat();
+                strFormat.Alignment = StringAlignment.Near;
+                strFormat.LineAlignment = StringAlignment.Center;
+                strFormat.Trimming = StringTrimming.EllipsisCharacter;
+
+                arrColumnLefts.Clear();
+                arrColumnWidths.Clear();
+                iCellHeight = 0;
+                iRow = 0;
+                bFirstPage = true;
+                bNewPage = true;
+
+                iTotalWidth = 0;
+                foreach (DataGridViewColumn dgvGridCol in dgw_odenmemisG.Columns)
+                {
+                    iTotalWidth += dgvGridCol.Width;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btn_print2_Click(object sender, EventArgs e)
+        {
+            PrintPreviewDialog onizleme = new PrintPreviewDialog();
+            onizleme.Document = printDocument3;
+            onizleme.ShowDialog();
+        }
+
+        private void printDocument3_BeginPrint(object sender, PrintEventArgs e)
+        {
+            try
+            {
+                strFormat = new StringFormat();
+                strFormat.Alignment = StringAlignment.Near;
+                strFormat.LineAlignment = StringAlignment.Center;
+                strFormat.Trimming = StringTrimming.EllipsisCharacter;
+
+                arrColumnLefts.Clear();
+                arrColumnWidths.Clear();
+                iCellHeight = 0;
+                iRow = 0;
+                bFirstPage = true;
+                bNewPage = true;
+
+                iTotalWidth = 0;
+                foreach (DataGridViewColumn dgvGridCol in dgw_odenmemisK.Columns)
+                {
+                    iTotalWidth += dgvGridCol.Width;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void printDocument3_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            #region
+            try
+            {
+                int iLeftMargin = e.MarginBounds.Left;
+                int iTopMargin = e.MarginBounds.Top;
+                bool bMorePagesToPrint = false;
+                int iTmpWidth = 0;
+                bFirstPage = true;
+
+                if (bFirstPage)
+                {
+                    foreach (DataGridViewColumn GridCol in dgw_odenmemisK.Columns)
+                    {
+                        iTmpWidth = (int)(Math.Floor((double)((double)GridCol.Width /
+                                       (double)iTotalWidth * (double)iTotalWidth *
+                                       ((double)e.MarginBounds.Width / (double)iTotalWidth))));
+
+                        iHeaderHeight = (int)(e.Graphics.MeasureString(GridCol.HeaderText,
+                                    GridCol.InheritedStyle.Font, iTmpWidth).Height) + 11;
+
+
+                        arrColumnLefts.Add(iLeftMargin);
+                        arrColumnWidths.Add(iTmpWidth);
+                        iLeftMargin += iTmpWidth;
+                    }
+                }
+
+                while (iRow <= dgw_odenmemisK.Rows.Count - 1)
+                {
+                    DataGridViewRow GridRow = dgw_odenmemisK.Rows[iRow];
+
+                    iCellHeight = GridRow.Height + 5;
+                    int iCount = 0;
+
+                    if (iTopMargin + iCellHeight >= e.MarginBounds.Height + e.MarginBounds.Top)
+                    {
+                        bNewPage = true;
+                        bFirstPage = false;
+                        bMorePagesToPrint = true;
+                        break;
+                    }
+                    else
+                    {
+                        if (bNewPage)
+                        {
+
+                            e.Graphics.DrawString("Ödenmemiş Kesilen Faturalar", new Font(dgw_odenmemisK.Font, FontStyle.Bold),
+                                    Brushes.Black, e.MarginBounds.Left, e.MarginBounds.Top -
+                                    e.Graphics.MeasureString("Ödenmemiş Kesilen Faturalar", new Font(dgw_odenmemisK.Font,
+                                    FontStyle.Bold), e.MarginBounds.Width).Height - 13);
+
+                            String strDate = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
+
+                            e.Graphics.DrawString(strDate, new Font(dgw_odenmemisK.Font, FontStyle.Bold),
+                                    Brushes.Black, e.MarginBounds.Left + (e.MarginBounds.Width -
+                                    e.Graphics.MeasureString(strDate, new Font(dgw_odenmemisK.Font,
+                                    FontStyle.Bold), e.MarginBounds.Width).Width), e.MarginBounds.Top -
+                                    e.Graphics.MeasureString("Ödenmemiş Kesilen Faturalar", new Font(new Font(dgw_odenmemisK.Font,
+                                    FontStyle.Bold), FontStyle.Bold), e.MarginBounds.Width).Height - 13);
+
+
+                            iTopMargin = e.MarginBounds.Top;
+                            foreach (DataGridViewColumn GridCol in dgw_odenmemisK.Columns)
+                            {
+                                e.Graphics.FillRectangle(new SolidBrush(Color.LightGray),
+                                    new Rectangle((int)arrColumnLefts[iCount], iTopMargin,
+                                    (int)arrColumnWidths[iCount], iHeaderHeight));
+
+                                e.Graphics.DrawRectangle(Pens.Black,
+                                    new Rectangle((int)arrColumnLefts[iCount], iTopMargin,
+                                    (int)arrColumnWidths[iCount], iHeaderHeight));
+
+                                e.Graphics.DrawString(GridCol.HeaderText, GridCol.InheritedStyle.Font,
+                                    new SolidBrush(GridCol.InheritedStyle.ForeColor),
+                                    new RectangleF((int)arrColumnLefts[iCount], iTopMargin,
+                                    (int)arrColumnWidths[iCount], iHeaderHeight), strFormat);
+                                iCount++;
+                            }
+                            bNewPage = false;
+                            iTopMargin += iHeaderHeight;
+                        }
+                        iCount = 0;
+
+                        foreach (DataGridViewCell Cel in GridRow.Cells)
+                        {
+                            if (Cel.Value != null)
+                            {
+                                e.Graphics.DrawString(Cel.Value.ToString(), Cel.InheritedStyle.Font,
+                                            new SolidBrush(Cel.InheritedStyle.ForeColor),
+                                            new RectangleF((int)arrColumnLefts[iCount], (float)iTopMargin,
+                                            (int)arrColumnWidths[iCount], (float)iCellHeight), strFormat);
+                            }
+
+                            e.Graphics.DrawRectangle(Pens.Black, new Rectangle((int)arrColumnLefts[iCount],
+                                    iTopMargin, (int)arrColumnWidths[iCount], iCellHeight));
+
+                            iCount++;
+                        }
+                    }
+                    iRow++;
+                    iTopMargin += iCellHeight;
+                }
+
+
+                if (bMorePagesToPrint)
+                    e.HasMorePages = true;
+                else
+                    e.HasMorePages = false;
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            #endregion
         }
     }
 }

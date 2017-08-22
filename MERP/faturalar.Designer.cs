@@ -179,6 +179,7 @@
             this.btn_ftr_duzenle.TabIndex = 29;
             this.btn_ftr_duzenle.Text = "DÜZENLE";
             this.btn_ftr_duzenle.UseVisualStyleBackColor = true;
+            this.btn_ftr_duzenle.Click += new System.EventHandler(this.btn_ftr_duzenle_Click);
             // 
             // btn_ftr_sil
             // 
@@ -192,6 +193,7 @@
             this.btn_ftr_sil.TabIndex = 30;
             this.btn_ftr_sil.Text = "SİL";
             this.btn_ftr_sil.UseVisualStyleBackColor = false;
+            this.btn_ftr_sil.Click += new System.EventHandler(this.btn_ftr_sil_Click);
             // 
             // panel1
             // 

@@ -42,14 +42,12 @@
             this.lbl_toplam = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_stf_list)).BeginInit();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -58,6 +56,8 @@
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label4
@@ -121,7 +121,7 @@
             // 
             this.btn_ftr_duzenle.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btn_ftr_duzenle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_ftr_duzenle.Location = new System.Drawing.Point(562, 19);
+            this.btn_ftr_duzenle.Location = new System.Drawing.Point(518, 19);
             this.btn_ftr_duzenle.Name = "btn_ftr_duzenle";
             this.btn_ftr_duzenle.Size = new System.Drawing.Size(87, 36);
             this.btn_ftr_duzenle.TabIndex = 27;
@@ -203,25 +203,6 @@
             this.panel1.Size = new System.Drawing.Size(1370, 130);
             this.panel1.TabIndex = 44;
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.btn_ftr_duzenle);
-            this.panel2.Controls.Add(this.btn_ftr_sil);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 599);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1370, 77);
-            this.panel2.TabIndex = 45;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.dgw_stf_list);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 130);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1370, 469);
-            this.panel3.TabIndex = 46;
-            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -259,6 +240,25 @@
             this.splitContainer2.SplitterDistance = 428;
             this.splitContainer2.TabIndex = 0;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.btn_ftr_duzenle);
+            this.panel2.Controls.Add(this.btn_ftr_sil);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(0, 599);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1370, 77);
+            this.panel2.TabIndex = 45;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.dgw_stf_list);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 130);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1370, 469);
+            this.panel3.TabIndex = 46;
+            // 
             // siparisemri_list
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -275,8 +275,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgw_stf_list)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -288,6 +286,8 @@
             this.splitContainer2.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
