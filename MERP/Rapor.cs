@@ -419,7 +419,7 @@ namespace MERP
                 myConnection.Open();
             try
             {
-                komut = "SELECT sum(fatura_euro) FROM db_faturalar WHERE fatura_proje_no ='" + cmb_projeler.Text + "'";
+                komut = "SELECT sum(fatura_euro) FROM db_faturalar WHERE fatura_proje_no ='" + cmb_projeler.Text + "' AND fatura_tipi='G'";
                 da = new MySqlDataAdapter(komut, connection);
                 myCommand = new MySqlCommand(komut, myConnection);
                 myReader = myCommand.ExecuteReader();
@@ -506,7 +506,7 @@ namespace MERP
 
                     if(BIRIM=="USD")
                     {
-                        lbl_prj_butce.Text = string.Format(new CultureInfo("en-US"), "{0:C2}", Convert.ToDecimal(TOPLAM));
+                        lbl_prj_butce.Text = string.Format(new CultureInfo("en-SG"), "{0:C2}", Convert.ToDecimal(TOPLAM));
                     }
                     else if(BIRIM=="EUR")
                     {
