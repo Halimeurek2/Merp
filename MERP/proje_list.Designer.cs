@@ -43,6 +43,8 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
+            this.btn_fill = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_prj_list)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -51,6 +53,9 @@
             this.splitContainer1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
+            this.splitContainer4.Panel2.SuspendLayout();
+            this.splitContainer4.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_prj_sil
@@ -86,7 +91,7 @@
             this.dgw_prj_list.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgw_prj_list.Location = new System.Drawing.Point(0, 0);
             this.dgw_prj_list.Name = "dgw_prj_list";
-            this.dgw_prj_list.Size = new System.Drawing.Size(1362, 484);
+            this.dgw_prj_list.Size = new System.Drawing.Size(1362, 490);
             this.dgw_prj_list.TabIndex = 37;
             this.dgw_prj_list.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgw_prj_list_RowHeaderMouseClick);
             // 
@@ -163,6 +168,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.splitContainer4);
             this.panel1.Controls.Add(this.splitContainer1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.lbl_toplam);
@@ -170,13 +176,13 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1362, 123);
+            this.panel1.Size = new System.Drawing.Size(1362, 117);
             this.panel1.TabIndex = 42;
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 74);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 68);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -196,9 +202,9 @@
             // 
             this.panel2.Controls.Add(this.dgw_prj_list);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 123);
+            this.panel2.Location = new System.Drawing.Point(0, 117);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1362, 484);
+            this.panel2.Size = new System.Drawing.Size(1362, 490);
             this.panel2.TabIndex = 43;
             // 
             // panel3
@@ -210,6 +216,31 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1362, 59);
             this.panel3.TabIndex = 44;
+            // 
+            // splitContainer4
+            // 
+            this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.splitContainer4.Location = new System.Drawing.Point(1212, 0);
+            this.splitContainer4.Name = "splitContainer4";
+            // 
+            // splitContainer4.Panel2
+            // 
+            this.splitContainer4.Panel2.Controls.Add(this.btn_fill);
+            this.splitContainer4.Size = new System.Drawing.Size(150, 68);
+            this.splitContainer4.SplitterDistance = 25;
+            this.splitContainer4.TabIndex = 43;
+            // 
+            // btn_fill
+            // 
+            this.btn_fill.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_fill.ForeColor = System.Drawing.Color.Red;
+            this.btn_fill.Location = new System.Drawing.Point(0, 0);
+            this.btn_fill.Name = "btn_fill";
+            this.btn_fill.Size = new System.Drawing.Size(121, 68);
+            this.btn_fill.TabIndex = 0;
+            this.btn_fill.Text = "Hepsini Göster";
+            this.btn_fill.UseVisualStyleBackColor = true;
+            this.btn_fill.Click += new System.EventHandler(this.btn_fill_Click);
             // 
             // proje_list
             // 
@@ -235,6 +266,9 @@
             this.splitContainer1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.splitContainer4.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
+            this.splitContainer4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -255,5 +289,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.SplitContainer splitContainer4;
+        private System.Windows.Forms.Button btn_fill;
     }
 }

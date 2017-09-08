@@ -74,7 +74,9 @@
             this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart4 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.lbl_odenmemisTop = new System.Windows.Forms.Label();
+            this.lbl_odenmemisKesilen = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lbl_odenmemisGelen = new System.Windows.Forms.Label();
             this.lbl_odenmisK = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -478,7 +480,9 @@
             // groupBox3
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Controls.Add(this.lbl_odenmemisTop);
+            this.groupBox3.Controls.Add(this.lbl_odenmemisKesilen);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.lbl_odenmemisGelen);
             this.groupBox3.Controls.Add(this.lbl_odenmisK);
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.label8);
@@ -486,19 +490,39 @@
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Location = new System.Drawing.Point(1098, 64);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(254, 176);
+            this.groupBox3.Size = new System.Drawing.Size(254, 278);
             this.groupBox3.TabIndex = 15;
             this.groupBox3.TabStop = false;
             // 
-            // lbl_odenmemisTop
+            // lbl_odenmemisKesilen
             // 
-            this.lbl_odenmemisTop.AutoSize = true;
-            this.lbl_odenmemisTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_odenmemisTop.Location = new System.Drawing.Point(158, 136);
-            this.lbl_odenmemisTop.Name = "lbl_odenmemisTop";
-            this.lbl_odenmemisTop.Size = new System.Drawing.Size(15, 16);
-            this.lbl_odenmemisTop.TabIndex = 19;
-            this.lbl_odenmemisTop.Text = "0";
+            this.lbl_odenmemisKesilen.AutoSize = true;
+            this.lbl_odenmemisKesilen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_odenmemisKesilen.Location = new System.Drawing.Point(167, 175);
+            this.lbl_odenmemisKesilen.Name = "lbl_odenmemisKesilen";
+            this.lbl_odenmemisKesilen.Size = new System.Drawing.Size(15, 16);
+            this.lbl_odenmemisKesilen.TabIndex = 24;
+            this.lbl_odenmemisKesilen.Text = "0";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(6, 175);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(155, 16);
+            this.label6.TabIndex = 23;
+            this.label6.Text = "Ödenmemiş Kesilen Fatura :";
+            // 
+            // lbl_odenmemisGelen
+            // 
+            this.lbl_odenmemisGelen.AutoSize = true;
+            this.lbl_odenmemisGelen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_odenmemisGelen.Location = new System.Drawing.Point(158, 136);
+            this.lbl_odenmemisGelen.Name = "lbl_odenmemisGelen";
+            this.lbl_odenmemisGelen.Size = new System.Drawing.Size(15, 16);
+            this.lbl_odenmemisGelen.TabIndex = 19;
+            this.lbl_odenmemisGelen.Text = "0";
             // 
             // lbl_odenmisK
             // 
@@ -516,9 +540,9 @@
             this.label1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(6, 136);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(154, 16);
+            this.label1.Size = new System.Drawing.Size(146, 16);
             this.label1.TabIndex = 15;
-            this.label1.Text = "Ödenmemiş Toplam Fatura :";
+            this.label1.Text = "Ödenmemiş Gelen Fatura :";
             // 
             // label8
             // 
@@ -762,7 +786,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbl_odenmisK;
-        private System.Windows.Forms.Label lbl_odenmemisTop;
+        private System.Windows.Forms.Label lbl_odenmemisGelen;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
         private System.Windows.Forms.Label lbl_prj_butce;
         private System.Windows.Forms.Label label10;
@@ -785,5 +809,7 @@
         private System.Windows.Forms.SplitContainer splitContainer7;
         private System.Windows.Forms.SplitContainer splitContainer8;
         private System.Windows.Forms.SplitContainer splitContainer9;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lbl_odenmemisKesilen;
     }
 }

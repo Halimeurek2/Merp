@@ -51,6 +51,7 @@ namespace MERP
         public string odeme_prototip;
         public string odeme_test;
         public string odeme_kabul;
+        public string s6;
         public string flag;
 
         public DateTime dtp_avans;
@@ -59,6 +60,7 @@ namespace MERP
         public DateTime dtp_pdr;
         public DateTime dtp_cdr;
         public DateTime dtp_prototip;
+        public DateTime dtp_s6;
 
         DataTable dt = new DataTable();
         public proje_list()
@@ -202,6 +204,8 @@ namespace MERP
                 dtp_test = Convert.ToDateTime(myReader.GetString(26));
                 odeme_kabul = myReader.GetString(27);
                 dtp_kabul = Convert.ToDateTime(myReader.GetString(28));
+                s6 = myReader.GetString(29);
+                dtp_s6 = Convert.ToDateTime(myReader.GetString(30));
             }
             myReader.Close();
 
@@ -252,6 +256,29 @@ namespace MERP
           
 
             harcama_ongorusu ho = new harcama_ongorusu();
+
+            if(flag=="S")
+            {
+                ho.lbl_pdr.Text = "S1";
+                ho.lbl_cdr.Text = "S2";
+                ho.lbl_prototip.Text = "S3";
+                ho.lbl_kabul.Text = "S5";
+                ho.lbl_test.Text = "S4";
+                ho.lbl_s6.Enabled = true;
+                ho.txt_s6.Enabled = true;
+                ho.dtp_s6.Enabled = true;
+            }
+            else
+            {
+                ho.lbl_pdr.Text = "PDR";
+                ho.lbl_cdr.Text = "CDR";
+                ho.lbl_prototip.Text = "Prototip";
+                ho.lbl_kabul.Text = "Kabul";
+                ho.lbl_test.Text = "Test";
+                ho.lbl_s6.Enabled = false;
+                ho.txt_s6.Enabled = false;
+                ho.dtp_s6.Enabled = false;
+            }
             ho.txt_m_mlz.Text = harcama_m_mlz;
             ho.txt_el_mlz.Text = harcama_el_mlz;
             ho.txt_imalat.Text = harcama_imalat;
@@ -263,12 +290,14 @@ namespace MERP
             ho.txt_prototip.Text = odeme_prototip;
             ho.txt_o_test.Text = odeme_test;
             ho.txt_kabul.Text = odeme_kabul;
+            ho.txt_s6.Text = s6;
             ho.dtp_avans.Value = dtp_avans;
             ho.dtp_pdr.Value = dtp_pdr;
             ho.dtp_cdr.Value = dtp_cdr;
             ho.dtp_prototip.Value = dtp_prototip;
             ho.dtp_test.Value = dtp_test;
             ho.dtp_kabul.Value = dtp_kabul;
+            ho.dtp_s6.Value = dtp_s6;
 
             ho.Show();
         
@@ -293,6 +322,25 @@ namespace MERP
             {
 
             }
+        }
+
+        private void btn_fill_Click(object sender, EventArgs e)
+        {
+            komut = "SELECT proje_no,proje_ismi,proje_butce,proje_birim,proje_musteri,proje_baslangic,proje_bitis,proje_vade,proje_aciklama,harcama_toplam,harcama_toplam_birim,prj_tip FROM db_projeler";
+            myCommand = new MySqlCommand(komut, myConnection);
+            da = new MySqlDataAdapter(myCommand);
+            dt = new DataTable();
+            // myReader = myCommand.ExecuteReader();
+
+            da.Fill(dt);
+
+            dgw_prj_list.DataSource = dt;
+
+            dgw_prj_list.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgw_prj_list.AutoSizeColumnsMode =
+                       DataGridViewAutoSizeColumnsMode.Fill;
+
+            myConnection.Close();
         }
     }
 }

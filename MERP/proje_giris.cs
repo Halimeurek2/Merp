@@ -36,6 +36,7 @@ namespace MERP
         public string odeme_prototip;
         public string odeme_test;
         public string odeme_kabul;
+        public string s6;
 
         public string flag;
 
@@ -45,6 +46,7 @@ namespace MERP
         public DateTime dtp_pdr;
         public DateTime dtp_cdr;
         public DateTime dtp_prototip;
+        public DateTime dtp_s6;
 
         DateTime baslangic;
         DateTime bitis;
@@ -95,7 +97,7 @@ namespace MERP
 
                 db = new DBConnect();
              
-                db.InsertProjeGiris(Convert.ToString(txt_proje_no.Text), Convert.ToString(txt_proje_adı.Text), Convert.ToDecimal(txt_butce.Text), Convert.ToString(cmb_birim.Text), Convert.ToString(txt_musteri.Text), Convert.ToDateTime(dtp_baslangıc.Text), Convert.ToDateTime(bitis), Convert.ToInt32(txt_vade.Text), Convert.ToString(rcb_acıklama.Text), Convert.ToDecimal(harcama_m_mlz), Convert.ToDecimal(harcama_el_mlz), Convert.ToDecimal(harcama_imalat), Convert.ToDecimal(harcama_test), Convert.ToDecimal(harcama_risk), Convert.ToDecimal(lbl_harcamalar.Text), Convert.ToString(lbl_birim.Text), Convert.ToDecimal(odeme_avans), Convert.ToDateTime(dtp_avans), Convert.ToDecimal(odeme_pdr), Convert.ToDateTime(dtp_pdr), Convert.ToDecimal(odeme_cdr), Convert.ToDateTime(dtp_cdr), Convert.ToDecimal(odeme_prototip), Convert.ToDateTime(dtp_prototip), Convert.ToDecimal(odeme_test), Convert.ToDateTime(dtp_test), Convert.ToDecimal(odeme_kabul), Convert.ToDateTime(dtp_kabul), Convert.ToString(flag));
+                db.InsertProjeGiris(Convert.ToString(txt_proje_no.Text), Convert.ToString(txt_proje_adı.Text), Convert.ToDecimal(txt_butce.Text), Convert.ToString(cmb_birim.Text), Convert.ToString(txt_musteri.Text), Convert.ToDateTime(dtp_baslangıc.Text), Convert.ToDateTime(bitis), Convert.ToInt32(txt_vade.Text), Convert.ToString(rcb_acıklama.Text), Convert.ToDecimal(harcama_m_mlz), Convert.ToDecimal(harcama_el_mlz), Convert.ToDecimal(harcama_imalat), Convert.ToDecimal(harcama_test), Convert.ToDecimal(harcama_risk), Convert.ToDecimal(lbl_harcamalar.Text), Convert.ToString(lbl_birim.Text), Convert.ToDecimal(odeme_avans), Convert.ToDateTime(dtp_avans), Convert.ToDecimal(odeme_pdr), Convert.ToDateTime(dtp_pdr), Convert.ToDecimal(odeme_cdr), Convert.ToDateTime(dtp_cdr), Convert.ToDecimal(odeme_prototip), Convert.ToDateTime(dtp_prototip), Convert.ToDecimal(odeme_test), Convert.ToDateTime(dtp_test), Convert.ToDecimal(odeme_kabul), Convert.ToDateTime(dtp_kabul), Convert.ToDecimal(s6), Convert.ToDateTime(dtp_s6), Convert.ToString(flag));
                 this.Close();
             }
         }
@@ -110,7 +112,10 @@ namespace MERP
                 f1.lbl_cdr.Text = "CDR";
                 f1.lbl_prototip.Text = "Prototip";
                 f1.lbl_kabul.Text = "Kabul";
-                f1.lbl_test.Text = "Test";             
+                f1.lbl_test.Text = "Test";
+                f1.lbl_s6.Enabled = false;
+                f1.txt_s6.Enabled = false;
+                f1.dtp_s6.Enabled = false;
                 f1.Show();
             }
             else
@@ -122,13 +127,21 @@ namespace MERP
                 f1.lbl_prototip.Text = "S3";
                 f1.lbl_kabul.Text = "S5";
                 f1.lbl_test.Text = "S4";
+                f1.lbl_s6.Enabled = true;
+                f1.txt_s6.Enabled = true;
+                f1.dtp_s6.Enabled = true;
                 f1.Show();
             }           
         }
 
-        private void btn_odeme_Click(object sender, EventArgs e)
+        private void ck_seri_CheckedChanged(object sender, EventArgs e)
         {
-         
+            ck_prj.Checked = false;
+        }
+
+        private void ck_prj_CheckedChanged(object sender, EventArgs e)
+        {
+            ck_seri.Checked = false;
         }
     }
 }

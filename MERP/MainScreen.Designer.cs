@@ -80,6 +80,8 @@ namespace MERP
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer5 = new System.Windows.Forms.SplitContainer();
+            this.splitContainer9 = new System.Windows.Forms.SplitContainer();
+            this.splitContainer10 = new System.Windows.Forms.SplitContainer();
             this.menuStrip1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dg_maliyet)).BeginInit();
@@ -123,6 +125,12 @@ namespace MERP
             this.splitContainer5.Panel1.SuspendLayout();
             this.splitContainer5.Panel2.SuspendLayout();
             this.splitContainer5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer9)).BeginInit();
+            this.splitContainer9.Panel2.SuspendLayout();
+            this.splitContainer9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer10)).BeginInit();
+            this.splitContainer10.Panel1.SuspendLayout();
+            this.splitContainer10.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -450,7 +458,7 @@ namespace MERP
             series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
             series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(1368, 268);
+            this.chart1.Size = new System.Drawing.Size(1368, 207);
             this.chart1.TabIndex = 13;
             this.chart1.Text = "chart1";
             this.chart1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.chart1_MouseClick);
@@ -578,22 +586,22 @@ namespace MERP
             this.dgw_faturalar.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dgw_faturalar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgw_faturalar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgw_faturalar.Location = new System.Drawing.Point(3, 16);
+            this.dgw_faturalar.Location = new System.Drawing.Point(3, 18);
             this.dgw_faturalar.Name = "dgw_faturalar";
-            this.dgw_faturalar.Size = new System.Drawing.Size(508, 225);
+            this.dgw_faturalar.Size = new System.Drawing.Size(508, 223);
             this.dgw_faturalar.TabIndex = 19;
             // 
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.dgw_faturalar);
             this.groupBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox6.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox6.Location = new System.Drawing.Point(0, 0);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(514, 244);
             this.groupBox6.TabIndex = 20;
             this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Projeye Kesilen Faturalar";
+            this.groupBox6.Text = "PROJEYE KESİLEN FATURALAR";
             // 
             // btn_refresh
             // 
@@ -701,7 +709,7 @@ namespace MERP
             // 
             // splitContainer5.Panel1
             // 
-            this.splitContainer5.Panel1.Controls.Add(this.chart1);
+            this.splitContainer5.Panel1.Controls.Add(this.splitContainer9);
             // 
             // splitContainer5.Panel2
             // 
@@ -709,6 +717,34 @@ namespace MERP
             this.splitContainer5.Size = new System.Drawing.Size(1368, 479);
             this.splitContainer5.SplitterDistance = 268;
             this.splitContainer5.TabIndex = 0;
+            // 
+            // splitContainer9
+            // 
+            this.splitContainer9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer9.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer9.Name = "splitContainer9";
+            this.splitContainer9.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer9.Panel2
+            // 
+            this.splitContainer9.Panel2.Controls.Add(this.splitContainer10);
+            this.splitContainer9.Size = new System.Drawing.Size(1368, 268);
+            this.splitContainer9.SplitterDistance = 28;
+            this.splitContainer9.TabIndex = 14;
+            // 
+            // splitContainer10
+            // 
+            this.splitContainer10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer10.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer10.Name = "splitContainer10";
+            this.splitContainer10.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer10.Panel1
+            // 
+            this.splitContainer10.Panel1.Controls.Add(this.chart1);
+            this.splitContainer10.Size = new System.Drawing.Size(1368, 236);
+            this.splitContainer10.SplitterDistance = 207;
+            this.splitContainer10.TabIndex = 0;
             // 
             // MainScreen
             // 
@@ -772,6 +808,12 @@ namespace MERP
             this.splitContainer5.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).EndInit();
             this.splitContainer5.ResumeLayout(false);
+            this.splitContainer9.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer9)).EndInit();
+            this.splitContainer9.ResumeLayout(false);
+            this.splitContainer10.Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer10)).EndInit();
+            this.splitContainer10.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -827,6 +869,8 @@ namespace MERP
         private System.Windows.Forms.SplitContainer splitContainer6;
         private System.Windows.Forms.SplitContainer splitContainer7;
         private System.Windows.Forms.SplitContainer splitContainer8;
+        private System.Windows.Forms.SplitContainer splitContainer9;
+        private System.Windows.Forms.SplitContainer splitContainer10;
     }
 }
 

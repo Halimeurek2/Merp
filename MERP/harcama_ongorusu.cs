@@ -25,7 +25,7 @@ namespace MERP
         private void harcama_ongorusu_Load(object sender, EventArgs e)
         {
 
-               }
+        }
 
         private void btn_kaydet_Click(object sender, EventArgs e)
         {
@@ -41,12 +41,14 @@ namespace MERP
             txt_risk.Text = hf.Comma2Dot(txt_risk.Text);
             txt_test.Text = hf.Comma2Dot(txt_test.Text);
             txt_toplam.Text = hf.Comma2Dot(txt_toplam.Text);
+            txt_s6.Text = hf.Comma2Dot(txt_s6.Text);
 
 
             txt_toplam.Text = Convert.ToString(Convert.ToDecimal(txt_test.Text) + Convert.ToDecimal(txt_risk.Text)+ Convert.ToDecimal(txt_m_mlz.Text)+ Convert.ToDecimal(txt_imalat.Text)+ Convert.ToDecimal(txt_el_mlz.Text));
 
             proje_giris f1 = (proje_giris)Application.OpenForms["proje_giris"];
             proje_duzenle f2 = (proje_duzenle)Application.OpenForms["proje_duzenle"];
+
             if (f1 != null)
             {
                 Label label_harcamalar = (Label)f1.Controls["lbl_harcamalar"];
@@ -64,13 +66,14 @@ namespace MERP
                 f1.odeme_prototip = Convert.ToString(txt_prototip.Text);
                 f1.odeme_test = Convert.ToString(txt_o_test.Text);
                 f1.odeme_kabul = Convert.ToString(txt_kabul.Text);
+                f1.s6 = Convert.ToString(txt_s6.Text);
                 f1.dtp_avans = Convert.ToDateTime(dtp_avans.Text);
                 f1.dtp_cdr = Convert.ToDateTime(dtp_cdr.Text);
                 f1.dtp_kabul = Convert.ToDateTime(dtp_kabul.Text);
                 f1.dtp_prototip = Convert.ToDateTime(dtp_prototip.Text);
                 f1.dtp_pdr = Convert.ToDateTime(dtp_pdr.Text);
                 f1.dtp_test = Convert.ToDateTime(dtp_test.Text);
-
+                f1.dtp_s6 = Convert.ToDateTime(dtp_s6.Text);
             }
             else
             {
@@ -89,15 +92,25 @@ namespace MERP
                 f2.odeme_prototip = Convert.ToString(txt_prototip.Text);
                 f2.odeme_test = Convert.ToString(txt_o_test.Text);
                 f2.odeme_kabul = Convert.ToString(txt_kabul.Text);
+                f2.s6 = Convert.ToString(txt_s6.Text);
                 f2.dtp_avans = Convert.ToDateTime(dtp_avans.Text);
                 f2.dtp_cdr = Convert.ToDateTime(dtp_cdr.Text);
                 f2.dtp_kabul = Convert.ToDateTime(dtp_kabul.Text);
                 f2.dtp_prototip = Convert.ToDateTime(dtp_prototip.Text);
                 f2.dtp_pdr = Convert.ToDateTime(dtp_pdr.Text);
                 f2.dtp_test = Convert.ToDateTime(dtp_test.Text);
+                f2.dtp_s6 = Convert.ToDateTime(dtp_s6.Text);
             }
             this.Close();
         }
 
+        private void txt_m_mlz_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                txt_toplam.Text = Convert.ToString(Convert.ToDecimal(txt_test.Text) + Convert.ToDecimal(txt_risk.Text) + Convert.ToDecimal(txt_m_mlz.Text) + Convert.ToDecimal(txt_imalat.Text) + Convert.ToDecimal(txt_el_mlz.Text));
+            }
+            catch { }
+        }
     }
 }

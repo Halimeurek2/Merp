@@ -171,6 +171,8 @@ namespace MERP
                                      DateTime date_test,
                                      decimal odeme_kabul,
                                      DateTime date_kabul,
+                                     decimal odeme_s6,
+                                     DateTime date_s6,
                                      string tip)
         {
 
@@ -202,12 +204,14 @@ namespace MERP
            "date_test," +
            "odeme_kabul," +
            "date_kabul," +
+           "odeme_s6," +
+           "date_s6," +
            "prj_tip) VALUES (@proje_no,@proje_ismi,@butce,@birim," +
            "@musteri,@baslangic,@bitis,@vade,@aciklama,@harcama_m_mlz," +
            "@harcama_el_mlz,@harcama_imalat,@harcama_test,@harcama_risk," +
            "@harcama_toplam,@harcama_top_birim,@odeme_avans,@date_avans," +
            "@odeme_pdr,@date_pdr,@odeme_cdr,@date_cdr,@odeme_prototip," +
-           "@date_prototip,@odeme_test,@date_test,@odeme_kabul,@date_kabul,@tip)", connection);
+           "@date_prototip,@odeme_test,@date_test,@odeme_kabul,@date_kabul,@odeme_s6,@date_s6,@tip)", connection);
 
             cmd.Parameters.AddWithValue("@proje_no", proje_no);
             cmd.Parameters.AddWithValue("@proje_ismi", proje_ismi);
@@ -237,6 +241,8 @@ namespace MERP
             cmd.Parameters.AddWithValue("@date_test", date_test);
             cmd.Parameters.AddWithValue("@odeme_kabul", odeme_kabul);
             cmd.Parameters.AddWithValue("@date_kabul", date_kabul);
+            cmd.Parameters.AddWithValue("@odeme_s6", odeme_s6);
+            cmd.Parameters.AddWithValue("@date_s6", date_s6);
             cmd.Parameters.AddWithValue("@tip", tip);
 
 
@@ -487,6 +493,8 @@ namespace MERP
                                    DateTime date_test,
                                    decimal odeme_kabul,
                                    DateTime date_kabul,
+                                   decimal odeme_s6,
+                                   DateTime date_s6,
                                    string tip)
         {
             MySqlCommand cmd = new MySqlCommand("update db_projeler set proje_no=@proje_no," +
@@ -517,6 +525,8 @@ namespace MERP
            "date_test=@date_test," +
            "odeme_kabul=@odeme_kabul," +
            "date_kabul=@date_kabul," +
+           "odeme_s6=@odeme_s6," +
+           "date_s6=@date_s6," +
            "prj_tip=@tip where proje_id=@id", connection);
 
             cmd.Parameters.AddWithValue("@id", id);
@@ -548,6 +558,8 @@ namespace MERP
             cmd.Parameters.AddWithValue("@date_test", date_test);
             cmd.Parameters.AddWithValue("@odeme_kabul", odeme_kabul);
             cmd.Parameters.AddWithValue("@date_kabul", date_kabul);
+            cmd.Parameters.AddWithValue("@odeme_s6", odeme_s6);
+            cmd.Parameters.AddWithValue("@date_s6", date_s6);
             cmd.Parameters.AddWithValue("@tip", tip);
 
 

@@ -455,24 +455,24 @@ namespace MERP
                 myReader.Close();
             }
 
-            try
-            {
-                komut = "SELECT sum(fatura_euro) FROM db_faturalar WHERE fatura_durum='ÖDENMEDİ' AND fatura_proje_no ='" + cmb_projeler.Text + "'";
-                da = new MySqlDataAdapter(komut, connection);
-                myCommand = new MySqlCommand(komut, myConnection);
-                myReader = myCommand.ExecuteReader();
-                while (myReader.Read())
-                {
-                    TOPLAM = Convert.ToDecimal(myReader.GetString(0));
-                    lbl_odenmemisTop.Text = string.Format(new CultureInfo("de-DE"), "{0:C2}", Convert.ToDecimal(TOPLAM));
-                }
-                myReader.Close();
-            }
-            catch
-            {
-                   lbl_odenmemisTop.Text = "0";
-                   myReader.Close();
-            }
+            //try
+            //{
+            //    komut = "SELECT sum(fatura_euro) FROM db_faturalar WHERE fatura_durum='ÖDENMEDİ' AND fatura_proje_no ='" + cmb_projeler.Text + "'";
+            //    da = new MySqlDataAdapter(komut, connection);
+            //    myCommand = new MySqlCommand(komut, myConnection);
+            //    myReader = myCommand.ExecuteReader();
+            //    while (myReader.Read())
+            //    {
+            //        TOPLAM = Convert.ToDecimal(myReader.GetString(0));
+            //        lbl_odenmemisTop.Text = string.Format(new CultureInfo("de-DE"), "{0:C2}", Convert.ToDecimal(TOPLAM));
+            //    }
+            //    myReader.Close();
+            //}
+            //catch
+            //{
+            //       lbl_odenmemisTop.Text = "0";
+            //       myReader.Close();
+            //}
 
             try
             {
@@ -623,12 +623,14 @@ namespace MERP
                 {
                     TOPLAM = Convert.ToDecimal(myReader.GetString(0));
                     gb_G.Text = "Toplam Gelen : " + string.Format(new CultureInfo("de-DE"), "{0:C2}", Convert.ToDecimal(TOPLAM));
+                    lbl_odenmemisGelen.Text = string.Format(new CultureInfo("de-DE"), "{0:C2}", Convert.ToDecimal(TOPLAM));
                 }
                 myReader.Close();
             }
             catch
             {
                 gb_G.Text = "0";
+                lbl_odenmemisGelen.Text = "0";
                 myReader.Close();
             }
 
@@ -642,11 +644,13 @@ namespace MERP
                 {
                     TOPLAM = Convert.ToDecimal(myReader.GetString(0));
                     gb_K.Text = "Toplam Kesilen : " + string.Format(new CultureInfo("de-DE"), "{0:C2}", Convert.ToDecimal(TOPLAM));
+                    lbl_odenmemisKesilen.Text = string.Format(new CultureInfo("de-DE"), "{0:C2}", Convert.ToDecimal(TOPLAM));
                 }
             }
             catch
             {
                 gb_K.Text = "0";
+                lbl_odenmemisKesilen.Text = "0";
             }
           
             myReader.Close();

@@ -76,6 +76,20 @@ namespace MERP
             dgw_ftr_list.Columns[12].DefaultCellStyle.Format = "N2";
             dgw_ftr_list.Columns[9].DefaultCellStyle.Format = "N2";
 
+            komut = "SELECT DISTINCT proje_no FROM db_projeler";
+            da = new MySqlDataAdapter(komut, connection);
+
+            //  myConnection = new MySqlConnection(connectionString);
+            myCommand = new MySqlCommand(komut, myConnection);
+            //   myConnection.Open();
+            MySqlDataReader myReader;
+            myReader = myCommand.ExecuteReader();
+            // Always call Read before accessing data.
+            while (myReader.Read())
+            {
+                cmb_projeNo.Items.Add(myReader["proje_no"]);
+            }
+
             myConnection.Close();
 
             SumDGW();
@@ -225,6 +239,31 @@ namespace MERP
             {
 
             }
+        }
+
+        private void btn_fill_Click(object sender, EventArgs e)
+        {
+            komut = "SELECT * FROM db_faturalar";
+            myCommand = new MySqlCommand(komut, myConnection);
+            da = new MySqlDataAdapter(myCommand);
+            dt = new DataTable();
+            // myReader = myCommand.ExecuteReader();
+
+            da.Fill(dt);
+
+            dgw_ftr_list.DataSource = dt;
+
+            dgw_ftr_list.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgw_ftr_list.AutoSizeColumnsMode =
+                       DataGridViewAutoSizeColumnsMode.Fill;
+
+            myConnection.Close();
+        }
+
+        private void cmb_projeNo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Refresh(2, cmb_projeNo.Text);
+            SumDGW();
         }
     }
 }

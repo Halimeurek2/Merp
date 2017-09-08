@@ -42,12 +42,20 @@
             this.btn_ftr_duzenle = new System.Windows.Forms.Button();
             this.btn_ftr_sil = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
+            this.btn_fill = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.splitContainer5 = new System.Windows.Forms.SplitContainer();
+            this.cmb_projeNo = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_ftr_list)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
+            this.splitContainer4.Panel2.SuspendLayout();
+            this.splitContainer4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -61,6 +69,10 @@
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).BeginInit();
+            this.splitContainer5.Panel1.SuspendLayout();
+            this.splitContainer5.Panel2.SuspendLayout();
+            this.splitContainer5.SuspendLayout();
             this.SuspendLayout();
             // 
             // txt_firma
@@ -68,9 +80,9 @@
             this.txt_firma.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_firma.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txt_firma.Location = new System.Drawing.Point(203, 43);
+            this.txt_firma.Location = new System.Drawing.Point(100, 40);
             this.txt_firma.Name = "txt_firma";
-            this.txt_firma.Size = new System.Drawing.Size(241, 22);
+            this.txt_firma.Size = new System.Drawing.Size(195, 22);
             this.txt_firma.TabIndex = 14;
             this.txt_firma.TextChanged += new System.EventHandler(this.txt_firma_TextChanged);
             // 
@@ -79,9 +91,9 @@
             this.txt_ftr_no.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_ftr_no.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txt_ftr_no.Location = new System.Drawing.Point(149, 43);
+            this.txt_ftr_no.Location = new System.Drawing.Point(117, 40);
             this.txt_ftr_no.Name = "txt_ftr_no";
-            this.txt_ftr_no.Size = new System.Drawing.Size(241, 22);
+            this.txt_ftr_no.Size = new System.Drawing.Size(207, 22);
             this.txt_ftr_no.TabIndex = 13;
             this.txt_ftr_no.TextChanged += new System.EventHandler(this.txt_ftr_no_TextChanged);
             // 
@@ -89,7 +101,7 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label22.Location = new System.Drawing.Point(36, 46);
+            this.label22.Location = new System.Drawing.Point(22, 43);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(76, 16);
             this.label22.TabIndex = 11;
@@ -111,7 +123,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(82, 46);
+            this.label3.Location = new System.Drawing.Point(13, 43);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 16);
             this.label3.TabIndex = 12;
@@ -131,7 +143,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.Location = new System.Drawing.Point(76, 46);
+            this.label4.Location = new System.Drawing.Point(24, 43);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(78, 16);
             this.label4.TabIndex = 18;
@@ -142,9 +154,9 @@
             this.txt_tip.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_tip.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txt_tip.Location = new System.Drawing.Point(190, 43);
+            this.txt_tip.Location = new System.Drawing.Point(124, 40);
             this.txt_tip.Name = "txt_tip";
-            this.txt_tip.Size = new System.Drawing.Size(241, 22);
+            this.txt_tip.Size = new System.Drawing.Size(168, 22);
             this.txt_tip.TabIndex = 19;
             this.txt_tip.TextChanged += new System.EventHandler(this.txt_tip_TextChanged);
             // 
@@ -197,6 +209,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.splitContainer4);
             this.panel1.Controls.Add(this.splitContainer1);
             this.panel1.Controls.Add(this.baslik);
             this.panel1.Controls.Add(this.label1);
@@ -207,6 +220,31 @@
             this.panel1.Size = new System.Drawing.Size(1302, 154);
             this.panel1.TabIndex = 31;
             // 
+            // splitContainer4
+            // 
+            this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.splitContainer4.Location = new System.Drawing.Point(1152, 0);
+            this.splitContainer4.Name = "splitContainer4";
+            // 
+            // splitContainer4.Panel2
+            // 
+            this.splitContainer4.Panel2.Controls.Add(this.btn_fill);
+            this.splitContainer4.Size = new System.Drawing.Size(150, 54);
+            this.splitContainer4.SplitterDistance = 25;
+            this.splitContainer4.TabIndex = 24;
+            // 
+            // btn_fill
+            // 
+            this.btn_fill.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_fill.ForeColor = System.Drawing.Color.Red;
+            this.btn_fill.Location = new System.Drawing.Point(0, 0);
+            this.btn_fill.Name = "btn_fill";
+            this.btn_fill.Size = new System.Drawing.Size(121, 54);
+            this.btn_fill.TabIndex = 0;
+            this.btn_fill.Text = "Hepsini Göster";
+            this.btn_fill.UseVisualStyleBackColor = true;
+            this.btn_fill.Click += new System.EventHandler(this.btn_fill_Click);
+            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -215,14 +253,14 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.txt_tip);
-            this.splitContainer1.Panel1.Controls.Add(this.label4);
+            this.splitContainer1.Panel1.Controls.Add(this.txt_ftr_no);
+            this.splitContainer1.Panel1.Controls.Add(this.label22);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Size = new System.Drawing.Size(1302, 100);
-            this.splitContainer1.SplitterDistance = 434;
+            this.splitContainer1.SplitterDistance = 338;
             this.splitContainer1.TabIndex = 20;
             // 
             // splitContainer2
@@ -233,15 +271,14 @@
             // 
             // splitContainer2.Panel1
             // 
-            this.splitContainer2.Panel1.Controls.Add(this.txt_firma);
-            this.splitContainer2.Panel1.Controls.Add(this.label3);
+            this.splitContainer2.Panel1.Controls.Add(this.cmb_projeNo);
+            this.splitContainer2.Panel1.Controls.Add(this.label2);
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.txt_ftr_no);
-            this.splitContainer2.Panel2.Controls.Add(this.label22);
-            this.splitContainer2.Size = new System.Drawing.Size(864, 100);
-            this.splitContainer2.SplitterDistance = 447;
+            this.splitContainer2.Panel2.Controls.Add(this.splitContainer5);
+            this.splitContainer2.Size = new System.Drawing.Size(960, 100);
+            this.splitContainer2.SplitterDistance = 325;
             this.splitContainer2.TabIndex = 0;
             // 
             // splitContainer3
@@ -270,6 +307,46 @@
             this.panel2.Size = new System.Drawing.Size(1302, 404);
             this.panel2.TabIndex = 33;
             // 
+            // splitContainer5
+            // 
+            this.splitContainer5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer5.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer5.Name = "splitContainer5";
+            // 
+            // splitContainer5.Panel1
+            // 
+            this.splitContainer5.Panel1.Controls.Add(this.txt_firma);
+            this.splitContainer5.Panel1.Controls.Add(this.label3);
+            // 
+            // splitContainer5.Panel2
+            // 
+            this.splitContainer5.Panel2.Controls.Add(this.txt_tip);
+            this.splitContainer5.Panel2.Controls.Add(this.label4);
+            this.splitContainer5.Size = new System.Drawing.Size(631, 100);
+            this.splitContainer5.SplitterDistance = 314;
+            this.splitContainer5.TabIndex = 0;
+            // 
+            // cmb_projeNo
+            // 
+            this.cmb_projeNo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmb_projeNo.FormattingEnabled = true;
+            this.cmb_projeNo.Location = new System.Drawing.Point(118, 40);
+            this.cmb_projeNo.Name = "cmb_projeNo";
+            this.cmb_projeNo.Size = new System.Drawing.Size(192, 21);
+            this.cmb_projeNo.TabIndex = 31;
+            this.cmb_projeNo.SelectedIndexChanged += new System.EventHandler(this.cmb_projeNo_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.Location = new System.Drawing.Point(33, 40);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 16);
+            this.label2.TabIndex = 30;
+            this.label2.Text = "Proje No : ";
+            // 
             // faturalar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -286,6 +363,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgw_ftr_list)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.splitContainer4.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
+            this.splitContainer4.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -294,7 +374,6 @@
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel1.PerformLayout();
             this.splitContainer2.Panel2.ResumeLayout(false);
-            this.splitContainer2.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.splitContainer3.Panel1.ResumeLayout(false);
@@ -302,6 +381,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.splitContainer5.Panel1.ResumeLayout(false);
+            this.splitContainer5.Panel1.PerformLayout();
+            this.splitContainer5.Panel2.ResumeLayout(false);
+            this.splitContainer5.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).EndInit();
+            this.splitContainer5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -324,5 +409,10 @@
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.SplitContainer splitContainer3;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.SplitContainer splitContainer4;
+        private System.Windows.Forms.Button btn_fill;
+        private System.Windows.Forms.SplitContainer splitContainer5;
+        private System.Windows.Forms.ComboBox cmb_projeNo;
+        private System.Windows.Forms.Label label2;
     }
 }

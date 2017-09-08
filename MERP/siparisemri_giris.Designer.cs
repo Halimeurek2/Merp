@@ -174,9 +174,9 @@
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(27, 195);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(94, 13);
+            this.label14.Size = new System.Drawing.Size(97, 13);
             this.label14.TabIndex = 7;
-            this.label14.Text = "TESLİM TARİHİ : ";
+            this.label14.Text = "SİPARİŞ TARİHİ : ";
             // 
             // txt_mlz_brmFiyat
             // 

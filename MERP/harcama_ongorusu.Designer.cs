@@ -44,15 +44,11 @@
             this.txt_toplam = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.cmb_toplam_brm = new System.Windows.Forms.ComboBox();
-            this.cmb_top_brm = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.txt_kabul = new System.Windows.Forms.TextBox();
             this.txt_o_test = new System.Windows.Forms.TextBox();
             this.txt_prototip = new System.Windows.Forms.TextBox();
             this.txt_cdr = new System.Windows.Forms.TextBox();
             this.txt_pdr = new System.Windows.Forms.TextBox();
-            this.lbl_brm = new System.Windows.Forms.Label();
-            this.lbl_top = new System.Windows.Forms.Label();
             this.txt_avans = new System.Windows.Forms.TextBox();
             this.lbl_kabul = new System.Windows.Forms.Label();
             this.lbl_test = new System.Windows.Forms.Label();
@@ -68,7 +64,9 @@
             this.dtp_test = new System.Windows.Forms.DateTimePicker();
             this.dtp_kabul = new System.Windows.Forms.DateTimePicker();
             this.dtp_pdr = new System.Windows.Forms.DateTimePicker();
-            this.label6 = new System.Windows.Forms.Label();
+            this.txt_s6 = new System.Windows.Forms.TextBox();
+            this.lbl_s6 = new System.Windows.Forms.Label();
+            this.dtp_s6 = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // label11
@@ -136,7 +134,7 @@
             this.btn_hesapla.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btn_hesapla.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_hesapla.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_hesapla.Location = new System.Drawing.Point(629, 290);
+            this.btn_hesapla.Location = new System.Drawing.Point(624, 330);
             this.btn_hesapla.Name = "btn_hesapla";
             this.btn_hesapla.Size = new System.Drawing.Size(184, 49);
             this.btn_hesapla.TabIndex = 68;
@@ -150,34 +148,49 @@
             this.txt_m_mlz.Name = "txt_m_mlz";
             this.txt_m_mlz.Size = new System.Drawing.Size(175, 20);
             this.txt_m_mlz.TabIndex = 69;
+            this.txt_m_mlz.Text = "0";
+            this.txt_m_mlz.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_m_mlz.TextChanged += new System.EventHandler(this.txt_m_mlz_TextChanged);
             // 
             // txt_test
             // 
             this.txt_test.Location = new System.Drawing.Point(237, 173);
             this.txt_test.Name = "txt_test";
             this.txt_test.Size = new System.Drawing.Size(175, 20);
-            this.txt_test.TabIndex = 70;
+            this.txt_test.TabIndex = 72;
+            this.txt_test.Text = "0";
+            this.txt_test.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_test.TextChanged += new System.EventHandler(this.txt_m_mlz_TextChanged);
             // 
             // txt_risk
             // 
             this.txt_risk.Location = new System.Drawing.Point(237, 214);
             this.txt_risk.Name = "txt_risk";
             this.txt_risk.Size = new System.Drawing.Size(175, 20);
-            this.txt_risk.TabIndex = 71;
+            this.txt_risk.TabIndex = 73;
+            this.txt_risk.Text = "0";
+            this.txt_risk.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_risk.TextChanged += new System.EventHandler(this.txt_m_mlz_TextChanged);
             // 
             // txt_imalat
             // 
             this.txt_imalat.Location = new System.Drawing.Point(237, 132);
             this.txt_imalat.Name = "txt_imalat";
             this.txt_imalat.Size = new System.Drawing.Size(175, 20);
-            this.txt_imalat.TabIndex = 72;
+            this.txt_imalat.TabIndex = 71;
+            this.txt_imalat.Text = "0";
+            this.txt_imalat.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_imalat.TextChanged += new System.EventHandler(this.txt_m_mlz_TextChanged);
             // 
             // txt_el_mlz
             // 
             this.txt_el_mlz.Location = new System.Drawing.Point(237, 91);
             this.txt_el_mlz.Name = "txt_el_mlz";
             this.txt_el_mlz.Size = new System.Drawing.Size(175, 20);
-            this.txt_el_mlz.TabIndex = 73;
+            this.txt_el_mlz.TabIndex = 70;
+            this.txt_el_mlz.Text = "0";
+            this.txt_el_mlz.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_el_mlz.TextChanged += new System.EventHandler(this.txt_m_mlz_TextChanged);
             // 
             // txt_toplam
             // 
@@ -185,6 +198,7 @@
             this.txt_toplam.Name = "txt_toplam";
             this.txt_toplam.Size = new System.Drawing.Size(175, 20);
             this.txt_toplam.TabIndex = 74;
+            this.txt_toplam.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label12
             // 
@@ -209,80 +223,50 @@
             this.cmb_toplam_brm.Size = new System.Drawing.Size(175, 21);
             this.cmb_toplam_brm.TabIndex = 85;
             // 
-            // cmb_top_brm
-            // 
-            this.cmb_top_brm.FormattingEnabled = true;
-            this.cmb_top_brm.Items.AddRange(new object[] {
-            "USD",
-            "EUR",
-            "TRY",
-            "CHF"});
-            this.cmb_top_brm.Location = new System.Drawing.Point(507, 318);
-            this.cmb_top_brm.Name = "cmb_top_brm";
-            this.cmb_top_brm.Size = new System.Drawing.Size(100, 21);
-            this.cmb_top_brm.TabIndex = 114;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(507, 284);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 107;
-            // 
             // txt_kabul
             // 
             this.txt_kabul.Location = new System.Drawing.Point(507, 245);
             this.txt_kabul.Name = "txt_kabul";
             this.txt_kabul.Size = new System.Drawing.Size(100, 20);
-            this.txt_kabul.TabIndex = 106;
+            this.txt_kabul.TabIndex = 98;
+            this.txt_kabul.Text = "0";
+            this.txt_kabul.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txt_o_test
             // 
             this.txt_o_test.Location = new System.Drawing.Point(507, 206);
             this.txt_o_test.Name = "txt_o_test";
             this.txt_o_test.Size = new System.Drawing.Size(100, 20);
-            this.txt_o_test.TabIndex = 105;
+            this.txt_o_test.TabIndex = 97;
+            this.txt_o_test.Text = "0";
+            this.txt_o_test.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txt_prototip
             // 
             this.txt_prototip.Location = new System.Drawing.Point(507, 167);
             this.txt_prototip.Name = "txt_prototip";
             this.txt_prototip.Size = new System.Drawing.Size(100, 20);
-            this.txt_prototip.TabIndex = 104;
+            this.txt_prototip.TabIndex = 96;
+            this.txt_prototip.Text = "0";
+            this.txt_prototip.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txt_cdr
             // 
             this.txt_cdr.Location = new System.Drawing.Point(507, 128);
             this.txt_cdr.Name = "txt_cdr";
             this.txt_cdr.Size = new System.Drawing.Size(100, 20);
-            this.txt_cdr.TabIndex = 103;
+            this.txt_cdr.TabIndex = 95;
+            this.txt_cdr.Text = "0";
+            this.txt_cdr.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txt_pdr
             // 
             this.txt_pdr.Location = new System.Drawing.Point(507, 89);
             this.txt_pdr.Name = "txt_pdr";
             this.txt_pdr.Size = new System.Drawing.Size(100, 20);
-            this.txt_pdr.TabIndex = 102;
-            // 
-            // lbl_brm
-            // 
-            this.lbl_brm.AutoSize = true;
-            this.lbl_brm.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_brm.Location = new System.Drawing.Point(437, 318);
-            this.lbl_brm.Name = "lbl_brm";
-            this.lbl_brm.Size = new System.Drawing.Size(50, 16);
-            this.lbl_brm.TabIndex = 101;
-            this.lbl_brm.Text = "Birim : ";
-            // 
-            // lbl_top
-            // 
-            this.lbl_top.AutoSize = true;
-            this.lbl_top.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_top.Location = new System.Drawing.Point(437, 285);
-            this.lbl_top.Name = "lbl_top";
-            this.lbl_top.Size = new System.Drawing.Size(64, 16);
-            this.lbl_top.TabIndex = 94;
-            this.lbl_top.Text = "Toplam : ";
+            this.txt_pdr.TabIndex = 94;
+            this.txt_pdr.Text = "0";
+            this.txt_pdr.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txt_avans
             // 
@@ -290,6 +274,8 @@
             this.txt_avans.Name = "txt_avans";
             this.txt_avans.Size = new System.Drawing.Size(100, 20);
             this.txt_avans.TabIndex = 93;
+            this.txt_avans.Text = "0";
+            this.txt_avans.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lbl_kabul
             // 
@@ -305,7 +291,7 @@
             // 
             this.lbl_test.AutoSize = true;
             this.lbl_test.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_test.Location = new System.Drawing.Point(437, 207);
+            this.lbl_test.Location = new System.Drawing.Point(437, 206);
             this.lbl_test.Name = "lbl_test";
             this.lbl_test.Size = new System.Drawing.Size(46, 16);
             this.lbl_test.TabIndex = 91;
@@ -315,7 +301,7 @@
             // 
             this.lbl_prototip.AutoSize = true;
             this.lbl_prototip.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_prototip.Location = new System.Drawing.Point(437, 169);
+            this.lbl_prototip.Location = new System.Drawing.Point(437, 167);
             this.lbl_prototip.Name = "lbl_prototip";
             this.lbl_prototip.Size = new System.Drawing.Size(65, 16);
             this.lbl_prototip.TabIndex = 90;
@@ -325,7 +311,7 @@
             // 
             this.lbl_cdr.AutoSize = true;
             this.lbl_cdr.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_cdr.Location = new System.Drawing.Point(437, 131);
+            this.lbl_cdr.Location = new System.Drawing.Point(437, 128);
             this.lbl_cdr.Name = "lbl_cdr";
             this.lbl_cdr.Size = new System.Drawing.Size(45, 16);
             this.lbl_cdr.TabIndex = 89;
@@ -335,7 +321,7 @@
             // 
             this.lbl_pdr.AutoSize = true;
             this.lbl_pdr.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_pdr.Location = new System.Drawing.Point(437, 91);
+            this.lbl_pdr.Location = new System.Drawing.Point(437, 89);
             this.lbl_pdr.Name = "lbl_pdr";
             this.lbl_pdr.Size = new System.Drawing.Size(44, 16);
             this.lbl_pdr.TabIndex = 88;
@@ -380,7 +366,7 @@
             this.dtp_avans.Location = new System.Drawing.Point(629, 50);
             this.dtp_avans.Name = "dtp_avans";
             this.dtp_avans.Size = new System.Drawing.Size(184, 20);
-            this.dtp_avans.TabIndex = 117;
+            this.dtp_avans.TabIndex = 116;
             // 
             // dtp_cdr
             // 
@@ -415,25 +401,42 @@
             this.dtp_pdr.Location = new System.Drawing.Point(629, 89);
             this.dtp_pdr.Name = "dtp_pdr";
             this.dtp_pdr.Size = new System.Drawing.Size(184, 20);
-            this.dtp_pdr.TabIndex = 123;
+            this.dtp_pdr.TabIndex = 117;
             // 
-            // label6
+            // txt_s6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(8, 323);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(214, 16);
-            this.label6.TabIndex = 124;
-            this.label6.Text = "*Ödemeleri EURO cinsinden yazınız.";
+            this.txt_s6.Location = new System.Drawing.Point(507, 284);
+            this.txt_s6.Name = "txt_s6";
+            this.txt_s6.Size = new System.Drawing.Size(100, 20);
+            this.txt_s6.TabIndex = 99;
+            this.txt_s6.Text = "0";
+            this.txt_s6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lbl_s6
+            // 
+            this.lbl_s6.AutoSize = true;
+            this.lbl_s6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_s6.Location = new System.Drawing.Point(437, 284);
+            this.lbl_s6.Name = "lbl_s6";
+            this.lbl_s6.Size = new System.Drawing.Size(27, 16);
+            this.lbl_s6.TabIndex = 124;
+            this.lbl_s6.Text = "S6 ";
+            // 
+            // dtp_s6
+            // 
+            this.dtp_s6.Location = new System.Drawing.Point(629, 284);
+            this.dtp_s6.Name = "dtp_s6";
+            this.dtp_s6.Size = new System.Drawing.Size(184, 20);
+            this.dtp_s6.TabIndex = 122;
             // 
             // harcama_ongorusu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(820, 347);
-            this.Controls.Add(this.label6);
+            this.ClientSize = new System.Drawing.Size(820, 391);
+            this.Controls.Add(this.dtp_s6);
+            this.Controls.Add(this.txt_s6);
+            this.Controls.Add(this.lbl_s6);
             this.Controls.Add(this.dtp_pdr);
             this.Controls.Add(this.dtp_kabul);
             this.Controls.Add(this.dtp_test);
@@ -442,15 +445,11 @@
             this.Controls.Add(this.dtp_avans);
             this.Controls.Add(this.label28);
             this.Controls.Add(this.label27);
-            this.Controls.Add(this.cmb_top_brm);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.txt_kabul);
             this.Controls.Add(this.txt_o_test);
             this.Controls.Add(this.txt_prototip);
             this.Controls.Add(this.txt_cdr);
             this.Controls.Add(this.txt_pdr);
-            this.Controls.Add(this.lbl_brm);
-            this.Controls.Add(this.lbl_top);
             this.Controls.Add(this.txt_avans);
             this.Controls.Add(this.lbl_kabul);
             this.Controls.Add(this.lbl_test);
@@ -500,15 +499,11 @@
         public System.Windows.Forms.TextBox txt_toplam;
         public System.Windows.Forms.Label label12;
         public System.Windows.Forms.ComboBox cmb_toplam_brm;
-        public System.Windows.Forms.ComboBox cmb_top_brm;
-        public System.Windows.Forms.TextBox textBox1;
         public System.Windows.Forms.TextBox txt_kabul;
         public System.Windows.Forms.TextBox txt_o_test;
         public System.Windows.Forms.TextBox txt_prototip;
         public System.Windows.Forms.TextBox txt_cdr;
         public System.Windows.Forms.TextBox txt_pdr;
-        public System.Windows.Forms.Label lbl_brm;
-        public System.Windows.Forms.Label lbl_top;
         public System.Windows.Forms.TextBox txt_avans;
         public System.Windows.Forms.Label lbl_kabul;
         public System.Windows.Forms.Label lbl_test;
@@ -524,6 +519,8 @@
         public System.Windows.Forms.DateTimePicker dtp_test;
         public System.Windows.Forms.DateTimePicker dtp_kabul;
         public System.Windows.Forms.DateTimePicker dtp_pdr;
-        public System.Windows.Forms.Label label6;
+        public System.Windows.Forms.TextBox txt_s6;
+        public System.Windows.Forms.Label lbl_s6;
+        public System.Windows.Forms.DateTimePicker dtp_s6;
     }
 }

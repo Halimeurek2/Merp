@@ -216,5 +216,24 @@ namespace MERP
 
             }
         }
+
+        private void btn_fill_Click(object sender, EventArgs e)
+        {
+            komut = "SELECT * FROM db_siparis_emri";
+            myCommand = new MySqlCommand(komut, myConnection);
+            da = new MySqlDataAdapter(myCommand);
+            dt = new DataTable();
+            // myReader = myCommand.ExecuteReader();
+
+            da.Fill(dt);
+
+            dgw_stf_list.DataSource = dt;
+
+            dgw_stf_list.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgw_stf_list.AutoSizeColumnsMode =
+                       DataGridViewAutoSizeColumnsMode.Fill;
+
+            myConnection.Close();
+        }
     }
 }

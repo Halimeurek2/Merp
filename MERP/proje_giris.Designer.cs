@@ -286,6 +286,7 @@
             this.ck_seri.TabIndex = 95;
             this.ck_seri.Text = "Seri Üretim";
             this.ck_seri.UseVisualStyleBackColor = true;
+            this.ck_seri.CheckedChanged += new System.EventHandler(this.ck_seri_CheckedChanged);
             // 
             // ck_prj
             // 
@@ -296,6 +297,7 @@
             this.ck_prj.TabIndex = 96;
             this.ck_prj.Text = "Proje";
             this.ck_prj.UseVisualStyleBackColor = true;
+            this.ck_prj.CheckedChanged += new System.EventHandler(this.ck_prj_CheckedChanged);
             // 
             // proje_giris
             // 

@@ -46,6 +46,8 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
+            this.btn_fill = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_stf_list)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -58,6 +60,9 @@
             this.splitContainer2.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
+            this.splitContainer4.Panel2.SuspendLayout();
+            this.splitContainer4.SuspendLayout();
             this.SuspendLayout();
             // 
             // label4
@@ -193,6 +198,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.splitContainer4);
             this.panel1.Controls.Add(this.splitContainer1);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
@@ -259,6 +265,31 @@
             this.panel3.Size = new System.Drawing.Size(1370, 469);
             this.panel3.TabIndex = 46;
             // 
+            // splitContainer4
+            // 
+            this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.splitContainer4.Location = new System.Drawing.Point(1220, 0);
+            this.splitContainer4.Name = "splitContainer4";
+            // 
+            // splitContainer4.Panel2
+            // 
+            this.splitContainer4.Panel2.Controls.Add(this.btn_fill);
+            this.splitContainer4.Size = new System.Drawing.Size(150, 55);
+            this.splitContainer4.SplitterDistance = 25;
+            this.splitContainer4.TabIndex = 45;
+            // 
+            // btn_fill
+            // 
+            this.btn_fill.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_fill.ForeColor = System.Drawing.Color.Red;
+            this.btn_fill.Location = new System.Drawing.Point(0, 0);
+            this.btn_fill.Name = "btn_fill";
+            this.btn_fill.Size = new System.Drawing.Size(121, 55);
+            this.btn_fill.TabIndex = 0;
+            this.btn_fill.Text = "Hepsini Göster";
+            this.btn_fill.UseVisualStyleBackColor = true;
+            this.btn_fill.Click += new System.EventHandler(this.btn_fill_Click);
+            // 
             // siparisemri_list
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -288,6 +319,9 @@
             this.splitContainer2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.splitContainer4.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
+            this.splitContainer4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -311,5 +345,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.SplitContainer splitContainer4;
+        private System.Windows.Forms.Button btn_fill;
     }
 }

@@ -298,6 +298,7 @@
             this.ck_prj.TabIndex = 98;
             this.ck_prj.Text = "Proje";
             this.ck_prj.UseVisualStyleBackColor = true;
+            this.ck_prj.CheckedChanged += new System.EventHandler(this.ck_prj_CheckedChanged);
             // 
             // ck_seri
             // 
@@ -308,6 +309,7 @@
             this.ck_seri.TabIndex = 97;
             this.ck_seri.Text = "Seri Üretim";
             this.ck_seri.UseVisualStyleBackColor = true;
+            this.ck_seri.CheckedChanged += new System.EventHandler(this.ck_seri_CheckedChanged);
             // 
             // proje_duzenle
             // 
