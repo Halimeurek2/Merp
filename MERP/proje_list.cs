@@ -105,6 +105,20 @@ namespace MERP
             dgw_prj_list.Columns[2].DefaultCellStyle.Format = "N2";
             dgw_prj_list.Columns[9].DefaultCellStyle.Format = "N2";
 
+            komut = "SELECT DISTINCT proje_no FROM db_projeler";
+            da = new MySqlDataAdapter(komut, connection);
+
+            //  myConnection = new MySqlConnection(connectionString);
+            myCommand = new MySqlCommand(komut, myConnection);
+            //   myConnection.Open();
+            MySqlDataReader myReader;
+            myReader = myCommand.ExecuteReader();
+            // Always call Read before accessing data.
+            while (myReader.Read())
+            {
+                cmb_projeNo.Items.Add(myReader["proje_no"]);
+            }
+
             myConnection.Close();
 
             SumDGW();
@@ -211,26 +225,25 @@ namespace MERP
 
         }
 
-        private void txt_prjNo_TextChanged(object sender, EventArgs e)
-        {
-            BindingSource bs = new BindingSource();
-            bs.DataSource = dgw_prj_list.DataSource;
-            bs.Filter = dgw_prj_list.Columns[0].HeaderText.ToString() + " LIKE '%" + txt_prjNo.Text + "%'";
-            dgw_prj_list.DataSource = bs;
-
-            dgw_prj_list.Refresh();
-
-            SumDGW();
-        }
-
         private void txt_prjAdi_TextChanged(object sender, EventArgs e)
         {
-            BindingSource bs = new BindingSource();
-            bs.DataSource = dgw_prj_list.DataSource;
-            bs.Filter = dgw_prj_list.Columns[1].HeaderText.ToString() + " LIKE '%" + txt_prjAdi.Text + "%'";
-            dgw_prj_list.DataSource = bs;
+            if(cmb_projeNo.Text=="")
+            {
+                BindingSource bs = new BindingSource();
+                bs.DataSource = dgw_prj_list.DataSource;
+                bs.Filter = dgw_prj_list.Columns[1].HeaderText.ToString() + " LIKE '%" + txt_prjAdi.Text + "%'";
+                dgw_prj_list.DataSource = bs;
 
-            dgw_prj_list.Refresh();
+                dgw_prj_list.Refresh();
+            }
+            else
+            {
+                BindingSource bs = new BindingSource();
+                bs.DataSource = dgw_prj_list.DataSource;
+                bs.Filter = string.Format(dgw_prj_list.Columns[0].HeaderText.ToString() + " LIKE '%{0}%' AND " + dgw_prj_list.Columns[1].HeaderText.ToString() + " LIKE '%{1}%'",
+                                                  cmb_projeNo.Text, txt_prjAdi.Text);
+                dgw_prj_list.DataSource = bs;
+            }
 
             SumDGW();
         }
@@ -324,23 +337,50 @@ namespace MERP
             }
         }
 
-        private void btn_fill_Click(object sender, EventArgs e)
+        private void cmb_projeNo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            komut = "SELECT proje_no,proje_ismi,proje_butce,proje_birim,proje_musteri,proje_baslangic,proje_bitis,proje_vade,proje_aciklama,harcama_toplam,harcama_toplam_birim,prj_tip FROM db_projeler";
-            myCommand = new MySqlCommand(komut, myConnection);
-            da = new MySqlDataAdapter(myCommand);
-            dt = new DataTable();
-            // myReader = myCommand.ExecuteReader();
+            if(cmb_projeNo.Text=="Hepsi")
+            {
+                komut = "SELECT proje_no,proje_ismi,proje_butce,proje_birim,proje_musteri,proje_baslangic,proje_bitis,proje_vade,proje_aciklama,harcama_toplam,harcama_toplam_birim,prj_tip FROM db_projeler";
+                myCommand = new MySqlCommand(komut, myConnection);
+                da = new MySqlDataAdapter(myCommand);
+                dt = new DataTable();
+                // myReader = myCommand.ExecuteReader();
 
-            da.Fill(dt);
+                da.Fill(dt);
 
-            dgw_prj_list.DataSource = dt;
+                dgw_prj_list.DataSource = dt;
 
-            dgw_prj_list.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dgw_prj_list.AutoSizeColumnsMode =
-                       DataGridViewAutoSizeColumnsMode.Fill;
+                dgw_prj_list.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dgw_prj_list.AutoSizeColumnsMode =
+                           DataGridViewAutoSizeColumnsMode.Fill;
 
-            myConnection.Close();
+                myConnection.Close();
+            }
+            else
+            {
+                if (txt_prjAdi.Text == "")
+                {
+                    BindingSource bs = new BindingSource();
+                    bs.DataSource = dgw_prj_list.DataSource;
+                    bs.Filter = dgw_prj_list.Columns[0].HeaderText.ToString() + " LIKE '%" + cmb_projeNo.Text + "%'";
+                    dgw_prj_list.DataSource = bs;
+
+                    dgw_prj_list.Refresh();
+                }
+                else
+                {
+                    BindingSource bs = new BindingSource();
+                    bs.DataSource = dgw_prj_list.DataSource;
+                    bs.Filter = string.Format(dgw_prj_list.Columns[0].HeaderText.ToString() + " LIKE '%{0}%' AND " + dgw_prj_list.Columns[1].HeaderText.ToString() + " LIKE '%{1}%'",
+                                                      cmb_projeNo.Text, txt_prjAdi.Text);
+                    dgw_prj_list.DataSource = bs;
+                }
+            }
+
+
+           
+            SumDGW();
         }
     }
 }

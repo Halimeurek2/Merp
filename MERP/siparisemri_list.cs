@@ -187,7 +187,29 @@ namespace MERP
 
         private void cmb_projeNo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Refresh(1, cmb_projeNo.Text);
+            if(cmb_projeNo.Text=="Hepsi")
+            {
+                komut = "SELECT * FROM db_siparis_emri";
+                myCommand = new MySqlCommand(komut, myConnection);
+                da = new MySqlDataAdapter(myCommand);
+                dt = new DataTable();
+                // myReader = myCommand.ExecuteReader();
+
+                da.Fill(dt);
+
+                dgw_stf_list.DataSource = dt;
+
+                dgw_stf_list.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dgw_stf_list.AutoSizeColumnsMode =
+                           DataGridViewAutoSizeColumnsMode.Fill;
+
+                myConnection.Close();
+            }
+            else
+            {
+                Refresh(1, cmb_projeNo.Text);
+            }
+            
             SumDGW();
         }
 
@@ -215,25 +237,6 @@ namespace MERP
             {
 
             }
-        }
-
-        private void btn_fill_Click(object sender, EventArgs e)
-        {
-            komut = "SELECT * FROM db_siparis_emri";
-            myCommand = new MySqlCommand(komut, myConnection);
-            da = new MySqlDataAdapter(myCommand);
-            dt = new DataTable();
-            // myReader = myCommand.ExecuteReader();
-
-            da.Fill(dt);
-
-            dgw_stf_list.DataSource = dt;
-
-            dgw_stf_list.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dgw_stf_list.AutoSizeColumnsMode =
-                       DataGridViewAutoSizeColumnsMode.Fill;
-
-            myConnection.Close();
         }
     }
 }

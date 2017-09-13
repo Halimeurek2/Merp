@@ -8,6 +8,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Globalization;
 using System.Collections;
+using System.ComponentModel;
 
 namespace MERP
 {
@@ -59,6 +60,10 @@ namespace MERP
         bool bFirstPage = false;
         bool bNewPage = false;
         int iHeaderHeight = 0;
+
+        public static float[] month_sum = new float[12];
+        public static DateTime[] month = new DateTime[12];
+        int index = 0;
 
         private System.IO.Stream streamToPrint;
 
@@ -416,7 +421,11 @@ namespace MERP
  
         private void cmb_projeler_SelectedIndexChanged(object sender, EventArgs e)
         {
-                myConnection.Open();
+            index = 0;
+            Array.Clear(month, 0, 12);
+            Array.Clear(month_sum, 0, 12);
+
+            myConnection.Open();
             try
             {
                 komut = "SELECT sum(fatura_euro) FROM db_faturalar WHERE fatura_proje_no ='" + cmb_projeler.Text + "' AND fatura_tipi='G'";
@@ -455,24 +464,24 @@ namespace MERP
                 myReader.Close();
             }
 
-            //try
-            //{
-            //    komut = "SELECT sum(fatura_euro) FROM db_faturalar WHERE fatura_durum='ÖDENMEDİ' AND fatura_proje_no ='" + cmb_projeler.Text + "'";
-            //    da = new MySqlDataAdapter(komut, connection);
-            //    myCommand = new MySqlCommand(komut, myConnection);
-            //    myReader = myCommand.ExecuteReader();
-            //    while (myReader.Read())
-            //    {
-            //        TOPLAM = Convert.ToDecimal(myReader.GetString(0));
-            //        lbl_odenmemisTop.Text = string.Format(new CultureInfo("de-DE"), "{0:C2}", Convert.ToDecimal(TOPLAM));
-            //    }
-            //    myReader.Close();
-            //}
-            //catch
-            //{
-            //       lbl_odenmemisTop.Text = "0";
-            //       myReader.Close();
-            //}
+            try
+            {
+                komut = "SELECT proje_butce,proje_birim,proje_baslangic FROM db_projeler WHERE proje_no='" + cmb_projeler.Text + "'";
+                da = new MySqlDataAdapter(komut, connection);
+                myCommand = new MySqlCommand(komut, myConnection);
+                myReader = myCommand.ExecuteReader();
+                while (myReader.Read())
+                {
+                    lbl_prjEuro.Text = hf.EuroCalculation(Convert.ToString(myReader.GetString(2)), Convert.ToString(myReader.GetString(0)), Convert.ToString(myReader.GetString(1)), lbl_prjEuro.Text);
+                    lbl_prjEuro.Text = string.Format(new CultureInfo("de-DE"), "{0:C2}", Convert.ToDecimal(lbl_prjEuro.Text));
+                }
+                myReader.Close();
+            }
+            catch
+            {
+                lbl_prjEuro.Text = "0";
+                myReader.Close();
+            }
 
             try
             {
@@ -525,33 +534,34 @@ namespace MERP
                         lbl_prj_butce.Text = string.Format(new CultureInfo("en-CH"), "{0:C2}", Convert.ToDecimal(TOPLAM));
                     }
                 }
+                //lbl_prjEuro.Text = hf.EuroDonusum(BIRIM, Convert.ToString(TOPLAM));
+                //lbl_prjEuro.Text = string.Format(new CultureInfo("de-DE"), "{0:C2}", Convert.ToDecimal(lbl_prjEuro.Text));
+
                 myReader.Close();
             }
             catch
             {
                 lbl_prj_butce.Text = "0";
+                //lbl_prjEuro.Text = "0";
                 myReader.Close();
             }
 
             try
             {
-                komut = "SELECT proje_butce,proje_birim FROM db_projeler WHERE proje_no='" + cmb_projeler.Text + "'";
-                da = new MySqlDataAdapter(komut, connection);
-                myCommand = new MySqlCommand(komut, myConnection);
-                myReader = myCommand.ExecuteReader();
-                while (myReader.Read())
-                {
-                    TOPLAM = Convert.ToDecimal(myReader.GetString(0));
-                    BIRIM = Convert.ToString(myReader.GetString(1));
-                }
-                lbl_prjEuro.Text = hf.EuroCalculation(Convert.ToString(DateTime.Now.AddDays(-1)), Convert.ToString(TOPLAM), BIRIM, lbl_prjEuro.Text);
-                lbl_prjEuro.Text = string.Format(new CultureInfo("de-DE"), "{0:C2}", Convert.ToDecimal(lbl_prjEuro.Text));
-                myReader.Close();
+                 komut = "SELECT DATE_FORMAT(fatura_vade_tarih,'%m-%"+DateTime.Now.Year+"') AS Month, SUM(fatura_euro) FROM db_faturalar WHERE fatura_durum='ÖDENMEDİ' and fatura_tipi='G' and fatura_proje_no ='" + cmb_projeler.Text + "' GROUP BY DATE_FORMAT(fatura_vade_tarih, '%m-%" + DateTime.Now.Year + "')";
+                 da = new MySqlDataAdapter(komut, connection);
+                 myCommand = new MySqlCommand(komut, myConnection);
+                 myReader = myCommand.ExecuteReader();
+                 while (myReader.Read())
+                 {
+                    month[index]= Convert.ToDateTime(myReader.GetString(0));
+                    month_sum[index] = (float)Convert.ToDouble(myReader.GetString(1));
+                    index++;
+                 }
             }
             catch
             {
-                lbl_prjEuro.Text = "0";
-                myReader.Close();
+                MessageBox.Show(Convert.ToString(DateTime.Now.AddMonths(1)));
             }
 
             myConnection.Close();
@@ -566,13 +576,16 @@ namespace MERP
 
         public void FillDGW()
         {
+            
+
             myConnection.Open();
 
             komut = "SELECT fatura_no as FaturaNo," +
+                    "fatura_firma as Firma," +
                     "fatura_vade as Vade," +
                     "fatura_vade_tarih as VadeTarih," +
-                    "fatura_euro as Euro," +
-                    "fatura_cinsi as Tip FROM db_faturalar WHERE fatura_durum='ÖDENMEDİ' AND fatura_proje_no ='" + cmb_projeler.Text + "' AND fatura_tipi='G'";
+                    "fatura_aciklama as Açıklama," +
+                    "fatura_euro as Euro FROM db_faturalar WHERE fatura_durum='ÖDENMEDİ' AND fatura_proje_no ='" + cmb_projeler.Text + "' AND fatura_tipi='G'";
             myCommand = new MySqlCommand(komut, myConnection);
             da = new MySqlDataAdapter(myCommand);
             dt = new DataTable();
@@ -585,12 +598,17 @@ namespace MERP
             dgw_odenmemisG.AutoSizeColumnsMode =
                        DataGridViewAutoSizeColumnsMode.Fill;
 
+            dgw_odenmemisG.Columns["FaturaNo"].Width = 70;
+            dgw_odenmemisG.Columns["Vade"].Width = 35;
+            dgw_odenmemisG.Columns["VadeTarih"].Width = 80;
+            dgw_odenmemisG.Columns["Euro"].Width = 90;
 
             komut = "SELECT fatura_no as FaturaNo," +
+                    "fatura_firma as Firma," +
                     "fatura_vade as Vade," +
                     "fatura_vade_tarih as VadeTarih," +
-                    "fatura_euro as Euro," +
-                    "fatura_cinsi as Tip FROM db_faturalar WHERE fatura_durum='ÖDENMEDİ' AND fatura_proje_no ='" + cmb_projeler.Text + "' AND fatura_tipi='K'";
+                    "fatura_aciklama as Açıklama," +
+                    "fatura_euro as Euro FROM db_faturalar WHERE fatura_durum='ÖDENMEDİ' AND fatura_proje_no ='" + cmb_projeler.Text + "' AND fatura_tipi='K'";
             myCommand = new MySqlCommand(komut, myConnection);
             da = new MySqlDataAdapter(myCommand);
             dt = new DataTable();
@@ -603,10 +621,15 @@ namespace MERP
             dgw_odenmemisK.AutoSizeColumnsMode =
                        DataGridViewAutoSizeColumnsMode.Fill;
 
-            dgw_odenmemisK.Columns[3].DefaultCellStyle.Format = "c2";
-            dgw_odenmemisK.Columns[3].DefaultCellStyle.FormatProvider = CultureInfo.GetCultureInfo("de-DE");
-            dgw_odenmemisG.Columns[3].DefaultCellStyle.Format = "c2";
-            dgw_odenmemisG.Columns[3].DefaultCellStyle.FormatProvider = CultureInfo.GetCultureInfo("de-DE");
+            dgw_odenmemisK.Columns["FaturaNo"].Width = 70;
+            dgw_odenmemisK.Columns["Vade"].Width = 35;
+            dgw_odenmemisK.Columns["VadeTarih"].Width = 80;
+            dgw_odenmemisK.Columns["Euro"].Width = 90;
+
+            dgw_odenmemisK.Columns[5].DefaultCellStyle.Format = "c2";
+            dgw_odenmemisK.Columns[5].DefaultCellStyle.FormatProvider = CultureInfo.GetCultureInfo("de-DE");
+            dgw_odenmemisG.Columns[5].DefaultCellStyle.Format = "c2";
+            dgw_odenmemisG.Columns[5].DefaultCellStyle.FormatProvider = CultureInfo.GetCultureInfo("de-DE");
             myConnection.Close();
         }
 
@@ -757,6 +780,7 @@ namespace MERP
 
         private void btn_print1_Click(object sender, EventArgs e)
         {
+            //dgw_odenmemisG.Columns["VadeTarih"].DefaultCellStyle.Format = "dd.MM.yyyy";
             PrintPreviewDialog onizleme = new PrintPreviewDialog();
             onizleme.Document = printDocument2;
             onizleme.ShowDialog();
@@ -810,9 +834,9 @@ namespace MERP
                         if (bNewPage)
                         {
 
-                            e.Graphics.DrawString("Ödenmemiş Gelen Faturalar", new Font(dgw_odenmemisG.Font, FontStyle.Bold),
+                            e.Graphics.DrawString("Ödenmemiş Gelen Faturalar--" + cmb_projeler.Text, new Font(dgw_odenmemisG.Font, FontStyle.Bold),
                                     Brushes.Black, e.MarginBounds.Left, e.MarginBounds.Top -
-                                    e.Graphics.MeasureString("Ödenmemiş Gelen Faturalar", new Font(dgw_odenmemisG.Font,
+                                    e.Graphics.MeasureString("Ödenmemiş Gelen Faturalar--" + cmb_projeler.Text, new Font(dgw_odenmemisG.Font,
                                     FontStyle.Bold), e.MarginBounds.Width).Height - 13);
 
                             String strDate = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
@@ -821,7 +845,7 @@ namespace MERP
                                     Brushes.Black, e.MarginBounds.Left + (e.MarginBounds.Width -
                                     e.Graphics.MeasureString(strDate, new Font(dgw_odenmemisG.Font,
                                     FontStyle.Bold), e.MarginBounds.Width).Width), e.MarginBounds.Top -
-                                    e.Graphics.MeasureString("Ödenmemiş Gelen Faturalar", new Font(new Font(dgw_odenmemisG.Font,
+                                    e.Graphics.MeasureString("Ödenmemiş Gelen Faturalar--" + cmb_projeler.Text, new Font(new Font(dgw_odenmemisG.Font,
                                     FontStyle.Bold), FontStyle.Bold), e.MarginBounds.Width).Height - 13);
 
 
@@ -991,9 +1015,9 @@ namespace MERP
                         if (bNewPage)
                         {
 
-                            e.Graphics.DrawString("Ödenmemiş Kesilen Faturalar", new Font(dgw_odenmemisK.Font, FontStyle.Bold),
+                            e.Graphics.DrawString("Ödenmemiş Kesilen Faturalar--" + cmb_projeler.Text, new Font(dgw_odenmemisK.Font, FontStyle.Bold),
                                     Brushes.Black, e.MarginBounds.Left, e.MarginBounds.Top -
-                                    e.Graphics.MeasureString("Ödenmemiş Kesilen Faturalar", new Font(dgw_odenmemisK.Font,
+                                    e.Graphics.MeasureString("Ödenmemiş Kesilen Faturalar--" + cmb_projeler.Text, new Font(dgw_odenmemisK.Font,
                                     FontStyle.Bold), e.MarginBounds.Width).Height - 13);
 
                             String strDate = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
@@ -1002,7 +1026,7 @@ namespace MERP
                                     Brushes.Black, e.MarginBounds.Left + (e.MarginBounds.Width -
                                     e.Graphics.MeasureString(strDate, new Font(dgw_odenmemisK.Font,
                                     FontStyle.Bold), e.MarginBounds.Width).Width), e.MarginBounds.Top -
-                                    e.Graphics.MeasureString("Ödenmemiş Kesilen Faturalar", new Font(new Font(dgw_odenmemisK.Font,
+                                    e.Graphics.MeasureString("Ödenmemiş Kesilen Faturalar--" + cmb_projeler.Text, new Font(new Font(dgw_odenmemisK.Font,
                                     FontStyle.Bold), FontStyle.Bold), e.MarginBounds.Width).Height - 13);
 
 
@@ -1059,6 +1083,23 @@ namespace MERP
                 MessageBox.Show(exc.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             #endregion
+        }
+
+        private void btn_ozet_Click(object sender, EventArgs e)
+        {
+            OdenecekFaturalar frm1 = new OdenecekFaturalar();
+
+            Array.Clear(frm1.month, 0, 12);
+            Array.Clear(frm1.month_sum, 0, 12);
+
+            for (int i=0;i<12;i++)
+            {
+                frm1.month[i] = month[i];
+                frm1.month_sum[i] = month_sum[i];
+            }
+
+            frm1.Show();
+
         }
     }
 }

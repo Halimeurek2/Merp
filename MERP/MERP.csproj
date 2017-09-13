@@ -132,6 +132,12 @@
     <Compile Include="odemeler.Designer.cs">
       <DependentUpon>odemeler.cs</DependentUpon>
     </Compile>
+    <Compile Include="OdenecekFaturalar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OdenecekFaturalar.Designer.cs">
+      <DependentUpon>OdenecekFaturalar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="proje_duzenle.cs">
       <SubType>Form</SubType>
@@ -216,6 +222,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="odemeler.resx">
       <DependentUpon>odemeler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OdenecekFaturalar.resx">
+      <DependentUpon>OdenecekFaturalar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="proje_duzenle.resx">
       <DependentUpon>proje_duzenle.cs</DependentUpon>

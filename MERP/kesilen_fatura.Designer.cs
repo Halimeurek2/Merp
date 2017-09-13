@@ -39,7 +39,6 @@
             this.ck_alarm = new System.Windows.Forms.CheckBox();
             this.btn_ftr_ekle = new System.Windows.Forms.Button();
             this.txt_ftr_tarih = new System.Windows.Forms.TextBox();
-            this.txt_firma = new System.Windows.Forms.TextBox();
             this.txt_fatura_no = new System.Windows.Forms.TextBox();
             this.cmb_projeNo = new System.Windows.Forms.ComboBox();
             this.rcb_acıklama = new System.Windows.Forms.RichTextBox();
@@ -54,6 +53,7 @@
             this.cmb_ftr_tip = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.cb_durum = new System.Windows.Forms.CheckBox();
+            this.cmb_firma = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txt_ftr_tutar
@@ -150,14 +150,6 @@
             this.txt_ftr_tarih.Name = "txt_ftr_tarih";
             this.txt_ftr_tarih.Size = new System.Drawing.Size(187, 22);
             this.txt_ftr_tarih.TabIndex = 51;
-            // 
-            // txt_firma
-            // 
-            this.txt_firma.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txt_firma.Location = new System.Drawing.Point(367, 76);
-            this.txt_firma.Name = "txt_firma";
-            this.txt_firma.Size = new System.Drawing.Size(187, 22);
-            this.txt_firma.TabIndex = 50;
             // 
             // txt_fatura_no
             // 
@@ -295,11 +287,22 @@
             this.cb_durum.Text = "ÖDENDİ";
             this.cb_durum.UseVisualStyleBackColor = true;
             // 
+            // cmb_firma
+            // 
+            this.cmb_firma.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmb_firma.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmb_firma.FormattingEnabled = true;
+            this.cmb_firma.Location = new System.Drawing.Point(367, 76);
+            this.cmb_firma.Name = "cmb_firma";
+            this.cmb_firma.Size = new System.Drawing.Size(187, 21);
+            this.cmb_firma.TabIndex = 68;
+            // 
             // kesilen_fatura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(570, 357);
+            this.Controls.Add(this.cmb_firma);
             this.Controls.Add(this.cb_durum);
             this.Controls.Add(this.cmb_ftr_tip);
             this.Controls.Add(this.label11);
@@ -315,7 +318,6 @@
             this.Controls.Add(this.ck_alarm);
             this.Controls.Add(this.btn_ftr_ekle);
             this.Controls.Add(this.txt_ftr_tarih);
-            this.Controls.Add(this.txt_firma);
             this.Controls.Add(this.txt_fatura_no);
             this.Controls.Add(this.cmb_projeNo);
             this.Controls.Add(this.rcb_acıklama);
@@ -347,7 +349,6 @@
         private System.Windows.Forms.CheckBox ck_alarm;
         private System.Windows.Forms.Button btn_ftr_ekle;
         private System.Windows.Forms.TextBox txt_ftr_tarih;
-        private System.Windows.Forms.TextBox txt_firma;
         private System.Windows.Forms.TextBox txt_fatura_no;
         private System.Windows.Forms.ComboBox cmb_projeNo;
         private System.Windows.Forms.RichTextBox rcb_acıklama;
@@ -362,5 +363,6 @@
         public System.Windows.Forms.ComboBox cmb_ftr_tip;
         public System.Windows.Forms.Label label11;
         public System.Windows.Forms.CheckBox cb_durum;
+        public System.Windows.Forms.ComboBox cmb_firma;
     }
 }

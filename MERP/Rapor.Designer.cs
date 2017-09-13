@@ -81,6 +81,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.lbl_odenmisG = new System.Windows.Forms.Label();
+            this.btn_ozet = new System.Windows.Forms.Button();
             this.lbl_prjEuro = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lbl_prj_butce = new System.Windows.Forms.Label();
@@ -181,9 +182,8 @@
             // 
             // cmb_projeler
             // 
-            this.cmb_projeler.Dock = System.Windows.Forms.DockStyle.Right;
             this.cmb_projeler.FormattingEnabled = true;
-            this.cmb_projeler.Location = new System.Drawing.Point(66, 0);
+            this.cmb_projeler.Location = new System.Drawing.Point(66, 13);
             this.cmb_projeler.Name = "cmb_projeler";
             this.cmb_projeler.Size = new System.Drawing.Size(195, 21);
             this.cmb_projeler.TabIndex = 8;
@@ -192,9 +192,8 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Left;
             this.label3.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(0, 0);
+            this.label3.Location = new System.Drawing.Point(0, 13);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 16);
             this.label3.TabIndex = 9;
@@ -564,6 +563,16 @@
             this.lbl_odenmisG.TabIndex = 14;
             this.lbl_odenmisG.Text = "0";
             // 
+            // btn_ozet
+            // 
+            this.btn_ozet.Location = new System.Drawing.Point(1107, 353);
+            this.btn_ozet.Name = "btn_ozet";
+            this.btn_ozet.Size = new System.Drawing.Size(75, 23);
+            this.btn_ozet.TabIndex = 25;
+            this.btn_ozet.Text = "Özet";
+            this.btn_ozet.UseVisualStyleBackColor = true;
+            this.btn_ozet.Click += new System.EventHandler(this.btn_ozet_Click);
+            // 
             // lbl_prjEuro
             // 
             this.lbl_prjEuro.AutoSize = true;
@@ -701,6 +710,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1362, 742);
+            this.Controls.Add(this.btn_ozet);
             this.Controls.Add(this.splitContainer7);
             this.Controls.Add(this.splitContainer5);
             this.Controls.Add(this.groupBox3);
@@ -811,5 +821,6 @@
         private System.Windows.Forms.SplitContainer splitContainer9;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lbl_odenmemisKesilen;
+        private System.Windows.Forms.Button btn_ozet;
     }
 }

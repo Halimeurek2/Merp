@@ -103,7 +103,7 @@ namespace MERP
             obj.lbl_id.Text = id;
             obj.txt_fatura_no.Text = fatura_no;
             obj.cmb_projeNo.Text = proje_no;
-            obj.txt_firma.Text = firma;
+            obj.cmb_firma.Text = firma;
             obj.txt_ftr_vade.Text = vade;
             obj.rcb_acıklama.Text = acıklama;
             obj.date_alarm.Value = vade_tarih;
@@ -241,28 +241,31 @@ namespace MERP
             }
         }
 
-        private void btn_fill_Click(object sender, EventArgs e)
-        {
-            komut = "SELECT * FROM db_faturalar";
-            myCommand = new MySqlCommand(komut, myConnection);
-            da = new MySqlDataAdapter(myCommand);
-            dt = new DataTable();
-            // myReader = myCommand.ExecuteReader();
-
-            da.Fill(dt);
-
-            dgw_ftr_list.DataSource = dt;
-
-            dgw_ftr_list.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dgw_ftr_list.AutoSizeColumnsMode =
-                       DataGridViewAutoSizeColumnsMode.Fill;
-
-            myConnection.Close();
-        }
-
         private void cmb_projeNo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Refresh(2, cmb_projeNo.Text);
+            if(cmb_projeNo.Text=="Hepsi")
+            {
+                komut = "SELECT * FROM db_faturalar";
+                myCommand = new MySqlCommand(komut, myConnection);
+                da = new MySqlDataAdapter(myCommand);
+                dt = new DataTable();
+                // myReader = myCommand.ExecuteReader();
+
+                da.Fill(dt);
+
+                dgw_ftr_list.DataSource = dt;
+
+                dgw_ftr_list.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dgw_ftr_list.AutoSizeColumnsMode =
+                           DataGridViewAutoSizeColumnsMode.Fill;
+
+                myConnection.Close();
+            }
+            else
+            {
+                 Refresh(2, cmb_projeNo.Text);
+            }
+            
             SumDGW();
         }
     }

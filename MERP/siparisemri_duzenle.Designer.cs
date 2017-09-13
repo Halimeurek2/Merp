@@ -204,9 +204,9 @@
             this.label17.AutoSize = true;
             this.label17.Location = new System.Drawing.Point(4, 243);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(79, 13);
+            this.label17.Size = new System.Drawing.Size(46, 13);
             this.label17.TabIndex = 36;
-            this.label17.Text = "BİRİM FİYAT : ";
+            this.label17.Text = "FİYAT : ";
             // 
             // label3
             // 
