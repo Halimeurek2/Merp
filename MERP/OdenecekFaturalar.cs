@@ -35,7 +35,7 @@ namespace MERP
 
             for (int index = 0; index < 12; index++)
             {
-                if (month[index].Month >= DateTime.Now.AddMonths(1).Month)
+                if (month[index].Month >= DateTime.Now.Month)
                 {
                     monthNew[i] = month[index];
                     month_sumNew[i] = month_sum[index];
