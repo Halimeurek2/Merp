@@ -479,6 +479,7 @@
             // groupBox3
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.btn_ozet);
             this.groupBox3.Controls.Add(this.lbl_odenmemisKesilen);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.lbl_odenmemisGelen);
@@ -565,9 +566,10 @@
             // 
             // btn_ozet
             // 
-            this.btn_ozet.Location = new System.Drawing.Point(1107, 353);
+            this.btn_ozet.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btn_ozet.Location = new System.Drawing.Point(3, 252);
             this.btn_ozet.Name = "btn_ozet";
-            this.btn_ozet.Size = new System.Drawing.Size(75, 23);
+            this.btn_ozet.Size = new System.Drawing.Size(248, 23);
             this.btn_ozet.TabIndex = 25;
             this.btn_ozet.Text = "Özet";
             this.btn_ozet.UseVisualStyleBackColor = true;
@@ -710,7 +712,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1362, 742);
-            this.Controls.Add(this.btn_ozet);
             this.Controls.Add(this.splitContainer7);
             this.Controls.Add(this.splitContainer5);
             this.Controls.Add(this.groupBox3);

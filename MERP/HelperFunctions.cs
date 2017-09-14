@@ -16,7 +16,6 @@ namespace MERP
         string connectionString;
         DataTable dt = new DataTable();
         string tarih2;
-        private DataSet dsDovizKur;
 
         public HelperFunctions()
         {

@@ -548,15 +548,18 @@ namespace MERP
 
             try
             {
-                 komut = "SELECT DATE_FORMAT(fatura_vade_tarih,'%m-%"+DateTime.Now.Year+"') AS Month, SUM(fatura_euro) FROM db_faturalar WHERE fatura_durum='ÖDENMEDİ' and fatura_tipi='G' and fatura_proje_no ='" + cmb_projeler.Text + "' GROUP BY DATE_FORMAT(fatura_vade_tarih, '%m-%" + DateTime.Now.Year + "')";
+                 komut = "SELECT DATE_FORMAT(fatura_vade_tarih,'%m-%Y') AS Month, SUM(fatura_euro) FROM db_faturalar WHERE fatura_durum='ÖDENMEDİ' and fatura_tipi='G' and fatura_proje_no ='" + cmb_projeler.Text + "' GROUP BY DATE_FORMAT(fatura_vade_tarih, '%m-%Y')";
                  da = new MySqlDataAdapter(komut, connection);
                  myCommand = new MySqlCommand(komut, myConnection);
                  myReader = myCommand.ExecuteReader();
                  while (myReader.Read())
                  {
-                    month[index]= Convert.ToDateTime(myReader.GetString(0));
-                    month_sum[index] = (float)Convert.ToDouble(myReader.GetString(1));
-                    index++;
+                    if(Convert.ToDateTime(myReader.GetString(0)).Year == DateTime.Now.Year)
+                    {
+                        month[index] = Convert.ToDateTime(myReader.GetString(0));
+                        month_sum[index] = (float)Convert.ToDouble(myReader.GetString(1));
+                        index++;
+                    }
                  }
             }
             catch
