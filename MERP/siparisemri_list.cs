@@ -139,7 +139,7 @@ namespace MERP
 
         private void txt_stf_marka_TextChanged(object sender, EventArgs e)
         {
-            Refresh(2, txt_satınalma_no.Text);
+            Refresh();
             SumDGW();
         }
 
@@ -175,11 +175,13 @@ namespace MERP
             obj.rcb_aciklama.Text = aciklama;
             obj.Show();
         }
-        public void Refresh(int i, string name)
+        public void Refresh()
         {
             BindingSource bs = new BindingSource();
             bs.DataSource = dgw_stf_list.DataSource;
-            bs.Filter = dgw_stf_list.Columns[i].HeaderText.ToString() + " LIKE '%" + name + "%'";
+            bs.Filter = string.Format(dgw_stf_list.Columns[1].HeaderText.ToString() + " LIKE '%{0}%' AND " + dgw_stf_list.Columns[2].HeaderText.ToString() + " LIKE '%{1}%' AND " +
+                                      dgw_stf_list.Columns[3].HeaderText.ToString() + " LIKE '%{2}%'",
+                                                  cmb_projeNo.Text, txt_satınalma_no.Text, txt_tedarikci.Text);
             dgw_stf_list.DataSource = bs;
 
             dgw_stf_list.Refresh();
@@ -207,7 +209,7 @@ namespace MERP
             }
             else
             {
-                Refresh(1, cmb_projeNo.Text);
+                Refresh();
             }
             
             SumDGW();
@@ -215,7 +217,7 @@ namespace MERP
 
         private void txt_tedarikci_TextChanged(object sender, EventArgs e)
         {
-            Refresh(3, txt_tedarikci.Text);
+            Refresh();
             SumDGW();
         }
 

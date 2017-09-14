@@ -14,12 +14,19 @@ namespace MERP
     public partial class OdenecekFaturalar : Form
     {
 
-        public float[] month_sum = new float[12];
-        public DateTime[] month = new DateTime[12];
+        public float[] month_sumG = new float[12];
+        public DateTime[] monthG = new DateTime[12];
 
-        public float[] month_sumNew = new float[12];
-        public DateTime[] monthNew = new DateTime[12];
-        int i = 0;
+        public float[] month_sumNewG = new float[12];
+        public DateTime[] monthNewG = new DateTime[12];
+
+        public float[] month_sumK = new float[12];
+        public DateTime[] monthK = new DateTime[12];
+
+        public float[] month_sumNewK = new float[12];
+        public DateTime[] monthNewK = new DateTime[12];
+
+        int i, j = 0;
 
         public OdenecekFaturalar()
         {
@@ -29,23 +36,41 @@ namespace MERP
         private void OdenecekFaturalar_Load(object sender, EventArgs e)
         {
             chart1.Series["Series1"].Points.Clear();
+            chart2.Series["Series1"].Points.Clear();
 
-            Array.Clear(monthNew, 0, 12);
-            Array.Clear(month_sumNew, 0, 12);
+            Array.Clear(monthNewG, 0, 12);
+            Array.Clear(month_sumNewG, 0, 12);
+            Array.Clear(monthNewK, 0, 12);
+            Array.Clear(month_sumNewK, 0, 12);
 
             for (int index = 0; index < 12; index++)
             {
-                if (month[index].Month >= DateTime.Now.Month)
+                if (monthG[index].Year == DateTime.Now.Year)
                 {
-                    monthNew[i] = month[index];
-                    month_sumNew[i] = month_sum[index];
+                    monthNewG[i] = monthG[index];
+                    month_sumNewG[i] = month_sumG[index];
                     i++;
                 }
             }
+            for (int index = 0; index < 12; index++)
+            {
+                if (monthK[index].Year == DateTime.Now.Year)
+                {
+                    monthNewK[i] = monthK[index];
+                    month_sumNewK[i] = month_sumK[index];
+                    j++;
+                }
+            }
+
             for (int k = 0; k < i; k++)
             {
-                chart1.Series["Series1"].Points.AddXY(Convert.ToString(monthNew[k].Month) + ". ay", Convert.ToDecimal(month_sumNew[k]));
-                chart1.Series["Series1"].Points[k].Label = string.Format(new CultureInfo("de-DE"), "{0:C2}", Convert.ToDecimal(month_sumNew[k]));
+                chart1.Series["Series1"].Points.AddXY(Convert.ToString(monthNewG[k].Month) + ". ay", Convert.ToDecimal(month_sumNewG[k]));
+                chart1.Series["Series1"].Points[k].Label = string.Format(new CultureInfo("de-DE"), "{0:C2}", Convert.ToDecimal(month_sumNewG[k]));
+            }
+            for (int k = 0; k < j; k++)
+            {
+                chart2.Series["Series1"].Points.AddXY(Convert.ToString(monthNewK[k].Month) + ". ay", Convert.ToDecimal(month_sumNewK[k]));
+                chart2.Series["Series1"].Points[k].Label = string.Format(new CultureInfo("de-DE"), "{0:C2}", Convert.ToDecimal(month_sumNewK[k]));
             }
         }
     }

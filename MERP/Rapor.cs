@@ -61,8 +61,11 @@ namespace MERP
         bool bNewPage = false;
         int iHeaderHeight = 0;
 
-        public static float[] month_sum = new float[12];
-        public static DateTime[] month = new DateTime[12];
+        public static float[] month_sumG = new float[12];
+        public static DateTime[] monthG = new DateTime[12];
+
+        public static float[] month_sumK = new float[12];
+        public static DateTime[] monthK = new DateTime[12];
         int index = 0;
 
         private System.IO.Stream streamToPrint;
@@ -422,8 +425,10 @@ namespace MERP
         private void cmb_projeler_SelectedIndexChanged(object sender, EventArgs e)
         {
             index = 0;
-            Array.Clear(month, 0, 12);
-            Array.Clear(month_sum, 0, 12);
+            Array.Clear(monthG, 0, 12);
+            Array.Clear(month_sumG, 0, 12);
+            Array.Clear(monthK, 0, 12);
+            Array.Clear(month_sumK, 0, 12);
 
             myConnection.Open();
             try
@@ -556,15 +561,41 @@ namespace MERP
                  {
                     if(Convert.ToDateTime(myReader.GetString(0)).Year == DateTime.Now.Year)
                     {
-                        month[index] = Convert.ToDateTime(myReader.GetString(0));
-                        month_sum[index] = (float)Convert.ToDouble(myReader.GetString(1));
+                        monthG[index] = Convert.ToDateTime(myReader.GetString(0));
+                        month_sumG[index] = (float)Convert.ToDouble(myReader.GetString(1));
                         index++;
                     }
                  }
+                myReader.Close();
             }
             catch
             {
-                MessageBox.Show(Convert.ToString(DateTime.Now.AddMonths(1)));
+                //MessageBox.Show(Convert.ToString(DateTime.Now.AddMonths(1)));
+                myReader.Close();
+            }
+
+            try
+            {
+                index = 0;
+                komut = "SELECT DATE_FORMAT(fatura_vade_tarih,'%m-%Y') AS Month, SUM(fatura_euro) FROM db_faturalar WHERE fatura_durum='ÖDENMEDİ' and fatura_tipi='K' and fatura_proje_no ='" + cmb_projeler.Text + "' GROUP BY DATE_FORMAT(fatura_vade_tarih, '%m-%Y')";
+                da = new MySqlDataAdapter(komut, connection);
+                myCommand = new MySqlCommand(komut, myConnection);
+                myReader = myCommand.ExecuteReader();
+                while (myReader.Read())
+                {
+                    if (Convert.ToDateTime(myReader.GetString(0)).Year == DateTime.Now.Year)
+                    {
+                        monthK[index] = Convert.ToDateTime(myReader.GetString(0));
+                        month_sumK[index] = (float)Convert.ToDouble(myReader.GetString(1));
+                        index++;
+                    }
+                }
+                myReader.Close();
+            }
+            catch
+            {
+                //MessageBox.Show(Convert.ToString(DateTime.Now.AddMonths(1)));
+                myReader.Close();
             }
 
             myConnection.Close();
@@ -1092,13 +1123,17 @@ namespace MERP
         {
             OdenecekFaturalar frm1 = new OdenecekFaturalar();
 
-            Array.Clear(frm1.month, 0, 12);
-            Array.Clear(frm1.month_sum, 0, 12);
+            Array.Clear(frm1.monthG, 0, 12);
+            Array.Clear(frm1.month_sumG, 0, 12);
+            Array.Clear(frm1.monthK, 0, 12);
+            Array.Clear(frm1.month_sumK, 0, 12);
 
             for (int i=0;i<12;i++)
             {
-                frm1.month[i] = month[i];
-                frm1.month_sum[i] = month_sum[i];
+                frm1.monthG[i] = monthG[i];
+                frm1.month_sumG[i] = month_sumG[i];
+                frm1.monthK[i] = monthK[i];
+                frm1.month_sumK[i] = month_sumK[i];
             }
 
             frm1.Show();

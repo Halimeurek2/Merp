@@ -43,6 +43,8 @@ namespace MERP
         string cins;
         string durum;
 
+        DataTable datatable = new DataTable();
+
         public faturalar()
         {
             InitializeComponent();
@@ -91,7 +93,7 @@ namespace MERP
             }
 
             myConnection.Close();
-
+          
             SumDGW();
         }
 
@@ -195,29 +197,31 @@ namespace MERP
 
         private void txt_firma_TextChanged(object sender, EventArgs e)
         {
-            Refresh(3, txt_firma.Text);
+            Refresh();
             SumDGW();
         }
 
         private void txt_ftr_no_TextChanged(object sender, EventArgs e)
         {
-            Refresh(1, txt_ftr_no.Text);
+            Refresh();
             SumDGW();
         }
 
         private void txt_tip_TextChanged(object sender, EventArgs e)
         {
-            Refresh(13, txt_tip.Text);
+            Refresh();
             SumDGW();
         }
 
-        public void Refresh(int i, string name)
+        public void Refresh()
         {
             BindingSource bs = new BindingSource();
             bs.DataSource = dgw_ftr_list.DataSource;
-            bs.Filter = dgw_ftr_list.Columns[i].HeaderText.ToString() + " LIKE '%" + name + "%'";
-            dgw_ftr_list.DataSource = bs;
 
+            bs.Filter = string.Format(dgw_ftr_list.Columns[1].HeaderText.ToString() + " LIKE '%{0}%' AND " + dgw_ftr_list.Columns[3].HeaderText.ToString() + " LIKE '%{1}%' AND " +
+                                      dgw_ftr_list.Columns[13].HeaderText.ToString() + " LIKE '%{2}%' AND " + dgw_ftr_list.Columns[2].HeaderText.ToString() + " LIKE '%{3}%'",
+                                                  txt_ftr_no.Text, txt_firma.Text, txt_tip.Text, cmb_projeNo.Text);
+            dgw_ftr_list.DataSource = bs;
             dgw_ftr_list.Refresh();
         }
 
@@ -263,7 +267,7 @@ namespace MERP
             }
             else
             {
-                 Refresh(2, cmb_projeNo.Text);
+                 Refresh();
             }
             
             SumDGW();

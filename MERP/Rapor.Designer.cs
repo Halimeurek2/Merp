@@ -74,6 +74,7 @@
             this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart4 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btn_ozet = new System.Windows.Forms.Button();
             this.lbl_odenmemisKesilen = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lbl_odenmemisGelen = new System.Windows.Forms.Label();
@@ -81,7 +82,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.lbl_odenmisG = new System.Windows.Forms.Label();
-            this.btn_ozet = new System.Windows.Forms.Button();
             this.lbl_prjEuro = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lbl_prj_butce = new System.Windows.Forms.Label();
@@ -145,6 +145,11 @@
             // chart1
             // 
             chartArea1.Name = "ChartArea1";
+            chartArea1.Position.Auto = false;
+            chartArea1.Position.Height = 82F;
+            chartArea1.Position.Width = 94F;
+            chartArea1.Position.X = 3F;
+            chartArea1.Position.Y = 3F;
             this.chart1.ChartAreas.Add(chartArea1);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
             legend1.Name = "Maliyet";
@@ -494,6 +499,17 @@
             this.groupBox3.TabIndex = 15;
             this.groupBox3.TabStop = false;
             // 
+            // btn_ozet
+            // 
+            this.btn_ozet.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btn_ozet.Location = new System.Drawing.Point(3, 252);
+            this.btn_ozet.Name = "btn_ozet";
+            this.btn_ozet.Size = new System.Drawing.Size(248, 23);
+            this.btn_ozet.TabIndex = 25;
+            this.btn_ozet.Text = "Özet";
+            this.btn_ozet.UseVisualStyleBackColor = true;
+            this.btn_ozet.Click += new System.EventHandler(this.btn_ozet_Click);
+            // 
             // lbl_odenmemisKesilen
             // 
             this.lbl_odenmemisKesilen.AutoSize = true;
@@ -563,17 +579,6 @@
             this.lbl_odenmisG.Size = new System.Drawing.Size(15, 16);
             this.lbl_odenmisG.TabIndex = 14;
             this.lbl_odenmisG.Text = "0";
-            // 
-            // btn_ozet
-            // 
-            this.btn_ozet.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btn_ozet.Location = new System.Drawing.Point(3, 252);
-            this.btn_ozet.Name = "btn_ozet";
-            this.btn_ozet.Size = new System.Drawing.Size(248, 23);
-            this.btn_ozet.TabIndex = 25;
-            this.btn_ozet.Text = "Özet";
-            this.btn_ozet.UseVisualStyleBackColor = true;
-            this.btn_ozet.Click += new System.EventHandler(this.btn_ozet_Click);
             // 
             // lbl_prjEuro
             // 
