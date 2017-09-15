@@ -82,6 +82,8 @@ namespace MERP
             this.splitContainer5 = new System.Windows.Forms.SplitContainer();
             this.splitContainer9 = new System.Windows.Forms.SplitContainer();
             this.splitContainer10 = new System.Windows.Forms.SplitContainer();
+            this.genelRaporToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.projeRaporToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dg_maliyet)).BeginInit();
@@ -244,6 +246,9 @@ namespace MERP
             // 
             // toolStripMenuItem1
             // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.genelRaporToolStripMenuItem,
+            this.projeRaporToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(73, 23);
             this.toolStripMenuItem1.Text = "RAPOR";
@@ -746,6 +751,20 @@ namespace MERP
             this.splitContainer10.SplitterDistance = 207;
             this.splitContainer10.TabIndex = 0;
             // 
+            // genelRaporToolStripMenuItem
+            // 
+            this.genelRaporToolStripMenuItem.Name = "genelRaporToolStripMenuItem";
+            this.genelRaporToolStripMenuItem.Size = new System.Drawing.Size(165, 24);
+            this.genelRaporToolStripMenuItem.Text = "Genel Rapor";
+            this.genelRaporToolStripMenuItem.Click += new System.EventHandler(this.genelRaporToolStripMenuItem_Click);
+            // 
+            // projeRaporToolStripMenuItem
+            // 
+            this.projeRaporToolStripMenuItem.Name = "projeRaporToolStripMenuItem";
+            this.projeRaporToolStripMenuItem.Size = new System.Drawing.Size(165, 24);
+            this.projeRaporToolStripMenuItem.Text = "Proje Rapor";
+            this.projeRaporToolStripMenuItem.Click += new System.EventHandler(this.projeRaporToolStripMenuItem_Click);
+            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -871,6 +890,8 @@ namespace MERP
         private System.Windows.Forms.SplitContainer splitContainer8;
         private System.Windows.Forms.SplitContainer splitContainer9;
         private System.Windows.Forms.SplitContainer splitContainer10;
+        private System.Windows.Forms.ToolStripMenuItem genelRaporToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem projeRaporToolStripMenuItem;
     }
 }
 

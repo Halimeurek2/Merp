@@ -712,8 +712,19 @@ namespace MERP
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void projeRaporToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             Rapor rpr = new Rapor();
             rpr.Show();
+        }
+
+        private void genelRaporToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GenelRapor gnlRpr = new GenelRapor();
+            gnlRpr.Show();
         }
     }
 }
