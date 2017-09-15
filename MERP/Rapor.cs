@@ -665,6 +665,23 @@ namespace MERP
             dgw_odenmemisG.Columns[5].DefaultCellStyle.Format = "c2";
             dgw_odenmemisG.Columns[5].DefaultCellStyle.FormatProvider = CultureInfo.GetCultureInfo("de-DE");
             myConnection.Close();
+
+
+            for (int i = 0; i < dgw_odenmemisG.Rows.Count; i++)
+            {
+                if (Convert.ToDateTime(dgw_odenmemisG.Rows[i].Cells[3].Value).Date < DateTime.Now)
+                {
+                      dgw_odenmemisG.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                }
+            }
+
+            for (int i = 0; i < dgw_odenmemisK.Rows.Count; i++)
+            {
+                if (Convert.ToDateTime(dgw_odenmemisK.Rows[i].Cells[3].Value).Date < DateTime.Now)
+                {
+                    dgw_odenmemisK.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                }
+            }
         }
 
         public void DGWToplam()
@@ -1135,7 +1152,7 @@ namespace MERP
                 frm1.monthK[i] = monthK[i];
                 frm1.month_sumK[i] = month_sumK[i];
             }
-
+            frm1.lbl_prjNo.Text = cmb_projeler.Text;
             frm1.Show();
 
         }
