@@ -98,7 +98,7 @@ namespace MERP
             }
 
 
-            komut = "SELECT fatura_firma,fatura_euro from db_faturalar where fatura_proje_no='"+lbl_prjNo.Text+ "' and fatura_tipi='G' group by fatura_firma order by fatura_euro DESC";
+            komut = "SELECT fatura_firma,sum(fatura_euro) from db_faturalar where fatura_proje_no='"+lbl_prjNo.Text+ "' and fatura_tipi='G' group by fatura_firma order by sum(fatura_euro) DESC";
             da = new MySqlDataAdapter(komut, connection);
             myCommand = new MySqlCommand(komut, myConnection);
             MySqlDataReader myReader;

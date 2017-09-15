@@ -45,7 +45,7 @@ namespace MERP
             myConnection = new MySqlConnection(connectionString);
             myConnection.Open();
 
-            komut = "SELECT fatura_firma,fatura_euro from db_faturalar where fatura_tipi='G' group by fatura_firma order by fatura_euro DESC";
+            komut = "SELECT fatura_firma,sum(fatura_euro) from db_faturalar where fatura_tipi='G' group by fatura_firma order by sum(fatura_euro) DESC";
             da = new MySqlDataAdapter(komut, connection);
             myCommand = new MySqlCommand(komut, myConnection);
             MySqlDataReader myReader;
@@ -81,7 +81,7 @@ namespace MERP
             myReader.Close();
             processDone = false;
 
-            komut = "SELECT tedarikci,siparis_euro from db_siparis_emri group by tedarikci order by siparis_euro DESC";
+            komut = "SELECT tedarikci,sum(siparis_euro) from db_siparis_emri group by tedarikci order by sum(siparis_euro) DESC";
             da = new MySqlDataAdapter(komut, connection);
             myCommand = new MySqlCommand(komut, myConnection);
             myReader = myCommand.ExecuteReader();
