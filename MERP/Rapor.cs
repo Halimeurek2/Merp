@@ -666,22 +666,28 @@ namespace MERP
             dgw_odenmemisG.Columns[5].DefaultCellStyle.FormatProvider = CultureInfo.GetCultureInfo("de-DE");
             myConnection.Close();
 
-
-            for (int i = 0; i < dgw_odenmemisG.Rows.Count; i++)
+            try
             {
-                if (Convert.ToDateTime(dgw_odenmemisG.Rows[i].Cells[3].Value).Date < DateTime.Now)
+                for (int i = 0; i < dgw_odenmemisG.Rows.Count; i++)
                 {
-                      dgw_odenmemisG.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                    if (Convert.ToDateTime(dgw_odenmemisG.Rows[i].Cells[3].Value).Date < DateTime.Now)
+                    {
+                        dgw_odenmemisG.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                    }
                 }
             }
-
-            for (int i = 0; i < dgw_odenmemisK.Rows.Count; i++)
+            catch { }
+            try
             {
-                if (Convert.ToDateTime(dgw_odenmemisK.Rows[i].Cells[3].Value).Date < DateTime.Now)
+                for (int i = 0; i < dgw_odenmemisK.Rows.Count; i++)
                 {
-                    dgw_odenmemisK.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                    if (Convert.ToDateTime(dgw_odenmemisK.Rows[i].Cells[3].Value).Date < DateTime.Now)
+                    {
+                        dgw_odenmemisK.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                    }
                 }
             }
+            catch { }
         }
 
         public void DGWToplam()
