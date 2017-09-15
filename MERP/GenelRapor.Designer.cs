@@ -36,6 +36,12 @@
             this.lbl_firma6 = new System.Windows.Forms.Label();
             this.lbl_firma4 = new System.Windows.Forms.Label();
             this.lbl_firma5 = new System.Windows.Forms.Label();
+            this.lbl_tutar3 = new System.Windows.Forms.Label();
+            this.lbl_tutar1 = new System.Windows.Forms.Label();
+            this.lbl_tutar2 = new System.Windows.Forms.Label();
+            this.lbl_tutar6 = new System.Windows.Forms.Label();
+            this.lbl_tutar4 = new System.Windows.Forms.Label();
+            this.lbl_tutar5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -69,6 +75,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lbl_tutar3);
+            this.groupBox1.Controls.Add(this.lbl_tutar1);
+            this.groupBox1.Controls.Add(this.lbl_tutar2);
             this.groupBox1.Controls.Add(this.lbl_firma3);
             this.groupBox1.Controls.Add(this.lbl_firma1);
             this.groupBox1.Controls.Add(this.lbl_firma2);
@@ -81,6 +90,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.lbl_tutar6);
+            this.groupBox2.Controls.Add(this.lbl_tutar4);
+            this.groupBox2.Controls.Add(this.lbl_tutar5);
             this.groupBox2.Controls.Add(this.lbl_firma6);
             this.groupBox2.Controls.Add(this.lbl_firma4);
             this.groupBox2.Controls.Add(this.lbl_firma5);
@@ -118,6 +130,60 @@
             this.lbl_firma5.TabIndex = 4;
             this.lbl_firma5.Text = "label6";
             // 
+            // lbl_tutar3
+            // 
+            this.lbl_tutar3.AutoSize = true;
+            this.lbl_tutar3.Location = new System.Drawing.Point(294, 129);
+            this.lbl_tutar3.Name = "lbl_tutar3";
+            this.lbl_tutar3.Size = new System.Drawing.Size(13, 13);
+            this.lbl_tutar3.TabIndex = 8;
+            this.lbl_tutar3.Text = "0";
+            // 
+            // lbl_tutar1
+            // 
+            this.lbl_tutar1.AutoSize = true;
+            this.lbl_tutar1.Location = new System.Drawing.Point(294, 43);
+            this.lbl_tutar1.Name = "lbl_tutar1";
+            this.lbl_tutar1.Size = new System.Drawing.Size(13, 13);
+            this.lbl_tutar1.TabIndex = 6;
+            this.lbl_tutar1.Text = "0";
+            // 
+            // lbl_tutar2
+            // 
+            this.lbl_tutar2.AutoSize = true;
+            this.lbl_tutar2.Location = new System.Drawing.Point(294, 85);
+            this.lbl_tutar2.Name = "lbl_tutar2";
+            this.lbl_tutar2.Size = new System.Drawing.Size(13, 13);
+            this.lbl_tutar2.TabIndex = 7;
+            this.lbl_tutar2.Text = "0";
+            // 
+            // lbl_tutar6
+            // 
+            this.lbl_tutar6.AutoSize = true;
+            this.lbl_tutar6.Location = new System.Drawing.Point(326, 129);
+            this.lbl_tutar6.Name = "lbl_tutar6";
+            this.lbl_tutar6.Size = new System.Drawing.Size(13, 13);
+            this.lbl_tutar6.TabIndex = 8;
+            this.lbl_tutar6.Text = "0";
+            // 
+            // lbl_tutar4
+            // 
+            this.lbl_tutar4.AutoSize = true;
+            this.lbl_tutar4.Location = new System.Drawing.Point(326, 43);
+            this.lbl_tutar4.Name = "lbl_tutar4";
+            this.lbl_tutar4.Size = new System.Drawing.Size(13, 13);
+            this.lbl_tutar4.TabIndex = 6;
+            this.lbl_tutar4.Text = "0";
+            // 
+            // lbl_tutar5
+            // 
+            this.lbl_tutar5.AutoSize = true;
+            this.lbl_tutar5.Location = new System.Drawing.Point(326, 85);
+            this.lbl_tutar5.Name = "lbl_tutar5";
+            this.lbl_tutar5.Size = new System.Drawing.Size(13, 13);
+            this.lbl_tutar5.TabIndex = 7;
+            this.lbl_tutar5.Text = "0";
+            // 
             // GenelRapor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -148,5 +214,11 @@
         private System.Windows.Forms.Label lbl_firma6;
         private System.Windows.Forms.Label lbl_firma4;
         private System.Windows.Forms.Label lbl_firma5;
+        private System.Windows.Forms.Label lbl_tutar3;
+        private System.Windows.Forms.Label lbl_tutar1;
+        private System.Windows.Forms.Label lbl_tutar2;
+        private System.Windows.Forms.Label lbl_tutar6;
+        private System.Windows.Forms.Label lbl_tutar4;
+        private System.Windows.Forms.Label lbl_tutar5;
     }
 }

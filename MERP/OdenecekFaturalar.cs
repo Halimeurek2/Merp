@@ -112,18 +112,21 @@ namespace MERP
                         case 0:
                             {
                                 lbl_firma1.Text = Convert.ToString(myReader.GetString(0));
+                                lbl_tutar1.Text = string.Format(new CultureInfo("de-DE"), "{0:C2}", Convert.ToDecimal(myReader.GetString(1)));
                                 state = 1;
                                 break;
                             }
                         case 1:
                             {
                                 lbl_firma2.Text = Convert.ToString(myReader.GetString(0));
+                                lbl_tutar2.Text = string.Format(new CultureInfo("de-DE"), "{0:C2}", Convert.ToDecimal(myReader.GetString(1)));
                                 state = 2;
                                 break;
                             }
                         case 2:
                             {
                                 lbl_firma3.Text = Convert.ToString(myReader.GetString(0));
+                                lbl_tutar3.Text = string.Format(new CultureInfo("de-DE"), "{0:C2}", Convert.ToDecimal(myReader.GetString(1)));
                                 state = 0;
                                 processDone = true;
                                 break;

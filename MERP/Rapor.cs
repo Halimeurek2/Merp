@@ -674,6 +674,10 @@ namespace MERP
                     {
                         dgw_odenmemisG.Rows[i].DefaultCellStyle.BackColor = Color.Red;
                     }
+                    else if (Convert.ToDateTime(dgw_odenmemisG.Rows[i].Cells[3].Value).Date > DateTime.Now && Convert.ToDateTime(dgw_odenmemisG.Rows[i].Cells[3].Value).Date < DateTime.Now.AddDays(5))
+                    {
+                        dgw_odenmemisG.Rows[i].DefaultCellStyle.BackColor = Color.Orange;
+                    }
                 }
             }
             catch { }
@@ -684,6 +688,10 @@ namespace MERP
                     if (Convert.ToDateTime(dgw_odenmemisK.Rows[i].Cells[3].Value).Date < DateTime.Now)
                     {
                         dgw_odenmemisK.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                    }
+                    else if(Convert.ToDateTime(dgw_odenmemisK.Rows[i].Cells[3].Value).Date > DateTime.Now && Convert.ToDateTime(dgw_odenmemisK.Rows[i].Cells[3].Value).Date < DateTime.Now.AddDays(5))
+                    {
+                        dgw_odenmemisK.Rows[i].DefaultCellStyle.BackColor = Color.Orange;
                     }
                 }
             }
