@@ -185,7 +185,7 @@ namespace MERP
             // 
             this.listeleToolStripMenuItem.Name = "listeleToolStripMenuItem";
             this.listeleToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
-            this.listeleToolStripMenuItem.Text = "Listele";
+            this.listeleToolStripMenuItem.Text = "LİSTELE";
             this.listeleToolStripMenuItem.Click += new System.EventHandler(this.listeleToolStripMenuItem_Click);
             // 
             // fATURALARToolStripMenuItem
@@ -216,7 +216,7 @@ namespace MERP
             // 
             this.listeleToolStripMenuItem1.Name = "listeleToolStripMenuItem1";
             this.listeleToolStripMenuItem1.Size = new System.Drawing.Size(205, 24);
-            this.listeleToolStripMenuItem1.Text = "Listele";
+            this.listeleToolStripMenuItem1.Text = "LİSTELE";
             this.listeleToolStripMenuItem1.Click += new System.EventHandler(this.listeleToolStripMenuItem1_Click);
             // 
             // pROJELERToolStripMenuItem
@@ -239,7 +239,7 @@ namespace MERP
             // 
             this.listeleToolStripMenuItem2.Name = "listeleToolStripMenuItem2";
             this.listeleToolStripMenuItem2.Size = new System.Drawing.Size(192, 24);
-            this.listeleToolStripMenuItem2.Text = "Listele";
+            this.listeleToolStripMenuItem2.Text = "LİSTELE";
             this.listeleToolStripMenuItem2.Click += new System.EventHandler(this.listeleToolStripMenuItem2_Click);
             // 
             // toolStripMenuItem1

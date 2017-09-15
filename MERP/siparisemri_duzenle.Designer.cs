@@ -280,6 +280,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label6);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "siparisemri_duzenle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

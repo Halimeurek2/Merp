@@ -39,7 +39,7 @@ namespace MERP
         public float[] month_sumNewK = new float[12];
         public DateTime[] monthNewK = new DateTime[12];
 
-        int i, j = 0;
+        public int i, j = 0;
         int state = 0;
         Boolean processDone = false;
 
@@ -59,8 +59,8 @@ namespace MERP
             myConnection = new MySqlConnection(connectionString);
             myConnection.Open();
 
-            chart1.Series["Series1"].Points.Clear();
-            chart2.Series["Series1"].Points.Clear();
+            chart1.Series["Gelen"].Points.Clear();
+            chart2.Series["Kesilen"].Points.Clear();
 
             Array.Clear(monthNewG, 0, 12);
             Array.Clear(month_sumNewG, 0, 12);
@@ -88,17 +88,17 @@ namespace MERP
 
             for (int k = 0; k < i; k++)
             {
-                chart1.Series["Series1"].Points.AddXY(Convert.ToString(monthNewG[k].Month) + ". ay", Convert.ToDecimal(month_sumNewG[k]));
-                chart1.Series["Series1"].Points[k].Label = string.Format(new CultureInfo("de-DE"), "{0:C2}", Convert.ToDecimal(month_sumNewG[k]));
+                chart1.Series["Gelen"].Points.AddXY(Convert.ToString(DateTime.Now.Year) + "-" + Convert.ToString(monthNewG[k].Month) + ". ay", Convert.ToDecimal(month_sumNewG[k]));
+                chart1.Series["Gelen"].Points[k].Label = string.Format(new CultureInfo("de-DE"), "{0:C2}", Convert.ToDecimal(month_sumNewG[k]));
             }
             for (int k = 0; k < j; k++)
             {
-                chart2.Series["Series1"].Points.AddXY(Convert.ToString(monthNewK[k].Month) + ". ay", Convert.ToDecimal(month_sumNewK[k]));
-                chart2.Series["Series1"].Points[k].Label = string.Format(new CultureInfo("de-DE"), "{0:C2}", Convert.ToDecimal(month_sumNewK[k]));
+                chart2.Series["Kesilen"].Points.AddXY(Convert.ToString(DateTime.Now.Year) + "-" + Convert.ToString(monthNewK[k].Month) + ". ay", Convert.ToDecimal(month_sumNewK[k]));
+                chart2.Series["Kesilen"].Points[k].Label = string.Format(new CultureInfo("de-DE"), "{0:C2}", Convert.ToDecimal(month_sumNewK[k]));
             }
 
 
-            komut = "SELECT fatura_firma,fatura_euro from db_faturalar where fatura_proje_no='"+lbl_prjNo.Text+"' group by fatura_firma order by fatura_euro DESC";
+            komut = "SELECT fatura_firma,fatura_euro from db_faturalar where fatura_proje_no='"+lbl_prjNo.Text+ "' and fatura_tipi='G' group by fatura_firma order by fatura_euro DESC";
             da = new MySqlDataAdapter(komut, connection);
             myCommand = new MySqlCommand(komut, myConnection);
             MySqlDataReader myReader;
@@ -131,6 +131,31 @@ namespace MERP
                     }
                 }
             }
+
+            myReader.Close();
+            try
+            {
+                for(int x=0; x < i; x++)
+                {
+                    komut = "SELECT fatura_no,fatura_firma,fatura_vade,fatura_vade_tarih,fatura_aciklama FROM db_faturalar where fatura_proje_no='" + lbl_prjNo.Text + "' and fatura_tipi='G' and fatura_durum='ÖDENMEDİ' order by fatura_vade_tarih ASC";
+                    da = new MySqlDataAdapter(komut, connection);
+                    myCommand = new MySqlCommand(komut, myConnection);
+                    myReader = myCommand.ExecuteReader();
+                    while (myReader.Read())
+                    {
+                        //dgw_gelen.Columns[Convert.ToDateTime(myReader.GetString(3)).Month + ".ay"]
+                        //dgw_gelen.Rows.Add();
+                        dgw_gelen.Rows[1].Cells[0].Value = myReader.GetString(0);
+                        //dgw_gelen.Rows[2].Cells[0].Value = Convert.ToString(myReader.GetString(1));
+                        //dgw_gelen.Rows[3].Cells[0].Value = Convert.ToString(myReader.GetString(2));
+                        //dgw_gelen.Rows[4].Cells[0].Value = Convert.ToString(myReader.GetString(3));
+                        //dgw_gelen.Rows[5].Cells[0].Value = Convert.ToString(myReader.GetString(4));
+                    }
+                }
+            }
+            catch { }
+
+            myConnection.Close();
         }
     }
 }
