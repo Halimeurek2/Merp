@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(faturalar));
-            this.txt_firma = new System.Windows.Forms.TextBox();
             this.txt_ftr_no = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -49,6 +48,7 @@
             this.splitContainer5 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cmb_firma = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_ftr_list)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -69,17 +69,6 @@
             this.splitContainer3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // txt_firma
-            // 
-            this.txt_firma.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_firma.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txt_firma.Location = new System.Drawing.Point(100, 40);
-            this.txt_firma.Name = "txt_firma";
-            this.txt_firma.Size = new System.Drawing.Size(195, 22);
-            this.txt_firma.TabIndex = 14;
-            this.txt_firma.TextChanged += new System.EventHandler(this.txt_firma_TextChanged);
             // 
             // txt_ftr_no
             // 
@@ -281,7 +270,7 @@
             // 
             // splitContainer5.Panel1
             // 
-            this.splitContainer5.Panel1.Controls.Add(this.txt_firma);
+            this.splitContainer5.Panel1.Controls.Add(this.cmb_firma);
             this.splitContainer5.Panel1.Controls.Add(this.label3);
             // 
             // splitContainer5.Panel2
@@ -317,6 +306,15 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1302, 404);
             this.panel2.TabIndex = 33;
+            // 
+            // cmb_firma
+            // 
+            this.cmb_firma.FormattingEnabled = true;
+            this.cmb_firma.Location = new System.Drawing.Point(90, 39);
+            this.cmb_firma.Name = "cmb_firma";
+            this.cmb_firma.Size = new System.Drawing.Size(195, 21);
+            this.cmb_firma.TabIndex = 15;
+            this.cmb_firma.SelectedIndexChanged += new System.EventHandler(this.cmb_firma_SelectedIndexChanged);
             // 
             // faturalar
             // 
@@ -360,7 +358,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox txt_firma;
         private System.Windows.Forms.TextBox txt_ftr_no;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label5;
@@ -380,5 +377,6 @@
         private System.Windows.Forms.SplitContainer splitContainer5;
         private System.Windows.Forms.ComboBox cmb_projeNo;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cmb_firma;
     }
 }

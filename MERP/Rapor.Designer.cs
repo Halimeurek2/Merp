@@ -89,6 +89,9 @@
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.splitContainer5 = new System.Windows.Forms.SplitContainer();
+            this.splitContainer10 = new System.Windows.Forms.SplitContainer();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.printDocument2 = new System.Drawing.Printing.PrintDocument();
             this.printDocument3 = new System.Drawing.Printing.PrintDocument();
             this.splitContainer7 = new System.Windows.Forms.SplitContainer();
@@ -126,8 +129,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart4)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).BeginInit();
+            this.splitContainer5.Panel1.SuspendLayout();
             this.splitContainer5.Panel2.SuspendLayout();
             this.splitContainer5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer10)).BeginInit();
+            this.splitContainer10.Panel1.SuspendLayout();
+            this.splitContainer10.Panel2.SuspendLayout();
+            this.splitContainer10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer7)).BeginInit();
             this.splitContainer7.Panel1.SuspendLayout();
             this.splitContainer7.Panel2.SuspendLayout();
@@ -177,7 +185,7 @@
             // 
             this.btn_print.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_print.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_print.Location = new System.Drawing.Point(710, 4);
+            this.btn_print.Location = new System.Drawing.Point(532, 4);
             this.btn_print.Name = "btn_print";
             this.btn_print.Size = new System.Drawing.Size(159, 43);
             this.btn_print.TabIndex = 7;
@@ -188,29 +196,29 @@
             // cmb_projeler
             // 
             this.cmb_projeler.FormattingEnabled = true;
-            this.cmb_projeler.Location = new System.Drawing.Point(66, 13);
+            this.cmb_projeler.Location = new System.Drawing.Point(77, 13);
             this.cmb_projeler.Name = "cmb_projeler";
-            this.cmb_projeler.Size = new System.Drawing.Size(195, 21);
+            this.cmb_projeler.Size = new System.Drawing.Size(184, 21);
             this.cmb_projeler.TabIndex = 8;
             this.cmb_projeler.SelectedIndexChanged += new System.EventHandler(this.cmb_projeler_SelectedIndexChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(0, 13);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 16);
+            this.label3.Size = new System.Drawing.Size(71, 20);
             this.label3.TabIndex = 9;
             this.label3.Text = "Proje No :";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(3, 13);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(93, 16);
+            this.label4.Size = new System.Drawing.Size(112, 20);
             this.label4.TabIndex = 10;
             this.label4.Text = "Toplam Maliyet :";
             // 
@@ -218,7 +226,7 @@
             // 
             this.lbl_top_maliyet.AutoSize = true;
             this.lbl_top_maliyet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_top_maliyet.Location = new System.Drawing.Point(102, 13);
+            this.lbl_top_maliyet.Location = new System.Drawing.Point(121, 16);
             this.lbl_top_maliyet.Name = "lbl_top_maliyet";
             this.lbl_top_maliyet.Size = new System.Drawing.Size(15, 16);
             this.lbl_top_maliyet.TabIndex = 11;
@@ -341,10 +349,10 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(6, 87);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(131, 16);
+            this.label5.Size = new System.Drawing.Size(156, 20);
             this.label5.TabIndex = 13;
             this.label5.Text = "Ödenmiş Gelen Fatura :";
             // 
@@ -514,7 +522,7 @@
             // 
             this.lbl_odenmemisKesilen.AutoSize = true;
             this.lbl_odenmemisKesilen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_odenmemisKesilen.Location = new System.Drawing.Point(167, 175);
+            this.lbl_odenmemisKesilen.Location = new System.Drawing.Point(193, 178);
             this.lbl_odenmemisKesilen.Name = "lbl_odenmemisKesilen";
             this.lbl_odenmemisKesilen.Size = new System.Drawing.Size(15, 16);
             this.lbl_odenmemisKesilen.TabIndex = 24;
@@ -523,10 +531,10 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(6, 175);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(155, 16);
+            this.label6.Size = new System.Drawing.Size(185, 20);
             this.label6.TabIndex = 23;
             this.label6.Text = "Ödenmemiş Kesilen Fatura :";
             // 
@@ -534,7 +542,7 @@
             // 
             this.lbl_odenmemisGelen.AutoSize = true;
             this.lbl_odenmemisGelen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_odenmemisGelen.Location = new System.Drawing.Point(158, 136);
+            this.lbl_odenmemisGelen.Location = new System.Drawing.Point(184, 139);
             this.lbl_odenmemisGelen.Name = "lbl_odenmemisGelen";
             this.lbl_odenmemisGelen.Size = new System.Drawing.Size(15, 16);
             this.lbl_odenmemisGelen.TabIndex = 19;
@@ -544,7 +552,7 @@
             // 
             this.lbl_odenmisK.AutoSize = true;
             this.lbl_odenmisK.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_odenmisK.Location = new System.Drawing.Point(145, 38);
+            this.lbl_odenmisK.Location = new System.Drawing.Point(175, 42);
             this.lbl_odenmisK.Name = "lbl_odenmisK";
             this.lbl_odenmisK.Size = new System.Drawing.Size(15, 16);
             this.lbl_odenmisK.TabIndex = 22;
@@ -553,20 +561,20 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(6, 136);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(146, 16);
+            this.label1.Size = new System.Drawing.Size(175, 20);
             this.label1.TabIndex = 15;
             this.label1.Text = "Ödenmemiş Gelen Fatura :";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(6, 38);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(140, 16);
+            this.label8.Size = new System.Drawing.Size(166, 20);
             this.label8.TabIndex = 18;
             this.label8.Text = "Ödenmiş Kesilen Fatura :";
             // 
@@ -574,7 +582,7 @@
             // 
             this.lbl_odenmisG.AutoSize = true;
             this.lbl_odenmisG.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_odenmisG.Location = new System.Drawing.Point(136, 87);
+            this.lbl_odenmisG.Location = new System.Drawing.Point(164, 91);
             this.lbl_odenmisG.Name = "lbl_odenmisG";
             this.lbl_odenmisG.Size = new System.Drawing.Size(15, 16);
             this.lbl_odenmisG.TabIndex = 14;
@@ -584,7 +592,7 @@
             // 
             this.lbl_prjEuro.AutoSize = true;
             this.lbl_prjEuro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_prjEuro.Location = new System.Drawing.Point(127, 13);
+            this.lbl_prjEuro.Location = new System.Drawing.Point(147, 16);
             this.lbl_prjEuro.Name = "lbl_prjEuro";
             this.lbl_prjEuro.Size = new System.Drawing.Size(15, 16);
             this.lbl_prjEuro.TabIndex = 26;
@@ -593,10 +601,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(3, 13);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(118, 16);
+            this.label2.Size = new System.Drawing.Size(138, 20);
             this.label2.TabIndex = 25;
             this.label2.Text = "Proje Bütçe (EURO) :";
             // 
@@ -604,7 +612,7 @@
             // 
             this.lbl_prj_butce.AutoSize = true;
             this.lbl_prj_butce.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_prj_butce.Location = new System.Drawing.Point(405, 13);
+            this.lbl_prj_butce.Location = new System.Drawing.Point(418, 16);
             this.lbl_prj_butce.Name = "lbl_prj_butce";
             this.lbl_prj_butce.Size = new System.Drawing.Size(15, 16);
             this.lbl_prj_butce.TabIndex = 24;
@@ -613,10 +621,10 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(323, 13);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(76, 16);
+            this.label10.Size = new System.Drawing.Size(89, 20);
             this.label10.TabIndex = 23;
             this.label10.Text = "Proje Bütçe :";
             // 
@@ -640,12 +648,58 @@
             this.splitContainer5.Location = new System.Drawing.Point(0, 692);
             this.splitContainer5.Name = "splitContainer5";
             // 
+            // splitContainer5.Panel1
+            // 
+            this.splitContainer5.Panel1.Controls.Add(this.splitContainer10);
+            // 
             // splitContainer5.Panel2
             // 
             this.splitContainer5.Panel2.Controls.Add(this.btn_print);
             this.splitContainer5.Size = new System.Drawing.Size(1362, 50);
-            this.splitContainer5.SplitterDistance = 454;
+            this.splitContainer5.SplitterDistance = 632;
             this.splitContainer5.TabIndex = 16;
+            // 
+            // splitContainer10
+            // 
+            this.splitContainer10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer10.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer10.Name = "splitContainer10";
+            this.splitContainer10.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer10.Panel1
+            // 
+            this.splitContainer10.Panel1.Controls.Add(this.label7);
+            // 
+            // splitContainer10.Panel2
+            // 
+            this.splitContainer10.Panel2.Controls.Add(this.label9);
+            this.splitContainer10.Size = new System.Drawing.Size(632, 50);
+            this.splitContainer10.SplitterDistance = 25;
+            this.splitContainer10.TabIndex = 0;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.OrangeRed;
+            this.label7.Location = new System.Drawing.Point(0, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(348, 17);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Turuncu : Vade Tarihine 5 günden az kalanlar.";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Red;
+            this.label9.Location = new System.Drawing.Point(0, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(275, 17);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "Kırmızı : Vade Süresi dolmuş olanlar.";
             // 
             // printDocument2
             // 
@@ -759,9 +813,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart4)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.splitContainer5.Panel1.ResumeLayout(false);
             this.splitContainer5.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).EndInit();
             this.splitContainer5.ResumeLayout(false);
+            this.splitContainer10.Panel1.ResumeLayout(false);
+            this.splitContainer10.Panel1.PerformLayout();
+            this.splitContainer10.Panel2.ResumeLayout(false);
+            this.splitContainer10.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer10)).EndInit();
+            this.splitContainer10.ResumeLayout(false);
             this.splitContainer7.Panel1.ResumeLayout(false);
             this.splitContainer7.Panel1.PerformLayout();
             this.splitContainer7.Panel2.ResumeLayout(false);
@@ -828,5 +889,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lbl_odenmemisKesilen;
         private System.Windows.Forms.Button btn_ozet;
+        private System.Windows.Forms.SplitContainer splitContainer10;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label9;
     }
 }

@@ -39,7 +39,17 @@ namespace MERP
         public float[] month_sumNewK = new float[12];
         public DateTime[] monthNewK = new DateTime[12];
 
-        public int i, j = 0;
+        public float[] verSip = new float[12];
+        public DateTime[] mSip = new DateTime[12];
+
+        public float[] yapOdemeler = new float[12];
+        public DateTime[] myOdemeler = new DateTime[12];
+
+        public float[] alOdemeler = new float[12];
+        public DateTime[] maOdemeler = new DateTime[12];
+
+
+        public int i, j, index = 0;
         int state = 0;
         Boolean processDone = false;
 
@@ -66,6 +76,13 @@ namespace MERP
             Array.Clear(month_sumNewG, 0, 12);
             Array.Clear(monthNewK, 0, 12);
             Array.Clear(month_sumNewK, 0, 12);
+
+            Array.Clear(verSip, 0, 12);
+            Array.Clear(mSip, 0, 12);
+            Array.Clear(yapOdemeler, 0, 12);
+            Array.Clear(myOdemeler, 0, 12);
+            Array.Clear(alOdemeler, 0, 12);
+            Array.Clear(maOdemeler, 0, 12);
 
             for (int index = 0; index < 12; index++)
             {
@@ -138,27 +155,88 @@ namespace MERP
             myReader.Close();
             try
             {
-                for(int x=0; x < i; x++)
-                {
-                    komut = "SELECT fatura_no,fatura_firma,fatura_vade,fatura_vade_tarih,fatura_aciklama FROM db_faturalar where fatura_proje_no='" + lbl_prjNo.Text + "' and fatura_tipi='G' and fatura_durum='ÖDENMEDİ' order by fatura_vade_tarih ASC";
+                    komut = "SELECT siparis_tarihi,sum(siparis_euro) FROM db_siparis_emri where proje_No='"+lbl_prjNo.Text+"' group by date_format(siparis_tarihi, '%m-%Y');";
                     da = new MySqlDataAdapter(komut, connection);
                     myCommand = new MySqlCommand(komut, myConnection);
                     myReader = myCommand.ExecuteReader();
-                    while (myReader.Read())
+                while (myReader.Read())
+                {
+                    if (Convert.ToDateTime(myReader.GetString(0)).Year == DateTime.Now.Year)
                     {
-                        //dgw_gelen.Columns[Convert.ToDateTime(myReader.GetString(3)).Month + ".ay"]
-                        //dgw_gelen.Rows.Add();
-                        dgw_gelen.Rows[1].Cells[0].Value = myReader.GetString(0);
-                        //dgw_gelen.Rows[2].Cells[0].Value = Convert.ToString(myReader.GetString(1));
-                        //dgw_gelen.Rows[3].Cells[0].Value = Convert.ToString(myReader.GetString(2));
-                        //dgw_gelen.Rows[4].Cells[0].Value = Convert.ToString(myReader.GetString(3));
-                        //dgw_gelen.Rows[5].Cells[0].Value = Convert.ToString(myReader.GetString(4));
+                        mSip[index] = Convert.ToDateTime(myReader.GetString(0));
+                        verSip[index] = (float)Convert.ToDouble(myReader.GetString(1));
+                        index++;
+                    }
+
+                }
+                myReader.Close();
+            }
+            catch { }
+
+            try
+            {
+                index = 0;
+                komut = "SELECT fatura_vade_tarih,sum(fatura_euro) FROM db_faturalar where fatura_durum='ÖDENMEDİ' and fatura_tipi='G' and fatura_proje_no='"+lbl_prjNo.Text+"' group by date_format(fatura_vade_tarih, '%m-%Y');";
+                da = new MySqlDataAdapter(komut, connection);
+                myCommand = new MySqlCommand(komut, myConnection);
+                myReader = myCommand.ExecuteReader();
+                while (myReader.Read())
+                {
+                    if (Convert.ToDateTime(myReader.GetString(0)).Year == DateTime.Now.Year)
+                    {
+                        myOdemeler[index] = Convert.ToDateTime(myReader.GetString(0));
+                        yapOdemeler[index] = (float)Convert.ToDouble(myReader.GetString(1));
+                        index++;
                     }
                 }
+
+                myReader.Close();
+            }
+            catch { }
+
+            try
+            {
+                index = 0;
+                komut = "SELECT fatura_vade_tarih,sum(fatura_euro) FROM db_faturalar where fatura_durum='ÖDENMEDİ' and fatura_tipi='K' and fatura_proje_no='" + lbl_prjNo.Text + "'group by date_format(fatura_vade_tarih, '%m-%Y');";
+                da = new MySqlDataAdapter(komut, connection);
+                myCommand = new MySqlCommand(komut, myConnection);
+                myReader = myCommand.ExecuteReader();
+                while (myReader.Read())
+                {
+                    if (Convert.ToDateTime(myReader.GetString(0)).Year == DateTime.Now.Year)
+                    {
+                        maOdemeler[index] = Convert.ToDateTime(myReader.GetString(0));
+                        alOdemeler[index] = (float)Convert.ToDouble(myReader.GetString(1));
+                        index++;
+                    }
+                }
+
+                myReader.Close();
             }
             catch { }
 
             myConnection.Close();
+
+            dataGridView1.Rows.Add();
+            dataGridView1.Rows.Add();
+
+            for (int i=0;i<12;i++)
+            {
+                try
+                {
+                    
+                    dataGridView1.Rows[0].Cells[i].Value = Convert.ToString(verSip[i]);
+                    dataGridView1.Rows[1].Cells[i].Value = Convert.ToString(yapOdemeler[i]);
+                    dataGridView1.Rows[2].Cells[i].Value = Convert.ToString(alOdemeler[i]);
+                }
+                catch { }
+            }
+
+            for(int m=0;m<12;m++)
+            {
+                dataGridView1.Columns[m].DefaultCellStyle.Format = "c2";
+                dataGridView1.Columns[m].DefaultCellStyle.FormatProvider = CultureInfo.GetCultureInfo("de-DE");
+            }
         }
     }
 }

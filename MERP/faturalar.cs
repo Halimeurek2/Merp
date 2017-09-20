@@ -92,6 +92,19 @@ namespace MERP
                 cmb_projeNo.Items.Add(myReader["proje_no"]);
             }
 
+            myReader.Close();
+
+            komut = "SELECT DISTINCT fatura_firma FROM db_faturalar";
+            da = new MySqlDataAdapter(komut, connection);
+
+            myCommand = new MySqlCommand(komut, myConnection);
+            myReader = myCommand.ExecuteReader();
+            while (myReader.Read())
+            {
+                cmb_firma.Items.Add(myReader["fatura_firma"]);
+            }
+
+            myReader.Close();
             myConnection.Close();
           
             SumDGW();
@@ -220,7 +233,7 @@ namespace MERP
 
             bs.Filter = string.Format(dgw_ftr_list.Columns[1].HeaderText.ToString() + " LIKE '%{0}%' AND " + dgw_ftr_list.Columns[3].HeaderText.ToString() + " LIKE '%{1}%' AND " +
                                       dgw_ftr_list.Columns[13].HeaderText.ToString() + " LIKE '%{2}%' AND " + dgw_ftr_list.Columns[2].HeaderText.ToString() + " LIKE '%{3}%'",
-                                                  txt_ftr_no.Text, txt_firma.Text, txt_tip.Text, cmb_projeNo.Text);
+                                                  txt_ftr_no.Text, cmb_firma.Text, txt_tip.Text, cmb_projeNo.Text);
             dgw_ftr_list.DataSource = bs;
             dgw_ftr_list.Refresh();
         }
@@ -271,6 +284,11 @@ namespace MERP
             }
             
             SumDGW();
+        }
+
+        private void cmb_firma_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Refresh();
         }
     }
 }

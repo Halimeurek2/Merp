@@ -48,6 +48,8 @@ namespace MERP
             this.yeniProrjeGirişiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listeleToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.genelRaporToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.projeRaporToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hAKKINDAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dg_maliyet = new System.Windows.Forms.DataGridView();
@@ -82,8 +84,6 @@ namespace MERP
             this.splitContainer5 = new System.Windows.Forms.SplitContainer();
             this.splitContainer9 = new System.Windows.Forms.SplitContainer();
             this.splitContainer10 = new System.Windows.Forms.SplitContainer();
-            this.genelRaporToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.projeRaporToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dg_maliyet)).BeginInit();
@@ -163,8 +163,8 @@ namespace MERP
             // yeniGirişToolStripMenuItem
             // 
             this.yeniGirişToolStripMenuItem.Name = "yeniGirişToolStripMenuItem";
-            this.yeniGirişToolStripMenuItem.Size = new System.Drawing.Size(208, 24);
-            this.yeniGirişToolStripMenuItem.Text = "Yeni Aktivite Girişi";
+            this.yeniGirişToolStripMenuItem.Size = new System.Drawing.Size(243, 24);
+            this.yeniGirişToolStripMenuItem.Text = "YENİ AKTİVİTE GİRİŞİ";
             this.yeniGirişToolStripMenuItem.Click += new System.EventHandler(this.yeniGirişToolStripMenuItem_Click);
             // 
             // siparisEmriToolStripMenuItem
@@ -179,14 +179,14 @@ namespace MERP
             // yeniOluşturToolStripMenuItem
             // 
             this.yeniOluşturToolStripMenuItem.Name = "yeniOluşturToolStripMenuItem";
-            this.yeniOluşturToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
-            this.yeniOluşturToolStripMenuItem.Text = "Yeni Sipariş Emri Oluştur";
+            this.yeniOluşturToolStripMenuItem.Size = new System.Drawing.Size(297, 24);
+            this.yeniOluşturToolStripMenuItem.Text = "YENİ SİPARİŞ EMRİ OLUŞTUR";
             this.yeniOluşturToolStripMenuItem.Click += new System.EventHandler(this.yeniOluşturToolStripMenuItem_Click);
             // 
             // listeleToolStripMenuItem
             // 
             this.listeleToolStripMenuItem.Name = "listeleToolStripMenuItem";
-            this.listeleToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
+            this.listeleToolStripMenuItem.Size = new System.Drawing.Size(297, 24);
             this.listeleToolStripMenuItem.Text = "LİSTELE";
             this.listeleToolStripMenuItem.Click += new System.EventHandler(this.listeleToolStripMenuItem_Click);
             // 
@@ -233,14 +233,14 @@ namespace MERP
             // yeniProrjeGirişiToolStripMenuItem
             // 
             this.yeniProrjeGirişiToolStripMenuItem.Name = "yeniProrjeGirişiToolStripMenuItem";
-            this.yeniProrjeGirişiToolStripMenuItem.Size = new System.Drawing.Size(192, 24);
-            this.yeniProrjeGirişiToolStripMenuItem.Text = "Yeni Proje Girişi";
+            this.yeniProrjeGirişiToolStripMenuItem.Size = new System.Drawing.Size(219, 24);
+            this.yeniProrjeGirişiToolStripMenuItem.Text = "YENİ PROJE GİRİŞİ";
             this.yeniProrjeGirişiToolStripMenuItem.Click += new System.EventHandler(this.yeniProrjeGirişiToolStripMenuItem_Click);
             // 
             // listeleToolStripMenuItem2
             // 
             this.listeleToolStripMenuItem2.Name = "listeleToolStripMenuItem2";
-            this.listeleToolStripMenuItem2.Size = new System.Drawing.Size(192, 24);
+            this.listeleToolStripMenuItem2.Size = new System.Drawing.Size(219, 24);
             this.listeleToolStripMenuItem2.Text = "LİSTELE";
             this.listeleToolStripMenuItem2.Click += new System.EventHandler(this.listeleToolStripMenuItem2_Click);
             // 
@@ -253,6 +253,20 @@ namespace MERP
             this.toolStripMenuItem1.Size = new System.Drawing.Size(73, 23);
             this.toolStripMenuItem1.Text = "RAPOR";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // genelRaporToolStripMenuItem
+            // 
+            this.genelRaporToolStripMenuItem.Name = "genelRaporToolStripMenuItem";
+            this.genelRaporToolStripMenuItem.Size = new System.Drawing.Size(183, 24);
+            this.genelRaporToolStripMenuItem.Text = "GENEL RAPOR";
+            this.genelRaporToolStripMenuItem.Click += new System.EventHandler(this.genelRaporToolStripMenuItem_Click);
+            // 
+            // projeRaporToolStripMenuItem
+            // 
+            this.projeRaporToolStripMenuItem.Name = "projeRaporToolStripMenuItem";
+            this.projeRaporToolStripMenuItem.Size = new System.Drawing.Size(183, 24);
+            this.projeRaporToolStripMenuItem.Text = "PROJE RAPOR";
+            this.projeRaporToolStripMenuItem.Click += new System.EventHandler(this.projeRaporToolStripMenuItem_Click);
             // 
             // hAKKINDAToolStripMenuItem
             // 
@@ -750,20 +764,6 @@ namespace MERP
             this.splitContainer10.Size = new System.Drawing.Size(1368, 236);
             this.splitContainer10.SplitterDistance = 207;
             this.splitContainer10.TabIndex = 0;
-            // 
-            // genelRaporToolStripMenuItem
-            // 
-            this.genelRaporToolStripMenuItem.Name = "genelRaporToolStripMenuItem";
-            this.genelRaporToolStripMenuItem.Size = new System.Drawing.Size(165, 24);
-            this.genelRaporToolStripMenuItem.Text = "Genel Rapor";
-            this.genelRaporToolStripMenuItem.Click += new System.EventHandler(this.genelRaporToolStripMenuItem_Click);
-            // 
-            // projeRaporToolStripMenuItem
-            // 
-            this.projeRaporToolStripMenuItem.Name = "projeRaporToolStripMenuItem";
-            this.projeRaporToolStripMenuItem.Size = new System.Drawing.Size(165, 24);
-            this.projeRaporToolStripMenuItem.Text = "Proje Rapor";
-            this.projeRaporToolStripMenuItem.Click += new System.EventHandler(this.projeRaporToolStripMenuItem_Click);
             // 
             // MainScreen
             // 
