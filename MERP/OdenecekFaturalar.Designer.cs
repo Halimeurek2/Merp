@@ -28,15 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.lbl_firma2 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lbl_tutar2 = new System.Windows.Forms.Label();
@@ -44,18 +47,17 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lbl_tutar3 = new System.Windows.Forms.Label();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
-            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
-            this.lbl_prjNo = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.splitContainer5 = new System.Windows.Forms.SplitContainer();
+            this.lbl_prjNo = new System.Windows.Forms.Label();
             this.lbl_tutar1 = new System.Windows.Forms.Label();
             this.lbl_firma1 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Tanım = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ocak = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mart = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,45 +76,45 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.tabControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
-            this.splitContainer4.Panel1.SuspendLayout();
-            this.splitContainer4.Panel2.SuspendLayout();
-            this.splitContainer4.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).BeginInit();
             this.splitContainer5.Panel1.SuspendLayout();
             this.splitContainer5.Panel2.SuspendLayout();
             this.splitContainer5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
+            this.splitContainer4.Panel1.SuspendLayout();
+            this.splitContainer4.Panel2.SuspendLayout();
+            this.splitContainer4.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // chart1
             // 
-            chartArea7.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea7);
+            chartArea5.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea5);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend7.Enabled = false;
-            legend7.Name = "Legend1";
-            this.chart1.Legends.Add(legend7);
+            legend5.Enabled = false;
+            legend5.Name = "Legend1";
+            this.chart1.Legends.Add(legend5);
             this.chart1.Location = new System.Drawing.Point(3, 16);
             this.chart1.Name = "chart1";
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series7.Legend = "Legend1";
-            series7.Name = "Gelen";
-            this.chart1.Series.Add(series7);
-            this.chart1.Size = new System.Drawing.Size(545, 217);
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series5.Legend = "Legend1";
+            series5.Name = "Gelen";
+            this.chart1.Series.Add(series5);
+            this.chart1.Size = new System.Drawing.Size(623, 376);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 
@@ -129,8 +131,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox2);
-            this.splitContainer1.Size = new System.Drawing.Size(1274, 236);
-            this.splitContainer1.SplitterDistance = 551;
+            this.splitContainer1.Size = new System.Drawing.Size(1274, 395);
+            this.splitContainer1.SplitterDistance = 629;
             this.splitContainer1.TabIndex = 2;
             // 
             // groupBox1
@@ -141,15 +143,47 @@
             this.groupBox1.ForeColor = System.Drawing.Color.Blue;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(551, 236);
+            this.groupBox1.Size = new System.Drawing.Size(629, 395);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ÖDENMEMİŞ GELEN FATURALAR";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.chart2);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.ForeColor = System.Drawing.Color.Blue;
+            this.groupBox2.Location = new System.Drawing.Point(0, 0);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(641, 395);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "ÖDENECEK KESİLEN FATURALAR";
+            // 
+            // chart2
+            // 
+            chartArea6.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea6);
+            this.chart2.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend6.Enabled = false;
+            legend6.Name = "Legend1";
+            this.chart2.Legends.Add(legend6);
+            this.chart2.Location = new System.Drawing.Point(3, 16);
+            this.chart2.Name = "chart2";
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series6.Legend = "Legend1";
+            series6.Name = "Kesilen";
+            this.chart2.Series.Add(series6);
+            this.chart2.Size = new System.Drawing.Size(635, 376);
+            this.chart2.TabIndex = 1;
+            this.chart2.Text = "chart2";
+            // 
             // lbl_firma2
             // 
             this.lbl_firma2.AutoSize = true;
-            this.lbl_firma2.Location = new System.Drawing.Point(39, 29);
+            this.lbl_firma2.Location = new System.Drawing.Point(39, 7);
             this.lbl_firma2.Name = "lbl_firma2";
             this.lbl_firma2.Size = new System.Drawing.Size(13, 13);
             this.lbl_firma2.TabIndex = 2;
@@ -168,16 +202,17 @@
             // lbl_tutar2
             // 
             this.lbl_tutar2.AutoSize = true;
-            this.lbl_tutar2.Location = new System.Drawing.Point(287, 29);
+            this.lbl_tutar2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_tutar2.Location = new System.Drawing.Point(287, 25);
             this.lbl_tutar2.Name = "lbl_tutar2";
-            this.lbl_tutar2.Size = new System.Drawing.Size(13, 13);
+            this.lbl_tutar2.Size = new System.Drawing.Size(14, 13);
             this.lbl_tutar2.TabIndex = 4;
             this.lbl_tutar2.Text = "0";
             // 
             // lbl_firma3
             // 
             this.lbl_firma3.AutoSize = true;
-            this.lbl_firma3.Location = new System.Drawing.Point(38, 29);
+            this.lbl_firma3.Location = new System.Drawing.Point(38, 7);
             this.lbl_firma3.Name = "lbl_firma3";
             this.lbl_firma3.Size = new System.Drawing.Size(13, 13);
             this.lbl_firma3.TabIndex = 3;
@@ -196,16 +231,17 @@
             // lbl_tutar3
             // 
             this.lbl_tutar3.AutoSize = true;
-            this.lbl_tutar3.Location = new System.Drawing.Point(267, 29);
+            this.lbl_tutar3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_tutar3.Location = new System.Drawing.Point(267, 25);
             this.lbl_tutar3.Name = "lbl_tutar3";
-            this.lbl_tutar3.Size = new System.Drawing.Size(13, 13);
+            this.lbl_tutar3.Size = new System.Drawing.Size(14, 13);
             this.lbl_tutar3.TabIndex = 4;
             this.lbl_tutar3.Text = "0";
             // 
             // splitContainer2
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.Location = new System.Drawing.Point(0, 236);
+            this.splitContainer2.Location = new System.Drawing.Point(0, 395);
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -216,53 +252,9 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.tabControl1);
-            this.splitContainer2.Size = new System.Drawing.Size(1274, 299);
-            this.splitContainer2.SplitterDistance = 58;
+            this.splitContainer2.Size = new System.Drawing.Size(1274, 355);
+            this.splitContainer2.SplitterDistance = 212;
             this.splitContainer2.TabIndex = 3;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.dataGridView1);
-            this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1266, 211);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Mali Takip";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ocak,
-            this.subat,
-            this.mart,
-            this.nisan,
-            this.mayıs,
-            this.haziran,
-            this.temmuz,
-            this.Column1,
-            this.eylul,
-            this.ekim,
-            this.kasım,
-            this.aralık});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1260, 205);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1274, 237);
-            this.tabControl1.TabIndex = 8;
             // 
             // splitContainer3
             // 
@@ -277,9 +269,68 @@
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.splitContainer4);
-            this.splitContainer3.Size = new System.Drawing.Size(1274, 58);
-            this.splitContainer3.SplitterDistance = 424;
+            this.splitContainer3.Size = new System.Drawing.Size(1274, 212);
+            this.splitContainer3.SplitterDistance = 464;
             this.splitContainer3.TabIndex = 0;
+            // 
+            // splitContainer5
+            // 
+            this.splitContainer5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer5.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer5.Name = "splitContainer5";
+            // 
+            // splitContainer5.Panel1
+            // 
+            this.splitContainer5.Panel1.Controls.Add(this.lbl_prjNo);
+            // 
+            // splitContainer5.Panel2
+            // 
+            this.splitContainer5.Panel2.Controls.Add(this.lbl_tutar1);
+            this.splitContainer5.Panel2.Controls.Add(this.lbl_firma1);
+            this.splitContainer5.Panel2.Controls.Add(this.label1);
+            this.splitContainer5.Size = new System.Drawing.Size(464, 212);
+            this.splitContainer5.SplitterDistance = 94;
+            this.splitContainer5.TabIndex = 0;
+            // 
+            // lbl_prjNo
+            // 
+            this.lbl_prjNo.AutoSize = true;
+            this.lbl_prjNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_prjNo.ForeColor = System.Drawing.Color.Red;
+            this.lbl_prjNo.Location = new System.Drawing.Point(3, 18);
+            this.lbl_prjNo.Name = "lbl_prjNo";
+            this.lbl_prjNo.Size = new System.Drawing.Size(16, 16);
+            this.lbl_prjNo.TabIndex = 5;
+            this.lbl_prjNo.Text = "0";
+            // 
+            // lbl_tutar1
+            // 
+            this.lbl_tutar1.AutoSize = true;
+            this.lbl_tutar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_tutar1.Location = new System.Drawing.Point(219, 25);
+            this.lbl_tutar1.Name = "lbl_tutar1";
+            this.lbl_tutar1.Size = new System.Drawing.Size(14, 13);
+            this.lbl_tutar1.TabIndex = 6;
+            this.lbl_tutar1.Text = "0";
+            // 
+            // lbl_firma1
+            // 
+            this.lbl_firma1.AutoSize = true;
+            this.lbl_firma1.Location = new System.Drawing.Point(38, 7);
+            this.lbl_firma1.Name = "lbl_firma1";
+            this.lbl_firma1.Size = new System.Drawing.Size(13, 13);
+            this.lbl_firma1.TabIndex = 5;
+            this.lbl_firma1.Text = "0";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(18, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "1.";
             // 
             // splitContainer4
             // 
@@ -298,98 +349,64 @@
             this.splitContainer4.Panel2.Controls.Add(this.lbl_tutar3);
             this.splitContainer4.Panel2.Controls.Add(this.lbl_firma3);
             this.splitContainer4.Panel2.Controls.Add(this.label3);
-            this.splitContainer4.Size = new System.Drawing.Size(846, 58);
-            this.splitContainer4.SplitterDistance = 421;
+            this.splitContainer4.Size = new System.Drawing.Size(806, 212);
+            this.splitContainer4.SplitterDistance = 410;
             this.splitContainer4.TabIndex = 0;
             // 
-            // lbl_prjNo
+            // tabControl1
             // 
-            this.lbl_prjNo.AutoSize = true;
-            this.lbl_prjNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_prjNo.Location = new System.Drawing.Point(3, 26);
-            this.lbl_prjNo.Name = "lbl_prjNo";
-            this.lbl_prjNo.Size = new System.Drawing.Size(16, 16);
-            this.lbl_prjNo.TabIndex = 5;
-            this.lbl_prjNo.Text = "0";
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1274, 139);
+            this.tabControl1.TabIndex = 8;
             // 
-            // groupBox2
+            // tabPage1
             // 
-            this.groupBox2.Controls.Add(this.chart2);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.ForeColor = System.Drawing.Color.Blue;
-            this.groupBox2.Location = new System.Drawing.Point(0, 0);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(719, 236);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "ÖDENECEK KESİLEN FATURALAR";
+            this.tabPage1.Controls.Add(this.dataGridView1);
+            this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabPage1.ForeColor = System.Drawing.Color.Black;
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1266, 113);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "MALİ TAKİP";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // chart2
+            // dataGridView1
             // 
-            chartArea8.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea8);
-            this.chart2.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend8.Enabled = false;
-            legend8.Name = "Legend1";
-            this.chart2.Legends.Add(legend8);
-            this.chart2.Location = new System.Drawing.Point(3, 16);
-            this.chart2.Name = "chart2";
-            series8.ChartArea = "ChartArea1";
-            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series8.Legend = "Legend1";
-            series8.Name = "Kesilen";
-            this.chart2.Series.Add(series8);
-            this.chart2.Size = new System.Drawing.Size(713, 217);
-            this.chart2.TabIndex = 1;
-            this.chart2.Text = "chart2";
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Tanım,
+            this.ocak,
+            this.subat,
+            this.mart,
+            this.nisan,
+            this.mayıs,
+            this.haziran,
+            this.temmuz,
+            this.Column1,
+            this.eylul,
+            this.ekim,
+            this.kasım,
+            this.aralık});
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(1260, 107);
+            this.dataGridView1.TabIndex = 0;
             // 
-            // splitContainer5
+            // Tanım
             // 
-            this.splitContainer5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer5.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer5.Name = "splitContainer5";
-            // 
-            // splitContainer5.Panel1
-            // 
-            this.splitContainer5.Panel1.Controls.Add(this.lbl_prjNo);
-            // 
-            // splitContainer5.Panel2
-            // 
-            this.splitContainer5.Panel2.Controls.Add(this.lbl_tutar1);
-            this.splitContainer5.Panel2.Controls.Add(this.lbl_firma1);
-            this.splitContainer5.Panel2.Controls.Add(this.label1);
-            this.splitContainer5.Size = new System.Drawing.Size(424, 58);
-            this.splitContainer5.SplitterDistance = 86;
-            this.splitContainer5.TabIndex = 0;
-            // 
-            // lbl_tutar1
-            // 
-            this.lbl_tutar1.AutoSize = true;
-            this.lbl_tutar1.Location = new System.Drawing.Point(219, 29);
-            this.lbl_tutar1.Name = "lbl_tutar1";
-            this.lbl_tutar1.Size = new System.Drawing.Size(13, 13);
-            this.lbl_tutar1.TabIndex = 6;
-            this.lbl_tutar1.Text = "0";
-            // 
-            // lbl_firma1
-            // 
-            this.lbl_firma1.AutoSize = true;
-            this.lbl_firma1.Location = new System.Drawing.Point(38, 29);
-            this.lbl_firma1.Name = "lbl_firma1";
-            this.lbl_firma1.Size = new System.Drawing.Size(13, 13);
-            this.lbl_firma1.TabIndex = 5;
-            this.lbl_firma1.Text = "0";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(18, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "1.";
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Red;
+            this.Tanım.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Tanım.HeaderText = "Tanım";
+            this.Tanım.Name = "Tanım";
             // 
             // ocak
             // 
@@ -455,7 +472,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1274, 535);
+            this.ClientSize = new System.Drawing.Size(1274, 750);
             this.Controls.Add(this.splitContainer2);
             this.Controls.Add(this.splitContainer1);
             this.Name = "OdenecekFaturalar";
@@ -469,31 +486,31 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.tabControl1.ResumeLayout(false);
             this.splitContainer3.Panel1.ResumeLayout(false);
             this.splitContainer3.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
-            this.splitContainer4.Panel1.ResumeLayout(false);
-            this.splitContainer4.Panel1.PerformLayout();
-            this.splitContainer4.Panel2.ResumeLayout(false);
-            this.splitContainer4.Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
-            this.splitContainer4.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             this.splitContainer5.Panel1.ResumeLayout(false);
             this.splitContainer5.Panel1.PerformLayout();
             this.splitContainer5.Panel2.ResumeLayout(false);
             this.splitContainer5.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).EndInit();
             this.splitContainer5.ResumeLayout(false);
+            this.splitContainer4.Panel1.ResumeLayout(false);
+            this.splitContainer4.Panel1.PerformLayout();
+            this.splitContainer4.Panel2.ResumeLayout(false);
+            this.splitContainer4.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
+            this.splitContainer4.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -522,6 +539,7 @@
         private System.Windows.Forms.Label lbl_firma1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.SplitContainer splitContainer4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tanım;
         private System.Windows.Forms.DataGridViewTextBoxColumn ocak;
         private System.Windows.Forms.DataGridViewTextBoxColumn subat;
         private System.Windows.Forms.DataGridViewTextBoxColumn mart;

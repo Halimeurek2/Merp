@@ -225,18 +225,16 @@ namespace MERP
                 try
                 {
                     
-                    dataGridView1.Rows[0].Cells[i].Value = Convert.ToString(verSip[i]);
-                    dataGridView1.Rows[1].Cells[i].Value = Convert.ToString(yapOdemeler[i]);
-                    dataGridView1.Rows[2].Cells[i].Value = Convert.ToString(alOdemeler[i]);
+                    dataGridView1.Rows[0].Cells[i + 1].Value = string.Format(new CultureInfo("de-DE"), "{0:C2}", Convert.ToDecimal(verSip[i])); 
+                    dataGridView1.Rows[1].Cells[i + 1].Value = string.Format(new CultureInfo("de-DE"), "{0:C2}", Convert.ToDecimal(yapOdemeler[i])); 
+                    dataGridView1.Rows[2].Cells[i + 1].Value = string.Format(new CultureInfo("de-DE"), "{0:C2}", Convert.ToDecimal(alOdemeler[i]));
                 }
                 catch { }
             }
 
-            for(int m=0;m<12;m++)
-            {
-                dataGridView1.Columns[m].DefaultCellStyle.Format = "c2";
-                dataGridView1.Columns[m].DefaultCellStyle.FormatProvider = CultureInfo.GetCultureInfo("de-DE");
-            }
+            dataGridView1.Rows[0].Cells[0].Value = Convert.ToString("Verilecek Siparişler");
+            dataGridView1.Rows[1].Cells[0].Value = Convert.ToString("Tedarikçilere Yapılacak Ödemeler");
+            dataGridView1.Rows[2].Cells[0].Value = Convert.ToString("Alınacak Ödemeler");
         }
     }
 }
