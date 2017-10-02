@@ -164,7 +164,7 @@ namespace MERP
                     if (Convert.ToDateTime(myReader.GetString(0)).Year == DateTime.Now.Year)
                     {
                         mSip[index] = Convert.ToDateTime(myReader.GetString(0));
-                        verSip[index] = (float)Convert.ToDouble(myReader.GetString(1));
+                        verSip[mSip[index].Month-1] = (float)Convert.ToDouble(myReader.GetString(1));
                         index++;
                     }
 
@@ -185,7 +185,7 @@ namespace MERP
                     if (Convert.ToDateTime(myReader.GetString(0)).Year == DateTime.Now.Year)
                     {
                         myOdemeler[index] = Convert.ToDateTime(myReader.GetString(0));
-                        yapOdemeler[index] = (float)Convert.ToDouble(myReader.GetString(1));
+                        yapOdemeler[myOdemeler[index].Month - 1] = (float)Convert.ToDouble(myReader.GetString(1));
                         index++;
                     }
                 }
@@ -206,7 +206,7 @@ namespace MERP
                     if (Convert.ToDateTime(myReader.GetString(0)).Year == DateTime.Now.Year)
                     {
                         maOdemeler[index] = Convert.ToDateTime(myReader.GetString(0));
-                        alOdemeler[index] = (float)Convert.ToDouble(myReader.GetString(1));
+                        alOdemeler[maOdemeler[index].Month - 1] = (float)Convert.ToDouble(myReader.GetString(1));
                         index++;
                     }
                 }

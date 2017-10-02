@@ -67,7 +67,7 @@ namespace MERP
 
             MainScreen f1 = (MainScreen)Application.OpenForms["MainScreen"];
             DataGridView cokacil = (DataGridView)f1.Controls["dg_cokacil"];
-
+            
             this.Close();
         }
     }

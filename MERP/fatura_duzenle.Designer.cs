@@ -308,7 +308,6 @@
             this.cb_durum.TabIndex = 68;
             this.cb_durum.Text = "ÖDENDİ";
             this.cb_durum.UseVisualStyleBackColor = true;
-            this.cb_durum.CheckedChanged += new System.EventHandler(this.cb_durum_CheckedChanged);
             // 
             // cmb_firma
             // 

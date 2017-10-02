@@ -256,8 +256,8 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.tabControl1);
-            this.splitContainer2.Size = new System.Drawing.Size(1274, 355);
-            this.splitContainer2.SplitterDistance = 212;
+            this.splitContainer2.Size = new System.Drawing.Size(1274, 347);
+            this.splitContainer2.SplitterDistance = 207;
             this.splitContainer2.TabIndex = 3;
             // 
             // splitContainer3
@@ -273,7 +273,7 @@
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.splitContainer4);
-            this.splitContainer3.Size = new System.Drawing.Size(1274, 212);
+            this.splitContainer3.Size = new System.Drawing.Size(1274, 207);
             this.splitContainer3.SplitterDistance = 464;
             this.splitContainer3.TabIndex = 0;
             // 
@@ -292,7 +292,7 @@
             this.splitContainer5.Panel2.Controls.Add(this.lbl_tutar1);
             this.splitContainer5.Panel2.Controls.Add(this.lbl_firma1);
             this.splitContainer5.Panel2.Controls.Add(this.label1);
-            this.splitContainer5.Size = new System.Drawing.Size(464, 212);
+            this.splitContainer5.Size = new System.Drawing.Size(464, 207);
             this.splitContainer5.SplitterDistance = 94;
             this.splitContainer5.TabIndex = 0;
             // 
@@ -353,7 +353,7 @@
             this.splitContainer4.Panel2.Controls.Add(this.lbl_tutar3);
             this.splitContainer4.Panel2.Controls.Add(this.lbl_firma3);
             this.splitContainer4.Panel2.Controls.Add(this.label3);
-            this.splitContainer4.Size = new System.Drawing.Size(806, 212);
+            this.splitContainer4.Size = new System.Drawing.Size(806, 207);
             this.splitContainer4.SplitterDistance = 410;
             this.splitContainer4.TabIndex = 0;
             // 
@@ -364,7 +364,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1274, 139);
+            this.tabControl1.Size = new System.Drawing.Size(1274, 136);
             this.tabControl1.TabIndex = 8;
             // 
             // tabPage1
@@ -375,7 +375,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1266, 113);
+            this.tabPage1.Size = new System.Drawing.Size(1266, 110);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "MALİ TAKİP";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -401,7 +401,7 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1260, 107);
+            this.dataGridView1.Size = new System.Drawing.Size(1260, 104);
             this.dataGridView1.TabIndex = 0;
             // 
             // Tanım
@@ -476,7 +476,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1274, 750);
+            this.ClientSize = new System.Drawing.Size(1274, 742);
             this.Controls.Add(this.splitContainer2);
             this.Controls.Add(this.splitContainer1);
             this.Name = "OdenecekFaturalar";

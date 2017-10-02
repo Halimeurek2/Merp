@@ -148,7 +148,7 @@ namespace MERP
             this.hAKKINDAToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1368, 27);
+            this.menuStrip1.Size = new System.Drawing.Size(1362, 27);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -282,7 +282,7 @@ namespace MERP
             this.groupBox3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(539, 244);
+            this.groupBox3.Size = new System.Drawing.Size(536, 244);
             this.groupBox3.TabIndex = 7;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "PROJE MALİYETLERİ";
@@ -294,7 +294,7 @@ namespace MERP
             this.dg_maliyet.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dg_maliyet.Location = new System.Drawing.Point(3, 19);
             this.dg_maliyet.Name = "dg_maliyet";
-            this.dg_maliyet.Size = new System.Drawing.Size(533, 222);
+            this.dg_maliyet.Size = new System.Drawing.Size(530, 222);
             this.dg_maliyet.TabIndex = 0;
             // 
             // groupBox1
@@ -305,7 +305,7 @@ namespace MERP
             this.groupBox1.ForeColor = System.Drawing.Color.DarkRed;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1368, 207);
+            this.groupBox1.Size = new System.Drawing.Size(1362, 204);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ÇOK ACİL İŞLER :";
@@ -319,7 +319,7 @@ namespace MERP
             this.dg_cokacil.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dg_cokacil.Location = new System.Drawing.Point(7, 20);
             this.dg_cokacil.Name = "dg_cokacil";
-            this.dg_cokacil.Size = new System.Drawing.Size(1355, 181);
+            this.dg_cokacil.Size = new System.Drawing.Size(1349, 178);
             this.dg_cokacil.TabIndex = 0;
             this.dg_cokacil.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dg_cokacil_RowHeaderMouseClick);
             // 
@@ -361,7 +361,7 @@ namespace MERP
             this.groupBox5.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox5.Location = new System.Drawing.Point(0, 0);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(179, 142);
+            this.groupBox5.Size = new System.Drawing.Size(178, 142);
             this.groupBox5.TabIndex = 9;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "KURLAR ";
@@ -477,7 +477,7 @@ namespace MERP
             series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
             series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(1368, 207);
+            this.chart1.Size = new System.Drawing.Size(1362, 203);
             this.chart1.TabIndex = 13;
             this.chart1.Text = "chart1";
             this.chart1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.chart1_MouseClick);
@@ -533,7 +533,7 @@ namespace MERP
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(0, 0);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(307, 98);
+            this.groupBox4.Size = new System.Drawing.Size(306, 98);
             this.groupBox4.TabIndex = 18;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Grafik Filtre";
@@ -552,7 +552,7 @@ namespace MERP
             // splitContainer6.Panel2
             // 
             this.splitContainer6.Panel2.Controls.Add(this.splitContainer8);
-            this.splitContainer6.Size = new System.Drawing.Size(301, 79);
+            this.splitContainer6.Size = new System.Drawing.Size(300, 79);
             this.splitContainer6.SplitterDistance = 40;
             this.splitContainer6.TabIndex = 19;
             // 
@@ -569,8 +569,8 @@ namespace MERP
             // splitContainer7.Panel2
             // 
             this.splitContainer7.Panel2.Controls.Add(this.cmb_yil);
-            this.splitContainer7.Size = new System.Drawing.Size(301, 40);
-            this.splitContainer7.SplitterDistance = 100;
+            this.splitContainer7.Size = new System.Drawing.Size(300, 40);
+            this.splitContainer7.SplitterDistance = 99;
             this.splitContainer7.TabIndex = 0;
             // 
             // splitContainer8
@@ -586,8 +586,8 @@ namespace MERP
             // splitContainer8.Panel2
             // 
             this.splitContainer8.Panel2.Controls.Add(this.cmb_proje);
-            this.splitContainer8.Size = new System.Drawing.Size(301, 35);
-            this.splitContainer8.SplitterDistance = 100;
+            this.splitContainer8.Size = new System.Drawing.Size(300, 35);
+            this.splitContainer8.SplitterDistance = 99;
             this.splitContainer8.TabIndex = 0;
             // 
             // label5
@@ -607,7 +607,7 @@ namespace MERP
             this.dgw_faturalar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgw_faturalar.Location = new System.Drawing.Point(3, 18);
             this.dgw_faturalar.Name = "dgw_faturalar";
-            this.dgw_faturalar.Size = new System.Drawing.Size(508, 223);
+            this.dgw_faturalar.Size = new System.Drawing.Size(506, 223);
             this.dgw_faturalar.TabIndex = 19;
             // 
             // groupBox6
@@ -617,7 +617,7 @@ namespace MERP
             this.groupBox6.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox6.Location = new System.Drawing.Point(0, 0);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(514, 244);
+            this.groupBox6.Size = new System.Drawing.Size(512, 244);
             this.groupBox6.TabIndex = 20;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "PROJEYE KESİLEN FATURALAR";
@@ -652,8 +652,8 @@ namespace MERP
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(1368, 244);
-            this.splitContainer1.SplitterDistance = 539;
+            this.splitContainer1.Size = new System.Drawing.Size(1362, 244);
+            this.splitContainer1.SplitterDistance = 536;
             this.splitContainer1.TabIndex = 21;
             // 
             // splitContainer2
@@ -669,8 +669,8 @@ namespace MERP
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.splitContainer3);
-            this.splitContainer2.Size = new System.Drawing.Size(825, 244);
-            this.splitContainer2.SplitterDistance = 514;
+            this.splitContainer2.Size = new System.Drawing.Size(822, 244);
+            this.splitContainer2.SplitterDistance = 512;
             this.splitContainer2.TabIndex = 0;
             // 
             // splitContainer3
@@ -687,7 +687,7 @@ namespace MERP
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.groupBox4);
-            this.splitContainer3.Size = new System.Drawing.Size(307, 244);
+            this.splitContainer3.Size = new System.Drawing.Size(306, 244);
             this.splitContainer3.SplitterDistance = 142;
             this.splitContainer3.TabIndex = 0;
             // 
@@ -706,8 +706,8 @@ namespace MERP
             this.splitContainer4.Panel2.Controls.Add(this.btn_refresh);
             this.splitContainer4.Panel2.Controls.Add(this.btn_acil_normal);
             this.splitContainer4.Panel2.Controls.Add(this.btn_diger);
-            this.splitContainer4.Size = new System.Drawing.Size(307, 142);
-            this.splitContainer4.SplitterDistance = 179;
+            this.splitContainer4.Size = new System.Drawing.Size(306, 142);
+            this.splitContainer4.SplitterDistance = 178;
             this.splitContainer4.TabIndex = 0;
             // 
             // panel1
@@ -716,7 +716,7 @@ namespace MERP
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 271);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1368, 479);
+            this.panel1.Size = new System.Drawing.Size(1362, 471);
             this.panel1.TabIndex = 22;
             // 
             // splitContainer5
@@ -733,8 +733,8 @@ namespace MERP
             // splitContainer5.Panel2
             // 
             this.splitContainer5.Panel2.Controls.Add(this.groupBox1);
-            this.splitContainer5.Size = new System.Drawing.Size(1368, 479);
-            this.splitContainer5.SplitterDistance = 268;
+            this.splitContainer5.Size = new System.Drawing.Size(1362, 471);
+            this.splitContainer5.SplitterDistance = 263;
             this.splitContainer5.TabIndex = 0;
             // 
             // splitContainer9
@@ -747,8 +747,8 @@ namespace MERP
             // splitContainer9.Panel2
             // 
             this.splitContainer9.Panel2.Controls.Add(this.splitContainer10);
-            this.splitContainer9.Size = new System.Drawing.Size(1368, 268);
-            this.splitContainer9.SplitterDistance = 28;
+            this.splitContainer9.Size = new System.Drawing.Size(1362, 263);
+            this.splitContainer9.SplitterDistance = 27;
             this.splitContainer9.TabIndex = 14;
             // 
             // splitContainer10
@@ -761,8 +761,8 @@ namespace MERP
             // splitContainer10.Panel1
             // 
             this.splitContainer10.Panel1.Controls.Add(this.chart1);
-            this.splitContainer10.Size = new System.Drawing.Size(1368, 236);
-            this.splitContainer10.SplitterDistance = 207;
+            this.splitContainer10.Size = new System.Drawing.Size(1362, 232);
+            this.splitContainer10.SplitterDistance = 203;
             this.splitContainer10.TabIndex = 0;
             // 
             // MainScreen
@@ -770,7 +770,7 @@ namespace MERP
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1368, 750);
+            this.ClientSize = new System.Drawing.Size(1362, 742);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.menuStrip1);

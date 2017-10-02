@@ -152,11 +152,6 @@ namespace MERP
             bitis.Text = dg_bekleme.Rows[e.RowIndex].Cells[7].Value.ToString();
         }
 
-        private void btn_prj_duzenle_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btn_prj_sil_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow a in dg_aktif.Rows)

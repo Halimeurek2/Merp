@@ -146,10 +146,5 @@ namespace MERP
 
             }
         }
-
-        private void cb_durum_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

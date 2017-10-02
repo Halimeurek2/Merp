@@ -1,15 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-using System.Xml;
-using System.Globalization;
 
 namespace MERP
 {
@@ -110,25 +103,6 @@ namespace MERP
                     this.Close();
                 }
             }
-        }
-
-        private void btn_stf_ekle_Click(object sender, EventArgs e)
-        {
-
-
-
-        }
-
-
-        private void datagrid_stf_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-
-           
-        }
-
-        private void btn_update_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -75,14 +75,6 @@ namespace MERP
             dg_normal.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dg_normal.AutoSizeColumnsMode =
                        DataGridViewAutoSizeColumnsMode.Fill;
-
-
-
-        }
-
-        private void btn_duzenle_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void dg_bitenisler_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)

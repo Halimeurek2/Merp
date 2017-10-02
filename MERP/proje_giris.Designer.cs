@@ -276,6 +276,7 @@
             this.txt_vade.Name = "txt_vade";
             this.txt_vade.Size = new System.Drawing.Size(117, 20);
             this.txt_vade.TabIndex = 93;
+            this.txt_vade.TextChanged += new System.EventHandler(this.txt_vade_TextChanged);
             // 
             // ck_seri
             // 

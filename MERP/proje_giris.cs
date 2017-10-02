@@ -143,5 +143,10 @@ namespace MERP
         {
             ck_seri.Checked = false;
         }
+
+        private void txt_vade_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

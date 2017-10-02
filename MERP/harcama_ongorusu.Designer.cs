@@ -134,7 +134,7 @@
             this.btn_hesapla.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btn_hesapla.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_hesapla.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_hesapla.Location = new System.Drawing.Point(624, 330);
+            this.btn_hesapla.Location = new System.Drawing.Point(629, 330);
             this.btn_hesapla.Name = "btn_hesapla";
             this.btn_hesapla.Size = new System.Drawing.Size(184, 49);
             this.btn_hesapla.TabIndex = 68;

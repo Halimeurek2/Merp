@@ -502,6 +502,7 @@ namespace MERP
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
             myConnection.Open();
+
             komut = "SELECT * FROM db_faturalar WHERE fatura_proje_no='" + cmb_proje.Text + "' AND fatura_tipi='K'";
             da = new MySqlDataAdapter(komut, connection);
 
